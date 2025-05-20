@@ -8,7 +8,7 @@ metadata:
 spec:
   project: msp
   source:
-    repoURL: https://github.com/derekcoffman/test-gitops.git
+    repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
     path: kustomize/apps/datastore/overlays/mspbase02
   #   path: 'argocd/lopez/mqtt.yaml'

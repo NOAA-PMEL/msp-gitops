@@ -11,6 +11,6 @@ metadata:
 resources:
 - redis-ns.yaml
 - redis-configmap.yaml
-- redis-storage.yaml
+- redis-pvc.yaml
 - redis-deployment.yaml
 - redis-service.yaml
