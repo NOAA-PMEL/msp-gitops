@@ -1,0 +1,31 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: msp-mspbase02
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: msp
+  source:
+    repoURL: https://github.com/derekcoffman/test-gitops.git
+    targetRevision: HEAD
+    path: argocd/mspbase02/apps
+    # sources:
+    # - repoURL: https://github.com/derekcoffman/test-gitops.git
+    #   targetRevision: HEAD
+    #   path: kustomize/apps/nginx/overlays/dev
+    # - repoURL: https://github.com/derekcoffman/test-gitops.git
+    #   targetRevision: HEAD
+    #   path: kustomize/apps/mqtt/overlays/lopez
+    # - repoURL: https://github.com/derekcoffman/test-gitops.git
+    #   targetRevision: HEAD
+    #   path: argocd/lopez/apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: true
