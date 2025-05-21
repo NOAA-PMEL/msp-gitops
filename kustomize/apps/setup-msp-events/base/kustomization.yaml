@@ -12,6 +12,6 @@ resources:
 # - ns-msp.yaml
 # - ns-msp-system.yaml
 # - ns-msp-events.yaml
-- ghcr-secret-msp-sealed.yaml
-- ghcr-secret-msp-system-sealed.yaml
+# - ghcr-secret-msp-sealed.yaml
+# - ghcr-secret-msp-system-sealed.yaml
 - ghcr-secret-msp-events-sealed.yaml
