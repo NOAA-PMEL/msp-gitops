@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/setup/overlays/mspbase02
+    path: kustomize/apps/setup-msp-events/overlays/mspbase02
   #   path: 'argocd/lopez/mqtt.yaml'
   #   repoURL: 'https://github.com/derekcoffman/test-gitops.git'
   #   targetRevision: HEAD
@@ -26,7 +26,7 @@ spec:
     #   path: kustomize/apps/redis/overlays/lopez
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: msp-events
   syncPolicy:
     automated:
       selfHeal: true
