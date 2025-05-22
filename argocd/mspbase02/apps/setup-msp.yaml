@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: setup
-  namespace: argocd
+  name: setup-msp
+  namespace: msp
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
