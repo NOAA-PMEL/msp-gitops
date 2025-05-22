@@ -26,15 +26,15 @@ spec:
     #   path: kustomize/apps/redis/overlays/lopez
   destination:
     server: https://kubernetes.default.svc
-    namespace: msp
+    namespace: default
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
-      allowEmpty: true
-    syncOptions:
-      - CreateNamespace=true
-      - PruneLast=true
+    #   allowEmpty: true
+    # syncOptions:
+    #   - CreateNamespace=true
+    #   - PruneLast=true
 
   # syncOptions:
   #   - CreateNamespace=true
