@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: datastore
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: msp
+  source:
+    repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+    targetRevision: HEAD
+    path: kustomize/apps/datastore/overlays/mspbase02
+    kustomize:
+      patches:
+        - patch: |-
+            - op: replace
+              path: /spec/subscriber/ref/namespace
+              value: msp-system
+          target:
+            kind: Trigger
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: msp-system
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
