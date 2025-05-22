@@ -9,7 +9,7 @@ metadata:
 #   app: nginx
 
 resources:
-- mqtt-ns.yaml
+# - mqtt-ns.yaml
 # - mqtt-configmap.yaml
 - mqtt-pvc.yaml
 - mqtt-deployment.yaml

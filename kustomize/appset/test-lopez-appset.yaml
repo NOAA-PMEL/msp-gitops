@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: test-lopez-appset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+    repoURL: https://github.com/derekcoffman/test-gitops.git
+    revision: HEAD
+    directories:
+    - path: kustomize/apps/*/overlays/lopez
+  template:    
+    metadata:
+      name: '{{index .path.segments 2}}-{{index .path.segments 4}}'   
+    spec:
+      # The project the application belongs to.
+      project: msp
+
+      # Source of the application manifests
+      source:
+        repoURL: https://github.com/derekcoffman/test-gitops.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      
+      # Destination cluster and namespace to deploy the application
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{index .path.segments 2}}-{{index .path.segments 4}}'
