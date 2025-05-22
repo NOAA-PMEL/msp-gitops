@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mqtt-msp01
+  name: dashboard-test-msp01
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/mqtt/overlays/mspbase02
+    path: kustomize/apps/dashboard-test/overlays/mspbase02
   destination:
     server: https://kubernetes.default.svc
     namespace: msp-system
