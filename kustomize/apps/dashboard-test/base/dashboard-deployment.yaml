@@ -45,12 +45,12 @@ spec:
         - name: DASHBOARD_MONGODB_DATA_USER_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: dashboardtest-data-db-user-password
+              name: dashboard-data-db-user-password
               key: password
         - name: DASHBOARD_MONGODB_REGISTRY_USER_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: dashboardtest-registry-db-user-password
+              name: dashboard-registry-db-user-password
               key: password
         - name: DASHBOARD_MONGODB_DATA_CONNECTION
           valueFrom:
