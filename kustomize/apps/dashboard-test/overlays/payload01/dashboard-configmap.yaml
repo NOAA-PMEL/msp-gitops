@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: dashboard-test
-  namespace: msp
+  namespace: msp-system
 data:
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"

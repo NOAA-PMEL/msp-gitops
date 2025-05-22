@@ -13,5 +13,5 @@ spec:
       apiVersion: v1
       kind: Service
       name: datastore
-      namespace: msp
+      namespace: msp-system
     uri: /data/update
