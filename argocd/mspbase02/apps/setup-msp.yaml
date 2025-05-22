@@ -34,6 +34,7 @@ spec:
       allowEmpty: true
     syncOptions:
       - CreateNamespace=true
+      - PruneLast=true
 
   # syncOptions:
   #   - CreateNamespace=true

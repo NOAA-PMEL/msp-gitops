@@ -9,7 +9,7 @@ metadata:
 #   app: nginx
 
 resources:
-- ns-msp.yaml
+# - ns-msp.yaml
 # - ns-msp-system.yaml
 # - ns-msp-events.yaml
 - ghcr-secret-msp-sealed.yaml
