@@ -16,12 +16,12 @@ spec:
         - patch: |-
             - op: replace
               path: /spec/subscriber/ref/namespace
-              value: msp
+              value: payload01
           target:
             kind: Trigger
   destination:
     server: https://kubernetes.default.svc
-    namespace: msp-system
+    namespace: payload01
   syncPolicy:
     automated:
       selfHeal: true
