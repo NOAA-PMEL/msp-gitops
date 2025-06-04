@@ -26,3 +26,6 @@ resources:
 
 # patchesStrategicMerge:
 #   - deployment.yaml
+
+patches:
+  - path: pv_name.yaml
