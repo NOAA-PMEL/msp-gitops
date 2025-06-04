@@ -11,6 +11,6 @@ metadata:
 resources:
 # - mqtt-ns.yaml
 # - mqtt-configmap.yaml
-- mqtt-storage.yaml
+- mqtt-pvc.yaml
 - mqtt-deployment.yaml
 - mqtt-service.yaml
