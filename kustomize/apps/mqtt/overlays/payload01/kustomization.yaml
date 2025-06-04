@@ -27,12 +27,3 @@ resources:
 
 # patchesStrategicMerge:
 #   - deployment.yaml
-
-patches:
-  - target:
-      kind: PersistentVolume
-      name: mqtt-pv
-    patch: |-
-      - op: replace
-        path: /metdata/name
-        value: mqtt-pv-payload01
