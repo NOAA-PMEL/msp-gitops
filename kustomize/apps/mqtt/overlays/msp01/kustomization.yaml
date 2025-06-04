@@ -2,7 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: mqtt
-  namespace: msp01-system
+
+# set namespace
+namespace: msp01-system
+
+
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
