@@ -22,6 +22,7 @@ namespace: payload01-system
 resources:
 - mqtt-ns.yaml
 - mqtt-configmap.yaml
+- mqtt-pv.yaml
 - ../../base
 
 # patchesStrategicMerge:
