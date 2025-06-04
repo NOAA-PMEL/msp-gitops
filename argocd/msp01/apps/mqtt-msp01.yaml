@@ -13,7 +13,7 @@ spec:
     path: kustomize/apps/mqtt/overlays/msp01
   destination:
     server: https://kubernetes.default.svc
-    namespace: msp-system
+    # namespace: msp-system
   syncPolicy:
     automated:
       selfHeal: true
