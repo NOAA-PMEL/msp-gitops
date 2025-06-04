@@ -28,4 +28,10 @@ resources:
 #   - deployment.yaml
 
 patches:
-  - path: pv_name.yaml
+  - target:
+      kind: PersistentVolume
+      name: mqtt-pv
+    patch: |-
+      - op: replace
+        path: /metdata/name
+        value: mqtt-pv-payload01
