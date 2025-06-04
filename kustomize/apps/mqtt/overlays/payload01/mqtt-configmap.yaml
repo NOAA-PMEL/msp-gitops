@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mqtt-config
-  namespace: msp-system
+  # namespace: msp-system
   labels:
     app: mqtt
   # namespace: envds-base

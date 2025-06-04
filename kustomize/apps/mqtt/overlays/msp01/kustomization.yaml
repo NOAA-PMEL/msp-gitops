@@ -4,7 +4,7 @@ metadata:
   name: mqtt
 
 # set namespace
-namespace: msp01-system
+namespace: payload01-system
 
 
 # Example configuration for the webserver

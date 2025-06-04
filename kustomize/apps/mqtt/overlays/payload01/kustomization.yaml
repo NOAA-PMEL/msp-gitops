@@ -3,6 +3,9 @@ kind: Kustomization
 metadata:
   name: mqtt
 
+# set namespace
+namespace: payload01-system
+
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -17,9 +20,9 @@ metadata:
 #   variant: lopez
 
 resources:
-- ../../base
-- mqtt-pv.yaml
+- mqtt-ns.yaml
 - mqtt-configmap.yaml
+- ../../base
 
 # patchesStrategicMerge:
 #   - deployment.yaml
