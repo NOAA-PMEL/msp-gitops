@@ -13,7 +13,7 @@ spec:
     path: kustomize/apps/redis/overlays/mspbase02
   destination:
     server: https://kubernetes.default.svc
-    namespace: msp-system
+    # namespace: msp-system
   syncPolicy:
     automated:
       selfHeal: true
