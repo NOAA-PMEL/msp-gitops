@@ -3,6 +3,9 @@ kind: Kustomization
 metadata:
   name: mqtt
 
+# set namespace
+namespace: mspbase02-system
+
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
