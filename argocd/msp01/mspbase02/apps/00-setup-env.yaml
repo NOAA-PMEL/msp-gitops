@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: setup-namespace-mspbase02
+  name: setup-env-mspbase02
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/setup-namespace/overlays/mspbase02
+    path: kustomize/apps/setup-env/overlays/mspbase02
   destination:
     server: https://kubernetes.default.svc
     # namespace: msp-system

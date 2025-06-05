@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: setup-namespace
+  name: setup-env
 
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -19,6 +19,8 @@ metadata:
 resources:
 - ../../base
 - namespace.yaml
+- ghcr-secret-mspbase02-sealed.yaml
+- ghcr-secret-mspbase02-system-sealed.yaml
 # - ghcr-secret-mspbase02-system-sealed.yaml
 # - ghcr-secret-msp-events-sealed.yaml
 
