@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mqtt-mspbase01
+  name: mqtt-mspbase01-tmp
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
