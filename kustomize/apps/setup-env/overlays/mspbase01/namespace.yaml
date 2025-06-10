@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mspbase01-hardware
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mspbase01-system
+
+  
