@@ -1,25 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aerosoldynamics-magic250
+  name: vaisala-wxt536
   # namespace: msp
   labels:
-    app: aerosoldynamics-magic250
+    app: vaisala-wxt536
 spec:
   selector:
     matchLabels:
-      app: aerosoldynamics-magic250
+      app: vaisala-wxt536
   template:
     metadata:
       labels:
-        app: aerosoldynamics-magic250
+        app: vaisala-wxt536
     spec:
-      imagePullSecrets:
-      - name: ghcr-ro-secret
       containers:
-      - name: aerosoldynamics-magic250
-        # image: registry-msp:5000/msp/sensor/aerosoldynamics-magic250:0.1.0
-        image: ghcr.io/noaa-pmel/msp/aerosoldynamics-magic250:0.1.0
+      - name: vaisala-wxt536
+        image: registry-msp:5000/msp/sensor/vaisala-wxt536:0.1.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_ENV_ID
@@ -42,7 +39,7 @@ spec:
         #   containerPort: 8883
         #   protocol: TCP
         volumeMounts:
-            - name: aerosoldynamics-magic250-config
+            - name: vaisala-wxt536-config
               mountPath: /app/config/sensor.conf
               subPath: sensor.conf
             # - name: mosquitto-certs
@@ -55,9 +52,9 @@ spec:
             #   mountPath: /certs/server.key
             #   subPath: server.key
       volumes:
-        - name: aerosoldynamics-magic250-config
+        - name: vaisala-wxt536-config
           configMap:
-            name: aerosoldynamics-magic250-config
+            name: vaisala-wxt536-config
         # - name: mosquitto-certs
         #   configMap:
         #     name: mosquitto-certs
