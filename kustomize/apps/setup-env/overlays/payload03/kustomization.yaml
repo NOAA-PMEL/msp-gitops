@@ -21,6 +21,7 @@ resources:
 - namespace.yaml
 - ghcr-secret-payload03-hardware-sealed.yaml
 - ghcr-secret-payload03-system-sealed.yaml
+- knative-brokers.yaml
 # - ghcr-secret-mspbase02-system-sealed.yaml
 # - ghcr-secret-msp-events-sealed.yaml
 
