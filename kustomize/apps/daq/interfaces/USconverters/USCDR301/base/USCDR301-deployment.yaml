@@ -14,9 +14,12 @@ spec:
       labels:
         app: usconverters-uscdr301
     spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
       containers:
       - name: usconverters-uscdr301
-        image: registry-msp:5000/msp/interface/usconverters-uscdr301:0.1.0
+        # image: registry-msp:5000/msp/interface/usconverters-uscdr301:0.1.0
+        image: ghcr.io/noaa-pmel/msp/interface/usconverters-uscdr301:0.1.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
