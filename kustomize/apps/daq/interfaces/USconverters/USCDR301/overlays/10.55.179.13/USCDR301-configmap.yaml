@@ -6,6 +6,7 @@ metadata:
   labels:
     app: usconverters-uscdr301
 data:
+  namespace_prefix: payload03 
   interface.conf: |
     uid: usc13
     # serial_number: "1234"

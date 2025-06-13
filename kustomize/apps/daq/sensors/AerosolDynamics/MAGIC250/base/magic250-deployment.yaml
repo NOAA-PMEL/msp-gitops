@@ -22,6 +22,11 @@ spec:
         image: ghcr.io/noaa-pmel/msp/aerosoldynamics-magic250:0.1.2
         imagePullPolicy: "Always"
         env:
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
+            valueFrom:
+              configMapKeyRef:
+                name: aerosoldynamics-magic250-config
+                key: namespace_prefix
           - name: ENVDS_ENV_ID
             value: mspbase01
           - name: REDIS_OM_URL
