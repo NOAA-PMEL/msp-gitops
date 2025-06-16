@@ -14,4 +14,4 @@ spec:
       kind: Service
       name: datastore
       # namespace: msp-system
-    uri: /data/update
+    uri: /sensor/data/update
