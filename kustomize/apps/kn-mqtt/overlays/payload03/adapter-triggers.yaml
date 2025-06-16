@@ -19,7 +19,7 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: default
+  name: controller-request
   # namespace: msp-system
 spec:
   broker: default
@@ -37,7 +37,7 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: default
+  name: status-request
   # namespace: msp-system
 spec:
   broker: default
