@@ -4,7 +4,7 @@ metadata:
   name: datastore-sensor-data-update
   # namespace: msp-events
 spec:
-  broker: msp-events-broker
+  broker: default
   filter:
     attributes:
       type: envds.sensor.data.update
