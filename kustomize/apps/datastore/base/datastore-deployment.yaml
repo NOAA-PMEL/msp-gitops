@@ -37,7 +37,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: datastore
-              key: db_hostname
+              key: db_client_hostname
         - name: DATASTORE_DB_CLIENT_TYPE
           valueFrom:
             configMapKeyRef:
