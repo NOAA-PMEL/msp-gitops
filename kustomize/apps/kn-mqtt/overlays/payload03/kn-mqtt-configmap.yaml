@@ -13,7 +13,7 @@ data:
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: |
     /envds/+/+/+/data/update   
-# /envds/+/+/+/status/update
+    /envds/+/+/+/status/update
 # /envds/+/+/+/setting/update
 # /envds/+/+/+/control/update
 
