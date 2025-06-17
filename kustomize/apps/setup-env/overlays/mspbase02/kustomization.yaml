@@ -19,7 +19,7 @@ metadata:
 resources:
 - ../../base
 - namespace.yaml
-- ghcr-secret-mspbase02-sealed.yaml
+- ghcr-secret-mspbase02-sealed-hardware.yaml
 - ghcr-secret-mspbase02-system-sealed.yaml
 # - ghcr-secret-mspbase02-system-sealed.yaml
 # - ghcr-secret-msp-events-sealed.yaml
