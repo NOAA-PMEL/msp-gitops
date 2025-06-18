@@ -6,6 +6,7 @@ metadata:
   labels:
     app: usconverters-uscdr301
 data:
+  namespace_prefix: mspbase02 
   interface.conf: |
     uid: 10.55.169.207
     # serial_number: "1234"
