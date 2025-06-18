@@ -6,9 +6,9 @@ metadata:
 data:
   # mqtt_bridge_host: "0.0.0.0"
   # mqtt_bridge_port: 80
-  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload03-system/default"
+  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase02-system/default"
 
-  mqtt_broker: "mqtt.payload03-system"
+  mqtt_broker: "mqtt.mspbase02-system"
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: |
