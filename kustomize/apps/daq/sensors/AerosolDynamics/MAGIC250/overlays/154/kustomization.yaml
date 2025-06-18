@@ -4,7 +4,7 @@ metadata:
   name: aerosoldynamics-magic250
 
 
-namespace: payload03-hardware
+namespace: mspbase02-hardware
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
