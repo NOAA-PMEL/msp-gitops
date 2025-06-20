@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: datastore-payload03
+  name: kn-mqtt-payload03
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,19 +10,17 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/datastore/overlays/payload03
-    # kustomize:
-    #   patches:
-    #     - patch: |-
-    #         - op: replace
-    #           path: /spec/subscriber/ref/namespace
-    #           value: mspbase02
-    #       target:
-    #         kind: Trigger
+    path: kustomize/apps/kn-mqtt/overlays/payload03
   destination:
     server: https://kubernetes.default.svc
-    # namespace: payload01
+    # namespace: msp-system
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
+  #   syncOptions:
+  #     - RespectIgnoreDifferences=true
+  # ignoreDifferences:
+  #   - jsonPointers:
+  #     - /spec/volumeName
+  #     kind: PersistentVolumeClaim
