@@ -47,12 +47,12 @@ spec:
                 configMapKeyRef:
                   name: datastore
                   key: knative_broker
-          resources:
-            requests:
-              cpu: "500m"
-            limits:
-              memory: "4Gi"
-              cpu: "1000m"
+          # resources:
+          #   requests:
+          #     cpu: "500m"
+          #   limits:
+          #     memory: "4Gi"
+          #     cpu: "1000m"
           ports:
             # - name: http
               # containerPort: 8000
