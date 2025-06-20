@@ -20,7 +20,7 @@ spec:
         # image: uasbase2.pmel.noaa.gov:448/test/datastore@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
         # image: registry-msp:5000/msp/datastore:v1.0.3
         - image: ghcr.io/noaa-pmel/msp/datastore:1.0.6
-          imagePullPolicy: "Always"
+          # imagePullPolicy: "Always"
           env:
             - name: DATASTORE_PORT
               valueFrom:
@@ -37,27 +37,27 @@ spec:
                 configMapKeyRef:
                   name: datastore
                   key: db_client_hostname
-            - name: DATASTORE_DB_CLIENT_TYPE
-              valueFrom:
-                configMapKeyRef:
-                  name: datastore
-                  key: db_client_type
+            # - name: DATASTORE_DB_CLIENT_TYPE
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: datastore
+            #       key: db_client_type
             - name: DATASTORE_KNATIVE_BROKER
               valueFrom:
                 configMapKeyRef:
                   name: datastore
                   key: knative_broker
-          # resources:
-          #   requests:
-          #     cpu: "500m"
-          #   limits:
-          #     memory: "4Gi"
-          #     cpu: "1000m"
+          resources:
+            requests:
+              cpu: "500m"
+            limits:
+              memory: "4Gi"
+              cpu: "1000m"
           ports:
-            - name: http
+            # - name: http
               # containerPort: 8000
-              containerPort: 8080
-              protocol: TCP
+            - containerPort: 8080
+              # protocol: TCP
       # ports:
       # - name: http
       #   protocol: TCP
