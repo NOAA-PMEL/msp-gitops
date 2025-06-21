@@ -21,7 +21,8 @@ spec:
         # image: envds-registry:36301/eclipse-mosquitto:2.0.14
         # image: envds-registry:5000/core/eclipse-mosquitto:2.0.14
         # image: envds-registry:5000/core/eclipse-mosquitto:2.0.15
-        image: registry-msp:5000/msp/eclipse-mosquitto:2.0.21
+        # image: registry-msp:5000/msp/eclipse-mosquitto:2.0.21
+        image: eclipse-mosquitto:2.0.21
         resources:
           requests:
             cpu: "50m"
