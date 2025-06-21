@@ -4,7 +4,7 @@ metadata:
   name: redis-pvc
   # namespace: msp-system
 spec:
-  storageClassName: local-path
+  # storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
