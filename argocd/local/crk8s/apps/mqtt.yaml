@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mqtt-payload03
+  name: mqtt-crk8s
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
