@@ -4,7 +4,7 @@ metadata:
   name: datastore-sensor-data-update
   # namespace: msp-events
 spec:
-  broker: default
+  broker: default-kafka
   filter:
     attributes:
       type: envds.data.update
@@ -22,7 +22,7 @@ metadata:
   name: datastore-sensor-settings-update
   # namespace: msp-events
 spec:
-  broker: default
+  broker: default-kakfa
   filter:
     attributes:
       type: envds.sensor.settings.update
