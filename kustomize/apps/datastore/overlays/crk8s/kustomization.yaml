@@ -25,21 +25,21 @@ resources:
 # - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
 
-patches:
-  - patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: REPLACED_DURING_PATCH
-      spec:
-        template:
-          spec:
-            containers:
-              - name: webhook
-                env:
-                  - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
-                    value: "true"
-    target:
-      group: apps
-      kind: Deployment
-      name: ".*webhook.*"
+# patches:
+#   - patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: REPLACED_DURING_PATCH
+#       spec:
+#         template:
+#           spec:
+#             containers:
+#               - name: webhook
+#                 env:
+#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
+#                     value: "true"
+#     target:
+#       group: apps
+#       kind: Deployment
+#       name: ".*webhook.*"
