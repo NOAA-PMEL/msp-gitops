@@ -5,3 +5,18 @@ metadata:
     eventing.knative.dev/broker.class: MTChannelBasedBroker
   name: default
   namespace: crk8s-system
+---
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  annotations:
+    eventing.knative.dev/broker.class: Kafka
+  name: kafka-broker
+  namespace: crk8s-system
+spec:
+  # Configuration specific to this broker.
+  config:
+    apiVersion: v1
+    kind: ConfigMap
+    name: kafka-broker-config
+    namespace: knative-eventing
