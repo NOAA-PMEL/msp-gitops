@@ -33,16 +33,16 @@ spec:
             configMapKeyRef:
               name: datastore
               key: db_client_type
-        - name: DATASTORE_DB_HOSTNAME
+        - name: DATASTORE_DB_CLIENT_HOSTNAME
           valueFrom:
             configMapKeyRef:
               name: datastore
               key: db_client_hostname
-        - name: DATASTORE_DB_CLIENT_TYPE
+        - name: DATASTORE_DB_CLIENT_PORT
           valueFrom:
             configMapKeyRef:
               name: datastore
-              key: db_client_type
+              key: db_client_port
         - name: DATASTORE_KNATIVE_BROKER
           valueFrom:
             configMapKeyRef:
