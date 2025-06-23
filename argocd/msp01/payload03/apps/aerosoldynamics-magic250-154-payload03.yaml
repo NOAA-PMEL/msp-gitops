@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aerosoldynamics-magic250-154-mspbase02
+  name: aerosoldynamics-magic250-154-crk8s
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
