@@ -28,7 +28,11 @@ spec:
                 name: aerosoldynamics-magic250-config
                 key: namespace_prefix
           - name: ENVDS_ENV_ID
-            value: mspbase01
+            valueFrom:
+              configMapKeyRef:
+                name: aerosoldynamics-magic250-config
+                key: envds_env_id
+            # value: mspbase01
           - name: REDIS_OM_URL
             value: redis://redis.default
           - name: LOG_LEVEL
