@@ -22,4 +22,3 @@ resources:
 - kn-mqtt-configmap.yaml
 - adapter-triggers.yaml
 # - datastore-sealedsecrets.yaml
-
