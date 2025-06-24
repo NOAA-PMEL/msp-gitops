@@ -8,10 +8,10 @@ metadata:
     app-group: envds-sensor-mspbase
 data:
   namespace_prefix: payload03
+  envds_env_id: payload03
   sensor.conf: |
     serial_number: "154"
     daq_id: payload03
-    envds_env_id: payload03
     interfaces:
       # default: serial
       default:
