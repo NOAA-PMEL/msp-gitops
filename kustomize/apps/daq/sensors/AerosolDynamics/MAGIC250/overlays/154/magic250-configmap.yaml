@@ -10,7 +10,7 @@ data:
   namespace_prefix: payload03
   sensor.conf: |
     serial_number: "154"
-    daq_id: msp
+    daq_id: payload03
     interfaces:
       # default: serial
       default:
