@@ -21,15 +21,15 @@ namespace: payload03-system
 
 resources:
 - ../../base
-# - datastore-configmap.yaml
+- datastore-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
 
-configMapGenerator:
-  - name: datastore
-    literals:
-    - db_client_type=redis
-    - db_client_hostname=redis.payload03-system
-    - db_client_port=6379
-    - port=8080
-    - knative_broker=http://broker-ingress.knative-eventing.svc.cluster.local/payload03-system/default
+# configMapGenerator:
+#   - name: datastore
+#     literals:
+#     - db_client_type=redis
+#     - db_client_hostname=redis.payload03-system
+#     - db_client_port=6379
+#     - port=8080
+#     - knative_broker=http://broker-ingress.knative-eventing.svc.cluster.local/payload03-system/default
