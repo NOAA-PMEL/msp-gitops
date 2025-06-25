@@ -11,5 +11,5 @@ spec:
     ref:
       apiVersion: v1
       kind: Service
-      name: dashboard
+      name: dashboard-test
     uri: /sensor/data/update
