@@ -11,5 +11,5 @@ metadata:
 resources:
 - dashboard-deployment.yaml
 - dashboard-service.yaml
-- dashboard-ingress.yaml
 - dashboard-trigger.yaml
+- dashboard-ingressroute.yaml
