@@ -6,7 +6,7 @@ spec:
   broker: default
   filter:
     attributes:
-      type: sensor.data.update
+      type: envds.data.update
   subscriber:
     ref:
       apiVersion: v1
