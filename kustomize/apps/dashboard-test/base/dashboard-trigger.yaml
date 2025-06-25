@@ -1,0 +1,15 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: dashboard-sensor-data-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: sensor.data.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: dashboard
+    uri: /sensor/data/update
