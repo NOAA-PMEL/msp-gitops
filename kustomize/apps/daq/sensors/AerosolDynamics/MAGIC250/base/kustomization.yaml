@@ -14,5 +14,5 @@ resources:
 
 configMapGenerator:
   - name: sensor-definition
-  - files:
+    files:
       - AerosolDynamics_MAGIC250_sensor_definition.json
