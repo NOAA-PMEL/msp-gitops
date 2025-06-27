@@ -14,7 +14,7 @@
         },
         "tags": {
             "type": "char",
-            "data": "aerosol, cpc, particles, concentration, sensor"
+            "data": "aerosol, cpc, particles, concentration, sensor, physics"
         },
         "format_version": {
             "type": "char",
