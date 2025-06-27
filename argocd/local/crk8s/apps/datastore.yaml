@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: datastore-crk8s-tmp
+  name: datastore-crk8s
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
