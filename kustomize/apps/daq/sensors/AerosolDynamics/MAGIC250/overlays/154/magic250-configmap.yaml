@@ -5,10 +5,10 @@ metadata:
   # namespace: msp
   labels:
     app: aerosoldynamics-magic250
-    app-group: envds-sensor-mspbase
+    app-group: envds-sensor-payload03
 data:
-  namespace_prefix: crk8s
-  envds_env_id: crk8s
+  namespace_prefix: payload03
+  envds_env_id: payload03
   sensor.conf: |
     serial_number: "154"
     daq_id: payload03
