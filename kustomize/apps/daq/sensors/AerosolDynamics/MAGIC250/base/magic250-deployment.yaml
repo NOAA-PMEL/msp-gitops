@@ -54,6 +54,9 @@ spec:
             - name: aerosoldynamics-magic250-config
               mountPath: /app/config/sensor.conf
               subPath: sensor.conf
+            - name: sensor-definition
+              mountPath: /app/AerosolDynamics_MAGIC250_sensor_definition.json
+              subPath: AerosolDynamics_MAGIC250_sensor_definition.json
             # - name: mosquitto-certs
             #   mountPath: /certs/ca.crt
             #   subPath: ca.crt
@@ -67,6 +70,9 @@ spec:
         - name: aerosoldynamics-magic250-config
           configMap:
             name: aerosoldynamics-magic250-config
+        - name: sensor-defnition
+          configMap:
+            name: sensor-definition
         # - name: mosquitto-certs
         #   configMap:
         #     name: mosquitto-certs
