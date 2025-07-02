@@ -10,5 +10,5 @@ metadata:
 
 resources:
 # - datastore-deployment.yaml
-- datastore-service-knative.yaml
+- datastore-service.yaml
 # - datastore-ingress.yaml
