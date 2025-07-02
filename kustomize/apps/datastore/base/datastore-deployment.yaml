@@ -28,11 +28,11 @@ spec:
             configMapKeyRef:
               name: datastore
               key: port
-        - name: DATASTORE_NAMESPACE_PREFIX
+        - name: DATASTORE_DAQ_ID
           valueFrom:
             configMapKeyRef:
               name: datastore
-              key: namespace_prefix
+              key: daq_id
         - name: DATASTORE_DB_CLIENT_TYPE
           valueFrom:
             configMapKeyRef:
@@ -48,6 +48,21 @@ spec:
             configMapKeyRef:
               name: datastore
               key: db_client_port
+        - name: DATASTORE_DB_DATA_TTL
+          valueFrom:
+            configMapKeyRef:
+              name: datastore
+              key: db_data_ttl
+        - name: DATASTORE_DB_REG_DEVICE_DEFINITION_TTL
+          valueFrom:
+            configMapKeyRef:
+              name: datastore
+              key: db_reg_device_definition_ttl
+        - name: DATASTORE_DB_REG_DEVICE_INSTANCE_TTL
+          valueFrom:
+            configMapKeyRef:
+              name: datastore
+              key: db_reg_device_instance_ttl
         - name: DATASTORE_KNATIVE_BROKER
           valueFrom:
             configMapKeyRef:
