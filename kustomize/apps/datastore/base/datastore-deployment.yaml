@@ -28,6 +28,11 @@ spec:
             configMapKeyRef:
               name: datastore
               key: port
+        - name: DATASTORE_NAMESPACE_PREFIX
+          valueFrom:
+            configMapKeyRef:
+              name: datastore
+              key: namespace_prefix
         - name: DATASTORE_DB_CLIENT_TYPE
           valueFrom:
             configMapKeyRef:
