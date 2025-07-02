@@ -5,7 +5,6 @@ metadata:
   # namespace: msp-system
 data:
   namespace_prefix: payload03
-  
   db_client_type: redis
   db_client_hostname: redis.payload03-system
   db_client_port: '6379'
