@@ -86,4 +86,4 @@ spec:
       kind: Service
       name: datastore
       # namespace: msp-system
-    uri: /device-instance/registry/update
+    uri: /device/registry/update
