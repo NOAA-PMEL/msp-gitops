@@ -4,7 +4,7 @@ metadata:
   name: datastore-device-data-update
   # namespace: msp-events
 spec:
-  broker: default
+  broker: kafka-broker
   filter:
     attributes:
       type: envds.data.update
@@ -22,7 +22,7 @@ metadata:
   name: datastore-sensor-settings-update
   # namespace: msp-events
 spec:
-  broker: default
+  broker: kafka-broker
   filter:
     attributes:
       type: envds.sensor.settings.update
@@ -40,7 +40,7 @@ metadata:
   name: datastore-device-settings-update
   # namespace: msp-events
 spec:
-  broker: default
+  broker: kafka-broker
   filter:
     attributes:
       type: envds.device.settings.update
@@ -58,7 +58,7 @@ metadata:
   name: datastore-device-definition-registry-update
   # namespace: msp-events
 spec:
-  broker: default
+  broker: kafka-broker
   filter:
     attributes:
       type: envds.device-definition.registry.update

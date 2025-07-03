@@ -58,7 +58,7 @@ metadata:
   name: kn-mqtt-device-definition-registry-ack
   # namespace: msp-system
 spec:
-  broker: default
+  broker: kafka-broker
   filter:
     attributes:
       type: envds.device-definition.registry.ack
