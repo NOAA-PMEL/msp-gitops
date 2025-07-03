@@ -13,11 +13,11 @@ data:
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: |
-    /envds/+/+/+/data/update   
-    /envds/+/+/+/status/update
-    /envds/+/+/+/settings/update
-    /envds/+/+/+/controls/update
-    /envds/+/+/+/registry/update
+    envds/+/+/+/data/update   
+    envds/+/+/+/status/update
+    envds/+/+/+/settings/update
+    envds/+/+/+/controls/update
+    envds/+/+/+/registry/update
 
   
   
