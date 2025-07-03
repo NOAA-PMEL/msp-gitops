@@ -69,3 +69,21 @@ spec:
       name: datastore
       # namespace: msp-system
     uri: /device-definition/registry/update
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-device-registry-update
+  # namespace: msp-events
+spec:
+  broker: kafka-broker
+  filter:
+    attributes:
+      type: envds.device.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+      # namespace: msp-system
+    uri: /device-instance/registry/update
