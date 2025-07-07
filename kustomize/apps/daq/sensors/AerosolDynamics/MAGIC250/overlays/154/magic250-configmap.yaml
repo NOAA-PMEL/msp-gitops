@@ -8,14 +8,14 @@ metadata:
     # app-group: envds-sensor-payload03
     app-group: envds-sensor-crk8s
 data:
-  # namespace_prefix: payload03
-  # envds_env_id: payload03
-  namespace_prefix: crk8s
-  envds_env_id: crk8s
+  namespace_prefix: payload03
+  envds_env_id: payload03
+  # namespace_prefix: crk8s
+  # envds_env_id: crk8s
   sensor.conf: |
     serial_number: "154"
-    # daq_id: payload03
-    daq_id: crk8s
+    daq_id: payload03
+    # daq_id: crk8s
     interfaces:
       # default: serial
       default:
