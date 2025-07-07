@@ -5,8 +5,8 @@ metadata:
   # namespace: msp
   labels:
     app: aerosoldynamics-magic250
-    # app-group: envds-sensor-payload03
-    app-group: envds-sensor-crk8s
+    app-group: envds-sensor-payload03
+    # app-group: envds-sensor-crk8s
 data:
   namespace_prefix: payload03
   envds_env_id: payload03
@@ -19,7 +19,7 @@ data:
     interfaces:
       # default: serial
       default:
-        interface_env_id: msp # if omitted, defaults to envds_id of sensor
+        interface_env_id: payload03 # if omitted, defaults to envds_id of sensor
         interface_id: USconverters::USCDR301::usc13
         path: port-1
       #   connection-properties:
