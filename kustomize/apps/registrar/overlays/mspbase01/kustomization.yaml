@@ -20,7 +20,7 @@ namespace: mspbase01-system
 resources:
 - ../../base
 - registrar-configmap.yaml
-# - registrar-triggers.yaml
+- registrar-triggers.yaml
 
 # patches:
 #   # change configmap names to account for s/n suffix
