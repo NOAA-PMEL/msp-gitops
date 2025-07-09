@@ -9,7 +9,7 @@ metadata:
 #   app: nginx
 
 resources:
-  - knative-brokers.yaml
+- knative-brokers.yaml
 # # - ns-msp.yaml
 # # - ns-msp-system.yaml
 # # - ns-msp-events.yaml

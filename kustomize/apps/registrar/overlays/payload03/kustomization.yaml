@@ -22,6 +22,7 @@ resources:
 - registrar-configmap.yaml
 - registrar-triggers.yaml
 
+
 # patches:
 #   # change configmap names to account for s/n suffix
 #   - target:

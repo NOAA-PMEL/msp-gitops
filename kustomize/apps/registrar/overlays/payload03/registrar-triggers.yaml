@@ -16,6 +16,13 @@
 #       # namespace: msp-system
 #     uri: /registry-sync/request
 # ---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: registry-sync
+  # namespace: msp-system
+spec:
+  broker: default
   filters:
     - all:
         - any:
