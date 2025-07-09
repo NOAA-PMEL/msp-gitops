@@ -25,13 +25,13 @@ spec:
   broker: default
   filters:
     - all:
-        - any:
-          - exact:
-              type: envds.registry-sync.bcast
-          - exact:
-              type: envds.registry-sync.update
-          - exact:
-              type: envds.registry-sync.request
+        # - any:
+        - exact:
+            type: envds.registry-sync.bcast
+          # - exact:
+          #     type: envds.registry-sync.update
+          # - exact:
+          #     type: envds.registry-sync.request
         - not:
             source: envds.mspbase01.registrar
   subscriber:
@@ -40,7 +40,7 @@ spec:
       kind: Service
       name: registrar
       # namespace: msp-system
-    uri: /registry-sync/
+    uri: /registry-sync
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
