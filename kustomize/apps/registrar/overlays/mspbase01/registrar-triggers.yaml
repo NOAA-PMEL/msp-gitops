@@ -24,16 +24,16 @@ metadata:
 spec:
   broker: default
   filters:
-    - all:
-        # - any:
-        - exact:
-            type: envds.registry-sync.bcast
-          # - exact:
-          #     type: envds.registry-sync.update
-          # - exact:
-          #     type: envds.registry-sync.request
-        - not:
-            source: envds.mspbase01.registrar
+    - any:
+      - exact:
+          type: envds.registry-sync.bcast
+      - exact:
+          type: envds.registry-sync.update
+      - exact:
+          type: envds.registry-sync.request
+    - not:
+      - exact:
+          source: envds.mspbase01.registrar
   subscriber:
     ref:
       apiVersion: v1
