@@ -33,6 +33,11 @@ spec:
               configMapKeyRef:
                 name: registrar
                 key: knative_broker
+          - name: REGISTRAR_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: registrar
+                key: port
         resources:
           requests:
             cpu: "500m"
