@@ -19,62 +19,67 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: registry-sync-bcast
+  name: registry-sync
   # namespace: msp-system
 spec:
   broker: default
   filters:
     - all:
-        - exact:
-            type: envds.registry-sync.bcast
+        - any:
+          - exact:
+              type: envds.registry-sync.bcast
+          - exact:
+              type: envds.registry-sync.update
+          - exact:
+              type: envds.registry-sync.request
         - not:
             source: envds.mspbase01.registrar
   subscriber:
     ref:
       apiVersion: v1
       kind: Service
-      name: registar
+      name: registrar
       # namespace: msp-system
     uri: /registry-sync/
----
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: registry-sync-update
-  # namespace: msp-system
-spec:
-  broker: default
-  filters:
-    - all:
-        - exact:
-            type: envds.registry-sync.update
-        - not:
-            source: envds.mspbase01.registrar
-  subscriber:
-    ref:
-      apiVersion: v1
-      kind: Service
-      name: registar
-      # namespace: msp-system
-    uri: /registry-sync/
----
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: registry-sync-request
-  # namespace: msp-system
-spec:
-  broker: default
-  filters:
-    - all:
-        - exact:
-            type: envds.registry-sync.request
-        - not:
-            source: envds.mspbase01.registrar
-  subscriber:
-    ref:
-      apiVersion: v1
-      kind: Service
-      name: registar
-      # namespace: msp-system
-    uri: /registry-sync/
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: registry-sync-update
+#   # namespace: msp-system
+# spec:
+#   broker: default
+#   filters:
+#     - all:
+#         - exact:
+#             type: envds.registry-sync.update
+#         - not:
+#             source: envds.mspbase01.registrar
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: registar
+#       # namespace: msp-system
+#     uri: /registry-sync/
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: registry-sync-request
+#   # namespace: msp-system
+# spec:
+#   broker: default
+#   filters:
+#     - all:
+#         - exact:
+#             type: envds.registry-sync.request
+#         - not:
+#             source: envds.mspbase01.registrar
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: registar
+#       # namespace: msp-system
+#     uri: /registry-sync/
