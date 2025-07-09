@@ -1,47 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kn-mqtt-adapter
+  name: registrar
   # namespace: msp-system
   labels:
-    app: kn-mqtt-adapter
+    app: registrar
 spec:
   selector:
     matchLabels:
-      app: kn-mqtt-adapter
+      app: registrar
   template:
     metadata:
       labels:
-        app: kn-mqtt-adapter
+        app: registrar
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-      - name: kn-mqtt-adapter
-        # image: uasbase2.pmel.noaa.gov:448/test/kn-mqtt-adapter@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
-        # image: registry-msp:5000/msp/kn-mqtt-adapter:0.1.0
-        image: ghcr.io/noaa-pmel/msp/kn-mqtt-adapter:0.1.5
+      - name: registrar
+        # image: uasbase2.pmel.noaa.gov:448/test/registrar@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/registrar:0.1.0
+        image: ghcr.io/noaa-pmel/msp/registrar:0.0.1
         imagePullPolicy: "Always"
         env:
-          - name: KN_MQTT_MQTT_BROKER
+          - name: REGISTRAR_DAQ_ID
             valueFrom:
               configMapKeyRef:
-                name: kn-mqtt-adapter
-                key: mqtt_broker
-          - name: KN_MQTT_MQTT_PORT
+                name: registrar
+                key: daq_id
+          - name: REGISTRAR_KNATIVE_BROKER
             valueFrom:
               configMapKeyRef:
-                name: kn-mqtt-adapter
-                key: mqtt_port
-          - name: KN_MQTT_MQTT_TOPIC_SUBSCRIPTIONS
-            valueFrom:
-              configMapKeyRef:
-                name: kn-mqtt-adapter
-                key: mqtt_topic_subscriptions
-          - name: KN_MQTT_KNATIVE_BROKER
-            valueFrom:
-              configMapKeyRef:
-                name: kn-mqtt-adapter
+                name: registrar
                 key: knative_broker
         resources:
           requests:

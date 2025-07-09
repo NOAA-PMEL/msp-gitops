@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: kn-mqtt-adapter
+  name: registrar
 
 namespace: payload03-system
 # Example configuration for the webserver
@@ -19,6 +19,6 @@ namespace: payload03-system
 
 resources:
 - ../../base
-- kn-mqtt-configmap.yaml
-- adapter-triggers.yaml
+- registrar-configmap.yaml
+# - registrar-triggers.yaml
 # - datastore-sealedsecrets.yaml
