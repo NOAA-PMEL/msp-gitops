@@ -11,4 +11,5 @@ metadata:
 resources:
 - registrar-deployment.yaml
 - registrar-service.yaml
+# - registrar-triggers.yaml
 # - kn-mqtt-ingress.yaml

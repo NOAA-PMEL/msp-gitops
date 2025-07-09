@@ -4,8 +4,8 @@ metadata:
   annotations:
     eventing.knative.dev/broker.class: MTChannelBasedBroker
   name: default
-  namespace: mspbase01-system
+  namespace: default
   delivery:
-  retry: 5
-  backoffPolicy: exponential # or linear
-  backoffDelay: "PT0.5S"     # or ISO8601 duration
+    retry: 5
+    backoffPolicy: exponential # or linear
+    backoffDelay: "PT0.5S"     # or ISO8601 duration

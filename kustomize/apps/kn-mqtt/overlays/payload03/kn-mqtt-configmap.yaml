@@ -17,6 +17,9 @@ data:
     envds/+/+/+/setting/update
     envds/+/+/+/control/update
     envds/+/+/+/registry/update
+    envds/+/registry-sync/bcast
+    envds/+/registry-sync/update
+    envds/+/registry-sync/request
 
   
   

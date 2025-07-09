@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: kn-mqtt-adapter
+  name: registrar
 
 namespace: mspbase01-system
 # Example configuration for the webserver
@@ -19,6 +19,15 @@ namespace: mspbase01-system
 
 resources:
 - ../../base
-- kn-mqtt-configmap.yaml
-- adapter-triggers.yaml
-# - datastore-sealedsecrets.yaml
+- registrar-configmap.yaml
+- registrar-triggers.yaml
+
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Trigger
+#       name: registry-sync-bcast
+#     patch: |-
+#       - op: replace 
+#         path: /spec/filters
+#         value: envds.payload03.registrar

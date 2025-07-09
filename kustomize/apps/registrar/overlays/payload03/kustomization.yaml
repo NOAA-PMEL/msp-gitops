@@ -20,5 +20,14 @@ namespace: payload03-system
 resources:
 - ../../base
 - registrar-configmap.yaml
-# - registrar-triggers.yaml
-# - datastore-sealedsecrets.yaml
+- registrar-triggers.yaml
+
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Trigger
+#       name: registry-sync-bcast
+#     patch: |-
+#       - op: replace 
+#         path: /spec/filters
+#         value: envds.payload03.registrar

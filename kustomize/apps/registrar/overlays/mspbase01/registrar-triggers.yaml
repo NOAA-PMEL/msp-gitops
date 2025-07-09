@@ -28,7 +28,7 @@ spec:
         - exact:
             type: envds.registry-sync.bcast
         - not:
-            source: envds.payload03.registrar
+            source: envds.mspbase01.registrar
   subscriber:
     ref:
       apiVersion: v1
@@ -49,7 +49,7 @@ spec:
         - exact:
             type: envds.registry-sync.update
         - not:
-            source: envds.payload03.registrar
+            source: envds.mspbase01.registrar
   subscriber:
     ref:
       apiVersion: v1
@@ -70,7 +70,7 @@ spec:
         - exact:
             type: envds.registry-sync.request
         - not:
-            source: envds.payload03.registrar
+            source: envds.mspbase01.registrar
   subscriber:
     ref:
       apiVersion: v1

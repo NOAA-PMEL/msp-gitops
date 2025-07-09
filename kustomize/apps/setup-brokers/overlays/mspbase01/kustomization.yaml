@@ -18,4 +18,14 @@ metadata:
 
 resources:
 - ../../base
-- knative-brokers.yaml
+# - knative-brokers.yaml
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: Broker
+      name: default
+    patch: |-
+      - op: replace 
+        path: /metadata/namespace
+        value: mspbase01-system

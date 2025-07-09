@@ -43,6 +43,9 @@ data:
     topic /envds/+/core/+/registry/bcast both 0 "" ""
     topic /envds/+/core/+/registry/update both 0 "" ""
     topic /envds/+/core/+/registry/request both 0 "" ""
+    topic /envds/+/registry-sync/bcast both 0 "" ""
+    topic /envds/+/registry-sync/update both 0 "" ""
+    topic /envds/+/registry-sync/request both 0 "" ""
     # topic # out 0 "" ""
 
     # # TLS

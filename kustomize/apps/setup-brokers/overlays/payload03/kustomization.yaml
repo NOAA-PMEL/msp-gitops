@@ -18,12 +18,14 @@ metadata:
 
 resources:
 - ../../base
-# - namespace.yaml
-# - ghcr-secret-payload03-hardware-sealed.yaml
-# - ghcr-secret-payload03-system-sealed.yaml
-- knative-brokers.yaml
-# - ghcr-secret-mspbase02-system-sealed.yaml
-# - ghcr-secret-msp-events-sealed.yaml
+# - knative-brokers.yaml
 
-# patchesStrategicMerge:
-#   - deployment.yaml
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: Broker
+      name: default
+    patch: |-
+      - op: replace 
+        path: /metadata/namespace
+        value: payload03-system
