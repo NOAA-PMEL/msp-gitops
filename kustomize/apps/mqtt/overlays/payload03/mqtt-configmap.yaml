@@ -30,7 +30,7 @@ data:
     # Bridge
     # connection 172.23.140.152
     # address 172.23.140.152:1884
-    connection mspbase01-bridge
+    connection mspbase01
     address 10.55.169.210:1883
     # address 10.55.169.40:1883
     # address 10.55.169.164:1883
