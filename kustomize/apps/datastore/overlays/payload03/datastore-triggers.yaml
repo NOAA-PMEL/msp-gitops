@@ -5,15 +5,15 @@ metadata:
   # namespace: msp-system
 spec:
   broker: default
-  filters:
-    - any:
-        - exact:
-            type: envds.device-definition.registry.ack
-    - exact:
-        source: envds.payload03.datastore
-  # filter:
-  #   attributes:
-  #     type: envds.device-definition.registry.ack
+  # filters:
+  #   - any:
+  #       - exact:
+  #           type: envds.device-definition.registry.ack
+  #   - exact:
+  #       source: envds.payload03.datastore
+  filter:
+    attributes:
+      type: envds.device-definition.registry.ack
   subscriber:
     ref:
       apiVersion: v1
