@@ -15,42 +15,42 @@ spec:
       name: datastore
       # namespace: msp-system
     uri: /device/data/update
----
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: datastore-sensor-settings-update
-  # namespace: msp-events
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.sensor.settings.update
-  subscriber:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: datastore
-      # namespace: msp-system
-    uri: /device/settings/update
----
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: datastore-device-settings-update
-  # namespace: msp-events
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.device.settings.update
-  subscriber:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: datastore
-      # namespace: msp-system
-    uri: /device/settings/update
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: datastore-sensor-settings-update
+#   # namespace: msp-events
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.sensor.settings.update
+#   subscriber:
+#     ref:
+#       apiVersion: serving.knative.dev/v1
+#       kind: Service
+#       name: datastore
+#       # namespace: msp-system
+#     uri: /device/settings/update
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: datastore-device-settings-update
+#   # namespace: msp-events
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.device.settings.update
+#   subscriber:
+#     ref:
+#       apiVersion: serving.knative.dev/v1
+#       kind: Service
+#       name: datastore
+#       # namespace: msp-system
+#     uri: /device/settings/update
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
