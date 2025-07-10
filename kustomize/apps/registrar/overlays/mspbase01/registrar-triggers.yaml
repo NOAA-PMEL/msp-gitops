@@ -32,8 +32,8 @@ spec:
         - exact:
             type: envds.registry.sync-request
      - not:
-        - exact:
-            source: envds.mspbase01.registrar
+        exact:
+          source: envds.mspbase01.registrar
   subscriber:
     ref:
       apiVersion: v1
