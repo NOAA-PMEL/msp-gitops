@@ -20,7 +20,7 @@ namespace: payload03-system
 resources:
 - ../../base
 - registrar-configmap.yaml
-# - registrar-triggers.yaml
+- registrar-triggers.yaml
 
 
 # patches:
