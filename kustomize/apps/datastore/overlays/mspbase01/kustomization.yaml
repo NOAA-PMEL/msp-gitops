@@ -23,7 +23,7 @@ resources:
 - ../../base
 - datastore-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
-# - datastore-triggers.yaml
+- datastore-triggers.yaml
 
 # configMapGenerator:
 #   - name: datastore

@@ -26,14 +26,14 @@ spec:
   filters:
      - any:
         - exact:
-            type: envds.registry-sync.broadcast
+            type: envds.registry.sync-broadcast
         - exact:
-            type: envds.registry-sync.update
+            type: envds.registry.sync-update
         - exact:
-            type: envds.registry-sync.request
+            type: envds.registry.sync-request
      - not:
         exact:
-          source: envds.mspbase01.registrar
+            source: envds.mspbase01.registrar
   subscriber:
     ref:
       apiVersion: v1
@@ -52,11 +52,11 @@ spec:
   filters:
      - any:
         - exact:
-            type: envds.registry-sync.broadcast
+            type: envds.registry.sync-broadcast
         - exact:
-            type: envds.registry-sync.update
+            type: envds.registry.sync-update
         - exact:
-            type: envds.registry-sync.request
+            type: envds.registry.sync-request
      - exact:
         # exact:
           source: envds.mspbase01.registrar
