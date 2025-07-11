@@ -16,13 +16,16 @@ data:
     envds/+/+/+/status/update
     envds/+/+/+/setting/update
     envds/+/+/+/control/update
-    envds/+/+/+/registry/update
+    envds/payload03/device-definition/registry/update
+    envds/payload03/device-instance/registry/update
     envds/+/registry/sync-bcast
     envds/+/registry/sync-update
     envds/+/registry/sync-request
 
   
-  
+# old subscriptions:
+# envds/+/+/+/registry/update
+
   # mqtt_broker: "mosquitto.default"
   # mqtt_port: "1883"
   # # mqtt_topic_filter: "sensor/#"
