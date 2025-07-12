@@ -25,6 +25,17 @@ resources:
 # - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
 
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
+
+
 # patches:
 #   - patch: |-
 #       apiVersion: apps/v1
