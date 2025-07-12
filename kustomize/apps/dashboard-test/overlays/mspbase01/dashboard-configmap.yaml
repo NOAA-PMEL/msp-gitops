@@ -4,7 +4,7 @@ metadata:
   name: dashboard-test
   # namespace: msp
 data:
-  namespace_prefix: mspbase01
+  daq_id: mspbase01
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
   # mqtt_topic_filter: "instrument/#"
@@ -14,6 +14,7 @@ data:
   # mqtt_topic_filter: "sensor/#"
   # mqtt_topic_subscription: "test-account/uas-test/#"
   # port: "8000"
+  ws_hostname: mspbase01.pmel.noaa.gov:8080
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
   # mongodb_data_user_name: "uasdaq-data"

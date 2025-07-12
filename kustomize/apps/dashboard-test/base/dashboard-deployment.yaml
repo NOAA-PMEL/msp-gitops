@@ -22,6 +22,16 @@ spec:
         image: ghcr.io/noaa-pmel/msp/dashboard-test:1.0.1
         imagePullPolicy: "Always"
         env:
+        - name: DASHBOARD_DAQ_ID
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: daq_id
+        - name: DASHBOARD_WS_HOSTNAME
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: ws_hostname
         - name: DASHBOARD_PORT
           valueFrom:
             configMapKeyRef:
