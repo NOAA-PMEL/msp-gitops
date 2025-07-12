@@ -17,7 +17,11 @@ data:
     envds/+/+/+/status/update
     envds/+/+/+/settings/update
     envds/+/+/+/controls/update
-    envds/+/+/+/registry/update
+    envds/crk8s/device-definition/registry/update
+    envds/crk8s/device-instance/registry/update
+    envds/+/registry/sync-bcast
+    envds/+/registry/sync-update
+    envds/+/registry/sync-request
 
   
   

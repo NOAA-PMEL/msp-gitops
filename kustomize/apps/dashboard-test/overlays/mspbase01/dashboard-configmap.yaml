@@ -4,6 +4,7 @@ metadata:
   name: dashboard-test
   # namespace: msp
 data:
+  namespace_prefix: mspbase01
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
   # mqtt_topic_filter: "instrument/#"
