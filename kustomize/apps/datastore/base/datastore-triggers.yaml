@@ -14,7 +14,7 @@ spec:
       kind: Service
       name: datastore
       # namespace: msp-system
-    uri: /device/data/update
+    uri: /device/data/update/
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
@@ -68,7 +68,7 @@ spec:
       kind: Service
       name: datastore
       # namespace: msp-system
-    uri: /device-definition/registry/update
+    uri: /device-definition/registry/update/
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
@@ -86,4 +86,4 @@ spec:
       kind: Service
       name: datastore
       # namespace: msp-system
-    uri: /device/registry/update
+    uri: /device/registry/update/
