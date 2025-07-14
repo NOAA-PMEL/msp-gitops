@@ -20,6 +20,7 @@ data:
     envds/+/registry/sync-bcast
     envds/+/registry/sync-update
     envds/+/registry/sync-request
+    envds/+/device-instance/registry/update
 
   
   
