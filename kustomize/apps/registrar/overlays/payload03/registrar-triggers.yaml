@@ -40,7 +40,7 @@ spec:
       kind: Service
       name: registrar
       # namespace: msp-system
-    uri: /registry-sync
+    uri: /registry-sync/
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
@@ -69,7 +69,7 @@ spec:
       kind: Service
       name: kn-mqtt-adapter
       # namespace: msp-system
-    uri: /mqtt/send
+    uri: /mqtt/send/
 
 
 
