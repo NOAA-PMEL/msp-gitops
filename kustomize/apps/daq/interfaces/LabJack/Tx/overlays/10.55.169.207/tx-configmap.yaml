@@ -7,6 +7,7 @@ metadata:
     app: labjack-tx
 data:
   namespace_prefix: payload03
+  envds_env_id: payload03
   interface.conf: |
     uid: lj207
     attributes:
