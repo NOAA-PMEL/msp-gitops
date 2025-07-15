@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: dev-hardware
-    path: kustomize/apps/daq/controllers/overlays/10.55.169.209
+    path: kustomize/apps/daq/controllers/Shelly/ShellyPro3/overlays/10.55.169.209
     # kustomize:
     #   patches:
     #     - patch: |-
