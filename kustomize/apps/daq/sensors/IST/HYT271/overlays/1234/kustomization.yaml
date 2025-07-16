@@ -1,0 +1,43 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: ist-hyt271
+
+
+namespace: mspbase01-hardware
+# namespace: crk8s-hardware
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: usconverters-uscdr301
+#     variant: test
+
+resources:
+- ../../base
+- hyt271-configmap.yaml
+
+nameSuffix: "-1234"
+
+# patchesStrategicMerge:
+#   - deployment.yaml
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: Deployment
+      name: ist-hyt271
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: ist-hyt271-config-1234
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: sensor-definition-1234
