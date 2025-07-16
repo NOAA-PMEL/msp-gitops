@@ -52,7 +52,7 @@ spec:
         #   protocol: TCP
         volumeMounts:
             - name: shelly-shellypro3-config
-              mountPath: /app/config/interface.conf
+              mountPath: /app/config/controller.conf
               subPath: interface.conf
             # - name: mosquitto-certs
             #   mountPath: /certs/ca.crt
