@@ -13,7 +13,7 @@ data:
     host: 10.55.169.209
     client_host: mqtt.mspbase01-system
     client_port: 1883
-    controller_id_prefix: ShellyPro3-shel209
+    controller_id_prefix: shellypro3
 
     # override definition values
     attributes:
