@@ -8,7 +8,6 @@ metadata:
 data:
   namespace_prefix: mspbase01
   envds_env_id: mspbase01
-  daq_id: mspbase01
   controller.conf: |
     uid: shel209
     attributes:
