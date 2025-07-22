@@ -54,6 +54,9 @@ spec:
             - name: shelly-shellypro3-config
               mountPath: /app/config/controller.conf
               subPath: interface.conf
+            - name: controller-definition
+              mountPath: /app/Shelly_ShellyPro3_controller_definition.json
+              subPath: Shelly_ShellyPro3_controller_definition.json
             # - name: mosquitto-certs
             #   mountPath: /certs/ca.crt
             #   subPath: ca.crt
@@ -67,6 +70,9 @@ spec:
         - name: shelly-shellypro3-config
           configMap:
             name: shelly-shellypro3-config
+        - name: controller-definition
+          configMap:
+            name: controller-definition
         # - name: mosquitto-certs
         #   configMap:
         #     name: mosquitto-certs
