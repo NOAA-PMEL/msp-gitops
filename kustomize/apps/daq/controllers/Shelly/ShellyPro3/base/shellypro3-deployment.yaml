@@ -53,7 +53,7 @@ spec:
         volumeMounts:
             - name: shelly-shellypro3-config
               mountPath: /app/config/controller.conf
-              subPath: interface.conf
+              subPath: controller.conf
             - name: controller-definition
               mountPath: /app/Shelly_ShellyPro3_controller_definition.json
               subPath: Shelly_ShellyPro3_controller_definition.json
