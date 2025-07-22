@@ -50,7 +50,7 @@
         },
         "subscriptions": {
             "type": "string",
-            "data": null
+            "data": ""
         }
     },
     "dimensions": {
