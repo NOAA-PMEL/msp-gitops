@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: shelly-shellypro3
+  name: ist-hyt271
 
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -9,6 +9,10 @@ metadata:
 #   app: nginx
 
 resources:
-#- USCDR301-configmap.yaml
-- shellypro3-deployment.yaml
-- shellypro3-service.yaml
+- hyt271-deployment.yaml
+- hyt271-service.yaml
+
+configMapGenerator:
+  - name: sensor-definition
+    files:
+      - IST_HYT271_sensor_definition.json

@@ -87,3 +87,57 @@ spec:
       name: datastore
       # namespace: msp-system
     uri: /device/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-controller-data-update
+  # namespace: msp-events
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.data.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+      # namespace: msp-system
+    uri: /controller/data/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-controller-definition-registry-update
+  # namespace: msp-events
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.controller-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+      # namespace: msp-system
+    uri: /controller-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-controller-registry-update
+  # namespace: msp-events
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.controller.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+      # namespace: msp-system
+    uri: /controller/registry/update/
