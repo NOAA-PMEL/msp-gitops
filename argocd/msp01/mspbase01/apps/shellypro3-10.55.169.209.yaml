@@ -9,7 +9,7 @@ spec:
   project: msp
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
-    targetRevision: dev-hardware
+    targetRevision: HEAD
     path: kustomize/apps/daq/controllers/Shelly/ShellyPro3/overlays/10.55.169.209
     # kustomize:
     #   patches:
