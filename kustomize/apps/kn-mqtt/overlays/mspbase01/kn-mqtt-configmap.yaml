@@ -14,13 +14,14 @@ data:
   mqtt_topic_subscriptions: |
     envds/+/+/+/data/update   
     envds/+/+/+/status/update
-    envds/+/+/+/setting/update
+    envds/+/+/+/settings/update
     envds/+/+/+/control/update
     envds/+/+/+/registry/update
     envds/+/registry/sync-bcast
     envds/+/registry/sync-update
     envds/+/registry/sync-request
     envds/+/device-instance/registry/update
+    envds/controller/settings/update
 
   
   

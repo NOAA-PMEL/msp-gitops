@@ -9,6 +9,8 @@ spec:
     - any:
         - exact:
             type: envds.device-definition.registry.ack
+        - exact:
+            type: envds.controller-definition.registry.ack
     - exact:
         source: envds.mspbase01.datastore
   # filter:
