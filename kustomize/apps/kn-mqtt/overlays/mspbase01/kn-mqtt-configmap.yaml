@@ -22,6 +22,7 @@ data:
     envds/+/registry/sync-request
     envds/+/device-instance/registry/update
     envds/controller/settings/update
+    envds/+/controller/settings/update
 
   
   
