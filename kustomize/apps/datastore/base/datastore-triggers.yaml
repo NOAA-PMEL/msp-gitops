@@ -97,7 +97,7 @@ spec:
   broker: default
   filter:
     attributes:
-      type: envds.data.update
+      type: envds.controller.data.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
