@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.1.0"
+            "data": "1.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -27,32 +27,12 @@
         "serial_number": {
             "type": "string",
             "data": ""
-        },
-        "change_log": {
-            "type": "string",
-            "data": "1.1.0: added time variable"
-        } 
+        }
     },
     "dimensions": {
         "time": 0
     },
     "variables": {
-        "time": {
-            "type": "str",
-            "shape": [
-                "time"
-            ],
-            "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "string",
-                    "data": "Time"
-                }
-            }
-        },
         "temperature": {
             "type": "float",
             "shape": [
