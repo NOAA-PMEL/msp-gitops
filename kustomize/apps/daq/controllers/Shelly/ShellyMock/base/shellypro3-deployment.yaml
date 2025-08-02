@@ -55,8 +55,8 @@ spec:
               mountPath: /app/config/controller.conf
               subPath: controller.conf
             - name: controller-definition
-              mountPath: /app/Shelly_shellymock_controller_definition.json
-              subPath: Shelly_shellymock_controller_definition.json
+              mountPath: /app/Shelly_ShellyMock_controller_definition.json
+              subPath: Shelly_ShellyMock_controller_definition.json
             # - name: mosquitto-certs
             #   mountPath: /certs/ca.crt
             #   subPath: ca.crt
