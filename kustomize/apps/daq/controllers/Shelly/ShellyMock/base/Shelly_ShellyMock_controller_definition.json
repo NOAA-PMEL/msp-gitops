@@ -1,0 +1,197 @@
+{
+    "attributes": {
+        "make": {
+            "type": "char",
+            "data": "Shelly"
+        },
+        "model": {
+            "type": "char",
+            "data": "ShellyMock"
+        },
+        "description": {
+            "type": "char",
+            "data": "Shelly Mock Smart Switch"
+        },
+        "tags": {
+            "type": "char",
+            "data": "testing, Shelly, ShellyPro3, serial, tcp, ethernet, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.1.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, setting"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        },
+        "change_log": {
+            "type": "string",
+            "data": "1.1.0: added time variable"
+        } 
+    },
+    "dimensions": {
+        "time": 0
+    },
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "main"
+                },
+                "long_name": {
+                    "type": "string",
+                    "data": "Time"
+                }
+            }
+        },
+        "temperature": {
+            "type": "float",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "main"
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Temperature"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "degree_C"
+                }
+            }
+        },
+        "channel_0_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "channel": {
+                    "type": "int",
+                    "data": 0
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Channel 1 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        },
+        "channel_1_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "channel": {
+                    "type": "int",
+                    "data": 1
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Channel 2 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        },
+        "channel_2_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "channel": {
+                    "type": "int",
+                    "data": 2
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Channel 3 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        }
+    }
+}
