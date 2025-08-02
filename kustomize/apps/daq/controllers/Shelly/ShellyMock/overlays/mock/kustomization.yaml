@@ -4,7 +4,7 @@ metadata:
   name: shelly-shellymock
 
 
-namespace: mspbase01-hardware
+namespace: crk8s-hardware
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
