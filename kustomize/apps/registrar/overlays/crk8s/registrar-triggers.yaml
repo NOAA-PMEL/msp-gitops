@@ -22,7 +22,7 @@ metadata:
   name: registry-sync
   # namespace: mspbase01-system
 spec:
-  broker: default
+  broker: kafka-broker
   filters:
      - any:
         - exact:
