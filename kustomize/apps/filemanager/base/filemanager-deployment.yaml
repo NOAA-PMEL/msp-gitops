@@ -23,36 +23,36 @@ spec:
         image: ghcr.io/noaa-pmel/msp/filemanager:0.1.0
         imagePullPolicy: "Always"
         env:
-            - name: FILEMANAGER_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: filemanager
-                  key: port
-            - name: FILEMANAGER_DAQ_ID
-              valueFrom:
-                configMapKeyRef:
-                  name: filemanager
-                  key: daq_id
-            - name: FILEMANAGER_KNATIVE_BROKER
-              valueFrom:
-                configMapKeyRef:
-                  name: filemanager
-                  key: knative_broker
-            - name: FILEMANAGER_BASE_PATH
-              valueFrom:
-                configMapKeyRef:
-                  name: filemanager
-                  key: base_path
-            - name: FILEMANAGER_SAVE_INTERVAL
-              valueFrom:
-                configMapKeyRef:
-                  name: filemanager
-                  key: save_interval
-            - name: FILEMANAGER_FILE_INTERVAL
-              valueFrom:
-                configMapKeyRef:
-                  name: filemanager
-                  key: file_interval
+          - name: FILEMANAGER_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: port
+          - name: FILEMANAGER_DAQ_ID
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: daq_id
+          - name: FILEMANAGER_KNATIVE_BROKER
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: knative_broker
+          - name: FILEMANAGER_BASE_PATH
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: base_path
+          - name: FILEMANAGER_SAVE_INTERVAL
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: save_interval
+          - name: FILEMANAGER_FILE_INTERVAL
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: file_interval
         resources:
           requests:
             cpu: "500m"
@@ -67,10 +67,10 @@ spec:
         volumeMounts:
           - name: filemanager-data-storage
             mountPath: /data
-    volumes:
-      - name: filemanager-data-storage
-        persistentVolumeClaim:
-          claimName: filemanager-pvc
+      volumes:
+        - name: filemanager-data-storage
+          persistentVolumeClaim:
+            claimName: filemanager-pvc
       #   volumeMounts:
       #     - name: erddap-datasetd-storage
       #       mountPath: /datasets.d
