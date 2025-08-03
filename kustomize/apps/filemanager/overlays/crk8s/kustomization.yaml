@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: datastore
+  name: filemanager
 
 # set namespace
 namespace: crk8s-system
@@ -21,9 +21,9 @@ namespace: crk8s-system
 
 resources:
 - ../../base
-- datastore-configmap.yaml
+- filemanager-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
-- datastore-triggers.yaml
+- filemanager-triggers.yaml
 
 patches:
   # change configmap names to account for s/n suffix
