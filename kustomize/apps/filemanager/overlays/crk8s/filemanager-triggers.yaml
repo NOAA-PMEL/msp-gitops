@@ -1,7 +1,7 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: datastore-device-definition-registry-ack
+  name: filemanager-device-definition-registry-ack
   # namespace: msp-system
 spec:
   broker: kafka-broker
@@ -12,7 +12,7 @@ spec:
         - exact:
             type: envds.controller-definition.registry.ack
     - exact:
-        source: envds.crk8s.datastore
+        source: envds.crk8s.filemanager
   # filter:
   #   attributes:
   #     type: envds.device-definition.registry.ack
@@ -27,7 +27,7 @@ spec:
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
 # metadata:
-#   name: datastore-device-data-update
+#   name: filemanager-device-data-update
 #   # namespace: msp-events
 # spec:
 #   broker: kafka-broker
@@ -38,14 +38,14 @@ spec:
 #     ref:
 #       apiVersion: serving.knative.dev/v1
 #       kind: Service
-#       name: datastore
+#       name: filemanager
 #       # namespace: msp-system
 #     uri: /device/data/update
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
 # metadata:
-#   name: datastore-sensor-settings-update
+#   name: filemanager-sensor-settings-update
 #   # namespace: msp-events
 # spec:
 #   broker: kafka-broker
@@ -56,14 +56,14 @@ spec:
 #     ref:
 #       apiVersion: serving.knative.dev/v1
 #       kind: Service
-#       name: datastore
+#       name: filemanager
 #       # namespace: msp-system
 #     uri: /device/settings/update
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
 # metadata:
-#   name: datastore-device-settings-update
+#   name: filemanager-device-settings-update
 #   # namespace: msp-events
 # spec:
 #   broker: kafka-broker
@@ -74,14 +74,14 @@ spec:
 #     ref:
 #       apiVersion: serving.knative.dev/v1
 #       kind: Service
-#       name: datastore
+#       name: filemanager
 #       # namespace: msp-system
 #     uri: /device/settings/update
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
 # metadata:
-#   name: datastore-device-definition-registry-update
+#   name: filemanager-device-definition-registry-update
 #   # namespace: msp-events
 # spec:
 #   broker: kafka-broker
@@ -92,14 +92,14 @@ spec:
 #     ref:
 #       apiVersion: serving.knative.dev/v1
 #       kind: Service
-#       name: datastore
+#       name: filemanager
 #       # namespace: msp-system
 #     uri: /device-definition/registry/update
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
 # metadata:
-#   name: datastore-device-registry-update
+#   name: filemanager-device-registry-update
 #   # namespace: msp-events
 # spec:
 #   broker: kafka-broker
@@ -110,6 +110,6 @@ spec:
 #     ref:
 #       apiVersion: serving.knative.dev/v1
 #       kind: Service
-#       name: datastore
+#       name: filemanager
 #       # namespace: msp-system
 #     uri: /device/registry/update

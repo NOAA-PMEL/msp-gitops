@@ -23,7 +23,7 @@ resources:
 - ../../base
 - filemanager-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
-- filemanager-triggers.yaml
+# - filemanager-triggers.yaml
 
 patches:
   # change configmap names to account for s/n suffix
