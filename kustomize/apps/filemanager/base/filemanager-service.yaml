@@ -64,6 +64,13 @@ spec:
               # containerPort: 8000
             - containerPort: 8080
               # protocol: TCP
+          volumeMounts:
+            - name: filemanager-data-storage
+              mountPath: /data
+      volumes:
+        - name: filemanager-data-storage
+          persistentVolumeClaim:
+            claimName: filemanager-pvc
       # ports:
       # - name: http
       #   protocol: TCP
