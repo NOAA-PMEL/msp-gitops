@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: datastore
+  name: filemanager
   # namespace: msp-system
 data:
   daq_id: crk8s
