@@ -11,6 +11,7 @@ metadata:
 resources:
 # - filemanager-deployment.yaml
 - filemanager-pvc
+- filemanager-deployment.yaml
 - filemanager-service.yaml
 # - filemanager-ingress.yaml
 - filemanager-triggers.yaml
