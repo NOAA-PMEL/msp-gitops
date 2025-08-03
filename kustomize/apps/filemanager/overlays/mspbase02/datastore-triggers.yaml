@@ -1,0 +1,70 @@
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: datastore-sensor-data-update
+#   # namespace: msp-events
+# spec:
+#   broker: msp-events-broker
+#   filter:
+#     attributes:
+#       type: sensor.data.update
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: datastore
+#       # namespace: msp-system
+#     uri: /data/update
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: datastore-sensor-data-update
+#   # namespace: msp-events
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.data.update
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: datastore
+#       # namespace: msp-system
+#     uri: /sensor/data/update
+# ---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-sensor-settings-update
+  # namespace: msp-events
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.sensor.settings.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: datastore
+      # namespace: msp-system
+    uri: /sensor/settings/update
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-status-update
+  # namespace: msp-events
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.status.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: datastore
+      # namespace: msp-system
+    uri: /status/update

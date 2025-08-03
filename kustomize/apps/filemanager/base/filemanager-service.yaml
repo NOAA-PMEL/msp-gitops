@@ -1,0 +1,74 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: filemanager
+  # namespace: msp-system
+  # labels:
+  #   app: filemanager
+spec:
+  # selector:
+  #   app: filemanager
+  template:
+    metadata:
+      annotations:
+        # autoscaling.knative.dev/min-scale: "2"
+        autoscaling.knative.dev/max-scale: "3"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        # - name: filemanager
+        # image: uasbase2.pmel.noaa.gov:448/test/filemanager@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/filemanager:v1.0.3
+        - image: ghcr.io/noaa-pmel/msp/filemanager:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: FILEMANAGER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: filemanager
+                  key: port
+            - name: FILEMANAGER_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: filemanager
+                  key: daq_id
+            - name: FILEMANAGER_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: filemanager
+                  key: knative_broker
+            - name: FILEMANAGER_BASE_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: filemanager
+                  key: base_path
+            - name: FILEMANAGER_SAVE_INTERVAL
+              valueFrom:
+                configMapKeyRef:
+                  name: filemanager
+                  key: save_interval
+            - name: FILEMANAGER_FILE_INTERVAL
+              valueFrom:
+                configMapKeyRef:
+                  name: filemanager
+                  key: file_interval
+          # resources:
+          #   requests:
+          #     cpu: "500m"
+          #   limits:
+          #     memory: "4Gi"
+          #     cpu: "1000m"
+          ports:
+            # - name: http
+              # containerPort: 8000
+            - containerPort: 8080
+              # protocol: TCP
+      # ports:
+      # - name: http
+      #   protocol: TCP
+      #   # port: 8000
+      #   port: 80
+      #   # targetPort: 8000
+      #   targetPort: 8080
+      # type: ClusterIP  
