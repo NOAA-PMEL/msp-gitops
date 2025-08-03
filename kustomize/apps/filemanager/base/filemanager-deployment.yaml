@@ -67,10 +67,10 @@ spec:
         volumeMounts:
           - name: filemanager-data-storage
             mountPath: /data
-      volumes:
-        - name: filemanager-data-storage
-          persistentVolumeClaim:
-            claimName: filemanager-pvc
+    volumes:
+      - name: filemanager-data-storage
+        persistentVolumeClaim:
+          claimName: filemanager-pvc
       #   volumeMounts:
       #     - name: erddap-datasetd-storage
       #       mountPath: /datasets.d
