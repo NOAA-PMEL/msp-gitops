@@ -14,4 +14,22 @@ spec:
       kind: Service
       name: filemanager
       # namespace: msp-system
-    uri: /data/save/
+    uri: /device/data/save/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: filemanager-controller-data-update
+  # namespace: msp-events
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.controller.data.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: filemanager
+      # namespace: msp-system
+    uri: /controller/data/save/
