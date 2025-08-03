@@ -21,6 +21,7 @@ namespace: crk8s-system
 
 resources:
 - ../../base
+- filemanager-pv
 - filemanager-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 # - filemanager-triggers.yaml
