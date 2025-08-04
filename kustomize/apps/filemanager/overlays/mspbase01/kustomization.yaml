@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: datastore
+  name: filemanager
 
 # set namespace
 namespace: mspbase01-system
@@ -21,15 +21,37 @@ namespace: mspbase01-system
 
 resources:
 - ../../base
-- datastore-configmap.yaml
+- filemanager-pv
+- filemanager-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
-- datastore-triggers.yaml
+# - filemanager-triggers.yaml
 
-# configMapGenerator:
-#   - name: datastore
-#     literals:
-#     - db_client_type=redis
-#     - db_client_hostname=redis.payload03-system
-#     - db_client_port=6379
-#     - port=8080
-#     - knative_broker=http://broker-ingress.knative-eventing.svc.cluster.local/payload03-system/default
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Trigger
+#       # name: default
+#     patch: |-
+#       - op: replace 
+#         path: /spec/broker
+#         value: kafka-broker
+
+
+# patches:
+#   - patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: REPLACED_DURING_PATCH
+#       spec:
+#         template:
+#           spec:
+#             containers:
+#               - name: webhook
+#                 env:
+#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
+#                     value: "true"
+#     target:
+#       group: apps
+#       kind: Deployment
+#       name: ".*webhook.*"

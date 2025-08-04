@@ -21,6 +21,6 @@ namespace: mspbase01-system
 resources:
 - ../../base
 - dashboard-configmap.yaml
-- dashboard-triggers.yaml
+# - dashboard-triggers.yaml
 # - dashboard-ingress.yaml
 
