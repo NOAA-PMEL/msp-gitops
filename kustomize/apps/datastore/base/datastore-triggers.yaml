@@ -133,7 +133,7 @@ spec:
   broker: default
   filter:
     attributes:
-      type: envds.controller-instance.registry.update
+      type: envds.controller.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
