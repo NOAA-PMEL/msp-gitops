@@ -12,7 +12,7 @@ spec:
       apiVersion: v1
       kind: Service
       name: dashboard-test
-    uri: /sensor/data/update
+    uri: /sensor/data/update/
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
@@ -28,7 +28,7 @@ spec:
       apiVersion: v1
       kind: Service
       name: dashboard-test
-    uri: /controller/data/update
+    uri: /controller/data/update/
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
@@ -44,4 +44,4 @@ spec:
       apiVersion: v1
       kind: Service
       name: dashboard-test
-    uri: /controller/settings/update
+    uri: /controller/settings/update/
