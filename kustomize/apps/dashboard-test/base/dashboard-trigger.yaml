@@ -1,47 +1,47 @@
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: dashboard-sensor-data-update
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.data.update
-  subscriber:
-    ref:
-      apiVersion: v1
-      kind: Service
-      name: dashboard-test
-    uri: /sensor/data/update/
----
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: dashboard-controller-data-update
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.controller.data.update
-  subscriber:
-    ref:
-      apiVersion: v1
-      kind: Service
-      name: dashboard-test
-    uri: /controller/data/update/
----
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: dashboard-controller-settings-update
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.controller.settings.update
-  subscriber:
-    ref:
-      apiVersion: v1
-      kind: Service
-      name: dashboard-test
-    uri: /controller/settings/update/
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: dashboard-sensor-data-update
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.data.update
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: dashboard-test
+#     uri: /sensor/data/update/
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: dashboard-controller-data-update
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.controller.data.update
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: dashboard-test
+#     uri: /controller/data/update/
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: dashboard-controller-settings-update
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.controller.settings.update
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: dashboard-test
+#     uri: /controller/settings/update/
