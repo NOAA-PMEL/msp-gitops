@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: lantronix-xport-MAGIC250-154
+  name: lantronix-xport-magic250-154
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
