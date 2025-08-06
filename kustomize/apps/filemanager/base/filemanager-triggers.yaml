@@ -10,7 +10,7 @@ spec:
       type: envds.data.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: filemanager
       # namespace: msp-system
@@ -28,7 +28,7 @@ spec:
       type: envds.controller.data.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: filemanager
       # namespace: msp-system
