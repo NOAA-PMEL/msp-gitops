@@ -1,18 +1,18 @@
-# apiVersion: eventing.knative.dev/v1
-# kind: Trigger
-# metadata:
-#   name: dashboard-sensor-data-update
-# spec:
-#   broker: default
-#   filter:
-#     attributes:
-#       type: envds.data.update
-#   subscriber:
-#     ref:
-#       apiVersion: v1
-#       kind: Service
-#       name: dashboard-test
-#     uri: /sensor/data/update/
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: dashboard-sensor-data-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.data.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: dashboard-test
+    uri: /sensor/data/update/
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
