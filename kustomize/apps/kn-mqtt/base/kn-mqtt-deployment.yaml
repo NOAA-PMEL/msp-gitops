@@ -6,7 +6,7 @@ metadata:
   labels:
     app: kn-mqtt-adapter
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: kn-mqtt-adapter
