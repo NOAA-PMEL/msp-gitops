@@ -12,3 +12,8 @@ resources:
 #- USCDR301-configmap.yaml
 - tx-deployment.yaml
 - tx-service.yaml
+
+configMapGenerator:
+  - name: interface-definition
+    files:
+      - Labjack_Tx_interface_definition.json
