@@ -8,7 +8,7 @@ spec:
   project: msp
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
-    targetRevision: dev-hardware
+    targetRevision: HEAD
     path: kustomize/apps/daq/interfaces/LabJack/Tx/overlays/10.55.169.207
     # kustomize:
     #   patches:
