@@ -54,6 +54,9 @@ spec:
             - name: labjack-tx-config
               mountPath: /app/config/interface.conf
               subPath: interface.conf
+            - name: interface-definition
+              mountPath: /app/LabJack_Tx_interface_definition.json
+              subPath: LabJack_Tx_interface_definition.json
             # - name: mosquitto-certs
             #   mountPath: /certs/ca.crt
             #   subPath: ca.crt
@@ -67,6 +70,6 @@ spec:
         - name: labjack-tx-config
           configMap:
             name: labjack-tx-config
-        # - name: mosquitto-certs
-        #   configMap:
-        #     name: mosquitto-certs
+        - name: interface-definition
+          configMap:
+            name: interface-definition

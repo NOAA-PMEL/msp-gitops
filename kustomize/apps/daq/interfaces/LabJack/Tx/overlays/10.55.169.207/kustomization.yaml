@@ -25,3 +25,16 @@ resources:
 nameSuffix: -ljtx207
 # patchesStrategicMerge:
 #   - deployment.yaml
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: Deployment
+      name: labjack-tx
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: labjack-tx-config-ljtx207
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: interface-definition-labjack-tx
