@@ -37,4 +37,4 @@ patches:
         value: labjack-tx-config-ljtx207
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: interface-definition-tx207
+        value: interface-definition-ljtx207
