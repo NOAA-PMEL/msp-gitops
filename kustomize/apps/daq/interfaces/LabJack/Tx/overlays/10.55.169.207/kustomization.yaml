@@ -4,6 +4,7 @@ metadata:
   name: labjack-tx
 
 namespace: crk8s-hardware
+
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
