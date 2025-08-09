@@ -16,4 +16,4 @@ resources:
 configMapGenerator:
   - name: interface-definition
     files:
-      - Labjack_Tx_interface_definition.json
+      - LabJack_Tx_interface_definition.json
