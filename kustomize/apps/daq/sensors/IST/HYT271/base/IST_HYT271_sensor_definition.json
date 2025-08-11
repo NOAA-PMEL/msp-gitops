@@ -29,6 +29,9 @@
             "data": ""
         }
     },
+    "dimensions": {
+        "time": 0
+    },
     "variables": {
         "time": {
             "type": "str",
