@@ -15,7 +15,7 @@ data:
       model: T7
     paths:
       i2c:
-        path_type: i2c
+        path_type: I2C
         sda_channel: 2
         scl_channel: 3
         speed_throttle: 65516
