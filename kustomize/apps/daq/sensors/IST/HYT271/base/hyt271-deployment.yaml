@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aerosoldynamics-magic250
+  name: ist-hyt271
   # namespace: msp
   labels:
-    app: aerosoldynamics-magic250
+    app: ist-hyt271
 spec:
   selector:
     matchLabels:
-      app: aerosoldynamics-magic250
+      app: ist-hyt271
   template:
     metadata:
       labels:
-        app: aerosoldynamics-magic250
+        app: ist-hyt271
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-      - name: aerosoldynamics-magic250
-        # image: registry-msp:5000/msp/sensor/aerosoldynamics-magic250:0.1.0
-        image: ghcr.io/noaa-pmel/msp/aerosoldynamics-magic250:0.1.4
+      - name: ist-hyt271
+        # image: registry-msp:5000/msp/sensor/ist-hyt271:0.1.0
+        image: ghcr.io/noaa-pmel/msp/ist-hyt271:0.1.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:
               configMapKeyRef:
-                name: aerosoldynamics-magic250-config
+                name: ist-hyt271-config
                 key: namespace_prefix
           - name: ENVDS_ENV_ID
             valueFrom:
               configMapKeyRef:
-                name: aerosoldynamics-magic250-config
+                name: ist-hyt271-config
                 key: envds_env_id
             # value: mspbase01
           - name: REDIS_OM_URL
@@ -48,16 +48,16 @@ spec:
           containerPort: 9080
           protocol: TCP
         volumeMounts:
-            - name: aerosoldynamics-magic250-config
+            - name: ist-hyt271-config
               mountPath: /app/config/sensor.conf
               subPath: sensor.conf
             - name: sensor-definition
-              mountPath: /app/AerosolDynamics_MAGIC250_sensor_definition.json
+              mountPath: /app/IST_HYT271_sensor_definition.json
               subPath: AerosolDynamics_MAGIC250_sensor_definition.json
       volumes:
-        - name: aerosoldynamics-magic250-config
+        - name: ist-hyt271-config
           configMap:
-            name: aerosoldynamics-magic250-config
+            name: ist-hyt271-config
         - name: sensor-definition
           configMap:
             name: sensor-definition

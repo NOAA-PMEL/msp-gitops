@@ -6,7 +6,7 @@ metadata:
   labels:
     app: ist-hyt271
     # app-group: envds-sensor-payload03
-    app-group: envds-sensor-crk8s
+    app-group: envds-sensor-mspbase01
 data:
   namespace_prefix: mspbase01
   envds_env_id: mspbase01
@@ -19,8 +19,8 @@ data:
     interfaces:
       # default: serial
       default:
-        interface_env_id: cloudy # if omitted, defaults to envds_id of sensor
-        interface_id: NetBurner::SB70LC::nb53
+        interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx207
         # interface_id: NetBurner::SB70LC::home38
         # path: port, channel, etc
-        path: port-I2C
+        path: i2c
