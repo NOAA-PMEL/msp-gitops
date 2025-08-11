@@ -9,7 +9,7 @@ data:
   namespace_prefix: mspbase01
   envds_env_id: mspbase01
   interface.conf: |
-    uid: lj207
+    uid: ljtx207
     attributes:
       host: 10.55.169.207
       model: T7
