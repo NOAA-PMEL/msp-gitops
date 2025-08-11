@@ -6,8 +6,8 @@ metadata:
   labels:
     app: labjack-tx
 data:
-  namespace_prefix: crk8s
-  envds_env_id: crk8s
+  namespace_prefix: mspbase01
+  envds_env_id: mspbase01
   interface.conf: |
     uid: lj207
     attributes:
