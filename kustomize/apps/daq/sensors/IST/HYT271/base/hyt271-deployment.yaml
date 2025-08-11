@@ -53,7 +53,7 @@ spec:
               subPath: sensor.conf
             - name: sensor-definition
               mountPath: /app/IST_HYT271_sensor_definition.json
-              subPath: AerosolDynamics_MAGIC250_sensor_definition.json
+              subPath: IST_HYT271_sensor_definition.json
       volumes:
         - name: ist-hyt271-config
           configMap:
