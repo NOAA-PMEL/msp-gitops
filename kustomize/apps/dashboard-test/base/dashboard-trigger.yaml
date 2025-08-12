@@ -50,7 +50,7 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: dashboard-controller-settings-request
+  name: dashboard-controller-settings-request-rev2
 spec:
   broker: default
   filter:
