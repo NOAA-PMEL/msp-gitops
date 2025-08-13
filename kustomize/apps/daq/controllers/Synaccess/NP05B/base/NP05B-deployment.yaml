@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synaccess-NP05B
+  # namespace: msp
+  labels:
+    app: synaccess-NP05B
+spec:
+  selector:
+    matchLabels:
+      app: synaccess-NP05B
+  template:
+    metadata:
+      labels:
+        app: synaccess-NP05B
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: synaccess-NP05B
+        image: ghcr.io/noaa-pmel/msp/synaccess-np05b:0.1.0
+        imagePullPolicy: "Always"
+        env:
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
+            valueFrom:
+              configMapKeyRef:
+                name: synaccess-NP05B-config
+                key: namespace_prefix
+          - name: ENVDS_ENV_ID
+            valueFrom:
+              configMapKeyRef:
+                name: synaccess-NP05B-config
+                key: envds_env_id
+            # value: mspbase01
+          - name: REDIS_OM_URL
+            value: redis://redis.default
+          - name: LOG_LEVEL
+            value: DEBUG
+        resources:
+          requests:
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 9080
+          protocol: TCP
+        # - name: https
+        #   containerPort: 8883
+        #   protocol: TCP
+        volumeMounts:
+            - name: synaccess-NP05B-config
+              mountPath: /app/config/controller.conf
+              subPath: controller.conf
+            - name: controller-definition
+              mountPath: /app/Synaccess_NP05B_controller_definition.json
+              subPath: Synaccess_NP05B_controller_definition.json
+            # - name: mosquitto-certs
+            #   mountPath: /certs/ca.crt
+            #   subPath: ca.crt
+            # - name: mosquitto-certs
+            #   mountPath: /certs/server.crt
+            #   subPath: server.crt
+            # - name: mosquitto-certs
+            #   mountPath: /certs/server.key
+            #   subPath: server.key
+      volumes:
+        - name: synaccess-NP05B-config
+          configMap:
+            name: synaccess-NP05B-config
+        - name: controller-definition
+          configMap:
+            name: controller-definition
+        # - name: mosquitto-certs
+        #   configMap:
+        #     name: mosquitto-certs

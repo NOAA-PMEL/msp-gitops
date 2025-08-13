@@ -1,0 +1,241 @@
+{
+    "attributes": {
+        "make": {
+            "type": "char",
+            "data": "Synaccess"
+        },
+        "model": {
+            "type": "char",
+            "data": "NP05B"
+        },
+        "description": {
+            "type": "char",
+            "data": "Synaccess 5 outlet switched PDU"
+        },
+        "tags": {
+            "type": "char",
+            "data": "testing, Synaccess, PDU, outlet, serial, tcp, ethernet, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.1.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "setting"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        },
+        "change_log": {
+            "type": "string",
+            "data": "1.1.0: added time variable"
+        } 
+    },
+    "dimensions": {
+        "time": 0
+    },
+    "variables": {
+        "outlet_1_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attribute": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "outlet": {
+                    "type": "int",
+                    "data": 1
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Outlet 1 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        },
+        "outlet_2_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attribute": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "outlet": {
+                    "type": "int",
+                    "data": 2
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Outlet 2 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        },
+        "outlet_3_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attribute": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "outlet": {
+                    "type": "int",
+                    "data": 3
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Outlet 3 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        },
+        "outlet_4_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attribute": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "outlet": {
+                    "type": "int",
+                    "data": 4
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Outlet 4 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        },
+        "outlet_5_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attribute": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "setting"
+                },
+                "outlet": {
+                    "type": "int",
+                    "data": 5
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Outlet 5 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
+                }
+            }
+        }
+    }
+}

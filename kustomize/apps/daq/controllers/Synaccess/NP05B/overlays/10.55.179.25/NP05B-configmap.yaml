@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: synaccess-NP05B-config
+  namespace: msp
+  labels:
+    app: synaccess-NP05B
+data:
+  namespace_prefix: payload03
+  envds_env_id: payload03
+  controller.conf: |
+    uid: synaccess25
+    host: 10.55.179.25
+    client_host: 10.55.179.25
+    client_port: 23
+    controller_id_prefix: NP05B
+
+    # override definition values
+    attributes:
+      serial_number: synaccess25
+    # variables:
+    #   channel_2_power:
+    #     default_value: "0"
