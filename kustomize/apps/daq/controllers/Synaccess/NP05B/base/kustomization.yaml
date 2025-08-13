@@ -11,7 +11,7 @@ metadata:
 resources:
 #- USCDR301-configmap.yaml
 - NP05B-deployment.yaml
-- NB05B-service.yaml
+- NP05B-service.yaml
 
 configMapGenerator:
   - name: controller-definition
