@@ -1,35 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: synaccess-NP05B
+  name: synaccess-np05b
   # namespace: msp
   labels:
-    app: synaccess-NP05B
+    app: synaccess-np05b
 spec:
   selector:
     matchLabels:
-      app: synaccess-NP05B
+      app: synaccess-np05b
   template:
     metadata:
       labels:
-        app: synaccess-NP05B
+        app: synaccess-np05b
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-      - name: synaccess-NP05B
+      - name: synaccess-np05b
         image: ghcr.io/noaa-pmel/msp/synaccess-np05b:0.1.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:
               configMapKeyRef:
-                name: synaccess-NP05B-config
+                name: synaccess-np05b-config
                 key: namespace_prefix
           - name: ENVDS_ENV_ID
             valueFrom:
               configMapKeyRef:
-                name: synaccess-NP05B-config
+                name: synaccess-np05b-config
                 key: envds_env_id
             # value: mspbase01
           - name: REDIS_OM_URL
@@ -50,7 +50,7 @@ spec:
         #   containerPort: 8883
         #   protocol: TCP
         volumeMounts:
-            - name: synaccess-NP05B-config
+            - name: synaccess-np05b-config
               mountPath: /app/config/controller.conf
               subPath: controller.conf
             - name: controller-definition
@@ -66,9 +66,9 @@ spec:
             #   mountPath: /certs/server.key
             #   subPath: server.key
       volumes:
-        - name: synaccess-NP05B-config
+        - name: synaccess-np05b-config
           configMap:
-            name: synaccess-NP05B-config
+            name: synaccess-np05b-config
         - name: controller-definition
           configMap:
             name: controller-definition

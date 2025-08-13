@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: synaccess-NP05B
+  name: synaccess-np05b
 
 
 namespace: payload03-hardware
@@ -30,11 +30,11 @@ patches:
   # change configmap names to account for s/n suffix
   - target:
       kind: Deployment
-      name: synaccess-NP05B
+      name: synaccess-np05b
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: synaccess-NP05B-config-synaccess25
+        value: synaccess-np05b-config-synaccess25
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
         value: controller-definition-synaccess25

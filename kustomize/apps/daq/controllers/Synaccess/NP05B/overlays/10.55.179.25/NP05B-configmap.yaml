@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: synaccess-NP05B-config
-  namespace: msp
+  name: synaccess-np05b-config
+  # namespace: msp
   labels:
-    app: synaccess-NP05B
+    app: synaccess-np05b
 data:
   namespace_prefix: payload03
   envds_env_id: payload03
@@ -13,7 +13,7 @@ data:
     host: 10.55.179.25
     client_host: 10.55.179.25
     client_port: 23
-    controller_id_prefix: NP05B
+    controller_id_prefix: np05b
 
     # override definition values
     attributes:
