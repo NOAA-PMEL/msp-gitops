@@ -42,7 +42,7 @@
             "shape": [
                 "time"
             ],
-            "attribute": {
+            "attributes": {
                 "variable_type": {
                     "type": "string",
                     "data": "setting"
@@ -82,7 +82,7 @@
             "shape": [
                 "time"
             ],
-            "attribute": {
+            "attributes": {
                 "variable_type": {
                     "type": "string",
                     "data": "setting"
@@ -122,7 +122,7 @@
             "shape": [
                 "time"
             ],
-            "attribute": {
+            "attributes": {
                 "variable_type": {
                     "type": "string",
                     "data": "setting"
@@ -162,7 +162,7 @@
             "shape": [
                 "time"
             ],
-            "attribute": {
+            "attributes": {
                 "variable_type": {
                     "type": "string",
                     "data": "setting"
@@ -202,7 +202,7 @@
             "shape": [
                 "time"
             ],
-            "attribute": {
+            "attributes": {
                 "variable_type": {
                     "type": "string",
                     "data": "setting"
