@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: shelly-shellypro3-config
-  namespace: msp
+  # namespace: msp
   labels:
     app: shelly-shellypro3
 data:
