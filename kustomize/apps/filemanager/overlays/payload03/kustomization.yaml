@@ -21,7 +21,7 @@ namespace: payload03-system
 
 resources:
 - ../../base
-# - filemanager-pv
+- filemanager-pv
 - filemanager-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 # - filemanager-triggers.yaml
