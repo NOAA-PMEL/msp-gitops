@@ -156,6 +156,10 @@
                     "type": "int",
                     "data": 7
                 },
+                "counter_mode": {
+                    "type": "string",
+                    "data": "interrupt"
+                },
                 "sample_mode": {
                     "type": "string",
                     "data": "polled"

@@ -19,3 +19,17 @@ data:
         sda_channel: 2
         scl_channel: 3
         speed_throttle: 65516
+      counter-1:
+        path_type: COUNTER
+        channel: 1
+        counter_mode: "interrupt"
+        sample_mode: "unpolled"
+        unpolled_interval_handle: 2
+        unpolled_sample_frequency_sec: 1
+      pwm-6:
+        path_type: PWM
+        pwm_channel: 6
+        clock_channel: 0
+        clock_divisor: 1
+        clock_desired_frequency: 25000
+        counter_mode: "interrupt"
