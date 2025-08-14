@@ -142,11 +142,11 @@
             "attributes": {
                 "client_module": {
                     "type": "string",
-                    "data": "envds.daq.clients.tcp_client"
+                    "data": "labjack_client"
                 },
                 "client_class": {
                     "type": "string",
-                    "data": "TCPClient"
+                    "data": "CounterClient"
                 },
                 "host": {
                     "type": "string",
@@ -206,11 +206,11 @@
             "attributes": {
                 "client_module": {
                     "type": "string",
-                    "data": "envds.daq.clients.tcp_client"
+                    "data": "labjack_client"
                 },
                 "client_class": {
                     "type": "string",
-                    "data": "TCPClient"
+                    "data": "SPIClient"
                 },
                 "host": {
                     "type": "string",
