@@ -27,6 +27,8 @@ data:
     envds/mspbase01/device-instance/registry/update
     envds/mspbase01/controller-definition/registry/update
     envds/mspbase01/controller-instance/registry/update
+    envds/+/controller/registry/update
+    envds/+/controller-instance/registry/update
     envds/+/+/+/controller/data/update   
 
   
