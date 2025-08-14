@@ -80,7 +80,7 @@
                     "data": "setting"
                 },
                 "long_name": {
-                    "type": "char",
+                    "type": "string",
                     "data": "Fan Speed SP"
                 },
                 "units": {
@@ -92,15 +92,15 @@
                     "data": -100
                 },
                 "valid_max": {
-                    "type": "int",
+                    "type": "float",
                     "data": 100.0
                 },
                 "step_increment": {
-                    "type": "int",
+                    "type": "float",
                     "data": 10
                 },
                 "default_value": {
-                    "type": "int",
+                    "type": "float",
                     "data": 0
                 }
             }
