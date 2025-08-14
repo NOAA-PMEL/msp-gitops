@@ -23,8 +23,8 @@ data:
     envds/+/registry/sync-request
     envds/payload03/controller-definition/registry/update
     envds/payload03/controller-instance/registry/update
-    envds/controller/settings/update
-    envds/+/controller/settings/update
+    envds/controller/settings/request
+    envds/+/controller/settings/request
 
   
 # old subscriptions:
