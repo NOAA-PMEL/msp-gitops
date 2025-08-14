@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sanyodenki_sanace92rf-config
+  name: sanyodenki-sanace92rf-config
   namespace: msp
   labels:
-    app: sanyodenki_sanace92rf
+    app: sanyodenki-sanace92rf
 data:
   namespace_prefix: mspbase01
   envds_env_id: mspbase01
