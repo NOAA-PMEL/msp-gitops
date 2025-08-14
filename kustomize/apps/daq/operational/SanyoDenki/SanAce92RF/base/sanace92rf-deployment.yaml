@@ -51,7 +51,7 @@ spec:
             - name: sanyodenki-sanace92rf-config
               mountPath: /app/config/operational.conf
               subPath: operational.conf
-            - name: sensor-definition
+            - name: operational-definition
               mountPath: /app/SanyoDenki_SanAce92RF_operational_definition.json
               subPath: SanyoDenki_SanAce92RF_operational_definition.json
       volumes:
