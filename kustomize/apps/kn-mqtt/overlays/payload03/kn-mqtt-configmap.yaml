@@ -21,6 +21,8 @@ data:
     envds/+/registry/sync-bcast
     envds/+/registry/sync-update
     envds/+/registry/sync-request
+    envds/payload03/controller-definition/registry/update
+    envds/payload03/controller-instance/registry/update
 
   
 # old subscriptions:
