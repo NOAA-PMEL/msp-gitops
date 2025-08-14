@@ -40,4 +40,4 @@ patches:
         value: sanyodenki-sanace92rf-config-inletflow
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-inletflow
+        value: operational-definition-inletflow
