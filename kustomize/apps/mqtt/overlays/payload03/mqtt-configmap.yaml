@@ -51,6 +51,7 @@ data:
     topic envds/device/settings/request both 0 "" ""
     topic envds/payload03/controller/+/settings/update out 0 "" ""
     topic envds/+/controller-instance/registry/update out 0 "" ""
+    topic envds/+/controller-definition/registry/update out 0 "" ""
   
     # topic # out 0 "" ""
 
