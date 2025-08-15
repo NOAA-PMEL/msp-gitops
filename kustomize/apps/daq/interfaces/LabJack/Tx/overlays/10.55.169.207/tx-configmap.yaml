@@ -23,7 +23,7 @@ data:
         path_type: COUNTER
         channel: 1
         counter_mode: "interrupt"
-        sample_mode: "unpolled"
+        sample_mode: "polled"
         unpolled_interval_handle: 2
         unpolled_sample_frequency_sec: 1
       pwm-6:
