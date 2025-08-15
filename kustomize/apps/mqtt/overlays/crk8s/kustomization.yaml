@@ -24,5 +24,11 @@ resources:
 # - mqtt-pv.yaml
 - mqtt-configmap.yaml
 
-# patchesStrategicMerge:
-#   - deployment.yaml
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: PersistentVolumeClaim
+      name: mqtt-pvc
+    patch: |-
+      - op: remove 
+        path: /spec/volumeName
