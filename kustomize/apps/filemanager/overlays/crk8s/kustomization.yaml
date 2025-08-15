@@ -35,6 +35,12 @@ patches:
       - op: replace 
         path: /spec/broker
         value: kafka-broker
+  - target:
+      kind: PersistentVolumeClaim
+      name: filemanager-pvc
+    patch: |-
+      - op: remove 
+        path: /spec/volumeName
 
 
 # patches:
