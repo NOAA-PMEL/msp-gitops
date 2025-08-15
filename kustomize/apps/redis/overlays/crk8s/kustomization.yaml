@@ -22,5 +22,11 @@ resources:
 - ../../base
 # - redis-pv.yaml
 
-# patchesStrategicMerge:
-#   - deployment.yaml
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: PersistentVolumeClaim
+      name: redis-pvc
+    patch: |-
+      - op: remove 
+        path: /spec/volumeName
