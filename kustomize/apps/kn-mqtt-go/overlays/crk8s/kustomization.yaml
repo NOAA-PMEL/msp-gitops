@@ -32,3 +32,10 @@ patches:
       - op: replace 
         path: /spec/broker
         value: kafka-broker
+  - target:
+      kind: Deployment
+      name: kn-mqtt-adapter
+    patch: |-
+      - op: replace 
+        path: /spec/replicas
+        value: 3
