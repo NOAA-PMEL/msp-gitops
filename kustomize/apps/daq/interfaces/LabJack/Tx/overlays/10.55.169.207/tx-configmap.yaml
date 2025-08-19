@@ -28,7 +28,7 @@ data:
         unpolled_sample_frequency_sec: 1
       pwm-6:
         path_type: PWM
-        pwm_channel: 6
+        pwm_channel: 0
         clock_channel: 0
         clock_divisor: 1
         clock_desired_frequency: 25000
