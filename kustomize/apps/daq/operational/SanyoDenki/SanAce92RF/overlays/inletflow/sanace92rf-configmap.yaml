@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sanyodenki-sanace92rf-config
-  namespace: msp
+  # namespace: msp
   labels:
     app: sanyodenki-sanace92rf
 data:
