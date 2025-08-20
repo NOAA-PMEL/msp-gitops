@@ -30,8 +30,8 @@ data:
     envds/+/controller/registry/update
     envds/+/controller-instance/registry/update
     envds/+/+/+/controller/data/update   
-    envds/device/settings/update
-    envds/+/device/settings/update
+    envds/sensor/settings/update
+    envds/+/sensor/settings/update
 
   
   
