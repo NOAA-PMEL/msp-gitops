@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kn-mqtt-mspbase01
+  name: kn-mqtt-go-mspbase01
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/kn-mqtt/overlays/mspbase01
+    path: kustomize/apps/kn-mqtt-go/overlays/mspbase01
   destination:
     server: https://kubernetes.default.svc
     # namespace: msp-system
