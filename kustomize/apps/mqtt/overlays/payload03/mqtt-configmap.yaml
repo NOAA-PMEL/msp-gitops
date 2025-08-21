@@ -35,8 +35,8 @@ data:
     # address 10.55.169.40:1883
     # address 10.55.169.164:1883
     topic envds/payload03/sensor/+/data/update out 0 "" ""
-    topic envds/payload03/sensor/+/settings/update out 0 "" ""
-    topic envds/payload03/sensor/+/settings/request both 0 "" ""
+    # topic envds/payload03/sensor/+/settings/update out 0 "" ""
+    topic envds/payload03/sensor/+/settings/request in 0 "" ""
     topic envds/payload03/sensor/+/status/update out 0 "" ""
     topic envds/payload03/sensor/+/status/request both 0 "" ""
     topic envds/payload03/sensor/registry/update out 0 "" ""
@@ -52,7 +52,7 @@ data:
     topic envds/payload03/controller/+/settings/update out 0 "" ""
     topic envds/+/controller/settings/update out 0 "" ""
     topic envds/+/controller-instance/registry/update out 0 "" ""
-    topic envds/+/controller-definition/registry/update out 0 "" ""
+    # topic envds/+/controller-definition/registry/update out 0 "" ""
   
     # topic # out 0 "" ""
 
