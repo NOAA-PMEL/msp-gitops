@@ -35,7 +35,7 @@ spec:
       kind: Service
       name: registar
       # namespace: msp-system
-    uri: /registry-sync
+    uri: /registry-sync/
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger

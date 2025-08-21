@@ -30,7 +30,6 @@ spec:
       name: dashboard-test
     uri: /sensor/settings/update/
 ---
----
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
