@@ -31,7 +31,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/broker
-        value: kafka-broker
+        value: test-kafka-broker
   - target:
       kind: Deployment
       name: kn-mqtt-adapter
