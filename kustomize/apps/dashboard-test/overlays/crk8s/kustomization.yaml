@@ -31,4 +31,4 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/broker
-        value: kafka-broker
+        value: test-kafka-broker
