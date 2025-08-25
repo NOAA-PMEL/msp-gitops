@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shelly-shellypro3-config
+  # namespace: msp
+  labels:
+    app: shelly-shellypro4pm
+data:
+  namespace_prefix: mspbase01
+  envds_env_id: mspbase01
+  controller.conf: |
+    uid: shel223
+    host: 10.55.169.223
+    client_host: mqtt.mspbase01-system
+    client_port: 1883
+    controller_id_prefix: shellypro4pm
+
+    # override definition values
+    attributes:
+      serial_number: shel223
+    # variables:
+    #   channel_2_power:
+    #     default_value: "0"

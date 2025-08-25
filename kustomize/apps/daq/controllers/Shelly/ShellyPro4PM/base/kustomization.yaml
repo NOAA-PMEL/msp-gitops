@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: shelly-shellypro4pm
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+resources:
+#- USCDR301-configmap.yaml
+- shelly-shellypro4pm-deployment.yaml
+- shelly-shellypro4pm-service.yaml
+
+configMapGenerator:
+  - name: controller-definition
+    files:
+      - Shelly_ShellyPro4PM_controller_definition.json

@@ -1,0 +1,39 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: shelly-shellypro4pm
+
+namespace: mspbase01-hardware
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: shelly-shellypro3
+#     variant: test
+
+resources:
+- ../../base
+- ShellyPro4PM-configmap.yaml
+
+nameSuffix: -shel223
+# patchesStrategicMerge:
+#   - deployment.yaml
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: Deployment
+      name: shelly-shellypro4pm
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: shelly-shellypro4pm-config-shel223
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: controller-definition-shel223
