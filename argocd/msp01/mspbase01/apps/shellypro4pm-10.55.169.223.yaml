@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: shellypro4pm-10.55.169.223
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: msp
+  source:
+    repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+    targetRevision: HEAD
+    path: kustomize/apps/daq/controllers/Shelly/ShellyPro4PM/overlays/10.55.169.223
+    # kustomize:
+    #   patches:
+    #     - patch: |-
+    #         - op: replace
+    #           path: /spec/subscriber/ref/namespace
+    #           value: mspbase02
+    #       target:
+    #         kind: Trigger
+  destination:
+    server: https://kubernetes.default.svc
+    # namespace: payload01
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
