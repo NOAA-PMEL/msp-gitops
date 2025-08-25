@@ -1,10 +1,10 @@
-apiVersion: eventing.knative.dev/v1
-kind: Broker
-metadata:
-  annotations:
-    eventing.knative.dev/broker.class: MTChannelBasedBroker
-  name: default
-  namespace: default
+# apiVersion: eventing.knative.dev/v1
+# kind: Broker
+# metadata:
+#   annotations:
+#     eventing.knative.dev/broker.class: MTChannelBasedBroker
+#   name: default
+#   namespace: default
   # delivery:
   #   retry: 5
   #   backoffPolicy: exponential # or linear
