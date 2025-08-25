@@ -6,8 +6,8 @@ metadata:
 data:
   # mqtt_bridge_host: "0.0.0.0"
   # mqtt_bridge_port: 80
-  # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
-  knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
+  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
+  # knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
 
   mqtt_broker: "mqtt.mspbase01-system"
   mqtt_port: "1883"
