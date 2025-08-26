@@ -8,8 +8,8 @@ metadata:
 # commonLabels:
 #   app: nginx
 
-resources:
-- knative-brokers.yaml
+# resources:
+# - knative-brokers.yaml
 # # - ns-msp.yaml
 # # - ns-msp-system.yaml
 # # - ns-msp-events.yaml

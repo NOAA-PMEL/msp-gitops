@@ -17,14 +17,15 @@ metadata:
 #   variant: lopez
 
 resources:
-- ../../base
+# - ../../base
+- knative-brokers.yaml
 
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      kind: Broker
-      name: default
-    patch: |-
-      - op: replace 
-        path: /metadata/namespace
-        value: mspbase02-system
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Broker
+#       name: default
+#     patch: |-
+#       - op: replace 
+#         path: /metadata/namespace
+#         value: mspbase02-system

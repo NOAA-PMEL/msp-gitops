@@ -28,4 +28,4 @@ resources:
 #     patch: |-
 #       - op: replace 
 #         path: /metadata/namespace
-#         value: payload03-system
+#         value: payload02-system
