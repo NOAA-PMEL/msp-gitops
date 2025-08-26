@@ -85,7 +85,7 @@
                     },
                     "long_name": {
                         "type": "char",
-                        "data": "Channel 1 Voltage"
+                        "data": "Channel 5 Voltage"
                     },
                     "units": {
                         "type": "char",
