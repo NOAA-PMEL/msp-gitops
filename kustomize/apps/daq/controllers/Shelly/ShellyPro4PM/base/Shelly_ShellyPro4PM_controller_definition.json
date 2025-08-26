@@ -69,7 +69,7 @@
                 }
             }
         },
-        "channel_1_voltage": {
+        "channel_0_voltage": {
                 "type": "float",
                 "shape": [
                     "time"
@@ -81,7 +81,7 @@
                     },
                     "channel": {
                         "type": "int",
-                        "data": 1
+                        "data": 0
                     },
                     "long_name": {
                         "type": "char",
@@ -93,6 +93,30 @@
                     }
                 }
             },
+        "channel_1_voltage": {
+            "type": "float",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "main"
+                },
+                "channel": {
+                    "type": "int",
+                    "data": 1
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Channel 2 Voltage"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "Volts"
+                }
+            }
+        },
         "channel_2_voltage": {
             "type": "float",
             "shape": [
@@ -109,7 +133,7 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 2 Voltage"
+                    "data": "Channel 3 Voltage"
                 },
                 "units": {
                     "type": "char",
@@ -133,7 +157,7 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 3 Voltage"
+                    "data": "Channel 4 Voltage"
                 },
                 "units": {
                     "type": "char",
@@ -141,7 +165,7 @@
                 }
             }
         },
-        "channel_4_voltage": {
+        "channel_0_current": {
             "type": "float",
             "shape": [
                 "time"
@@ -153,15 +177,15 @@
                 },
                 "channel": {
                     "type": "int",
-                    "data": 4
+                    "data": 0
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 4 Voltage"
+                    "data": "Channel 1 Current"
                 },
                 "units": {
                     "type": "char",
-                    "data": "Volts"
+                    "data": "Amperes"
                 }
             }
         },
@@ -181,7 +205,7 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 1 Current"
+                    "data": "Channel 2 Current"
                 },
                 "units": {
                     "type": "char",
@@ -205,7 +229,7 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 2 Current"
+                    "data": "Channel 3 Current"
                 },
                 "units": {
                     "type": "char",
@@ -229,30 +253,6 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 3 Current"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Amperes"
-                }
-            }
-        },
-        "channel_4_current": {
-            "type": "float",
-            "shape": [
-                "time"
-            ],
-            "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 4
-                },
-                "long_name": {
-                    "type": "char",
                     "data": "Channel 4 Current"
                 },
                 "units": {
@@ -261,7 +261,7 @@
                 }
             }
         },
-        "channel_1_power_meas": {
+        "channel_0_power_meas": {
             "type": "float",
             "shape": [
                 "time"
@@ -273,7 +273,7 @@
                 },
                 "channel": {
                     "type": "int",
-                    "data": 1
+                    "data": 0
                 },
                 "long_name": {
                     "type": "char",
@@ -285,7 +285,7 @@
                 }
             }
         },
-        "channel_2_power_meas": {
+        "channel_1_power_meas": {
             "type": "float",
             "shape": [
                 "time"
@@ -309,6 +309,30 @@
                 }
             }
         },
+        "channel_2_power_meas": {
+            "type": "float",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "main"
+                },
+                "channel": {
+                    "type": "int",
+                    "data": 2
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Channel 3 Instantaneous Active Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "Watts"
+                }
+            }
+        },
         "channel_3_power_meas": {
             "type": "float",
             "shape": [
@@ -321,31 +345,7 @@
                 },
                 "channel": {
                     "type": "int",
-                    "data": 1
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 3 Instantaneous Active Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Watts"
-                }
-            }
-        },
-        "channel_4_power_meas": {
-            "type": "float",
-            "shape": [
-                "time"
-            ],
-            "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 1
+                    "data": 3
                 },
                 "long_name": {
                     "type": "char",
@@ -354,6 +354,46 @@
                 "units": {
                     "type": "char",
                     "data": "Watts"
+                }
+            }
+        },
+        "channel_0_power": {
+            "type": "int",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string", 
+                    "data": "setting"
+                },
+                "channel": {
+                    "type": "int",
+                    "data": 0
+                },
+                "long_name": {
+                    "type": "char",
+                    "data": "Channel 1 Power"
+                },
+                "units": {
+                    "type": "char",
+                    "data": "count"
+                },
+                "valid_min": {
+                    "type": "int",
+                    "data": 0
+                },
+                "valid_max": {
+                    "type": "int",
+                    "data": 1
+                },
+                "step_increment": {
+                    "type": "int",
+                    "data": 1
+                },
+                "default_value": {
+                    "type": "int",
+                    "data": 1
                 }
             }
         },
@@ -373,7 +413,7 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 1 Power"
+                    "data": "Channel 2 Power"
                 },
                 "units": {
                     "type": "char",
@@ -413,7 +453,7 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Channel 2 Power"
+                    "data": "Channel 3 Power"
                 },
                 "units": {
                     "type": "char",
@@ -450,46 +490,6 @@
                 "channel": {
                     "type": "int",
                     "data": 3
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 3 Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "count"
-                },
-                "valid_min": {
-                    "type": "int",
-                    "data": 0
-                },
-                "valid_max": {
-                    "type": "int",
-                    "data": 1
-                },
-                "step_increment": {
-                    "type": "int",
-                    "data": 1
-                },
-                "default_value": {
-                    "type": "int",
-                    "data": 1
-                }
-            }
-        },
-        "channel_4_power": {
-            "type": "int",
-            "shape": [
-                "time"
-            ],
-            "attributes": {
-                "variable_type": {
-                    "type": "string", 
-                    "data": "setting"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 4
                 },
                 "long_name": {
                     "type": "char",
