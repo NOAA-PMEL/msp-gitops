@@ -33,6 +33,22 @@
         "time": 0
     },
     "variables": {
+        "time": {
+            "type": "str",
+            "shape": [
+                "time"
+            ],
+            "attributes": {
+                "variable_type": {
+                    "type": "string",
+                    "data": "main"
+                },
+                "long_name": {
+                    "type": "string",
+                    "data": "Time"
+                }
+            }
+        },
         "temperature": {
             "type": "float",
             "shape": [
