@@ -93,7 +93,7 @@
                     }
                 }
             },
-        "channel_1_voltage": {
+        "channel_5_voltage": {
             "type": "float",
             "shape": [
                 "time"
