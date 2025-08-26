@@ -16,4 +16,4 @@ resources:
 configMapGenerator:
   - name: controller-definition
     files:
-      - Shelly_ShellyPro4PM_controller_definition_1_0_0.json
+      - Shelly_ShellyPro4PM_controller_definition.json
