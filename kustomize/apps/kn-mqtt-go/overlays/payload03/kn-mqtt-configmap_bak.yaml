@@ -13,6 +13,16 @@ data:
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: |
+    envds/+/+/+/data/update   
+    envds/+/+/+/status/update
+    envds/+/+/+/setting/update
+    envds/+/+/+/control/update
+    envds/payload03/device-definition/registry/update
+    envds/payload03/device-instance/registry/update
+    envds/+/registry/sync-bcast
+    envds/+/registry/sync-update
+    envds/+/registry/sync-request
+
     envds/+/+/+/data/update,   
     envds/+/+/+/status/update,
     envds/+/+/+/settings/update,
@@ -24,10 +34,10 @@ data:
     envds/+/device-instance/registry/update,
     envds/controller/settings/update,
     envds/+/controller/settings/update,
-    envds/payload03/device-definition/registry/update,
-    envds/payload03/device-instance/registry/update,
-    envds/payload03/controller-definition/registry/update,
-    envds/payload03/controller-instance/registry/update,
+    envds/payload02/device-definition/registry/update,
+    envds/payload02/device-instance/registry/update,
+    envds/payload02/controller-definition/registry/update,
+    envds/payload02/controller-instance/registry/update,
     envds/+/controller/registry/update,
     envds/+/controller-instance/registry/update,
     envds/+/+/+/controller/data/update   

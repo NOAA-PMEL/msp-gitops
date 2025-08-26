@@ -1,12 +1,42 @@
+# apiVersion: eventing.knative.dev/v1
+# kind: Broker
+# metadata:
+#   annotations:
+#     eventing.knative.dev/broker.class: MTChannelBasedBroker
+#   name: default
+#   namespace: default
+#   delivery:
+#     retry: 5
+#     backoffPolicy: exponential # or linear
+#     backoffDelay: "PT0.5S"     # or ISO8601 duration
+# ---
 apiVersion: eventing.knative.dev/v1
 kind: Broker
 metadata:
   annotations:
-    eventing.knative.dev/broker.class: MTChannelBasedBroker
+    # case-sensitive
+    eventing.knative.dev/broker.class: Kafka
+    # Optional annotation to point to an externally managed kafka topic:
+    # kafka.eventing.knative.dev/external.topic: <topic-name>
   name: default
   namespace: payload03-system
-  delivery:
-    retry: 5
-    backoffPolicy: exponential # or linear
-    backoffDelay: "PT0.5S"     # or ISO8601 duration
-# ---
+spec:
+  # Configuration specific to this broker.
+  config:
+    apiVersion: v1
+    kind: ConfigMap
+    name: kafka-broker-config
+    namespace: knative-eventing
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-broker-config
+  namespace: knative-eventing
+data:
+  # Number of topic partitions
+  default.topic.partitions: "10"
+  # Replication factor of topic messages.
+  default.topic.replication.factor: "1"
+  # A comma separated list of bootstrap servers. (It can be in or out the k8s cluster)
+  bootstrap.servers: "my-cluster-kafka-bootstrap.kafka:9092"
