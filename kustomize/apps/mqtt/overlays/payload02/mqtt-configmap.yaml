@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqtt-config
+  # namespace: msp-system
+  labels:
+    app: mqtt
+  # namespace: envds-base
+data:
+  mosquitto.conf: |
+    sys_interval 1
+    autosave_interval 1
+    allow_anonymous true
+    autosave_on_changes true
+    # logs
+    log_dest stdout
+    log_type all
+    log_timestamp true
+    log_timestamp_format %Y-%m-%d_%H:%M:%S
+    connection_messages true
+    # data
+    persistence true
+    persistence_location /mosquitto/data
+    persistence_file mosquitto.db
+
+    # Non-TLS
+    listener 1883
+    protocol mqtt
+
+    # Bridge
+    # connection 172.23.140.152
+    # address 172.23.140.152:1884
+    connection mspbase01
+    address 10.55.169.210:1883
+    # address 10.55.169.40:1883
+    # address 10.55.169.164:1883
+    topic envds/payload02/sensor/+/data/update out 0 "" ""
+    # topic envds/payload02/sensor/+/settings/update out 0 "" ""
+    topic envds/payload02/sensor/+/settings/request in 0 "" ""
+    topic envds/payload02/sensor/+/status/update out 0 "" ""
+    topic envds/payload02/sensor/+/status/request both 0 "" ""
+    topic envds/payload02/sensor/registry/update out 0 "" ""
+    topic envds/+/device-instance/registry/update out 0 "" ""
+    topic envds/+/core/+/registry/bcast both 0 "" ""
+    topic envds/+/core/+/registry/update both 0 "" ""
+    topic envds/+/core/+/registry/request both 0 "" ""
+    topic envds/+/registry/sync-bcast both 0 "" ""
+    topic envds/+/registry/sync-update both 0 "" ""
+    topic envds/+/registry/sync-request both 0 "" ""
+    topic envds/controller/settings/request both 0 "" ""
+    topic envds/device/settings/request both 0 "" ""
+    topic envds/payload02/controller/+/settings/update out 0 "" ""
+    topic envds/+/controller/settings/update out 0 "" ""
+    topic envds/+/controller-instance/registry/update out 0 "" ""
+    # topic envds/+/controller-definition/registry/update out 0 "" ""
+  
+    # topic # out 0 "" ""
+
+    # # TLS
+    # # https://mosquitto.org/man/mosquitto-tls-7.html
+    # listener 8883
+    # protocol mqtt
+    # cafile /certs/ca.crt
+    # certfile /certs/server.crt
+    # keyfile /certs/server.key
+    # require_certificate false
