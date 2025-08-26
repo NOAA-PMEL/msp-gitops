@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.0.0"
+            "data": "1.1.0"
         },
         "variable_types": {
             "type": "string",
