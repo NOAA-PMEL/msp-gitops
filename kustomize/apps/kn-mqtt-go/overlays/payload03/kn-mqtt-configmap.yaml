@@ -12,7 +12,7 @@ data:
   mqtt_broker: "mqtt.payload03-system"
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
-  mqtt_topic_subscriptions: |
+  mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
     envds/+/+/+/status/update,
     envds/+/+/+/settings/update,

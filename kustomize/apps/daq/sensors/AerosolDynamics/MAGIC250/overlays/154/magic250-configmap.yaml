@@ -5,8 +5,8 @@ metadata:
   # namespace: msp
   labels:
     app: aerosoldynamics-magic250
-    # app-group: envds-sensor-payload03
-    app-group: envds-sensor-crk8s
+    app-group: envds-sensor-payload03
+    # app-group: envds-sensor-crk8s
 data:
   namespace_prefix: payload03
   envds_env_id: payload03
