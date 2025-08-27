@@ -4,7 +4,7 @@ metadata:
   annotations:
     eventing.knative.dev/broker.class: MTChannelBasedBroker
   name: default
-  namespace: default
+  namespace: mspbase01-system
   delivery:
     retry: 5
     backoffPolicy: exponential # or linear
