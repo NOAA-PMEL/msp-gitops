@@ -10,6 +10,6 @@ metadata:
 
 resources:
 # - datastore-deployment.yaml
-- datastore-service.yaml
+# - datastore-service.yaml
 - datastore-ingress.yaml
 - datastore-triggers.yaml

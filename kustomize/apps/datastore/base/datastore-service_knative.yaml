@@ -1,0 +1,89 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: datastore
+  # namespace: msp-system
+  # labels:
+  #   app: datastore
+spec:
+  # selector:
+  #   app: datastore
+  template:
+    metadata:
+      annotations:
+        # autoscaling.knative.dev/min-scale: "2"
+        autoscaling.knative.dev/max-scale: "3"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        # - name: datastore
+        # image: uasbase2.pmel.noaa.gov:448/test/datastore@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/datastore:v1.0.3
+        - image: ghcr.io/noaa-pmel/msp/datastore:1.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: DATASTORE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: port
+            - name: DATASTORE_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: daq_id
+            - name: DATASTORE_DB_CLIENT_TYPE
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: db_client_type
+            - name: DATASTORE_DB_CLIENT_HOSTNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: db_client_hostname
+            - name: DATASTORE_DB_DATA_TTL
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: db_data_ttl
+            - name: DATASTORE_DB_REG_DEVICE_DEFINITION_TTL
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: db_reg_device_definition_ttl
+            - name: DATASTORE_DB_REG_DEVICE_INSTANCE_TTL
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: db_reg_device_instance_ttl
+            - name: DATASTORE_DB_CLIENT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: db_client_port
+            - name: DATASTORE_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: knative_broker
+          # resources:
+          #   requests:
+          #     cpu: "500m"
+          #   limits:
+          #     memory: "4Gi"
+          #     cpu: "1000m"
+          ports:
+            # - name: http
+              # containerPort: 8000
+            - containerPort: 8080
+              # protocol: TCP
+      # ports:
+      # - name: http
+      #   protocol: TCP
+      #   # port: 8000
+      #   port: 80
+      #   # targetPort: 8000
+      #   targetPort: 8080
+      # type: ClusterIP  
