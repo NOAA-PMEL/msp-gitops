@@ -18,7 +18,7 @@ metadata:
     eventing.knative.dev/broker.class: Kafka
     # Optional annotation to point to an externally managed kafka topic:
     # kafka.eventing.knative.dev/external.topic: <topic-name>
-  name: default-tmp
+  name: default
   namespace: mspbase01-system
 spec:
   # Configuration specific to this broker.
