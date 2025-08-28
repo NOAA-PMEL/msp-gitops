@@ -50,6 +50,8 @@ data:
     topic envds/+/registry/sync-request both 0 "" ""
     topic envds/controller/settings/request both 0 "" ""
     topic envds/device/settings/request both 0 "" ""
+    topic envds/sensor/settings/request both 0 "" ""
+    topic envds/sensor/settings/request both 0 "" ""
     topic envds/payload03/controller/+/settings/update out 0 "" ""
     topic envds/+/controller/settings/update out 0 "" ""
     topic envds/+/controller-instance/registry/update out 0 "" ""
