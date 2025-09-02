@@ -20,7 +20,19 @@ data:
     envds/mspbase01/device-definition/registry/update,
     envds/mspbase01/device-instance/registry/update,
     envds/mspbase01/controller-definition/registry/update,
-    envds/mspbase01/controller-instance/registry/update
+    envds/mspbase01/controller-instance/registry/update,
+    envds/+/+/+/status/update,
+    envds/+/+/+/settings/update,
+    envds/+/+/+/control/update,
+    envds/+/+/+/registry/update,
+    envds/+/device-instance/registry/update,
+    envds/controller/settings/update,
+    envds/+/controller/settings/update,
+    envds/+/controller/registry/update,
+    envds/+/controller-instance/registry/update,
+    envds/+/+/+/controller/data/update,   
+    envds/sensor/settings/update,
+    envds/+/sensor/settings/update
   
   
   
