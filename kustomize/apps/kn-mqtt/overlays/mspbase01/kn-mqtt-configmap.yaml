@@ -14,7 +14,8 @@ data:
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
-    envds/+/registry/sync-bcast
+    envds/+/registry/sync-bcast,
+    envds/+/registry/sync-update
   
   
   
