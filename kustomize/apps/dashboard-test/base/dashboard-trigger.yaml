@@ -33,7 +33,7 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: dashboard-sensor-settings-request-rev2
+  name: dashboard-sensor-settings-request-rev3
 spec:
   broker: default
   filter:
