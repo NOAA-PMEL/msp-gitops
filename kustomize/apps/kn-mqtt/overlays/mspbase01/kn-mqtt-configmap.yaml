@@ -14,9 +14,9 @@ data:
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
-    from-payload/envds/+/registry/sync-bcast,
-    from-payload/envds/+/registry/sync-update,
-    from-payload/envds/+/registry/sync-request,
+    envds/+/registry/sync-bcast,
+    envds/+/registry/sync-update,
+    envds/+/registry/sync-request,
     envds/mspbase01/device-definition/registry/update,
     envds/mspbase01/device-instance/registry/update,
     envds/mspbase01/controller-definition/registry/update,
