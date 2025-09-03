@@ -35,7 +35,7 @@ data:
     remote_clientid payload03_mspbase01_bridge
     # address 10.55.169.40:1883
     # address 10.55.169.164:1883
-    topic envds/payload03/sensor/+/data/update out 0 "" ""
+    # topic envds/payload03/sensor/+/data/update out 0 "" ""
     # topic envds/payload03/sensor/+/settings/update out 0 "" ""
     # topic envds/payload03/sensor/+/settings/request in 0 "" ""
     # topic envds/payload03/sensor/+/status/update out 0 "" ""
@@ -45,7 +45,7 @@ data:
     # # topic envds/+/core/+/registry/bcast both 0 "" ""
     # # topic envds/+/core/+/registry/update both 0 "" ""
     # # topic envds/+/core/+/registry/request both 0 "" ""
-    # topic envds/+/registry/sync-bcast both 0 "" ""
+    topic envds/+/registry/sync-bcast both 0 "" ""
     # topic envds/+/registry/sync-update both 0 "" ""
     # topic envds/+/registry/sync-request both 0 "" ""
     # topic envds/controller/settings/request both 0 "" ""
