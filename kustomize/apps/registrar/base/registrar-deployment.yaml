@@ -28,6 +28,11 @@ spec:
               configMapKeyRef:
                 name: registrar
                 key: daq_id
+          - name: REGISTRAR_MQTT_BRIDGE_PREFIX
+            valueFrom:
+              configMapKeyRef:
+                name: registrar
+                key: mqtt_bridge_prefix
           - name: REGISTRAR_KNATIVE_BROKER
             valueFrom:
               configMapKeyRef:
