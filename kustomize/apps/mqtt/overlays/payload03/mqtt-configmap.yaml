@@ -36,12 +36,12 @@ data:
     # address 10.55.169.40:1883
     # address 10.55.169.164:1883
     topic envds/payload03/sensor/+/data/update out 0 "" ""
-    # topic envds/payload03/sensor/+/settings/update out 0 "" ""
-    # topic envds/payload03/sensor/+/settings/request in 0 "" ""
-    # topic envds/payload03/sensor/+/status/update out 0 "" ""
-    # topic envds/payload03/sensor/+/status/request both 0 "" ""
-    # topic envds/payload03/sensor/registry/update out 0 "" ""
-    # topic envds/+/device-instance/registry/update out 0 "" ""
+    topic envds/payload03/sensor/+/settings/update out 0 "" ""
+    topic envds/payload03/sensor/+/settings/request in 0 "" ""
+    topic envds/payload03/sensor/+/status/update out 0 "" ""
+    topic envds/payload03/sensor/+/status/request both 0 "" ""
+    topic envds/payload03/sensor/registry/update out 0 "" ""
+    topic envds/+/device-instance/registry/update out 0 "" ""
     # # topic envds/+/core/+/registry/bcast both 0 "" ""
     # # topic envds/+/core/+/registry/update both 0 "" ""
     # # topic envds/+/core/+/registry/request both 0 "" ""
