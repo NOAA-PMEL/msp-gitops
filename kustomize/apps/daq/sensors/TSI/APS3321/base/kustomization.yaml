@@ -11,3 +11,8 @@ metadata:
 resources:
 - aps3321-deployment.yaml
 - aps3321-service.yaml
+
+configMapGenerator:
+  - name: sensor-definition
+    files:
+      - TSI_APS3321_sensor_definition.json

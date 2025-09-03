@@ -1,0 +1,216 @@
+{
+    "attributes": {
+        "make": {"type": "string", "data": "TSI"},
+        "model": {"type": "string", "data": "APS3321"},
+        "description": {
+            "type": "string",
+            "data": "Aerodynamic particle sizer spectrometer manufactured and distributed by TSI"
+        },
+        "tags": {
+            "type": "char",
+            "data": "aerosol, spectrometer, particles, sizing, aerodynamic, diameter, sensor"
+        },
+        "format_version": {"type": "char", "data": "1.0.0"},
+        "variable_types": {"type": "string", "data": "main, setting, calibration"},
+        "serial_number": {"type": "string", "data": ""}
+    },
+    "dimensions": {"time": 0, "aerodynamic diameter": 52, "side scatter channel": 64},
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "ffff": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Status Flags (4 digit hex)"}
+            }
+        },
+        "stime": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Sample Time (not corrected for dead time)"},
+                "units": {"type": "char", "data": "seconds"}
+            }
+        },
+        "dtime": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Dead Time"},
+                "units": {"type": "char", "data": "milliseconds"}
+            }
+        },
+        "evt1": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Number of Single Hump Events"},
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "evt3": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Number of 3+ Hump Events"},
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "evt4": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Number of Timer Overflow Events"},
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "total": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Total (2-hump) Particles Measured "},
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "particle_counts_accum": {
+            "type": "int",
+            "shape": ["time", "diameter", "channel"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Particle Counts in Each Pulse Height Accumulator Bin (Correlated / Paired Record)"},
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "particle_counts": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Particle Counts in Calibrated Diameter Channels"},
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "particle_counts_ss": {
+            "type": "int",
+            "shape": ["time", "channel", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Particle Counts in Side Scatter Channels"},
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "bpress": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Barometric Inlet Pressure (average over sample time)"},
+                "units": {"type": "char", "data": "mbar"}
+            }
+        },
+        "tflow": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Total Flow (average over sample time)"},
+                "units": {"type": "char", "data": "lpm"}
+            }
+        },
+        "sflow": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Sheath Flow (average over sample time)"},
+                "units": {"type": "char", "data": "lpm"}
+            }
+        },
+        "lpower": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Laser Power (% of maximum power)"},
+                "units": {"type": "char", "data": "%"}
+            }
+        },
+        "lcur": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Laser Current"},
+                "units": {"type": "char", "data": "mA"}
+            }
+        },
+        "spumpv": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Sheath Pump Voltage"},
+                "units": {"type": "char", "data": "V"}
+            }
+        },
+        "tpumpv": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Total Pump Voltage)"},
+                "units": {"type": "char", "data": "V"}
+            }
+        },
+        "itemp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Inlet Temperature"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "btemp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Internal Box Temperature"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "dtemp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Detector Temperature for APD and Optics"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "Vop": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "APD Operating Voltage"},
+                "units": {"type": "char", "data": "V"}
+            }
+        }
+    }
+}

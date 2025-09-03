@@ -53,19 +53,13 @@ spec:
             - name: tsi-aps3321-config
               mountPath: /app/config/sensor.conf
               subPath: sensor.conf
-            # - name: mosquitto-certs
-            #   mountPath: /certs/ca.crt
-            #   subPath: ca.crt
-            # - name: mosquitto-certs
-            #   mountPath: /certs/server.crt
-            #   subPath: server.crt
-            # - name: mosquitto-certs
-            #   mountPath: /certs/server.key
-            #   subPath: server.key
+            - name: sensor-definition
+              mountPath: /app/TSI_APS3321_sensor_definition.json
+              subPath: TSI_APS3321_sensor_definition.json
       volumes:
         - name: tsi-aps3321-config
           configMap:
             name: tsi-aps3321-config
-        # - name: mosquitto-certs
-        #   configMap:
-        #     name: mosquitto-certs
+        - name: sensor-definition
+          configMap:
+            name: sensor-definition

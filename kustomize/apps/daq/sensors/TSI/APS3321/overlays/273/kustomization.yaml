@@ -28,7 +28,7 @@ nameSuffix: "-273"
 #   - deployment.yaml
 
 patches:
-#   # change configmap names to account for s/n suffix
+  # change configmap names to account for s/n suffix
   - target:
       kind: Deployment
       name: tsi-aps3321
@@ -36,7 +36,6 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
         value: tsi-aps3321-config-273
-#       - op: replace 
-#         path: /spec/template/spec/volumes/1/configMap/name
-#         value: sensor-definition-011
-
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: sensor-definition-273
