@@ -15,7 +15,7 @@ data:
     interfaces:
       # default: serial
       default:
-        interface_env_id: payload03p # if omitted, defaults to envds_id of sensor
+        interface_env_id: payload03-hardware # if omitted, defaults to envds_id of sensor
         interface_id: USconverters::USCDR301::usc14
         path: port-1
       #   connection-properties:
