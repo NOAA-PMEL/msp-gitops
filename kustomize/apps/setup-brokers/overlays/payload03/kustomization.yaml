@@ -17,7 +17,7 @@ metadata:
 #   variant: lopez
 
 resources:
-# - ../../base
+- ../../base
 - knative-brokers.yaml
 
 # patches:
