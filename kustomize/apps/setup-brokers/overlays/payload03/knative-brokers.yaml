@@ -6,7 +6,7 @@ metadata:
   name: default
   namespace: payload03-system
   delivery:
-    retry: 5
+    retry: 2
     backoffPolicy: exponential # or linear
     backoffDelay: "PT2.0S"     # or ISO8601 duration
 # ---
