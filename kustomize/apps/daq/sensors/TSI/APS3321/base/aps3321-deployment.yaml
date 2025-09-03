@@ -22,7 +22,7 @@ spec:
         image: ghcr.io/noaa-pmel/msp/tsi-aps3321:0.1.0
         imagePullPolicy: "Always"
         env:
-          - name: ENVDS_CORE_NAMESPACE_PREFEIX
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:
               configMapKeyRef:
                 name: tsi-aps3321-config
