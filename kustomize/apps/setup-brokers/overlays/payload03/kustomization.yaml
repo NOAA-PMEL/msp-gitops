@@ -21,6 +21,7 @@ resources:
 - ../../base
 - knative-brokers.yaml
 
+
 # patches:
 #   # change configmap names to account for s/n suffix
 #   - target:
