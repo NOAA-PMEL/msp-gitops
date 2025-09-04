@@ -10,11 +10,11 @@
             "type": "char",
             "data": "aerosol, spectrometer, particles, sizing, aerodynamic, diameter, sensor"
         },
-        "format_version": {"type": "char", "data": "2.0.0"},
+        "format_version": {"type": "char", "data": "1.0.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "serial_number": {"type": "string", "data": ""}
     },
-    "dimensions": {"time": 0, "diameter": 52, "channel": 64},
+    "dimensions": {"time": 0, "aerodynamic diameter": 52, "side scatter channel": 64},
     "variables": {
         "time": {
             "type": "str",
@@ -210,58 +210,6 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "APD Operating Voltage"},
                 "units": {"type": "char", "data": "V"}
-            }
-        },
-        "diameter": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "nm"}
-            }
-        },
-        "channel": {
-            "type": "int",
-            "shape": ["time", "channel"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Side Scatter Channel"}
-            }
-        },
-        "dN": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "cm-3"}
-            }
-        },
-        "dlogDp": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"}
-            }
-        },
-        "dNdlogDp": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "cm-3"}
-            }
-        },
-        "intN": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "counts"}
             }
         }
     }
