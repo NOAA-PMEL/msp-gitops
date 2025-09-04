@@ -1,0 +1,455 @@
+{
+    "attributes": {
+        "make": {"type": "string", "data": "AerosolDynamics"},
+        "model": {"type": "string", "data": "Spider-MAGIC810"},
+        "description": {
+            "type": "string",
+            "data": "Aerosol particle mobility spectrometer (combines Spider DMA and MAGIC CPC) manufactured by Aerosol Dyanamics and distributed by Aerosol Devices/Handix"
+        },
+        "tags": {
+            "type": "char",
+            "data": "aerosol, cpc, dma, spectrometer, size distribution, particles, concentration, sensor"
+        },
+        "format_version": {"type": "char", "data": "1.0.0"},
+        "variable_types": {"type": "string", "data": "main, setting, calibration"},
+        "serial_number": {"type": "string", "data": ""}
+    },
+    "dimensions": {"time": 0, "diameter": 53},
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "tau": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Ratio of the exponential scan time constant to the gas mean residence time in the classifier"}
+            }
+        },
+        "HV_polarity": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "High Voltage Polarity"}
+            }
+        },
+        "scan_dir": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Scan Sequence Direction"}
+            }
+        },
+        "data_freq": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Data Frequency for Display"},
+                "units": {"type": "char", "data": "Hz"}
+            }
+        },
+        "HV_status": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "High Voltage Status"}
+            }
+        },
+        "vp_rd": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Voltage Polarity and Ramp Direction"}
+            }
+        },
+        "spidermagic_timestamp": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Internal Timestamp"}
+            }
+        },
+        "dew_point": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Dew Point"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "input_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Input T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "input_rh": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Input RH"},
+                "units": {"type": "char", "data": "percent"}
+            }
+        },
+        "cond_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Conditioner T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "init_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Initiator T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "mod_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Moderator T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "opt_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Optics Head T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "heatsink_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Heat Sink T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "case_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Case T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "wick_sensor": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Wick Sensor"},
+                "units": {"type": "char", "data": "percent"}
+            }
+        },
+        "mod_T_sp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Moderator Set Point T"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "humid_exit_dew_point": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {
+                    "type": "char",
+                    "data": "Humidifier Exit Dew Point (estimated)"
+                },
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "wadc": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {
+                    "type": "char",
+                    "data": "Wick Sensor Raw ADC Signal"
+                }
+            }
+        },
+        "DMA_V": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {
+                    "type": "char",
+                    "data": "Voltage (read) supplied to the Spider DMA electrode"
+                },
+                "units": {"type": "char", "data": "Volts"}
+            }
+        },
+        "Qsh": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {
+                    "type": "char",
+                    "data": "Volumetric flowrate of the DMA sheath flow"
+                },
+                "units": {"type": "char", "data": "cm3 min-1"}
+            }
+        },
+        "abs_pressure": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Absolute Pressure"},
+                "units": {"type": "char", "data": "mbar"}
+            }
+        },
+        "flow": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Volumetric Flow Rate"},
+                "units": {"type": "char", "data": "cm3 min-1"},
+                "valid_min": {"type": "float", "data": 0.0},
+                "valid_max": {"type": "float", "data": 5.0}
+            }
+        },
+        "pHt2.%": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Upper Threshold.Percentile"},
+                "description": {
+                    "type": "char",
+                    "data": "Two pieces of information. The number before the decimal is the upper threshold in mV. The number after the decimal represents the percentage of light-scattering pulses that were large enough to exceed the upper threshold. Under default settings dhtr2 represents the median pulse height."
+                }
+            }
+        },
+        "status_hex": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {
+                    "type": "char",
+                    "data": "Compact display of status codes"
+                }
+            }
+        },
+        "status_ascii": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {
+                    "type": "char",
+                    "data": "Alphabetic list of all abnormal status codes"
+                }
+            }
+        },
+        "spidermagic_serial_number": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {
+                    "type": "char",
+                    "data": "Serial Number"
+                }
+            }
+        },
+        "Vi": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Starting Voltage"},
+                "units": {"type": "char", "data": "volts"}
+            }
+        },
+        "Vf": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Ending Voltage"},
+                "units": {"type": "char", "data": "volts"}
+            }
+        },
+        "Vmax": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Maximum Voltage"},
+                "units": {"type": "char", "data": "volts"}
+            }
+        },
+        "Tc": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Time Constant"}
+            }
+        },
+        "elap_time": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Elapsed Time during Scan"},
+                "units": {"type": "char", "data": "seconds"}
+            }
+        },
+        "scan_status": {
+            "type": "char",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Scan Status"}
+            }
+        },
+        "set_V": {
+            "type": "float",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Set Voltage"},
+                "units": {"type": "char", "data": "volts"}
+            }
+        },
+        "read_V": {
+            "type": "float",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Read Voltage"},
+                "units": {"type": "char", "data": "volts"}
+            }
+        },
+        "concentration": {
+            "type": "float",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Concentration"},
+                "units": {"type": "char", "data": "cm-3"}
+            }
+        },
+        "raw_counts": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Raw Counts"},
+                "units": {"type": "char", "data": "counts"}
+            }
+        },
+        "dead_counts": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Dead Counts"},
+                "units": {"type": "char", "data": "counts"}
+            }
+        },
+        "sh_flow": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Sheath Flow"},
+                "units": {"type": "char", "data": "cm3 min-1"}
+            }
+        },
+        "aer_flow": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Aerosol Flow"},
+                "units": {"type": "char", "data": "cm3 min-1"}
+            }
+        },
+        "diameter": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Diameter"},
+                "units": {"type": "char", "data": "nm"}
+            }
+        },
+        "dN": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Diameter"},
+                "units": {"type": "char", "data": "cm-3"}
+            }
+        },
+        "dlogDp": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Diameter"}
+            }
+        },
+        "dNdlogDp": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Diameter"},
+                "units": {"type": "char", "data": "cm-3"}
+            }
+        },
+        "intN": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Diameter"},
+                "units": {"type": "char", "data": "counts"}
+            }
+        }
+    }
+}
