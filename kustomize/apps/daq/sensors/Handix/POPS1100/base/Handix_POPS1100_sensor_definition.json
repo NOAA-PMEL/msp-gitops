@@ -31,7 +31,7 @@
                 "long_name": {"type": "string", "data": "POPS ID"}
             }
         },
-        "POPS_DateTime": {
+        "POPS_DateTime_1": {
             "type": "str",
             "shape": ["time"],
             "attributes": {
@@ -405,19 +405,6 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Raw bin counts for each diameter"},
                 "units": {"type": "char", "data": "nm"}
-            }
-        },
-        "pump_power": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "char", "data": "Pump Power"},
-                "units": {"type": "char", "data": "count"},
-                "valid_min": {"type": "int", "data": 0},
-                "valid_max": {"type": "int", "data": 1},
-                "step_increment": {"type": "int", "data": 1},
-                "default_value": {"type": "int", "data": 1}
             }
         }
     }
