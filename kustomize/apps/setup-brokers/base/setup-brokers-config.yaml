@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fake-cm-file
+  # namespace: msp-system
+data:
+  fake: fake
