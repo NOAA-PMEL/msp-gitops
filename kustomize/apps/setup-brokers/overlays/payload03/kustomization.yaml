@@ -3,6 +3,7 @@ kind: Kustomization
 metadata:
   name: setup-brokers
 
+namespace: payload03-system
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
