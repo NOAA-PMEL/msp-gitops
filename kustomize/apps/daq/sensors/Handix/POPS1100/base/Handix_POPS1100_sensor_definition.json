@@ -10,7 +10,7 @@
             "type": "char",
             "data": "aerosol, particles, concentration, sensor, sizing, size distribution"
         },
-        "format_version": {"type": "char", "data": "1.0.0"},
+        "format_version": {"type": "char", "data": "2.0.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"}
     },
     "dimensions": {"time": 0},
