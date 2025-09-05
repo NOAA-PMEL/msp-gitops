@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: handix-pops1100-347-payload03
+  name: lantronix-xport-magic250-154
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/sensors/Handix/POPS1100/overlays/347
+    path: kustomize/apps/daq/interfaces/Lantronix/XPort/overlays/MAGIC250-154
     # kustomize:
     #   patches:
     #     - patch: |-
