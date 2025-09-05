@@ -10,7 +10,7 @@
             "type": "char",
             "data": "aerosol, particles, concentration, sensor, sizing, size distribution"
         },
-        "format_version": {"type": "char", "data": "4.0.0"},
+        "format_version": {"type": "char", "data": "3.0.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"}
     },
     "dimensions": {"time": 0, "diameter": 16},
@@ -31,6 +31,14 @@
                 "long_name": {"type": "string", "data": "POPS ID"}
             }
         },
+        "POPS_DateTime_1": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "POPS DateTime string"}
+            }
+        },
         "POPS_DateTime": {
             "type": "str",
             "shape": ["time"],
@@ -44,7 +52,7 @@
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Seconds since midnight"},
+                "long_name": {"type": "char", "data": "Seconds since midngight"},
                 "units": {"type": "char", "data": "sec"}
             }
         },
