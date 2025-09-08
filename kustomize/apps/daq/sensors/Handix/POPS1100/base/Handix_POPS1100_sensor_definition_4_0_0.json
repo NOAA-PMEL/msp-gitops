@@ -10,7 +10,7 @@
             "type": "char",
             "data": "aerosol, particles, concentration, sensor, sizing, size distribution"
         },
-        "format_version": {"type": "char", "data": "4.1.0"},
+        "format_version": {"type": "char", "data": "4.0.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "device_type": {
             "type": "string",
@@ -18,7 +18,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "kustomize/apps/daq/sensors/Handix/POPS1100/base/Handix_POPS1100_sensor_definition.json"
+            "data": ""
         } 
     },
     "dimensions": {"time": 0, "diameter": 16},
