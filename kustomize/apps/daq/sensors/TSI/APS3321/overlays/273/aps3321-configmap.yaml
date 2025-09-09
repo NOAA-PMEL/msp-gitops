@@ -15,6 +15,8 @@ data:
   sensor.conf: |
     serial_number: "273"
     daq_id: payload03
+    sampling_frequency_sec: 30
+
     # daq_id: mspbase01
     interfaces:
       # default: serial
