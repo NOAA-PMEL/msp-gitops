@@ -10,9 +10,17 @@
             "type": "char",
             "data": "aerosol, spectrometer, particles, sizing, aerodynamic, diameter, sensor"
         },
-        "format_version": {"type": "char", "data": "2.0.0"},
+        "format_version": {"type": "char", "data": "2.1.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
-        "serial_number": {"type": "string", "data": ""}
+        "serial_number": {"type": "string", "data": ""},
+        "device_type": {
+            "type": "string",
+            "data": "sensor"
+        },
+        "change_log": {
+            "type": "string",
+            "data": "2.1.0: added device_type and change_log attr; cleaned up long names; changed diameter units"
+        } 
     },
     "dimensions": {"time": 0, "diameter": 52, "channel": 64},
     "variables": {
@@ -217,8 +225,8 @@
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "nm"}
+                "long_name": {"type": "string", "data": "Diameter (aero)"},
+                "units": {"type": "string", "data": "um"}
             }
         },
         "channel": {
@@ -234,7 +242,7 @@
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
+                "long_name": {"type": "char", "data": "dN"},
                 "units": {"type": "char", "data": "cm-3"}
             }
         },
@@ -243,7 +251,7 @@
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"}
+                "long_name": {"type": "char", "data": "dlogDp"}
             }
         },
         "dNdlogDp": {
@@ -251,17 +259,17 @@
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
+                "long_name": {"type": "char", "data": "dN/dlogDp"},
                 "units": {"type": "char", "data": "cm-3"}
             }
         },
         "intN": {
             "type": "int",
-            "shape": ["time", "diameter"],
+            "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "counts"}
+                "long_name": {"type": "char", "data": "Integral Number Concentration"},
+                "units": {"type": "char", "data": "cm-3"}
             }
         }
     }

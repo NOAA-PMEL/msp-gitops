@@ -10,15 +10,19 @@
             "type": "char",
             "data": "aerosol, particles, concentration, sensor, sizing, size distribution"
         },
-        "format_version": {"type": "char", "data": "4.1.0"},
+        "format_version": {"type": "char", "data": "5.0.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        },
         "device_type": {
             "type": "string",
             "data": "sensor"
         },
         "change_log": {
             "type": "string",
-            "data": "kustomize/apps/daq/sensors/Handix/POPS1100/base/Handix_POPS1100_sensor_definition.json"
+            "data": "5.0.0: added dN, dNdlogDp, dlogDp, intN; cleaned up long_names"
         } 
     },
     "dimensions": {"time": 0, "diameter": 16},
@@ -405,6 +409,42 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Raw bin counts for each diameter"},
                 "units": {"type": "char", "data": "nm"}
+            }
+        },
+        "dN": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "dN"},
+                "units": {"type": "char", "data": "cm-3"}
+            }
+        },
+        "dlogDp": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "dlogDp"}
+            }
+        },
+        "dNdlogDp": {
+            "type": "int",
+            "shape": ["time", "diameter"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "dN/dlogDp"},
+                "units": {"type": "string", "data": "cm-3"},
+                "description": {"type": "string", "data": "Log-normal number size distribution"}
+            }
+        },
+        "intN": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Integral Number Concentration"},
+                "units": {"type": "char", "data": "cm-3"}
             }
         }
     }

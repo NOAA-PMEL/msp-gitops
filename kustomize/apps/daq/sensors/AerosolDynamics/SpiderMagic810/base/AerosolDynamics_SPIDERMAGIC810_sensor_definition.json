@@ -10,9 +10,17 @@
             "type": "char",
             "data": "aerosol, cpc, dma, spectrometer, size distribution, particles, concentration, sensor"
         },
-        "format_version": {"type": "char", "data": "1.0.0"},
+        "format_version": {"type": "char", "data": "1.2.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
-        "serial_number": {"type": "string", "data": ""}
+        "serial_number": {"type": "string", "data": ""},
+        "device_type": {
+            "type": "string",
+            "data": "sensor"
+        },
+        "change_log": {
+            "type": "string",
+            "data": "1.2.0: cleaned up long names"
+        } 
     },
     "dimensions": {"time": 0, "diameter": 53},
     "variables": {
@@ -421,7 +429,7 @@
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
+                "long_name": {"type": "char", "data": "dN"},
                 "units": {"type": "char", "data": "cm-3"}
             }
         },
@@ -430,7 +438,7 @@
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"}
+                "long_name": {"type": "string", "data": "dlogDp"}
             }
         },
         "dNdlogDp": {
@@ -438,17 +446,18 @@
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "cm-3"}
+                "long_name": {"type": "string", "data": "dN/dlogDp"},
+                "units": {"type": "string", "data": "cm-3"},
+                "description": {"type": "string", "data": "Log-normal number size distribution"}
             }
         },
         "intN": {
             "type": "int",
-            "shape": ["time", "diameter"],
+            "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Diameter"},
-                "units": {"type": "char", "data": "counts"}
+                "long_name": {"type": "char", "data": "Integral Number Concentration"},
+                "units": {"type": "char", "data": "cm-3"}
             }
         }
     }
