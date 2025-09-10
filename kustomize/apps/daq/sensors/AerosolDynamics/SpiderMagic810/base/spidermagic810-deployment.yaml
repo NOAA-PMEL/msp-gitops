@@ -54,8 +54,8 @@ spec:
               mountPath: /app/config/sensor.conf
               subPath: sensor.conf
             - name: sensor-definition
-              mountPath: /app/AerosolDynamics_SPIDERMAGIC810_sensor_definition.json
-              subPath: AerosolDynamics_SPIDERMAGIC810_sensor_definition.json
+              mountPath: /app/AerosolDynamics_SpiderMagic810_sensor_definition.json
+              subPath: AerosolDynamics_SpiderMagic810_sensor_definition.json
       volumes:
         - name: aerosoldynamics-spidermagic810-config
           configMap:
