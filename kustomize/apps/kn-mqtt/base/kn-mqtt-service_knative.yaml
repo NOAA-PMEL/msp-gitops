@@ -40,12 +40,12 @@ spec:
               configMapKeyRef:
                 name: kn-mqtt-adapter
                 key: knative_broker
-        # resources:
-        #   requests:
-        #     cpu: "200m"
-        #   limits:
-        #     memory: "1Gi"
-        #     cpu: "1000m"
+        resources:
+          requests:
+            cpu: "200m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
         ports:
           - containerPort: 8080
         # - name: http
