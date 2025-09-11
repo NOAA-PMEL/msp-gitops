@@ -72,9 +72,9 @@ spec:
                   key: knative_broker
           resources:
             requests:
-              cpu: "200"
+              cpu: "200m"
             limits:
-              memory: "2Gi"
+              memory: "1Gi"
               cpu: "500m"
           ports:
             # - name: http
