@@ -2,14 +2,14 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: kn-mqtt-adapter
-  annotations:
-    autoscaling.knative.dev/min-scale: "1"
-    autoscaling.knative.dev/max-scale: "3"
 spec:
   template:
     metadata:
-      labels:
-        app: kn-mqtt-adapter
+      # labels:
+      #   app: kn-mqtt-adapter
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "3"
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
