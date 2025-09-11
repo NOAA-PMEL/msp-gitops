@@ -4,6 +4,7 @@ metadata:
   name: kn-mqtt-adapter
   annotations:
     autoscaling.knative.dev/min-scale: "1"
+    autoscaling.knative.dev/max-scale: "3"
 spec:
   template:
     metadata:

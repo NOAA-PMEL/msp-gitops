@@ -23,12 +23,12 @@ resources:
 # - adapter-triggers.yaml
 # - datastore-sealedsecrets.yaml
 
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      kind: Deployment
-      name: kn-mqtt-adapter
-    patch: |-
-      - op: replace 
-        path: /spec/replicas
-        value: 2
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Deployment
+#       name: kn-mqtt-adapter
+#     patch: |-
+#       - op: replace 
+#         path: /spec/replicas
+#         value: 2
