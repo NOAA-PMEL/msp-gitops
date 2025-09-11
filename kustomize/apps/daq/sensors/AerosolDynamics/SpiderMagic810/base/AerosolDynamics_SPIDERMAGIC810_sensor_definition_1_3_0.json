@@ -10,7 +10,7 @@
             "type": "char",
             "data": "aerosol, cpc, dma, spectrometer, size distribution, particles, concentration, sensor"
         },
-        "format_version": {"type": "char", "data": "1.3.1"},
+        "format_version": {"type": "char", "data": "1.3.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "serial_number": {"type": "string", "data": ""},
         "device_type": {
@@ -19,7 +19,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "1.3.1: changed some types from int to float; 1.3.0: changed diameter dimension to 127; 1.2.0: cleaned up long names"
+            "data": "1.3.0: changed diameter dimension to 127; 1.2.0: cleaned up long names"
         } 
     },
     "dimensions": {"time": 0, "diameter": 127},
@@ -407,7 +407,7 @@
             }
         },
         "aer_flow": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -416,7 +416,7 @@
             }
         },
         "diameter": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -425,7 +425,7 @@
             }
         },
         "dN": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -434,7 +434,7 @@
             }
         },
         "dlogDp": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -442,7 +442,7 @@
             }
         },
         "dNdlogDp": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -452,7 +452,7 @@
             }
         },
         "intN": {
-            "type": "float",
+            "type": "int",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
