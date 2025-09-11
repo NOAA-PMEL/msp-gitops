@@ -10,6 +10,7 @@ spec:
       annotations:
         autoscaling.knative.dev/min-scale: "1"
         autoscaling.knative.dev/max-scale: "3"
+        autoscaling.knative.dev/target: "10"
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
