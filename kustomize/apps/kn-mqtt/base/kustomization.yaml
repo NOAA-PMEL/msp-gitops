@@ -9,6 +9,7 @@ metadata:
 #   app: nginx
 
 resources:
-- kn-mqtt-deployment.yaml
-- kn-mqtt-service.yaml
+# - kn-mqtt-deployment.yaml
+# - kn-mqtt-service.yaml
+- kn-mqtt-service_knative.yaml
 # - kn-mqtt-ingress.yaml

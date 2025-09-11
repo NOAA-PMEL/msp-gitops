@@ -10,8 +10,8 @@ spec:
       type: envds.data.update
   subscriber:
     ref:
-      # apiVersion: serving.knative.dev/v1
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
       kind: Service
       name: datastore
       # namespace: msp-system
@@ -65,8 +65,8 @@ spec:
       type: envds.device-definition.registry.update
   subscriber:
     ref:
-      # apiVersion: serving.knative.dev/v1
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
       kind: Service
       name: datastore
       # namespace: msp-system
@@ -84,8 +84,8 @@ spec:
       type: envds.device.registry.update
   subscriber:
     ref:
-      # apiVersion: serving.knative.dev/v1
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
       kind: Service
       name: datastore
       # namespace: msp-system
@@ -103,8 +103,8 @@ spec:
       type: envds.controller.data.update
   subscriber:
     ref:
-      # apiVersion: serving.knative.dev/v1
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
       kind: Service
       name: datastore
       # namespace: msp-system
@@ -122,8 +122,8 @@ spec:
       type: envds.controller-definition.registry.update
   subscriber:
     ref:
-      # apiVersion: serving.knative.dev/v1
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
       kind: Service
       name: datastore
       # namespace: msp-system
@@ -141,8 +141,8 @@ spec:
       type: envds.controller.registry.update
   subscriber:
     ref:
-      # apiVersion: serving.knative.dev/v1
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
       kind: Service
       name: datastore
       # namespace: msp-system
