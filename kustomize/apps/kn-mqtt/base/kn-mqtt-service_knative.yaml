@@ -14,8 +14,8 @@ spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-      - name: kn-mqtt-adapter
-        image: ghcr.io/noaa-pmel/msp/kn-mqtt-adapter:0.1.6
+      # - name: kn-mqtt-adapter
+      - image: ghcr.io/noaa-pmel/msp/kn-mqtt-adapter:0.1.6
         imagePullPolicy: "Always"
         env:
           - name: KN_MQTT_MQTT_BROKER
