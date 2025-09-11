@@ -19,7 +19,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "1.3.1: changed some types from int to float; 1.3.0: changed diameter dimension to 127; 1.2.0: cleaned up long names"
+            "data": "1.3.1: changed some types; 1.3.0: changed diameter dimension to 127; 1.2.0: cleaned up long names"
         } 
     },
     "dimensions": {"time": 0, "diameter": 127},
