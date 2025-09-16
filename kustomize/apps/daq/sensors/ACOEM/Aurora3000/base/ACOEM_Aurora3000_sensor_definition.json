@@ -1,0 +1,189 @@
+{
+    "attributes": {
+        "make": {
+            "type": "string",
+            "data": "ACOEM"},
+        "model": {
+            "type": "string",
+            "data": "Aurora3000"},
+        "description": {
+            "type": "string",
+            "data": "Three wavelength interating nephelometer manufactured and distributed by ACOEM / Ecotech"
+        },
+        "tags": {
+            "type": "char",
+            "data": "aerosol, nephelometer, scattering, backscatter, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        },
+        "variable_types": {
+            "type": "string", "data":
+            "main, setting, calibration"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        },
+        "device_type": {
+            "type": "string",
+            "data": "sensor"
+        }
+    },
+    "dimensions": {
+        "time": 0
+    },
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "aurora_date_time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Internal Date and Timestamp"}
+            }
+        },
+        "scat_coef_ch1_red": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Channel 1 Scattering Coefficient (Red)"},
+                "units": {"type": "char", "data": "Mm-1"},
+                "wavelength": {"type": "int", "data": 635},
+                "wavelength_units": {"type": "char", "data": "nm"}
+            }
+        },
+        "scat_coef_ch2_green": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Channel 2 Scattering Coefficient (Green)"},
+                "units": {"type": "char", "data": "Mm-1"},
+                "wavelength": {"type": "int", "data": 525},
+                "wavelength_units": {"type": "char", "data": "nm"}
+            }
+        },
+        "scat_coef_ch3_blue": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Channel 3 Scattering Coefficient (Blue)"},
+                "units": {"type": "char", "data": "Mm-1"},
+                "wavelength": {"type": "int", "data": 450},
+                "wavelength_units": {"type": "char", "data": "nm"}
+            }
+        },
+        "backscatter_ch1_red": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Channel 1 Backscatter (Red)"},
+                "units": {"type": "char", "data": "Mm-1"},
+                "wavelength": {"type": "int", "data": 635},
+                "wavelength_units": {"type": "char", "data": "nm"}
+            }
+        },
+        "backscatter_ch2_green": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Channel 2 Backscatter (Green)"},
+                "units": {"type": "char", "data": "Mm-1"},
+                "wavelength": {"type": "int", "data": 525},
+                "wavelength_units": {"type": "char", "data": "nm"}
+            }
+        },
+        "backscatter_ch3_blue": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Channel 3 Backscatter (Blue)"},
+                "units": {"type": "char", "data": "Mm-1"},
+                "wavelength": {"type": "int", "data": 450},
+                "wavelength_units": {"type": "char", "data": "nm"}
+            }
+        },
+        "sample_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Sample Temperature"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "enclosure_T": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Enclosure Temperature"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "rh": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Relative Humidity"},
+                "units": {"type": "char", "data": "%"}
+            }
+        },
+        "pressure": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Barometric Pressure"},
+                "units": {"type": "char", "data": "%"}
+            }
+        },
+        "major_state": {
+            "type": "string",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Major State"}
+            }
+        },
+        "DIO_state": {
+            "type": "string",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "DIO State"}
+            }
+        },
+        "Dark_count_avg": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Dark Count (moving average)"}
+            }
+        },
+        "Dark_count_read": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Last Dark Count Reading"}
+            }
+        }
+    }
+}
