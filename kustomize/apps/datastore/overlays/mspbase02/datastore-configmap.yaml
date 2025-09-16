@@ -4,8 +4,13 @@ metadata:
   name: datastore
   # namespace: msp-system
 data:
+  daq_id: mspbase02
   db_client_type: redis
   db_client_hostname: redis.mspbase02-system
+  db_client_port: '6379'
+  db_data_ttl: '600'
+  db_reg_device_definition_ttl: '0'
+  db_reg_device_instance_ttl: '600'
   
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"

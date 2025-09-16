@@ -20,6 +20,6 @@ namespace: mspbase02-system
 resources:
 - ../../base
 - kn-mqtt-configmap.yaml
-- adapter-triggers.yaml
+# - adapter-triggers.yaml
 # - datastore-sealedsecrets.yaml
 
