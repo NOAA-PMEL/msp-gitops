@@ -1,0 +1,231 @@
+{
+    "attributes": {
+        "make": {
+            "type": "string",
+            "data": "Vaisala"
+        },
+        "model": {
+            "type": "string",
+            "data": "WXT536"
+        },
+        "description": {
+            "type": "string",
+            "data": "Weather Transmitter manufactured and distributed by Vaisala"
+        },
+        "tags": {
+            "type": "char",
+            "data": "weather, met, wind, rain, temperature, pressure, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, setting, calibration"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""}
+    },
+    "dimensions": {"time": 0},
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "Dn": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Wind Direction Minimum"},
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "Dm": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Wind Direction Average"},
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "Dx": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Wind Direction Maximum"},
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "Sn": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Wind Speed Minimum"},
+                "units": {"type": "char", "data": "m/s"}
+            }
+        },
+        "Sm": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Wind Speed Average"},
+                "units": {"type": "char", "data": "m/s"}
+            }
+        },
+        "Sx": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Wind Speed Maximum"},
+                "units": {"type": "char", "data": "m/s"}
+            }
+        },
+        "Ta": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Air Temperature"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "Ua": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Relative Humidity"},
+                "units": {"type": "char", "data": "%"}
+            }
+        },
+        "Pa": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Air Pressure"},
+                "units": {"type": "char", "data": "hPa"}
+            }
+        },
+        "Rc": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Rain Accumulation"},
+                "units": {"type": "char", "data": "mm"}
+            }
+        },
+        "Rd": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Rain Duration"},
+                "units": {"type": "char", "data": "seconds"}
+            }
+        },
+        "Ri": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Rain Intensity"},
+                "units": {"type": "char", "data": "mm/h"}
+            }
+        },
+        "Hc": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Hail Accumulation"},
+                "units": {"type": "char", "data": "hits/cm2"}
+            }
+        },
+        "Hd": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Hail Duration"},
+                "units": {"type": "char", "data": "seconds"}
+            }
+        },
+        "Hi": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Hail Intensity"},
+                "units": {"type": "char", "data": "hits/cm2h"}
+            }
+        },
+        "Rp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Rain Peak Intensity"},
+                "units": {"type": "char", "data": "mm/h"}
+            }
+        },
+        "Hp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Hail Peak Intensity"},
+                "units": {"type": "char", "data": "hits/cm2h"}
+            }
+        },
+        "Th": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Heating Temperature"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "Vh": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Heating Voltage"},
+                "units": {"type": "char", "data": "V"}
+            }
+        },
+        "Vs": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Supply Voltage"},
+                "units": {"type": "char", "data": "V"}
+            }
+        },
+        "Vr": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "3.5V Reference Voltage"},
+                "units": {"type": "char", "data": "V"}
+            }
+        }
+    }
+}

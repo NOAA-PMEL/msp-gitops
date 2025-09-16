@@ -11,3 +11,8 @@ metadata:
 resources:
 - wxt536-deployment.yaml
 - wxt536-service.yaml
+
+configMapGenerator:
+  - name: sensor-definition
+    files:
+      - Vaisala_WXT536_sensor_definition.json
