@@ -28,13 +28,12 @@ data:
     protocol mqtt
 
     # Bridge
-    # connection 172.23.140.152
-    # address 172.23.140.152:1884
-    connection payload02_mspbase01_bridge
-    remote_clientid payload02_mspbase01_bridge_id
-    address 10.55.169.210:1883
-    # address 10.55.169.40:1883
-    # address 10.55.169.164:1883
+    # connection payload02_mspbase01_bridge
+    # remote_clientid payload02_mspbase01_bridge_id
+    # address 10.55.169.210:1883
+    connection payload02_mspbase02_bridge
+    remote_clientid payload02_mspbase02_bridge_id
+    address 10.55.169.211:1883
     topic envds/payload02/sensor/+/data/update out 0 "" ""
     # topic envds/payload02/sensor/+/settings/update out 0 "" ""
     topic envds/payload02/sensor/+/settings/request in 0 "" ""

@@ -6,23 +6,23 @@ metadata:
 data:
   # mqtt_bridge_host: "0.0.0.0"
   # mqtt_bridge_port: 80
-  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase02-system/default"
+  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload02-system/default"
 
-  mqtt_broker: "mqtt.mspbase02-system"
+  mqtt_broker: "mqtt.payload02-system"
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
-  mqtt_topic_subscriptions: |
-    /envds/+/+/+/data/update   
-    /envds/+/+/+/status/update
-    /envds/+/+/+/setting/update
-    /envds/+/+/+/control/update
-    payload/envds/+/registry/sync-bcast,
-    payload/envds/+/registry/sync-update,
-    payload/envds/+/registry/sync-request,
-    envds/+/device-definition/registry/update,
-    envds/+/device-instance/registry/update,
-    envds/+/controller-definition/registry/update,
-    envds/+/controller-instance/registry/update,
+  mqtt_topic_subscriptions: >
+    envds/+/+/+/data/update,   
+    main/envds/+/registry/sync-bcast,
+    main/envds/+/registry/sync-update,
+    main/envds/+/registry/sync-request,
+    envds/payload02/device-definition/registry/update,
+    envds/payload02/device-instance/registry/update,
+    envds/payload02/controller-definition/registry/update,
+    envds/payload02/controller-instance/registry/update,
+    envds/+/+/+/status/update,
+    envds/+/+/+/settings/update,
+    envds/+/+/+/control/update,
     envds/+/+/+/registry/update,
     envds/controller/settings/update,
     envds/+/controller/settings/update,
@@ -30,10 +30,10 @@ data:
     envds/+/+/+/controller/data/update,   
     envds/sensor/settings/update,
     envds/+/sensor/settings/update
-  
 
-  
-  
+# old subscriptions:
+# envds/+/+/+/registry/update
+
   # mqtt_broker: "mosquitto.default"
   # mqtt_port: "1883"
   # # mqtt_topic_filter: "sensor/#"

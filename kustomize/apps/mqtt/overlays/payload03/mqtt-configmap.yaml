@@ -28,13 +28,12 @@ data:
     protocol mqtt
 
     # Bridge
-    # connection 172.23.140.152
-    # address 172.23.140.152:1884
-    connection payload03_mspbase01_bridge
-    address 10.55.169.210:1883
-    remote_clientid payload03_mspbase01_bridge
-    # address 10.55.169.40:1883
-    # address 10.55.169.164:1883
+    # connection payload03_mspbase01_bridge
+    # address 10.55.169.210:1883
+    # remote_clientid payload03_mspbase01_bridge
+    connection payload03_mspbase02_bridge
+    address 10.55.169.211:1883
+    remote_clientid payload03_mspbase02_bridge
     topic envds/payload03/sensor/+/data/update out 0 "" ""
     topic envds/payload03/sensor/+/settings/update out 0 "" ""
     topic envds/payload03/sensor/+/settings/request in 0 "" ""
@@ -42,23 +41,12 @@ data:
     topic envds/payload03/sensor/+/status/request both 0 "" ""
     topic envds/payload03/sensor/registry/update out 0 "" ""
     topic envds/+/device-instance/registry/update out 0 "" ""
-    # # topic envds/+/core/+/registry/bcast both 0 "" ""
-    # # topic envds/+/core/+/registry/update both 0 "" ""
-    # # topic envds/+/core/+/registry/request both 0 "" ""
-    # topic envds/to-parent/registry/sync-event out 0 "" ""
-    # topic envds/from-parent/registry/sync-event in 0 "" ""
     topic payload/envds/+/registry/sync-bcast out 0 "" ""
     topic payload/envds/+/registry/sync-update out 0 "" ""
     topic payload/envds/+/registry/sync-request out 0 "" ""
     topic main/envds/+/registry/sync-bcast in 0 "" ""
     topic main/envds/+/registry/sync-update in 0 "" ""
     topic main/envds/+/registry/sync-request in 0 "" ""
-    # topic envds/payload03/registry/sync-bcast out 0 "" "payload/"
-    # topic envds/mspbase01/registry/sync-bcast in 0 "" "payload/"
-    # topic envds/payload03/registry/sync-update out 0 "" "payload/"
-    # topic envds/mspbase01/registry/sync-update in 0 "" "payload/"
-    # topic envds/payload03/registry/sync-request out 0 "" "payload/"
-    # topic envds/mspbase01/registry/sync-request in 0 "" "payload/"
     topic envds/controller/settings/request both 0 "" ""
     topic envds/device/settings/request both 0 "" ""
     topic envds/sensor/settings/request both 0 "" ""
