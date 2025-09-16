@@ -6,12 +6,11 @@ metadata:
   labels:
     app: usconverters-uscdr301
 data:
-  namespace_prefix: mspbase02 
   interface.conf: |
-    uid: 10.55.169.207
+    uid: usc218
     # serial_number: "1234"
     # daq_id: clearsky
-    host: 10.55.169.207
+    host: 10.55.169.218
     paths:
       port-1:
           # host: 10.55.169.52

@@ -3,6 +3,7 @@ kind: Kustomization
 metadata:
   name: usconverters-uscdr301
 
+
 namespace: mspbase02-hardware
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -10,17 +11,17 @@ namespace: mspbase02-hardware
 #   app: nginx
 
 # resources:
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# namePrefix: dev-
-# commonLabels:
-#   app: nginx
-#   variant: lopez
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: usconverters-uscdr301
+#     variant: test
 
 resources:
 - ../../base
 - USCDR301-configmap.yaml
 
-nameSuffix: -usc207
+nameSuffix: -usc218
 # patchesStrategicMerge:
 #   - deployment.yaml
