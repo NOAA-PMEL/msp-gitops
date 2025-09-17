@@ -6,6 +6,8 @@ metadata:
   labels:
     app: usconverters-uscdr301
 data:
+  namespace_prefix: mspbase02
+  envds_env_id: mspbase02
   interface.conf: |
     uid: usc218
     # serial_number: "1234"
