@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: kn-mqtt-adapter
+  name: registrar
 
 namespace: mspbase02-system
 # Example configuration for the webserver
@@ -20,6 +20,6 @@ namespace: mspbase02-system
 resources:
 - ../../base
 - registrar-configmap.yaml
-- adapter-triggers.yaml
+- registrar-triggers.yaml
 # - datastore-sealedsecrets.yaml
 
