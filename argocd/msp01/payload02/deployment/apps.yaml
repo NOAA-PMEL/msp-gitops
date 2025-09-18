@@ -9,7 +9,8 @@ spec:
   project: msp
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
-    targetRevision: dev-hardware
+    # targetRevision: dev-hardware
+    targetRevision: HEAD
     path: argocd/msp01/payload02/apps
     # sources:
     # - repoURL: https://github.com/derekcoffman/test-gitops.git
