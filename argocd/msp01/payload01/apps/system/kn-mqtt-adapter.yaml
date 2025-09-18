@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kn-mqtt-payload01
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: msp
+  source:
+    repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+    targetRevision: HEAD
+    path: kustomize/apps/kn-mqtt/overlays/payload01
+  destination:
+    server: https://kubernetes.default.svc
+    # namespace: msp-system
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+  #   syncOptions:
+  #     - RespectIgnoreDifferences=true
+  # ignoreDifferences:
+  #   - jsonPointers:
+  #     - /spec/volumeName
+  #     kind: PersistentVolumeClaim
