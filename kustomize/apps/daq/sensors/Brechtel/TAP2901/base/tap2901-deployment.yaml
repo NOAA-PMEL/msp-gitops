@@ -14,6 +14,8 @@ spec:
       labels:
         app: brechtel-tap2901
     spec:
+      imagePullSecrets:
+        - name: ghcr-ro-secret
       containers:
       - name: brechtel-tap2901
         # image: registry-msp:5000/msp/sensor/brechtel-tap2901:0.1.0
