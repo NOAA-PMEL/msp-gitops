@@ -1,21 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: kn-mqtt-adapter
+  name: registrar
   # namespace: msp-system
 data:
   # mqtt_bridge_host: "0.0.0.0"
   # mqtt_bridge_port: 80
+  daq_id: mspbase02
+  mqtt_bridge_prefix: main
+
+  port: "80"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase02-system/default"
 
-  mqtt_broker: "mqtt.mspbase02-system"
-  mqtt_port: "1883"
-  # mqtt_topic_filter: "instrument/#"
-  mqtt_topic_subscriptions: |
-    /envds/+/+/+/data/update   
-    /envds/+/+/+/status/update
-    /envds/+/+/+/setting/update
-    /envds/+/+/+/control/update
 
   
   

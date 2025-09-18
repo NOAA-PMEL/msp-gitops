@@ -25,3 +25,13 @@ resources:
 nameSuffix: -usc219
 # patchesStrategicMerge:
 #   - deployment.yaml
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: Deployment
+      name: usconverters-uscdr301
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: usconverters-uscdr301-config-usc219
