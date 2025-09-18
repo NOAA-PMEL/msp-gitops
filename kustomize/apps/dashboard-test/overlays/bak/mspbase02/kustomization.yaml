@@ -3,8 +3,6 @@ kind: Kustomization
 metadata:
   name: dashboard
 
-namespace: mspbase02-system
-
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -21,6 +19,6 @@ namespace: mspbase02-system
 resources:
 - ../../base
 - dashboard-configmap.yaml
-# - dashboard-triggers.yaml
-# - dashboard-ingress.yaml
+- dashboard-data-db-secret-sealed.yaml
+- dashboard-registry-db-secret-sealed.yaml
 
