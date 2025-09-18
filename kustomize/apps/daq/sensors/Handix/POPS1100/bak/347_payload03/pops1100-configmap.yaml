@@ -1,27 +1,22 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: aerosoldynamics-magic250-config
+  name: handix-pops1100-config
   # namespace: msp
   labels:
-    app: aerosoldynamics-magic250
-    app-group: envds-sensor-payload01
-    # app-group: envds-sensor-crk8s
+    app: handix-pops1100
+    app-group: envds-sensor-crk8s
 data:
-  namespace_prefix: payload01
-  envds_env_id: payload01
-  # namespace_prefix: crk8s
-  # envds_env_id: crk8s
+  namespace_prefix: payload03
+  envds_env_id: payload03
   sensor.conf: |
-    serial_number: "154"
-    daq_id: payload01
-    # daq_id: crk8s
+    serial_number: "347"
+    daq_id: payload03
     interfaces:
       # default: serial
       default:
-        interface_env_id: payload01 # if omitted, defaults to envds_id of sensor
-        # interface_id: USconverters::USCDR301::usc13
-        interface_id: Lantronix::XPort::magic250-154
+        interface_env_id: payload03-hardware # if omitted, defaults to envds_id of sensor
+        interface_id: USconverters::USCDR301::usc14
         path: port-1
       #   connection-properties:
       #     baudrate: 115200

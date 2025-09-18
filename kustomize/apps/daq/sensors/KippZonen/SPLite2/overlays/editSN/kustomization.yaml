@@ -1,11 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: aerosoldynamics-spidermagic810
+  name: kippzonen-splite2
 
-namespace: payload01-hardware
-
-
+namespace: mspbase02-hardware
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -16,27 +14,26 @@ namespace: payload01-hardware
 # # at https://github.com/monopole/hello
 #   nameSuffix: -usc206
 #   commonLabels:
-#     app: usconverters-uscdr301
+#     app: shelly-shellypro3
 #     variant: test
 
 resources:
 - ../../base
-- spidermagic810-configmap.yaml
+- SPLite2-configmap.yaml
 
-nameSuffix: "-011"
-
+nameSuffix: -spliteEDIT
 # patchesStrategicMerge:
 #   - deployment.yaml
 
 patches:
-#   # change configmap names to account for s/n suffix
+  # change configmap names to account for s/n suffix
   - target:
       kind: Deployment
-      name: aerosoldynamics-spidermagic810
+      name: kippzonen-splite2
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: aerosoldynamics-spidermagic810-config-011
+        value: kippzonen-splite2-config-spliteEDIT
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-011
+        value: sensor-definition-spliteEDIT

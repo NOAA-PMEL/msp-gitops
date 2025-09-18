@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: handix-pops1100
 
-namespace: payload03-hardware
+namespace: payload01-hardware
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:

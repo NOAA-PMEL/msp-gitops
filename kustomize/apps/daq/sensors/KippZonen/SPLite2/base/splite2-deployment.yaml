@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kippzonen-splite2
+  # namespace: msp
+  labels:
+    app: kippzonen-splite2
+spec:
+  selector:
+    matchLabels:
+      app: kippzonen-splite2
+  template:
+    metadata:
+      labels:
+        app: kippzonen-splite2
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: kippzonen-splite2
+        image: ghcr.io/noaa-pmel/msp/kippzonen-splite2:0.1.0
+        imagePullPolicy: "Always"
+        env:
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
+            valueFrom:
+              configMapKeyRef:
+                name: kippzonen-splite2-config
+                key: namespace_prefix
+          - name: ENVDS_ENV_ID
+            valueFrom:
+              configMapKeyRef:
+                name: kippzonen-splite2-config
+                key: envds_env_id
+            # value: mspbase01
+          - name: REDIS_OM_URL
+            value: redis://redis.default
+          - name: LOG_LEVEL
+            value: DEBUG
+        resources:
+          requests:
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 9080
+          protocol: TCP
+        # - name: https
+        #   containerPort: 8883
+        #   protocol: TCP
+        volumeMounts:
+            - name: kippzonen-splite2-config
+              mountPath: /app/config/sensor.conf
+              subPath: sensor.conf
+            - name: sensor-definition
+              mountPath: /app/KippZonen_SPLite2_sensor_definition.json
+              subPath: KippZonen_SPLite2_sensor_definition.json
+      volumes:
+        - name: kippzonen-splite2-config
+          configMap:
+            name: kippzonen-splite2-config
+        - name: sensor-definition
+          configMap:
+            name: sensor-definition
+            

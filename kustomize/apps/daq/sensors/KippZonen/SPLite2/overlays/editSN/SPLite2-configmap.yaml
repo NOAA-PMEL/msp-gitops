@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kippzonen-splite2-config
+  # namespace: msp
+  labels:
+    app: kippzonen-splite2
+    app-group: envds-sensor-mspbase02
+data:
+  namespace_prefix: mspbase02
+  envds_env_id: mspbase02
+  sensor.conf: |
+    serial_number: spliteEDIT
+    daq_id: mspbase02
+    interfaces:
+      default:
+        interface_env_id: mspbase02
+        interface_id: LabJack::Tx::ljtx207
+        path: CHANGE TO VOLTAGE IN PATH
+

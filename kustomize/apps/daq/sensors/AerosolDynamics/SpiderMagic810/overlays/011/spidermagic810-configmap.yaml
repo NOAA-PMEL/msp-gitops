@@ -7,16 +7,16 @@ metadata:
     app: aerosoldynamics-spidermagic810
     app-group: envds-sensor-crk8s
 data:
-  namespace_prefix: payload03
-  envds_env_id: payload03
+  namespace_prefix: payload01
+  envds_env_id: payload01
   sensor.conf: |
     serial_number: "011"
-    daq_id: payload03
+    daq_id: payload01
     interfaces:
       # default: serial
       default:
         # interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
-        interface_env_id: payload03-hardware
+        interface_env_id: payload01-hardware
         interface_id: Lantronix::XPort::spidermagic810-011
         path: port-1
       #   connection-properties:

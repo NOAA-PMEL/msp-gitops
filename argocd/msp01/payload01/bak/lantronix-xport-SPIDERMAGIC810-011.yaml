@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aerosoldynamics-magic250-154-payload01
+  name: lantronix-xport-spidermagic810-011
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/sensors/AerosolDynamics/MAGIC250/overlays/154
+    path: kustomize/apps/daq/interfaces/Lantronix/XPort/overlays/SPIDERMAGIC810-011
     # kustomize:
     #   patches:
     #     - patch: |-

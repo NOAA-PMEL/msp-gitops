@@ -7,15 +7,15 @@ metadata:
     app: handix-pops1100
     app-group: envds-sensor-crk8s
 data:
-  namespace_prefix: payload03
-  envds_env_id: payload03
+  namespace_prefix: payload01
+  envds_env_id: payload01
   sensor.conf: |
     serial_number: "347"
-    daq_id: payload03
+    daq_id: payload01
     interfaces:
       # default: serial
       default:
-        interface_env_id: payload03-hardware # if omitted, defaults to envds_id of sensor
+        interface_env_id: payload01-hardware # if omitted, defaults to envds_id of sensor
         interface_id: USconverters::USCDR301::usc14
         path: port-1
       #   connection-properties:

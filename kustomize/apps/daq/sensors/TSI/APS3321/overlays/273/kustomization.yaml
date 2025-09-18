@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: tsi-aps3321
 
-namespace: payload03-hardware
+namespace: payload01-hardware
 # namespace: mspbase01-hardware
 
 # Example configuration for the webserver
