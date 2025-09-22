@@ -55,7 +55,7 @@ spec:
               subPath: sensor.conf
             - name: sensor-definition
               mountPath: /app/ACOEM_Aurora3000_sensor_definition.json
-              subpath: ACOEM_Aurora3000_sensor_definition.json
+              subPath: ACOEM_Aurora3000_sensor_definition.json
       volumes:
         - name: acoem-aurora3000-config
           configMap:
