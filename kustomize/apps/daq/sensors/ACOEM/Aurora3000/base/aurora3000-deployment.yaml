@@ -26,7 +26,7 @@ spec:
             valueFrom:
               configMapKeyRef:
                 name: acoem-aurora3000-config
-                key: namespace_prefeix
+                key: namespace_prefix
           - name: ENVDS_ENV_ID
             valueFrom:
               configMapKeyRef:

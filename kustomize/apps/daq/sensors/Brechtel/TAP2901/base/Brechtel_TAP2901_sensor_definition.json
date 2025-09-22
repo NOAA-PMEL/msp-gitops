@@ -1,7 +1,13 @@
 {
     "attributes": {
-        "make": {"type": "string", "data": "Brechtel"},
-        "model": {"type": "string", "data": "TAP2901"},
+        "make": {
+            "type": "string",
+            "data": "Brechtel"
+        },
+        "model": {
+            "type": "string",
+            "data": "TAP2901"
+        },
         "description": {
             "type": "string",
             "data": "Tricolor Absorption Photometer (TAP) manufactured and distributed by Brechtel"
@@ -10,11 +16,22 @@
             "type": "char",
             "data": "aerosol, photometer, absorption, sensor"
         },
-        "format_version": {"type": "char", "data": "1.0.0"},
-        "variable_types": {"type": "string", "data": "main, setting, calibration"},
-        "serial_number": {"type": "string", "data": ""}
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, setting, calibration"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        }
     },
-    "dimensions": {"time": 0},
+    "dimensions": {
+        "time": 0
+    },
     "variables": {
         "time": {
             "type": "str",
