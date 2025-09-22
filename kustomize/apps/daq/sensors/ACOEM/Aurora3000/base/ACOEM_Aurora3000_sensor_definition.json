@@ -2,10 +2,12 @@
     "attributes": {
         "make": {
             "type": "string",
-            "data": "ACOEM"},
+            "data": "ACOEM"
+        },
         "model": {
             "type": "string",
-            "data": "Aurora3000"},
+            "data": "Aurora3000"
+        },
         "description": {
             "type": "string",
             "data": "Three wavelength interating nephelometer manufactured and distributed by ACOEM / Ecotech"
