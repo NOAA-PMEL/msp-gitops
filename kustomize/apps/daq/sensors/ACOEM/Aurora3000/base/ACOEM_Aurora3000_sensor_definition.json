@@ -21,8 +21,8 @@
             "data": "1.1.0"
         },
         "variable_types": {
-            "type": "string", "data":
-            "main, setting, calibration"
+            "type": "string",
+            "data": "main, setting, calibration"
         },
         "serial_number": {
             "type": "string",
