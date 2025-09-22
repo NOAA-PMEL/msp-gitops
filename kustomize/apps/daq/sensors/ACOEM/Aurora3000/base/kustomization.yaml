@@ -15,4 +15,4 @@ resources:
 configMapGenerator:
   - name: sensor-definition
     files:
-      -ACOEM_Aurora3000_sensor_definition.json
+      - ACOEM_Aurora3000_sensor_definition.json
