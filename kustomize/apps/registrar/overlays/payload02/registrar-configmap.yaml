@@ -7,6 +7,7 @@ data:
   # mqtt_bridge_host: "0.0.0.0"
   # mqtt_bridge_port: 80
   daq_id: payload02
+  mqtt_bridge_prefix: payload
 
   port: "80"
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload02-system/default"
