@@ -11,7 +11,7 @@ data:
   envds_env_id: payload02
   sensor.conf: |
     serial_number: "493"
-    daq_id: paypload02
+    daq_id: payload02
     interfaces:
       # default: serial
       default:
