@@ -9,7 +9,7 @@ data:
   namespace_prefix: payload02
   envds_env_id: payload02 
   interface.conf: |
-    uid: usc14
+    uid: usc15
     # serial_number: "1234"
     # daq_id: clearsky
     host: 10.55.179.15
