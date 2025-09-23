@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: setup-brokers
 
-namespace: payload02-system
+# namespace: payload02-system
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -18,7 +18,7 @@ namespace: payload02-system
 #   variant: lopez
 
 resources:
-- ../../base
+# - ../../base
 - knative-brokers.yaml
 
 # patches:
