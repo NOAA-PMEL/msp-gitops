@@ -19,7 +19,7 @@ data:
     interfaces:
       # default: serial
       default:
-        interface_env_id: payload01 # if omitted, defaults to envds_id of sensor
+        interface_env_id: payload01-hardware # if omitted, defaults to envds_id of sensor
         # interface_id: USconverters::USCDR301::usc13
         interface_id: Lantronix::XPort::magic250-154
         path: port-1
