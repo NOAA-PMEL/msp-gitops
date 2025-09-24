@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  # name: datastore
+  name: datastore
   # namespace: msp-system
 data:
   daq_id: payload01
