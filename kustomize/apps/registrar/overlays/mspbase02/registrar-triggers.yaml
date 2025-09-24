@@ -44,7 +44,8 @@ spec:
   filters:
      - any:
         - exact:
-            type: envds.registry.sync-broadcast
+            # type: envds.registry.sync-broadcast
+            type: envds.registry.sync-bcast
         - exact:
             type: envds.registry.sync-update
         - exact:
@@ -70,7 +71,8 @@ spec:
   filters:
      - any:
         - exact:
-            type: envds.registry.sync-broadcast
+            # type: envds.registry.sync-broadcast
+            type: envds.registry.sync-bcast
         - exact:
             type: envds.registry.sync-update
         - exact:
