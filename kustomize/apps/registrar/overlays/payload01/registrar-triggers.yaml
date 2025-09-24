@@ -65,7 +65,7 @@ spec:
   #     type: envds.registry-sync.broadcast
   subscriber:
     ref:
-      apiVersion: v1
+      apiVersion: eventing.knative.dev/v1
       kind: Service
       name: kn-mqtt-adapter
       # namespace: msp-system
