@@ -1,17 +1,44 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: datastore-sensor-data-update
-  namespace: msp-events
+  name: datastore-device-definition-registry-ack
+  # namespace: msp-system
 spec:
-  broker: msp-events-broker
-  filter:
-    attributes:
-      type: sensor.data.update
+  broker: default
+  filters:
+    - any:
+        - exact:
+            type: envds.device-definition.registry.ack
+    - exact:
+        source: envds.payload01.datastore
+  # filter:
+  #   attributes:
+  #     type: envds.device-definition.registry.ack
   subscriber:
     ref:
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
       kind: Service
-      name: datastore
-      namespace: msp-system
-    uri: /data/update
+      name: kn-mqtt-adapter
+      # namespace: msp-system
+    uri: /mqtt/send/
+
+
+
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: datastore-sensor-data-update
+#   namespace: msp-events
+# spec:
+#   broker: msp-events-broker
+#   filter:
+#     attributes:
+#       type: sensor.data.update
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: datastore
+#       namespace: msp-system
+#     uri: /data/update

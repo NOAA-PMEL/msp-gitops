@@ -20,10 +20,9 @@ namespace: payload01-system
 #   variant: lopez
 
 resources:
-- mqtt-ns.yaml
-- mqtt-configmap.yaml
-- mqtt-pv.yaml
 - ../../base
+- mqtt-pv.yaml
+- mqtt-configmap.yaml
 
 # patchesStrategicMerge:
 #   - deployment.yaml

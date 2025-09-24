@@ -1,10 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: datastore
+  name: kn-mqtt-adapter
 
 namespace: payload01-system
-
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -20,7 +19,16 @@ namespace: payload01-system
 
 resources:
 - ../../base
-- datastore-configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
-- datastore-triggers.yaml
+- kn-mqtt-configmap.yaml
+# - adapter-triggers.yaml
+# - datastore-sealedsecrets.yaml
 
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Deployment
+#       name: kn-mqtt-adapter
+#     patch: |-
+#       - op: replace 
+#         path: /spec/replicas
+#         value: 2
