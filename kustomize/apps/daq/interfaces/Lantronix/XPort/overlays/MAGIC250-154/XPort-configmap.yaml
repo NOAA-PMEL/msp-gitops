@@ -6,8 +6,8 @@ metadata:
   labels:
     app: lantronix-xport
 data:
-  namespace_prefix: payload03
-  envds_env_id: payload03 
+  namespace_prefix: payload01
+  envds_env_id: payload01
   interface.conf: |
     uid: magic250-154
     # serial_number: "1234"
