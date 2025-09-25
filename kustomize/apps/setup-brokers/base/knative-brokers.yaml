@@ -6,7 +6,7 @@ metadata:
   name: default
   namespace: default
   delivery:
-    retry: 5
+    retry: 2
     backoffPolicy: exponential # or linear
     backoffDelay: "PT0.5S"     # or ISO8601 duration
 # ---

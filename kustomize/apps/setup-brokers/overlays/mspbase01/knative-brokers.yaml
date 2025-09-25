@@ -12,9 +12,9 @@ spec:
     name: config-br-default-channel
     namespace: knative-eventing
   delivery:
-    retry: 5
+    retry: 2
     backoffPolicy: exponential # or linear
-    backoffDelay: "PT1.0S"     # or ISO8601 duration
+    backoffDelay: "PT2.0S"     # or ISO8601 duration
 # ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Broker

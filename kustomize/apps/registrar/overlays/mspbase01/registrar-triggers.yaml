@@ -67,7 +67,7 @@ spec:
       kind: Service
       name: kn-mqtt-adapter
       # namespace: msp-system
-    uri: http://kn-mqtt-adapter.mspbase01-system.svc.cluster.local/mqtt/send/
+    uri: mqtt/send/
 
 
 # apiVersion: eventing.knative.dev/v1
