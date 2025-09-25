@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.1.0"
+            "data": "1.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -84,12 +84,12 @@
                 "units": {"type": "char", "data": "ug/m3"}
             }
         },
-        "PM2_5": {
+        "PM2.5": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "PM2_5"},
+                "long_name": {"type": "char", "data": "PM2.5"},
                 "units": {"type": "char", "data": "ug/m3"}
             }
         },
