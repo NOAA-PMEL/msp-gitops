@@ -23,3 +23,21 @@ resources:
 # - adapter-triggers.yaml
 # - datastore-sealedsecrets.yaml
 
+# spec:
+#   template:
+#     metadata:
+#       # labels:
+#       #   app: kn-mqtt-adapter
+#       annotations:
+#         autoscaling.knative.dev/min-scale: "1"
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      version: serving.knative.dev/v1
+      kind: Service
+      name: kn-mqtt-adapter
+    patch: |-
+      - op: replace 
+        path: /spec/template/metadata/annotations/autoscaling.knative.dev/min-scale
+        value: 2
