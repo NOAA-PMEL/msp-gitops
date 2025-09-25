@@ -1,0 +1,142 @@
+{
+    "attributes": {
+        "make": {
+            "type": "string",
+            "data": "Vaisala"
+        },
+        "model": {
+            "type": "string",
+            "data": "AQT560"
+        },
+        "description": {
+            "type": "string",
+            "data": "Air Quality Transmitter manufactured and distributed by Vaisala"
+        },
+        "tags": {
+            "type": "char",
+            "data": "aerosol, air quality, particles, gas, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.1.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, setting, calibration"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        }
+    },
+    "dimensions": {"time": 0},
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "NO2": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Nitrogen Dioxide"},
+                "units": {"type": "char", "data": "ppm"}
+            }
+        },
+        "CO": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Carbon Monoxide"},
+                "units": {"type": "char", "data": "ppm"}
+            }
+        },
+        "O3": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Ozone"},
+                "units": {"type": "char", "data": "ppm"}
+            }
+        },
+        "NO": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Nitric Oxide"},
+                "units": {"type": "char", "data": "ppm"}
+            }
+        },
+        "PM1": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "PM1"},
+                "units": {"type": "char", "data": "ug/m3"}
+            }
+        },
+        "PM2_5": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "PM2_5"},
+                "units": {"type": "char", "data": "ug/m3"}
+            }
+        },
+        "PM10": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "PM10"},
+                "units": {"type": "char", "data": "ug/m3"}
+            }
+        },
+        "TEMP": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Temperature"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "HUM": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Relative Humidity"},
+                "units": {"type": "char", "data": "%"}
+            }
+        },
+        "PRES": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Pressure"},
+                "units": {"type": "char", "data": "hPa"}
+            }
+        },
+        "Uptime": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Time Running"},
+                "units": {"type": "char", "data": "seconds"}
+            }
+        }
+    }
+}
