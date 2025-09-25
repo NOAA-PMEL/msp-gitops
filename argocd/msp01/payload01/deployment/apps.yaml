@@ -8,7 +8,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: msp
-  ources:
+  sources:
     - repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
       targetRevision: HEAD
       path: argocd/msp01/payload01/apps/hardware
