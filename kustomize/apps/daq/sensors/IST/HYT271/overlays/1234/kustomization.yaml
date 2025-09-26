@@ -4,7 +4,7 @@ metadata:
   name: ist-hyt271
 
 
-namespace: mspbase01-hardware
+namespace: mspbase02-hardware
 # namespace: crk8s-hardware
 
 # Example configuration for the webserver
