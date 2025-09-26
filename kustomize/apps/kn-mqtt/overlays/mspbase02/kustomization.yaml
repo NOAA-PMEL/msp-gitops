@@ -40,4 +40,4 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
-        value: "3"
+        value: "1"
