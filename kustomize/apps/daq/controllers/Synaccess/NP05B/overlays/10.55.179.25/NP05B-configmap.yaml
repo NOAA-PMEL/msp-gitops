@@ -6,8 +6,8 @@ metadata:
   labels:
     app: synaccess-np05b
 data:
-  namespace_prefix: payload03
-  envds_env_id: payload03
+  namespace_prefix: payload01
+  envds_env_id: payload01
   controller.conf: |
     uid: synaccess25
     host: 10.55.179.25

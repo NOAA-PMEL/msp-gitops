@@ -6,20 +6,20 @@ metadata:
   labels:
     app: ist-hyt271
     # app-group: envds-sensor-payload03
-    app-group: envds-sensor-mspbase01
+    app-group: envds-sensor-mspbase02
 data:
-  namespace_prefix: mspbase01
-  envds_env_id: mspbase01
+  namespace_prefix: mspbase02
+  envds_env_id: mspbase02
   # namespace_prefix: crk8s
   # envds_env_id: crk8s
   sensor.conf: |
     serial_number: "1234"
-    daq_id: mspbase01
+    daq_id: mspbase02
     # daq_id: crk8s
     interfaces:
       # default: serial
       default:
-        interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
+        interface_env_id: mspbase02 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx207
         # interface_id: NetBurner::SB70LC::home38
         # path: port, channel, etc
