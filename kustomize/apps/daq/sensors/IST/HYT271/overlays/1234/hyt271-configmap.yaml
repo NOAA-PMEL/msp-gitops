@@ -24,3 +24,4 @@ data:
         # interface_id: NetBurner::SB70LC::home38
         # path: port, channel, etc
         path: i2c
+    i2c_address: "28"
