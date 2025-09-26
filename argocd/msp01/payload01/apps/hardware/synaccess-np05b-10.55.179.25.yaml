@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/interfaces/Synaccess/NP05B/overlays/10.55.179.25
+    path: kustomize/apps/daq/controllers/Synaccess/NP05B/overlays/10.55.179.25
     # kustomize:
     #   patches:
     #     - patch: |-
