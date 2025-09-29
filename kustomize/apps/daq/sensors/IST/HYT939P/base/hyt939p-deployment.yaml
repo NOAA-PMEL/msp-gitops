@@ -19,7 +19,7 @@ spec:
       containers:
       - name: ist-hyt939p
         # image: registry-msp:5000/msp/sensor/ist-hyt271:0.1.0
-        image: ghcr.io/noaa-pmel/msp/ist-hyt271:0.1.0
+        image: ghcr.io/noaa-pmel/msp/ist-hyt939p:0.1.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
