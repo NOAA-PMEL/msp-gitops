@@ -33,3 +33,10 @@ data:
         clock_divisor: 1
         clock_desired_frequency: 25000
         counter_mode: "interrupt"
+      voltage_in-0:
+        path_type: ADC
+        channel: 0
+      voltage_in-1:
+        path_type: ADC
+        channel: 1
+

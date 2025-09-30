@@ -16,5 +16,9 @@ data:
       default:
         interface_env_id: mspbase02
         interface_id: LabJack::Tx::ljtx207
-        path: CHANGE TO VOLTAGE IN PATH
+        path: voltage_in-0
+      ref_volt:
+        interface_env_id: mspbase02
+        interface_id: LabJack::Tx::ljtx207
+        path: voltage_in-1
 
