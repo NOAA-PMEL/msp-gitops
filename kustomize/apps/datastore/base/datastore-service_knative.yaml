@@ -11,8 +11,8 @@ spec:
   template:
     metadata:
       annotations:
-        # autoscaling.knative.dev/min-scale: "2"
-        autoscaling.knative.dev/max-scale: "3"
+        autoscaling.knative.dev/min-scale: "2"
+        autoscaling.knative.dev/max-scale: "5"
         autoscaling.knative.dev/target: "10"
         autoscaling.knative.dev/target-utilization-percentage: "70"
     spec:
@@ -72,9 +72,9 @@ spec:
                   key: knative_broker
           resources:
             requests:
-              cpu: "200m"
+              cpu: "250m"
             limits:
-              memory: "1Gi"
+              memory: "2Gi"
               cpu: "500m"
           ports:
             # - name: http

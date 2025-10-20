@@ -9,8 +9,8 @@ metadata:
 #   app: nginx
 
 resources:
-- datastore-deployment.yaml
-- datastore-service.yaml
-# - datastore-service_knative.yaml
+# - datastore-deployment.yaml
+# - datastore-service.yaml
+- datastore-service_knative.yaml
 # - datastore-ingress.yaml
 - datastore-triggers.yaml
