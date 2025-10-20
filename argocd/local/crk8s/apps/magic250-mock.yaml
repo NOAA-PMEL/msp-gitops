@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/sensors/AerosolDynamics/MAGIC250Mock/overlays/Mock
+    path: kustomize/apps/daq/sensors/AerosolDynamics/MAGIC250Mock/overlays/mock
     # kustomize:
     #   patches:
     #     - patch: |-
