@@ -24,7 +24,7 @@ resources:
 - ../../base
 - magic250-configmap.yaml
 
-nameSuffix: "-Mock"
+nameSuffix: "-mock"
 
 # patchesStrategicMerge:
 #   - deployment.yaml
@@ -37,7 +37,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: aerosoldynamics-magic250-config-Mock
+        value: aerosoldynamics-magic250-config-mock
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-Mock
+        value: sensor-definition-mock

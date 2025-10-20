@@ -13,7 +13,7 @@ data:
   namespace_prefix: crk8s
   envds_env_id: crk8s
   sensor.conf: |
-    serial_number: "Mock"
+    serial_number: "mock"
     # daq_id: payload01
     daq_id: crk8s
     interfaces:
