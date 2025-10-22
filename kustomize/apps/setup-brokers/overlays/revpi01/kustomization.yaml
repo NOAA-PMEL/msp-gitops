@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: setup-brokers
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# namePrefix: dev-
+# commonLabels:
+#   app: nginx
+#   variant: lopez
+
+resources:
+# - ../../base
+- knative-brokers.yaml
+
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Broker
+#       name: default
+#     patch: |-
+#       - op: replace 
+#         path: /metadata/namespace
+#         value: crk8s-system
