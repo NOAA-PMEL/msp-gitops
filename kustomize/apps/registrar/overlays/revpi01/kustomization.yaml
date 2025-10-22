@@ -1,0 +1,43 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: registrar
+
+namespace: revpi01-system
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: usconverters-uscdr301
+#     variant: test
+
+resources:
+- ../../base
+- registrar-configmap.yaml
+- registrar-triggers.yaml
+
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Trigger
+#       # name: default
+#     patch: |-
+#       - op: replace 
+#         path: /spec/broker
+#         value: kafka-broker
+
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Trigger
+#       name: registry-sync-bcast
+#     patch: |-
+#       - op: replace 
+#         path: /spec/filters
+#         value: envds.payload03.registrar
