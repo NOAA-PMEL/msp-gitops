@@ -16,7 +16,7 @@ data:
   # port: "8000"
   ws_hostname: "192.168.86.59"
   port: "8080"
-  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
+  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/revpi01-system/default"
   # knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/kafka-broker
   # knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/revpi01-system/default
   # mongodb_data_user_name: "uasdaq-data"
