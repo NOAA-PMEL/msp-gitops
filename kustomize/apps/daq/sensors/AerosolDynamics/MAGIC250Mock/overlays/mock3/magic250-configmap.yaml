@@ -6,16 +6,20 @@ metadata:
   labels:
     app: aerosoldynamics-magic250
     # app-group: envds-sensor-payload01
-    app-group: envds-sensor-revpi01
+    # app-group: envds-sensor-revpi01
+    app-group: envds-sensor-crk8s
 data:
   # namespace_prefix: payload01
   # envds_env_id: payload01
-  namespace_prefix: revpi01
-  envds_env_id: revpi01
+  # namespace_prefix: revpi01
+  # envds_env_id: revpi01
+  namespace_prefix: crk8s
+  envds_env_id: crk8s
   sensor.conf: |
     serial_number: "mock3"
     # daq_id: payload01
-    daq_id: revpi01
+    # daq_id: revpi01
+    daq_id: crk8s
     interfaces:
       # default: serial
       default:
