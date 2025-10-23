@@ -4,7 +4,7 @@ metadata:
   annotations:
     eventing.knative.dev/broker.class: MTChannelBasedBroker
   name: default
-  namespace: crk8s-system
+  namespace: revpi01-system
 spec:
   config:
     apiVersion: v1
