@@ -36,8 +36,5 @@ data:
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
-
-
-  # not subs
-    # envds/+/+/+/data/update,   
-    # envds/+/+/+/controller/data/update   
+    envds/+/+/+/data/update,   
+    envds/+/+/+/controller/data/update   
