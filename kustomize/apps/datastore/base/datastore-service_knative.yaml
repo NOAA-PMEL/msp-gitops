@@ -65,6 +65,21 @@ spec:
                 configMapKeyRef:
                   name: datastore
                   key: db_client_port
+            - name: DATASTORE_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: mqtt_broker
+            - name: DATASTORE_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: mqtt_port
+            - name: DATASTORE_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: mqtt_topic_subscriptions
             - name: DATASTORE_KNATIVE_BROKER
               valueFrom:
                 configMapKeyRef:
