@@ -1,0 +1,76 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sampling-system
+  # namespace: msp-system
+  # labels:
+  #   app: sampling-system
+spec:
+  # selector:
+  #   app: sampling-system
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "1"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        # - name: sampling-system
+        # image: uasbase2.pmel.noaa.gov:448/test/sampling-system@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/sampling-system:v1.0.3
+        - image: ghcr.io/noaa-pmel/msp/sampling-system:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: SAMPLING_SYSTEM_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: port
+            - name: SAMPLING_SYSTEM_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: daq_id
+            - name: SAMPLING_SYSTEM_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: mqtt_broker
+            - name: SAMPLING_SYSTEM_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: mqtt_port
+            - name: SAMPLING_SYSTEM_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: mqtt_topic_subscriptions
+            - name: SAMPLING_SYSTEM_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: knative_broker
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              memory: "2Gi"
+              cpu: "500m"
+          ports:
+            # - name: http
+              # containerPort: 8000
+            - containerPort: 8080
+              # protocol: TCP
+      # ports:
+      # - name: http
+      #   protocol: TCP
+      #   # port: 8000
+      #   port: 80
+      #   # targetPort: 8000
+      #   targetPort: 8080
+      # type: ClusterIP  
