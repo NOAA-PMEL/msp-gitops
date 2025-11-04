@@ -11,7 +11,7 @@ data:
         "kind": "PlatformVariableMap",
         "metadata": {
           "name": "MSPPayload01",
-          "sampling_namespace": "pmel.noaa.gov"
+          "sampling_namespace": "pmel.noaa.gov",
           "platform": "MSPPayload01",
           "valid_config_time": "2025-10-01T00:00:00Z",
           "revision": 1
