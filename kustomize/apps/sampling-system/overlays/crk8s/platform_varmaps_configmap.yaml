@@ -42,7 +42,7 @@ data:
               "source": {
                 "concentration": {
                   "source_type": "device",
-                  "source_id": "AerosolDynamics::MAGIC250Mock::mock",
+                  "source_id": "AerosolDynamics::MAGIC250::mock",
                   "source_variable": "concentration"
                 }
               },
