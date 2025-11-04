@@ -60,8 +60,8 @@ spec:
                 mountPath: /app/config/platforms.json
                 subPath: platform.json
               - name: sampling-system-variablemaps
-                mountPath: /app/config/sampling-system-variabiablemaps.json
-                subPath: sampling-system-variabiablemaps.json
+                mountPath: /app/config/sampling-system-variablemapss.json
+                subPath: sampling-system-variablemaps.json
       volumes:
         - name: sampling-system-platforms
           configMap:
