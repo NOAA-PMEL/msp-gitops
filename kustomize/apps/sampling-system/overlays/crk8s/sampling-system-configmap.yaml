@@ -33,7 +33,7 @@ data:
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
 
   mqtt_broker: "mqtt.crk8s-system"
-  mqtt_port: "1883"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update   
+  mqtt_port: "1883"
