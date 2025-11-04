@@ -57,7 +57,7 @@ spec:
                   key: knative_broker
           volumeMounts:
               - name: sampling-system-platforms
-                mountPath: /app/platforms.json
+                mountPath: /app/config/platforms.json
                 subPath: platform_defs.json
               - name: sampling-system-variablemaps
                 mountPath: /app/config/sampling-system-variablemaps.json
