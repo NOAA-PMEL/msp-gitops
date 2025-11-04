@@ -61,7 +61,7 @@ spec:
                 subPath: platform_defs.json
               - name: sampling-system-variablemaps
                 mountPath: /app/config/platform_variablemaps.json
-                subPath: platform_varmaps.json.json
+                subPath: platform_varmaps.json
           resources:
             requests:
               cpu: "250m"
