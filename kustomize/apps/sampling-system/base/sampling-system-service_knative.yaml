@@ -55,6 +55,20 @@ spec:
                 configMapKeyRef:
                   name: sampling-system
                   key: knative_broker
+          volumeMounts:
+              - name: sampling-system-platforms
+                mountPath: /app/config/platforms.json
+                subPath: platform.json
+              - name: sampling-system-variablemaps
+                mountPath: /app/config/sampling-system-variabiablemaps.json
+                subPath: sampling-system-variabiablemaps.json
+      volumes:
+        - name: sampling-system-platforms
+          configMap:
+            name: sampling-system-platforms
+        - name: sampling-system-variablemaps
+          configMap:
+            name: sampling-system-variablemaps
           resources:
             requests:
               cpu: "250m"

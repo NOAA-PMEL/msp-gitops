@@ -27,32 +27,25 @@ resources:
 # - sampling-system-triggers.yaml
 
 configMapGenerator:
-  - name: platform-definitions-crk8s
+  - name: sampling-system-platforms-crk8s
     files:
       - platform_defs.json
-  - name: platform=variable=maps-crk8s
+  - name: sampling-system-variablemaps-crk8s
     files:
       - platform_varmaps.json
 
 patches:
   # change configmap names to account for s/n suffix
   - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
-  - target:
-      kind: Deployment
-      name: aerosoldynamics-magic250
+      kind: Service
+      name: sampling-system
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: aerosoldynamics-magic250-config-154
+        value: sampling-system-platforms-crk8s
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-154
+        value: sampling-system-variablemaps-crk8s
 
 
 # patches:
