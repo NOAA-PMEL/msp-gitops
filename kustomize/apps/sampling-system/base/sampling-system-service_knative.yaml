@@ -62,13 +62,6 @@ spec:
               - name: sampling-system-variablemaps
                 mountPath: /app/config/sampling-system-variablemaps.json
                 subPath: sampling-system-variablemaps.json
-      volumes:
-        - name: sampling-system-platforms
-          configMap:
-            name: sampling-system-platforms
-        - name: sampling-system-variablemaps
-          configMap:
-            name: sampling-system-variablemaps
           resources:
             requests:
               cpu: "250m"
@@ -80,6 +73,13 @@ spec:
               # containerPort: 8000
             - containerPort: 8080
               # protocol: TCP
+      volumes:
+        - name: sampling-system-platforms
+          configMap:
+            name: sampling-system-platforms
+        - name: sampling-system-variablemaps
+          configMap:
+            name: sampling-system-variablemaps
       # ports:
       # - name: http
       #   protocol: TCP
