@@ -4,7 +4,7 @@ metadata:
   name: sampling-system-platforms-crk8s
   # namespace: crk8s-system
 data:
-  platform_defs.json: |-
+  platform_defs.json: |
     [
       {
         "version": "envds.apps.sampling-system/v1",

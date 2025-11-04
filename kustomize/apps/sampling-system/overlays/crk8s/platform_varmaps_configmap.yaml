@@ -4,7 +4,7 @@ metadata:
   name: sampling-system-variablemaps-crk8s
   # namespace: crk8s-system
 data:
-  platform_varmaps.json: |-
+  platform_varmaps.json: |
     [
       {
         "version": "envds.sampling.system/v1",
