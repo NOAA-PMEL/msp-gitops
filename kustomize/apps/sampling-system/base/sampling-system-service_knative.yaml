@@ -60,7 +60,7 @@ spec:
                 mountPath: /app/config/platforms.json
                 subPath: platform_defs.json
               - name: sampling-system-variablemaps
-                mountPath: /app/config/sampling-system-variablemaps.json
+                mountPath: /app/config/platform_variablemaps.json
                 subPath: platform_varmaps.json.json
           resources:
             requests:
