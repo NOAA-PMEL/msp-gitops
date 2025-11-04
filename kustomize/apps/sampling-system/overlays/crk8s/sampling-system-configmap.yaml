@@ -34,7 +34,6 @@ data:
 
   mqtt_broker: "mqtt.crk8s-system"
   mqtt_port: "1883"
-  # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update   
