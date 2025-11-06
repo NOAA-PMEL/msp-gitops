@@ -36,24 +36,24 @@ configMapGenerator:
     files:
       - platform_varmaps.json
 
-nameSuffix: "-crk8s"
+# nameSuffix: "-crk8s"
 
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      # version: serving.knative.dev/v1
-      kind: Service
-      name: sampling-system
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-crk8s
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-platforms-crk8s
-      - op: replace 
-        path: /spec/template/spec/volumes/2/configMap/name
-        value: sampling-system-variablemaps-crk8s
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       # version: serving.knative.dev/v1
+#       kind: Service
+#       name: sampling-system
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-system-crk8s
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-system-platforms-crk8s
+#       - op: replace 
+#         path: /spec/template/spec/volumes/2/configMap/name
+#         value: sampling-system-variablemaps-crk8s
 
 
 # patches:
