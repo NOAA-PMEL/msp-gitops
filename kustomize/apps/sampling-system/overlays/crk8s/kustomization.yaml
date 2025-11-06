@@ -22,19 +22,21 @@ namespace: crk8s-system
 resources:
 - ../../base
 - sampling-system-configmap.yaml
-- platform_defs_configmap.yaml
-- platform_varmaps_configmap.yaml
+# - platform_defs_configmap.yaml
+# - platform_varmaps_configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 # uncomment this if using knative for data updates
 # - sampling-system-triggers.yaml
 
-# configMapGenerator:
-#   - name: sampling-system-platforms
-#     files:
-#       - platform_defs.json
-#   - name: sampling-system-variablemaps
-#     files:
-#       - platform_varmaps.json
+configMapGenerator:
+  - name: sampling-system-platforms
+    files:
+      - platform_defs.json
+  - name: sampling-system-variablemaps
+    files:
+      - platform_varmaps.json
+
+nameSuffix: "-crk8s"
 
 patches:
   # change configmap names to account for s/n suffix
@@ -45,9 +47,12 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-crk8s
+        value: sampling-system-crk8s
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
+        value: sampling-system-platforms-crk8s
+      - op: replace 
+        path: /spec/template/spec/volumes/2/configMap/name
         value: sampling-system-variablemaps-crk8s
 
 

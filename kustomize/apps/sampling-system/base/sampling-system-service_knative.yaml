@@ -56,12 +56,12 @@ spec:
                   name: sampling-system
                   key: knative_broker
           volumeMounts:
-              - name: sampling-system-platforms
-                mountPath: /app/config/platforms.json
-                subPath: platform_defs.json
-              - name: sampling-system-variablemaps
-                mountPath: /app/config/platform_variablemaps.json
-                subPath: platform_varmaps.json
+            - name: sampling-system-platforms
+              mountPath: /app/config/platforms.json
+              subPath: platform_defs.json
+            - name: sampling-system-variablemaps
+              mountPath: /app/config/platform_variablemaps.json
+              subPath: platform_varmaps.json
           resources:
             requests:
               cpu: "250m"
@@ -74,6 +74,9 @@ spec:
             - containerPort: 8080
               # protocol: TCP
       volumes:
+        - name: sampling-system
+          configMap:
+            name: sampling-system
         - name: sampling-system-platforms
           configMap:
             name: sampling-system-platforms
