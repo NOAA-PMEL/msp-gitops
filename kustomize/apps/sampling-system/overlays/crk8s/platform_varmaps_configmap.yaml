@@ -28,7 +28,7 @@ data:
             "main": {
               "index": {
                 "index_type": "time",
-                "index_value": 1
+                "index_value": 10
               }
             }
           },
