@@ -74,9 +74,9 @@ spec:
             - containerPort: 8080
               # protocol: TCP
       volumes:
-        # - name: sampling-system
-        #   configMap:
-        #     name: sampling-system
+        - name: sampling-system
+          configMap:
+            name: sampling-system
         - name: sampling-system-platforms
           configMap:
             name: sampling-system-platforms
