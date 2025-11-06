@@ -5,3 +5,6 @@ nameReference:
   - path: /spec/template/spec/volumes/configMap/name
     kind: Service
     group: serving.knative.dev
+  - path: /spec/template/spec/containers/env/valueFrom/configMapKeyRef/name
+    kind: Service
+    group: serving.knative.dev
