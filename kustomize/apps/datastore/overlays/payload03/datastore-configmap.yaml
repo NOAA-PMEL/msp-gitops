@@ -31,3 +31,10 @@ data:
   # erddap_http_connection: "http://erddap.default:8080/erddap"
   # erddap_https_connection: "https://erddap.default:8443/erddap"
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
+
+  mqtt_broker: "mqtt.payload03-system"
+  mqtt_port: "1883"
+  # mqtt_topic_filter: "instrument/#"
+  mqtt_topic_subscriptions: >
+    envds/+/+/+/data/update,   
+    envds/+/+/+/controller/data/update   
