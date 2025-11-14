@@ -32,7 +32,7 @@ data:
   # erddap_https_connection: "https://erddap.default:8443/erddap"
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
 
-  mqtt_broker: "mqtt.mspbase02-system"
+  mqtt_broker: "mqtt.payload02-system"
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
