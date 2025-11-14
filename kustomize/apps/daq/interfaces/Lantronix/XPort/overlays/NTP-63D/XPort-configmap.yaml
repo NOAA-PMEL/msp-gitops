@@ -9,7 +9,7 @@ data:
   namespace_prefix: mspbase02
   envds_env_id: mspbase02
   interface.conf: |
-    uid: ntp-63D
+    uid: ntp-63d
     # serial_number: "1234"
     # daq_id: clearsky
     host: 10.55.169.24

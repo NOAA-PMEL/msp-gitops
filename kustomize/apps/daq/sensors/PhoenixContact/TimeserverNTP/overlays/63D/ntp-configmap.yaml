@@ -10,13 +10,13 @@ data:
   namespace_prefix: mspbase02
   envds_env_id: mspbase02
   sensor.conf: |
-    serial_number: "63D"
+    serial_number: "63d"
     daq_id: mspbase02
     interfaces:
       # default: serial
       default:
         interface_env_id: mspbase02-hardware # if omitted, defaults to envds_id of sensor
-        interface_id: Lantronix::XPort::ntp-63D
+        interface_id: Lantronix::XPort::ntp-63d
         path: port-1
       #   connection-properties:
       #     baudrate: 115200

@@ -22,7 +22,7 @@ resources:
 - ../../base
 - ntp-configmap.yaml
 
-nameSuffix: "-63D"
+nameSuffix: "-63d"
 # patchesStrategicMerge:
 #   - deployment.yaml
 
@@ -34,7 +34,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: phoenixcontact-ntp-config-63D
+        value: phoenixcontact-ntp-config-63d
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-63D
+        value: sensor-definition-63d
