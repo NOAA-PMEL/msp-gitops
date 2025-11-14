@@ -1,23 +1,23 @@
 # handled by mqtt
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: datastore-device-data-update
-  # namespace: msp-events
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.data.update
-  subscriber:
-    ref:
-      # apiVersion: serving.knative.dev/v1
-      # apiVersion: v1
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: datastore
-      # namespace: msp-system
-    uri: /device/data/update/
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: datastore-device-data-update
+#   # namespace: msp-events
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.data.update
+#   subscriber:
+#     ref:
+#       # apiVersion: serving.knative.dev/v1
+#       # apiVersion: v1
+#       apiVersion: serving.knative.dev/v1
+#       kind: Service
+#       name: datastore
+#       # namespace: msp-system
+#     uri: /device/data/update/
 
 
 
@@ -99,26 +99,26 @@ spec:
     uri: /device/registry/update/
 ---
 # handled by mqtt
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: datastore-controller-data-update
-  # namespace: msp-events
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.controller.data.update
-  subscriber:
-    ref:
-      # apiVersion: serving.knative.dev/v1
-      # apiVersion: v1
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: datastore
-      # namespace: msp-system
-    uri: /controller/data/update/
----
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: datastore-controller-data-update
+#   # namespace: msp-events
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.controller.data.update
+#   subscriber:
+#     ref:
+#       # apiVersion: serving.knative.dev/v1
+#       # apiVersion: v1
+#       apiVersion: serving.knative.dev/v1
+#       kind: Service
+#       name: datastore
+#       # namespace: msp-system
+#     uri: /controller/data/update/
+# ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
