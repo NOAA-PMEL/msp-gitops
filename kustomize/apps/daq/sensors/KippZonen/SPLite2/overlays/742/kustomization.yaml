@@ -21,7 +21,7 @@ resources:
 - ../../base
 - SPLite2-configmap.yaml
 
-nameSuffix: -spliteEDIT
+nameSuffix: -splite742
 # patchesStrategicMerge:
 #   - deployment.yaml
 
@@ -33,7 +33,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: kippzonen-splite2-config-spliteEDIT
+        value: kippzonen-splite2-config-splite742
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-spliteEDIT
+        value: sensor-definition-splite742
