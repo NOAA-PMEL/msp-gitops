@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: lantronix-xport-ntp-63D
+  name: lantronix-xport-ntp-63d
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
