@@ -1,0 +1,144 @@
+{
+    "attributes": {
+        "make": {
+            "type": "string",
+            "data": "Phoenix Contact"
+        },
+        "model": {
+            "type": "string",
+            "data": "NTP"
+        },
+        "description": {
+            "type": "string",
+            "data": "Phoenix Contact NTP Timeserver and GNSS Receiver"
+        },
+        "tags": {
+            "type": "char",
+            "data": "NTP, Timeserver, GNSS, satellite, GPS, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, setting, calibration"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        }
+    },
+    "dimensions": {"time": 0},
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "ntp_timestamp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Internal Timestamp (UTC)"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: RMC"
+                }
+            }
+        },
+        "status": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Status (A=active, V=void)"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: RMC"
+                }
+            }
+        },
+        "lat": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Latitude"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: RMC"
+                },
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "lat_dir": {
+            "type": "char",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Direction of Latitude"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: RMC"
+                }
+            }
+        },
+        "lon": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Longitude"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: RMC"
+                },
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "lon_dir": {
+            "type": "char",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Direction of Longitude"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: RMC"
+                },
+                "units": {"type": "char", "data": "unitless"}
+            }
+        },
+       "speed": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Speed Over Ground"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: VTG"
+                },
+                "units": {"type": "char", "data": "kilometers/hour"}
+            }
+        },
+        "sv_num": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Number of SVs in Use"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: GGA"
+                },
+                "units": {"type": "char", "data": "count"}
+            }
+        }
+    }
+}

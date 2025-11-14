@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lantronix-xport-config
+  # namespace: msp
+  labels:
+    app: lantronix-xport
+data:
+  namespace_prefix: mspbase02
+  envds_env_id: mspbase02
+  interface.conf: |
+    uid: ntp-63D
+    # serial_number: "1234"
+    # daq_id: clearsky
+    host: 10.55.169.24
+    paths:
+      port-1:
+          # host: 10.55.169.52
+          # host: 192.168.86.46 # can override interface host if needed?
+          port: 2947 # if omitted, default is used

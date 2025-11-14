@@ -1,10 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: lantronix-xport
-
+  name: phoenixcontact-ntp
 
 namespace: mspbase02-hardware
+
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -15,26 +15,26 @@ namespace: mspbase02-hardware
 # # at https://github.com/monopole/hello
 #   nameSuffix: -usc206
 #   commonLabels:
-#     app: lantronix-xport
+#     app: usconverters-uscdr301
 #     variant: test
 
 resources:
 - ../../base
-- XPort-configmap.yaml
+- ntp-configmap.yaml
 
-nameSuffix: -ntp-63D
+nameSuffix: "-63D"
 # patchesStrategicMerge:
 #   - deployment.yaml
 
 patches:
-  # change configmap names to account for s/n suffix
+#   # change configmap names to account for s/n suffix
   - target:
       kind: Deployment
-      name: lantronix-xport
+      name: phoenixcontact-ntp
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: lantronix-xport-config-ntp-63D
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/1/configMap/name
-      #   value: sensor-definition-63D
+        value: phoenixcontact-ntp-config-63D
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: sensor-definition-63D

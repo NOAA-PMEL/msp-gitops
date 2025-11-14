@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phoenixcontact-ntp
+  # namespace: msp
+  labels:
+    app: phoenixcontact-ntp
+spec:
+  selector:
+    matchLabels:
+      app: phoenixcontact-ntp
+  template:
+    metadata:
+      labels:
+        app: phoenixcontact-ntp
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: phoenixcontact-ntp
+        image: ghcr.io/noaa-pmel/msp/phoenixcontact-ntp:0.1.0
+        imagePullPolicy: "Always"
+        env:
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
+            valueFrom:
+              configMapKeyRef:
+                name: phoenixcontact-ntp-config
+                key: namespace_prefix
+          - name: ENVDS_ENV_ID
+            valueFrom:
+              configMapKeyRef:
+                name: phoenixcontact-ntp-config
+                key: envds_env_id
+            # value: mspbase01
+          - name: REDIS_OM_URL
+            value: redis://redis.default
+          - name: LOG_LEVEL
+            value: DEBUG
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 9080
+          protocol: TCP
+        volumeMounts:
+            - name: phoenixcontact-ntp-config
+              mountPath: /app/config/sensor.conf
+              subPath: sensor.conf
+            - name: sensor-definition
+              mountPath: /app/PhoenixContact_NTP_sensor_definition.json
+              subPath: PhoenixContact_NTP_sensor_definition.json
+      volumes:
+        - name: phoenixcontact-ntp-config
+          configMap:
+            name: phoenixcontact-ntp-config
+        - name: sensor-definition
+          configMap:
+            name: sensor-definition
