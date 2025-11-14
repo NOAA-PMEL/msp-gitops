@@ -4,7 +4,7 @@ metadata:
   name: lantronix-xport
 
 
-namespace: payload01-hardware
+namespace: mspbase02-hardware
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -22,7 +22,7 @@ resources:
 - ../../base
 - XPort-configmap.yaml
 
-nameSuffix: -magic250-154
+nameSuffix: -ntp-63D
 # patchesStrategicMerge:
 #   - deployment.yaml
 
@@ -34,7 +34,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: lantronix-xport-config-magic250-154
+        value: lantronix-xport-config-ntp-63D
       # - op: replace 
       #   path: /spec/template/spec/volumes/1/configMap/name
-      #   value: sensor-definition-154
+      #   value: sensor-definition-63D
