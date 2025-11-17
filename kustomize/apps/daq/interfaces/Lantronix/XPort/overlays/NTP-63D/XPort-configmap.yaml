@@ -12,7 +12,7 @@ data:
     uid: ntp-63d
     # serial_number: "1234"
     # daq_id: clearsky
-    host: 10.55.169.24
+    host: 10.55.169.224
     paths:
       port-1:
           # host: 10.55.169.52
