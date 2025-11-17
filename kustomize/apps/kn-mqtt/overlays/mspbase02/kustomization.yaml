@@ -31,13 +31,13 @@ resources:
 #       annotations:
 #         autoscaling.knative.dev/min-scale: "1"
 
-# patches:
-#   # change configmap names to account for s/n suffix
-#   - target:
-#       # version: serving.knative.dev/v1
-#       kind: Service
-#       name: kn-mqtt-adapter
-#     patch: |-
-#       - op: replace 
-#         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
-#         value: "3"
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      # version: serving.knative.dev/v1
+      kind: Service
+      name: kn-mqtt-adapter
+    patch: |-
+      - op: replace 
+        path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
+        value: "3"
