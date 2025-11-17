@@ -13,10 +13,10 @@ data:
     serial_number: splite742
     daq_id: mspbase02
     interfaces:
-      # default:
-      #   interface_env_id: mspbase02
-      #   interface_id: LabJack::Tx::ljtx207
-      #   path: voltage_in-0
+      default:
+        interface_env_id: mspbase02
+        interface_id: LabJack::Tx::ljtx207
+        path: voltage_in-0
       ref_volt:
         interface_env_id: mspbase02
         interface_id: LabJack::Tx::ljtx207
