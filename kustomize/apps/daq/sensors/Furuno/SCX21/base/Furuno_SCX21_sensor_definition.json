@@ -27,6 +27,10 @@
         "serial_number": {
             "type": "string",
             "data": ""
+        },
+        "changelog": {
+            "type": "string", 
+            "data": "1.1.0: convert lat/lon to degrees_north and degrees_east and change units"
         }
     },
     "dimensions": {"time": 0},
@@ -61,7 +65,7 @@
                     "type": "char",
                     "data": "NMEA 0183 ID: GNS"
                 },
-                "units": {"type": "char", "data": "degrees"}
+                "units": {"type": "char", "data": "degrees_north"}
             }
         },
         "lat_dir": {
@@ -86,7 +90,7 @@
                     "type": "char",
                     "data": "NMEA 0183 ID: GNS"
                 },
-                "units": {"type": "char", "data": "degrees"}
+                "units": {"type": "char", "data": "degrees_east"}
             }
         },
         "lon_dir": {
