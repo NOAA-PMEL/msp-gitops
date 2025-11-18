@@ -36,7 +36,9 @@ data:
       voltage_in-0:
         path_type: ADC
         channel: 0
-      voltage_in-1:
-        path_type: ADC
-        channel: 1
+
+# tmp
+      # voltage_in-1:
+      #   path_type: ADC
+      #   channel: 1
 
