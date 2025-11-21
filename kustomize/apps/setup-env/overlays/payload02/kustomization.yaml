@@ -18,7 +18,7 @@ metadata:
 
 resources:
 - ../../base
-- namespace.yaml
+# - namespace.yaml
 - ghcr-secret-payload02-hardware-sealed.yaml
 - ghcr-secret-payload02-system-sealed.yaml
 # - knative-brokers.yaml

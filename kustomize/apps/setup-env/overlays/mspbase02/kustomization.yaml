@@ -18,7 +18,7 @@ metadata:
 
 resources:
 - ../../base
-- namespace.yaml
+# - namespace.yaml
 - ghcr-secret-mspbase02-hardware-sealed.yaml
 - ghcr-secret-mspbase02-system-sealed.yaml
 # - knative-brokers.yaml
