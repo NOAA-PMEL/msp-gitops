@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/sensors/Brechtel/tap2901/overlays/052
+    path: kustomize/apps/daq/sensors/Brechtel/TAP2901/overlays/052
     # kustomize:
     #   patches:
     #     - patch: |-
