@@ -13,7 +13,6 @@ data:
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
-    envds/+/+/+/data/update,   
     payload/envds/+/registry/sync-bcast,
     payload/envds/+/registry/sync-update,
     payload/envds/+/registry/sync-request,
@@ -28,10 +27,13 @@ data:
     envds/controller/settings/update,
     envds/+/controller/settings/update,
     envds/+/controller/registry/update,
-    envds/+/+/+/controller/data/update,   
     envds/sensor/settings/update,
-    envds/+/sensor/settings/update
+    envds/+/sensor/settings/update,
   
+# old subscriptions:
+    # envds/+/+/+/data/update,   
+    # envds/+/+/+/controller/data/update,   
+
   
   
   # mqtt_broker: "mosquitto.default"
