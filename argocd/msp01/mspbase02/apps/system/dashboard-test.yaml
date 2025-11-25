@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: shellypro4pm-10.55.169.223
+  name: dashboard-test-mspbase02
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/controllers/Shelly/ShellyPro4PM/overlays/10.55.169.223
+    path: kustomize/apps/dashboard-test/overlays/mspbase02
     # kustomize:
     #   patches:
     #     - patch: |-
