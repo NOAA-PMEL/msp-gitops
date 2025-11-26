@@ -26,11 +26,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "2.0.0"
-        },
-        "changlog": {
-            "type": "stromg",
-            "data": "2.0.0: added ADC attributes to allow for differential input and set voltage range;"
+            "data": "1.0.0"
         }
     },
     "path_types": {
@@ -52,19 +48,7 @@
                     "type": "int",
                     "data": 0
                 },
-                "input_voltage_range": {
-                    "type": "float",
-                    "data": 1.0
-                },
-                "input_type": {
-                    "type": "string",
-                    "data": "single"
-                },
-                "diff_ch_negative": {
-                    "type": "int",
-                    "data": 1
-                },
-                 "sample_mode": {
+                "sample_mode": {
                     "type": "string",
                     "data": "polled"
                 },
