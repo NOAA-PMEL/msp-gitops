@@ -4,7 +4,7 @@ metadata:
   name:  redis-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: 10Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

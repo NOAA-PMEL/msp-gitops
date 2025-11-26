@@ -21,6 +21,7 @@ namespace: pmel-dev-system
 resources:
 - ../../base
 - redis-pv.yaml
+- redis-pvc.yaml
 
 # patchesStrategicMerge:
 #   - deployment.yaml
