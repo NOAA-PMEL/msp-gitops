@@ -36,6 +36,8 @@ data:
       voltage_in-0:
         path_type: ADC
         channel: 0
+        input_voltage_range: 1.0
+        input_type: "single"
 
 # tmp
       # voltage_in-1:
