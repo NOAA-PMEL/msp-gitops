@@ -26,6 +26,7 @@ spec:
   filters:
      - any:
         - exact:
+            # type: envds.registry.sync-broadcast
             type: envds.registry.sync-broadcast
         - exact:
             type: envds.registry.sync-update
@@ -67,7 +68,62 @@ spec:
       kind: Service
       name: kn-mqtt-adapter
       # namespace: msp-system
-    uri: mqtt/send/
+    uri: /mqtt/send/
+
+
+
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: registry-sync
+#   # namespace: mspbase01-system
+# spec:
+#   broker: default
+#   filters:
+#      - any:
+#         - exact:
+#             type: envds.registry.sync-broadcast
+#         - exact:
+#             type: envds.registry.sync-update
+#         - exact:
+#             type: envds.registry.sync-request
+#      - not:
+#         exact:
+#           source: envds.mspbase01.registrar
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: registrar
+#       # namespace: msp-system
+#     uri: /registry-sync/
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: registry-sync-to-mqtt
+#   # namespace: mspbase01-system
+# spec:
+#   broker: default
+#   filters:
+#      - any:
+#         - exact:
+#             type: envds.registry.sync-broadcast
+#         - exact:
+#             type: envds.registry.sync-update
+#         - exact:
+#             type: envds.registry.sync-request
+#      - exact:
+#         # exact:
+#           source: envds.mspbase01.registrar
+#   subscriber:
+#     ref:
+#       apiVersion: serving.knative.dev/v1
+#       # apiVersion: v1
+#       kind: Service
+#       name: kn-mqtt-adapter
+#       # namespace: msp-system
+#     uri: mqtt/send/
 
 
 # apiVersion: eventing.knative.dev/v1
