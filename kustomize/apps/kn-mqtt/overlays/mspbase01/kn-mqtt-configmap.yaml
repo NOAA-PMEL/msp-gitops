@@ -13,9 +13,9 @@ data:
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
-    payload/envds/+/registry/sync-bcast,
-    payload/envds/+/registry/sync-update,
-    payload/envds/+/registry/sync-request,
+    main/envds/+/registry/sync-bcast,
+    main/envds/+/registry/sync-update,
+    main/envds/+/registry/sync-request,
     envds/+/device-definition/registry/update,
     envds/+/device-instance/registry/update,
     envds/+/controller-definition/registry/update,
