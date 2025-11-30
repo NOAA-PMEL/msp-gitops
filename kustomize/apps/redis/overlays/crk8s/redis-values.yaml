@@ -3,13 +3,13 @@ sentinel:
   enabled: true
   replicaCount: 3 # Number of Sentinel instances
 
-auth:
-  enabled: false
-  sentinel: false
-  password: <REDIS-STACK-SERVER-PASSWORD>
-  acl:
-    enabled: false
-    users: []
+# auth:
+#   enabled: false
+#   sentinel: false
+#   password: <REDIS-STACK-SERVER-PASSWORD>
+#   acl:
+#     enabled: false
+#     users: []
 
 # Configure Redis Replicas (slaves)
 replica:
