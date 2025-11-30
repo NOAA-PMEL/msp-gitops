@@ -5,11 +5,11 @@ sentinel:
 
 auth:
   enabled: false
-  # sentinel: true
-  # password: <REDIS-STACK-SERVER-PASSWORD>
-  # acl:
-  #   enabled: false
-  #   users: []
+  sentinel: false
+  password: <REDIS-STACK-SERVER-PASSWORD>
+  acl:
+    enabled: false
+    users: []
 
 # Configure Redis Replicas (slaves)
 replica:
