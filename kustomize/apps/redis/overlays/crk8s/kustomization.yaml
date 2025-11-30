@@ -5,28 +5,23 @@ metadata:
 
 # setup namespace
 namespace: crk8s-system
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
 
-# resources:
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# namePrefix: dev-
-# commonLabels:
-#   app: nginx
-#   variant: lopez
+# configMapGenerator:
+#   - behavior: merge
+#     name: argocd-cm
+#     namespace: argocd
+#     literals:
+#       - kustomize.buildOptions=--enable-helm
 
-resources:
-- ../../base
-# - redis-pv.yaml
-
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      kind: PersistentVolumeClaim
-      name: redis-pvc
-    patch: |-
-      - op: remove 
-        path: /spec/volumeName
+helmCharts:
+- name: redis
+  repo: https://charts.bitnami.com/bitnami
+  # version: 1.2.3
+  releaseName: redis
+  namespace: crk8s-system
+  valuesFile: redis-values.yaml # Use a file for overrides
+  # Alternatively, use inline values:
+  # values:
+  #  somekey: "somevalue"
+  #  anotherkey:
+  #    nested: "value"

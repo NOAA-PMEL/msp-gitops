@@ -1,0 +1,13 @@
+# Enable Redis Sentinel
+sentinel:
+  enabled: true
+  replicaCount: 3 # Number of Sentinel instances
+
+# Configure Redis Replicas (slaves)
+replica:
+  replicaCount: 3 # Number of Redis replicas
+  persistence:
+    enabled: true # Enable persistence for Redis replicas
+    size: 8Gi # Size of the PersistentVolumeClaim
+    accessModes:
+      - ReadWriteOnce # Access mode for the PersistentVolumeClaim
