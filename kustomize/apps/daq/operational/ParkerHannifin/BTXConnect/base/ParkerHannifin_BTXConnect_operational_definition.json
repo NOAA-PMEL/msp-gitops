@@ -49,7 +49,7 @@
                 }
             }
         },
-        "pump_flow": {
+        "pump_speed": {
             "type": "float",
             "shape": [
                 "time"
@@ -61,15 +61,15 @@
                 },
                 "long_name": {
                     "type": "char",
-                    "data": "Fan Speed - RPM"
+                    "data": "Pump Speed - RPM"
                 },
                 "units": {
                     "type": "char",
-                    "data": "LPM"
+                    "data": "RPM"
                 }
             }
         },
-        "pump_flow_sp": {
+        "pump_speed_sp": {
             "type": "float",
             "shape": [
                 "time"
@@ -81,7 +81,7 @@
                 },
                 "long_name": {
                     "type": "string",
-                    "data": "Pump Flow SP"
+                    "data": "Pump Speed SP"
                 },
                 "units": {
                     "type": "string",

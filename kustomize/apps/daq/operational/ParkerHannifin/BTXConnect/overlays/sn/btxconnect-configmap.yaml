@@ -13,17 +13,17 @@ data:
     daq_id: mspbase01
     interfaces:
       # default: serial
-      # default: # to read pump speed
-      #   interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
-      #   interface_id: LabJack::Tx::ljtx207 
-      #   path: counter-1
-      pump_flow_sp: # to set pump speed
+      default: # to read pump speed
+        interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx207 
+        path: counter-1
+      pump_speed_sp: # to set pump speed
         interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx207 
         path: pwm-6
 
     settings:
-      pump_flow_sp: 0 # initialize with pump set to off
+      pump_speed_sp: 0 # initialize with pump set to off
 
       #   connection-properties:
       #     baudrate: 115200
