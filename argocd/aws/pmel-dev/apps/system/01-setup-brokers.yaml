@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/setup-brokers/overlays/payload-dev
+    path: kustomize/apps/setup-brokers/overlays/system/payload-dev
   destination:
     server: https://kubernetes.default.svc
     # namespace: msp-system
