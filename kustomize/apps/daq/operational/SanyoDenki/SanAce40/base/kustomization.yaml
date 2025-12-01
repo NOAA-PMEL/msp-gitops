@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: sanyodenki-sanace40
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+resources:
+- sanace40-deployment.yaml
+- sanace40-service.yaml
+
+configMapGenerator:
+  - name: operational-definition
+    files:
+      - SanyoDenki_SanAce40_operational_definition.json
