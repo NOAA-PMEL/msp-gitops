@@ -22,11 +22,36 @@ namespace: crk8s-system
 resources:
 - ../../base
 - datastore-configmap.yaml
+- datastore_db_password_sealedsecret.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
 
+# patchesStrategicMerge:
+# - patch-service_knative.yaml
+
 patches:
   # change configmap names to account for s/n suffix
+  # - target:
+  #     kind: Service
+  #     name: datastore
+  #   patch: |-
+  #     - op: add 
+  #       path: /spec/template/spec/containers/0/env
+  #       name: DATASTORE_DB_USERNAME
+  #       valueFrom: 
+  #         configMapKeyRef:
+  #           name: datastore
+  #           key: db_username
+  # - op: add 
+  #   path: /spec/template/spec/containers/0/env
+  #   name: DATASTORE_DB_PASSWORD
+  #   secretKeyRef:
+  #     name: db_password_secret
+  #     key: db_password  
+  - path: datastore-service_knative.yaml
+    target: 
+      kind: Service
+      name: datastore
   - target:
       kind: Trigger
       # name: default

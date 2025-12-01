@@ -3,13 +3,16 @@ sentinel:
   enabled: true
   replicaCount: 3 # Number of Sentinel instances
 
-# auth:
-#   enabled: false
-#   sentinel: false
-#   password: <REDIS-STACK-SERVER-PASSWORD>
+auth:
+  enabled: true
+  sentinel: true
+  existingSecret: "datastore_db_password" # Name of your existing Kubernetes Secret
+  existingSecretPasswordKey: "db_password" # Key within the Secret containing the password
+  # password: <REDIS-STACK-SERVER-PASSWORD>
 #   acl:
 #     enabled: false
 #     users: []
+
 
 # Configure Redis Replicas (slaves)
 replica:
