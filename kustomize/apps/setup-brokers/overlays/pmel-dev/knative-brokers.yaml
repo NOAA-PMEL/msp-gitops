@@ -1,0 +1,34 @@
+# apiVersion: eventing.knative.dev/v1
+# kind: Broker
+# metadata:
+#   annotations:
+#     eventing.knative.dev/broker.class: MTChannelBasedBroker
+#   name: default
+#   namespace: crk8s-system
+# spec:
+#   config:
+#     apiVersion: v1
+#     kind: ConfigMap
+#     name: config-br-default-channel
+#     namespace: knative-eventing
+#   delivery:
+#     retry: 5
+#     backoffPolicy: exponential # or linear
+#     backoffDelay: "PT1.0S"     # or ISO8601 duration
+# ---
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  annotations:
+    eventing.knative.dev/broker.class: Kafka
+  name: default
+  # name: default
+  namespace: pmel-dev-system
+spec:
+  # Configuration specific to this broker.
+  config:
+    apiVersion: v1
+    kind: ConfigMap
+    name: kafka-broker-config
+    namespace: knative-eventing
+---
