@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: redis-pmel-dev
+  name: setup-env-pmel-dev
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/redis/overlays/pmel-dev
+    path: kustomize/apps/setup-env/overlays/pmel-dev
   destination:
     server: https://kubernetes.default.svc
     # namespace: msp-system
