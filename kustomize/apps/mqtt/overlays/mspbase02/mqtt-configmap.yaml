@@ -54,6 +54,7 @@ data:
     topic envds/payload01/controller/+/settings/update out 0 "" ""
     topic envds/+/controller/settings/update out 0 "" ""
     topic envds/+/controller-instance/registry/update out 0 "" ""
+    topic envds/+/controller/+/data/update out 0 "" ""
     # # topic envds/+/controller-definition/registry/update out 0 "" ""
 
     # # TLS
