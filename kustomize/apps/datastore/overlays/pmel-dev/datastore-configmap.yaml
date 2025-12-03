@@ -24,7 +24,7 @@ data:
   # port: "8000"
   port: "8080"
   # knative_broker: " http://broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/default"
-  knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/kafka-broker
+  knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker
   # mongodb_data_user_name: "uasdaq-data"
   # mongodb_registry_user_name: "uasdaq-registry"
   # mongodb_data_connection: mongodb://<username>:<password>@uasdaq-mongodb-0.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-1.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-2.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017/data?replicaSet=uasdaq-mongodb&ssl=false"
@@ -33,7 +33,7 @@ data:
   # erddap_https_connection: "https://erddap.default:8443/erddap"
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
 
-  mqtt_broker: "pmel-dev.crk8s-system"
+  mqtt_broker: "mqtt.pmel-dev-system"
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
