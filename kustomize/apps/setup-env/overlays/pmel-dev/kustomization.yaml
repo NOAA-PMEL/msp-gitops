@@ -21,6 +21,7 @@ resources:
 # - namespace.yaml
 - ghcr-secret-pmel-dev-hardware-sealed.yaml
 - ghcr-secret-pmel-dev-system-sealed.yaml
+- redis_db_password.yaml
 # - knative-brokers.yaml
 # - ghcr-secret-mspbase02-system-sealed.yaml
 # - ghcr-secret-msp-events-sealed.yaml

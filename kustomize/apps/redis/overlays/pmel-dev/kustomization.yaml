@@ -12,8 +12,8 @@ namespace: pmel-dev-system
 #     namespace: argocd
 #     literals:
 #       - kustomize.buildOptions=--enable-helm
-resources:
-- redis_db_password_sealed.yaml
+# resources:
+# - redis_db_password_sealed.yaml
 
 helmCharts:
 - name: redis
