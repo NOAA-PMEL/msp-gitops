@@ -5,23 +5,25 @@ metadata:
 
 # setup namespace
 namespace: pmel-dev-system
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
 
-# resources:
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# namePrefix: dev-
-# commonLabels:
-#   app: nginx
-#   variant: lopez
-
+# configMapGenerator:
+#   - behavior: merge
+#     name: argocd-cm
+#     namespace: argocd
+#     literals:
+#       - kustomize.buildOptions=--enable-helm
 resources:
-- ../../base
-- redis-pv.yaml
-# - redis-pvc.yaml
+- redis_db_password_sealed.yaml
 
-patchesStrategicMerge:
-  - redis-pvc.yaml
+helmCharts:
+- name: redis
+  repo: https://charts.bitnami.com/bitnami
+  # version: 1.2.3
+  releaseName: redis
+  namespace: crk8s-system
+  valuesFile: redis-values.yaml # Use a file for overrides
+  # Alternatively, use inline values:
+  # values:
+  #  somekey: "somevalue"
+  #  anotherkey:
+  #    nested: "value"
