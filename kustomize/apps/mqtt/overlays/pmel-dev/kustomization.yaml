@@ -1,0 +1,34 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: mqtt
+
+# set namespace
+namespace: pmel-dev-system
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# namePrefix: dev-
+# commonLabels:
+#   app: nginx
+#   variant: lopez
+
+resources:
+- ../../base
+# - mqtt-pv.yaml
+- mqtt-configmap.yaml
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      kind: PersistentVolumeClaim
+      name: mqtt-pvc
+    patch: |-
+      - op: remove 
+        path: /spec/volumeName
