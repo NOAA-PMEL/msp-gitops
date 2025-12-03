@@ -1,10 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: datastore
+  name: sampling-system
 
 # set namespace
-namespace: payload03-system
+namespace: crk8s-system
 
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -21,15 +21,58 @@ namespace: payload03-system
 
 resources:
 - ../../base
-- datastore-configmap.yaml
+- sampling-system-configmap.yaml
+# - platform_defs_configmap.yaml
+# - platform_varmaps_configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
-- datastore-triggers.yaml
+# uncomment this if using knative for data updates
+# - sampling-system-triggers.yaml
 
-# configMapGenerator:
-#   - name: datastore
-#     literals:
-#     - db_client_type=redis
-#     - db_client_hostname=redis.payload03-system
-#     - db_client_port=6379
-#     - port=8080
-#     - knative_broker=http://broker-ingress.knative-eventing.svc.cluster.local/payload03-system/default
+configMapGenerator:
+  - name: sampling-system-platforms
+    files:
+      - platform_defs.json
+  - name: sampling-system-variablemaps
+    files:
+      - platform_varmaps.json
+
+nameSuffix: "-crk8s"
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      # version: serving.knative.dev/v1
+      kind: Service
+      name: sampling-system
+    patch: |-
+      # - op: replace 
+      #   path: /spec/template/spec/volumes/0/configMap/name
+      #   value: sampling-system-crk8s
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: sampling-system-platforms-crk8s
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: sampling-system-variablemaps-crk8s
+
+configurations:
+  - config.yaml
+
+# patches:
+#   - patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: REPLACED_DURING_PATCH
+#       spec:
+#         template:
+#           spec:
+#             containers:
+#               - name: webhook
+#                 env:
+#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
+#                     value: "true"
+#     target:
+#       group: apps
+#       kind: Deployment
+#       name: ".*webhook.*"
