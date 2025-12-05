@@ -22,7 +22,7 @@ namespace: pmel-dev-system
 resources:
 - ../../base
 - datastore-configmap.yaml
-- datastore_db_password_sealedsecret.yaml
+- datastore_db_password_sealed.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
 
