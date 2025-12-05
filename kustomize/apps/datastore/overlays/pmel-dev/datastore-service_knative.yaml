@@ -70,7 +70,7 @@ spec:
                 configMapKeyRef:
                   name: datastore
                   key: db_username
-            - name: DATASTORE_DB_PASSWORD
+            - name: DATASTORE_DB_CLIENT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: datastore-db-password

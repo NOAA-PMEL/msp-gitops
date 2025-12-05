@@ -11,7 +11,7 @@ data:
   db_data_ttl: '300'
   db_reg_device_definition_ttl: '0'
   db_reg_device_instance_ttl: '300'
-  db_username: 'acg'
+  db_client_username: 'acg'
   
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
