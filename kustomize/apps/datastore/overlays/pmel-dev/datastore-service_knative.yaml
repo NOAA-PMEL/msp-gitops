@@ -65,11 +65,11 @@ spec:
                 configMapKeyRef:
                   name: datastore
                   key: db_client_port
-            - name: DATASTORE_DB_USERNAME
+            - name: DATASTORE_DB_CLIENT_USERNAME
               valueFrom:
                 configMapKeyRef:
                   name: datastore
-                  key: db_username
+                  key: db_client_username
             - name: DATASTORE_DB_CLIENT_PASSWORD
               valueFrom:
                 secretKeyRef:
