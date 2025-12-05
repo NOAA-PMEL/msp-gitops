@@ -73,7 +73,7 @@ spec:
             - name: DATASTORE_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: redis-db-password
+                  name: datastore-db-password
                   key: db_password
             - name: DATASTORE_MQTT_BROKER
               valueFrom:
