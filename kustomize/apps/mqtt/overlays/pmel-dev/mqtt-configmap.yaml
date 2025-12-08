@@ -29,10 +29,10 @@ data:
 
     # Bridge
     # connection pmel-dev_aws-iot-core_bridge
-    # address 10.55.169.210:1883
+    # address 10.55.169.210:8883
     # remote_clientid payload01_mspbase01_bridge
     connection pmel-dev_aws-iot-core_bridge
-    address iot.pmel-dev.oarcloud.noaa.gov:1883
+    address iot.pmel-dev.oarcloud.noaa.gov:8883
     remote_clientid pmel-dev_aws-iot-core_bridge
     topic envds/+/sensor/+/data/update in 0 "" ""
     # topic envds/+/sensor/+/settings/update out 0 "" ""
