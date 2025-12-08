@@ -59,9 +59,9 @@ data:
     # # topic envds/+/controller-definition/registry/update out 0 "" ""
 
     # Certificate-based authentication
-    bridge_cafile /certs/rootCA.crt # Path to the Amazon Root CA certificate
-    bridge_certfile /certs/cert.crt # Path to your device certificate
-    bridge_keyfile /certs/private.key # Path to your private key
+    bridge_cafile /certs/rootCA.crt
+    bridge_certfile /certs/cert.crt
+    bridge_keyfile /certs/private.key
 
     # # TLS
     # # https://mosquitto.org/man/mosquitto-tls-7.html
