@@ -22,13 +22,38 @@ namespace: pmel-dev-system
 resources:
 - ../../base
 # - mqtt-pv.yaml
+- pmel-dev-server-iot-sealed.yaml
 - mqtt-configmap.yaml
 
 patches:
   # change configmap names to account for s/n suffix
+  - path: mqtt-deployment.yaml
+    target: 
+      kind: Deployment
+      name: mqtt
   - target:
       kind: PersistentVolumeClaim
       name: mqtt-pvc
     patch: |-
       - op: remove 
         path: /spec/volumeName
+
+# patches:
+  # change configmap names to account for s/n suffix
+  # - target:
+  #     kind: Service
+  #     name: datastore
+  #   patch: |-
+  #     - op: add 
+  #       path: /spec/template/spec/containers/0/env
+  #       name: DATASTORE_DB_USERNAME
+  #       valueFrom: 
+  #         configMapKeyRef:
+  #           name: datastore
+  #           key: db_username
+  # - op: add 
+  #   path: /spec/template/spec/containers/0/env
+  #   name: DATASTORE_DB_PASSWORD
+  #   secretKeyRef:
+  #     name: db_password_secret
+  #     key: db_password  

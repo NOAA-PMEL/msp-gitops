@@ -27,6 +27,41 @@ data:
     listener 1883
     protocol mqtt
 
+    # Bridge
+    # connection pmel-dev_aws-iot-core_bridge
+    # address 10.55.169.210:1883
+    # remote_clientid payload01_mspbase01_bridge
+    connection pmel-dev_aws-iot-core_bridge
+    address iot.pmel-dev.oarcloud.noaa.gov:1883
+    remote_clientid pmel-dev_aws-iot-core_bridge
+    topic envds/+/sensor/+/data/update in 0 "" ""
+    # topic envds/+/sensor/+/settings/update out 0 "" ""
+    # topic envds/+/sensor/+/settings/request in 0 "" ""
+    # topic envds/+/sensor/+/status/update in 0 "" ""
+    # topic envds/+/sensor/+/status/request both 0 "" ""
+    # topic envds/+/sensor/registry/update in 0 "" ""
+    topic envds/+/device-instance/registry/update in 0 "" ""
+    topic server/envds/+/registry/sync-bcast out 0 "" ""
+    topic server/envds/+/registry/sync-update out 0 "" ""
+    topic server/envds/+/registry/sync-request out 0 "" ""
+    topic cloud/envds/+/registry/sync-bcast in 0 "" ""
+    topic cloud/envds/+/registry/sync-update in 0 "" ""
+    topic cloud/envds/+/registry/sync-request in 0 "" ""
+    topic envds/controller/settings/request both 0 "" ""
+    topic envds/device/settings/request both 0 "" ""
+    topic envds/sensor/settings/request both 0 "" ""
+    # # topic envds/sensor/settings/update both 0 "" ""
+    # topic envds/payload01/controller/+/settings/update out 0 "" ""
+    topic envds/+/controller/settings/update out 0 "" ""
+    topic envds/+/controller-instance/registry/update in 0 "" ""
+    topic envds/+/controller/+/controller/data/update in 0 "" ""
+    # # topic envds/+/controller-definition/registry/update out 0 "" ""
+
+    # Certificate-based authentication
+    bridge_cafile /certs/rootCA.crt # Path to the Amazon Root CA certificate
+    bridge_certfile /certs/cert.crt # Path to your device certificate
+    bridge_keyfile /certs/private.key # Path to your private key
+
     # # TLS
     # # https://mosquitto.org/man/mosquitto-tls-7.html
     # listener 8883
