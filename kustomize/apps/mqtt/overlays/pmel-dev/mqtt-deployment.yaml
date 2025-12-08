@@ -42,13 +42,13 @@ spec:
               subPath: mosquitto.conf
             - name: mosquitto-storage
               mountPath: /mosquitto/data
-            - name: mosquitto-certs-rootca
+            - name: mosquitto-certs
               mountPath: /certs/rootCA.crt
               subPath: rootCA
-            - name: mosquitto-certs-cert
+            - name: mosquitto-certs
               mountPath: /certs/cert.crt
               subPath: device-certificate
-            - name: mosquitto-certs-private
+            - name: mosquitto-certs
               mountPath: /certs/private.key
               subPath: private-key
       volumes:
