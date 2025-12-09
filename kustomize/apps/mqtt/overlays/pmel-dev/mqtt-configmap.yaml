@@ -66,7 +66,7 @@ data:
     bridge_certfile /certs/cert.crt
     bridge_keyfile /certs/private.key
     # TLS ALPN
-    bridge_alpn_protocol x-amzn-mqtt-ca
+    # bridge_alpn_protocol x-amzn-mqtt-ca
 
     # # TLS
     # # https://mosquitto.org/man/mosquitto-tls-7.html
