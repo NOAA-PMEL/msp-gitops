@@ -40,7 +40,7 @@ data:
     bridge_protocol_version mqttv50
     bridge_insecure false
     cleansession true
-    # try_private false
+    try_private false
     start_type automatic
     notifications false
 
