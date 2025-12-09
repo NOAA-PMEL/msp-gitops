@@ -71,7 +71,7 @@ data:
     tls_version tlsv1.2
 
     # TLS ALPN
-    bridge_alpn_protocol x-amzn-mqtt-ca
+    bridge_alpn x-amzn-mqtt-ca
 
     # # TLS
     # # https://mosquitto.org/man/mosquitto-tls-7.html
