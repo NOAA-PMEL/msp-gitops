@@ -37,6 +37,9 @@ data:
     remote_clientid pmel-dev-server
     # bridge_protocol_version mqttv50
     # bridge_insecure false
+    cleansession true
+    try_private true
+
 
     topic envds/+/sensor/+/data/update in 0 "" ""
     # # topic envds/+/sensor/+/settings/update out 0 "" ""
@@ -65,8 +68,10 @@ data:
     bridge_cafile /certs/rootCA.crt
     bridge_certfile /certs/cert.crt
     bridge_keyfile /certs/private.key
+    tls_version tlsv1.2
+
     # TLS ALPN
-    # bridge_alpn_protocol x-amzn-mqtt-ca
+    bridge_alpn_protocol x-amzn-mqtt-ca
 
     # # TLS
     # # https://mosquitto.org/man/mosquitto-tls-7.html
