@@ -44,7 +44,7 @@ spec:
               mountPath: /mosquitto/data
             - name: mosquitto-certs
               mountPath: /certs/rootCA.crt
-              subPath: rootCA
+              subPath: AmazonRootCA1.pem
             - name: mosquitto-certs
               mountPath: /certs/cert.crt
               subPath: device-certificate
