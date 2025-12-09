@@ -57,6 +57,39 @@ data:
     topic envds/+/controller/+/controller/data/update out 0 "" ""
     # # topic envds/+/controller-definition/registry/update out 0 "" ""
 
+    connection mspbase02_aws-iot-core_bridge
+    address iot.pmel-dev.oarcloud.noaa.gov:8883
+    # remote_clientid pmel-dev_aws-iot-core_bridge
+    remote_clientid mspbase02-server
+    topic envds/+/sensor/+/data/update out 0 "" ""
+    # topic envds/+/sensor/+/settings/update out 0 "" ""
+    # topic envds/+/sensor/+/settings/request in 0 "" ""
+    # topic envds/+/sensor/+/status/update in 0 "" ""
+    # topic envds/+/sensor/+/status/request both 0 "" ""
+    # topic envds/+/sensor/registry/update in 0 "" ""
+    topic envds/+/device-instance/registry/update out 0 "" ""
+    topic main/envds/+/registry/sync-bcast out 0 "" ""
+    topic main/envds/+/registry/sync-update out 0 "" ""
+    topic main/envds/+/registry/sync-request out 0 "" ""
+    topic server/envds/+/registry/sync-bcast in 0 "" ""
+    topic server/envds/+/registry/sync-update in 0 "" ""
+    topic server/envds/+/registry/sync-request in 0 "" ""
+    topic envds/controller/settings/request both 0 "" ""
+    topic envds/device/settings/request both 0 "" ""
+    topic envds/sensor/settings/request both 0 "" ""
+    # # topic envds/sensor/settings/update both 0 "" ""
+    # topic envds/payload01/controller/+/settings/update out 0 "" ""
+    topic envds/+/controller/settings/update in 0 "" ""
+    topic envds/+/controller-instance/registry/update out 0 "" ""
+    topic envds/+/controller/+/controller/data/update out 0 "" ""
+    # # topic envds/+/controller-definition/registry/update out 0 "" ""
+
+    # Certificate-based authentication
+    bridge_cafile /certs/rootCA.crt
+    bridge_certfile /certs/cert.crt
+    bridge_keyfile /certs/private.key
+
+
     # # TLS
     # # https://mosquitto.org/man/mosquitto-tls-7.html
     # listener 8883
