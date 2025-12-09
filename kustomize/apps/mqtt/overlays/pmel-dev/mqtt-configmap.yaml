@@ -36,7 +36,7 @@ data:
     # remote_clientid pmel-dev_aws-iot-core_bridge
     remote_clientid pmel-dev-server
     # bridge_protocol_version mqttv50
-    bridge_insecure false
+    # bridge_insecure false
 
     topic envds/+/sensor/+/data/update in 0 "" ""
     # # topic envds/+/sensor/+/settings/update out 0 "" ""
