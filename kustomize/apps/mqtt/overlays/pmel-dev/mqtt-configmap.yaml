@@ -33,8 +33,8 @@ data:
     # remote_clientid payload01_mspbase01_bridge
     connection pmel-dev_aws-iot-core_bridge
     address iot.pmel-dev.oarcloud.noaa.gov:443
-    # remote_clientid pmel-dev_aws-iot-core_bridge
-    remote_clientid pmel-dev-server
+    remote_clientid pmel-dev_aws-iot-core_bridge
+    # remote_clientid pmel-dev-server
     # bridge_protocol_version mqttv50
     bridge_insecure false
     # cleansession true
