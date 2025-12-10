@@ -22,7 +22,7 @@ data:
     envds/sensor/settings/update,
     envds/+/sensor/settings/update
 
-  local_validation_required: "False"
+  local_validation_required: bool = False
 
   # local_off
     # envds/+/+/+/data/update,   
@@ -37,8 +37,9 @@ data:
     # envds/+/controller/registry/update,
     # envds/+/+/+/controller/data/update,   
 
-  remote_mqtt_broker: "mqtt.pmel-dev-system"
-  remote_mqtt_port: "1883"
+  remote_mqtt_broker: "iot.pmel-dev.oarcloud.noaa.gov"
+  remote_mqtt_port: "443"
+  remote_mqtt_client_id: "pmel-dev-server"
   remote_broker_type: "aws"
   # mqtt_topic_filter: "instrument/#"
   remote_mqtt_topic_subscriptions: >
@@ -52,8 +53,7 @@ data:
     envds/+/sensor/settings/update
     envds/+/+/+/controller/data/update  
 
-  remote_validation_required: "True"
-
+  remote_validation_required: bool = True
   # mqtt_broker: "mosquitto.default"
   # mqtt_port: "1883"
   # # mqtt_topic_filter: "sensor/#"

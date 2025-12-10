@@ -56,6 +56,11 @@ spec:
               configMapKeyRef:
                 name: mqtt-bridge
                 key: remote_mqtt_port
+          - name: MQTT_BRIDGE_REMOTE_MQTT_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: remote_mqtt_client_id
           - name: MQTT_BRIDGE_REMOTE_BROKER_TYPE
             valueFrom:
               configMapKeyRef:
