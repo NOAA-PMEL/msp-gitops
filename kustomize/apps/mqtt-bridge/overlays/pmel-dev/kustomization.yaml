@@ -1,0 +1,77 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: mqtt-bridge
+
+namespace: pmel-dev-system
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: usconverters-uscdr301
+#     variant: test
+
+resources:
+- ../../base
+- mqtt-bridge-configmap.yaml
+# - adapter-triggers.yaml
+# - datastore-sealedsecrets.yaml
+
+patches:
+  - path: mqtt-bridge-service_knative.yaml
+    target: 
+      kind: Service
+      name: mqtt-bridge
+
+    # name: mqtt-bridge
+
+  # - target:
+  #     kind: Service
+  #   patch: |-
+  #     - op: add
+  #       path: /spec/template/spec/volumes/-
+  #       value:
+  #         name: remote-aws-certs
+  #         secret:
+  #           secretName: aws-iot-credentials
+  #     - op: add
+  #       path: /spec/template/spec/containers/0/volumes/-
+  #       value:
+  #         name: remote-aws-certs
+  #         mountPath: /certs/remote/aws/rootCA.crt
+  #         subPath: AmazonRootCA1.pem
+  #     - op: add
+  #       path: /spec/template/spec/containers/0/volumes/-
+  #       value:
+  #         name: remote-aws-certs
+  #         mountPath: /certs/remote/aws/cert.crt
+  #         subPath: device-certificate
+  #     - op: add
+  #       path: /spec/template/spec/containers/0/volumes/-
+  #       value:
+  #         name: remote-aws-certs
+  #         mountPath: /certs/remote/aws/private.key
+  #         subPath: private-key
+
+
+  
+  # - op: add
+  #   path: /spec/template/spec/containers/0/volumeMounts/-
+  #   value:
+  #     name: my-volume
+  #     mountPath: /data/my-volume
+
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Trigger
+#       # name: default
+#     patch: |-
+#       - op: replace 
+#         path: /spec/broker
+#         value: kafka-broker

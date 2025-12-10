@@ -1,0 +1,98 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: mqtt-bridge
+spec:
+  template:
+    metadata:
+      # labels:
+      #   app: mqtt-bridge
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "5"
+        # autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/metric: "cpu" # or "memory"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: mqtt-bridge
+      - image: ghcr.io/noaa-pmel/msp/mqtt-bridge:0.1.0
+        imagePullPolicy: "Always"
+        env:
+          - name: MQTT_BRIDGE_LOCAL_MQTT_BROKER
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: local_mqtt_broker
+          - name: MQTT_BRIDGE_LOCAL_MQTT_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: local_mqtt_port
+          - name: MQTT_BRIDGE_LOCAL_BROKER_TYPE
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: local_broker_type
+          - name: MQTT_BRIDGE_LOCAL_MQTT_TOPIC_SUBSCRIPTIONS
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: local_mqtt_topic_subscriptions
+          - name: MQTT_BRIDGE_LOCAL_VALIDATION_REQUIRED
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: local_validation_required
+          - name: MQTT_BRIDGE_REMOTE_MQTT_BROKER
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: remote_mqtt_broker
+          - name: MQTT_BRIDGE_REMOTE_MQTT_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: remote_mqtt_port
+          - name: MQTT_BRIDGE_REMOTE_BROKER_TYPE
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: remote_broker_type
+          - name: MQTT_BRIDGE_REMOTE_MQTT_TOPIC_SUBSCRIPTIONS
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: remote_mqtt_topic_subscriptions
+          - name: MQTT_BRIDGE_REMOTE_VALIDATION_REQUIRED
+            valueFrom:
+              configMapKeyRef:
+                name: mqtt-bridge
+                key: remote_validation_required
+        resources:
+          requests:
+            cpu: "200m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+          - containerPort: 8080
+        volumeMounts:
+            - name: remote-aws-certs
+              mountPath: /certs/remote/aws/rootCA.crt
+              subPath: AmazonRootCA1.pem
+            - name: remote-aws-certs
+              mountPath: /certs/remote/aws/cert.crt
+              subPath: device-certificate
+            - name: remote-aws-certs
+              mountPath: /certs/remote/aws/private.key
+              subPath: private-key
+      volumes:
+      #   - name: remote-aws-certs
+      #     secret:
+      #       secretName: aws-iot-credentials
+        # - name: http
+        #   containerPort: 8080
+        #   protocol: TCP

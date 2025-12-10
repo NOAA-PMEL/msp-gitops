@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqtt-bridge
+  # namespace: msp-system
+data:
+  # mqtt_bridge_host: "0.0.0.0"
+  # mqtt_bridge_port: 80
+  # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/default"
+  # knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker
+
+  local_mqtt_broker: "mqtt.pmel-dev-system"
+  local_mqtt_port: "1883"
+  local_broker_type: "mosquitto"
+  # mqtt_topic_filter: "instrument/#"
+  local_mqtt_topic_subscriptions: >
+    server/envds/+/registry/sync-bcast,
+    server/envds/+/registry/sync-update,
+    server/envds/+/registry/sync-request,
+    envds/controller/settings/update,
+    envds/+/controller/settings/update,
+    envds/sensor/settings/update,
+    envds/+/sensor/settings/update
+
+  local_validation_required: "False"
+
+  # local_off
+    # envds/+/+/+/data/update,   
+    # envds/crk8s/device-definition/registry/update,
+    # envds/crk8s/device-instance/registry/update,
+    # envds/crk8s/controller-definition/registry/update,
+    # envds/crk8s/controller-instance/registry/update,
+    # envds/+/+/+/status/update,
+    # envds/+/+/+/settings/update,
+    # envds/+/+/+/control/update,
+    # envds/+/+/+/registry/update,
+    # envds/+/controller/registry/update,
+    # envds/+/+/+/controller/data/update,   
+
+  remote_mqtt_broker: "mqtt.pmel-dev-system"
+  remote_mqtt_port: "1883"
+  remote_broker_type: "aws"
+  # mqtt_topic_filter: "instrument/#"
+  remote_mqtt_topic_subscriptions: >
+    envds/+/+/+/data/update,   
+    main/envds/+/registry/sync-bcast,
+    main/envds/+/registry/sync-update,
+    main/envds/+/registry/sync-request,
+    envds/controller/settings/update,
+    envds/+/controller/settings/update,
+    envds/sensor/settings/update,
+    envds/+/sensor/settings/update
+    envds/+/+/+/controller/data/update  
+
+  remote_validation_required: "True"
+
+  # mqtt_broker: "mosquitto.default"
+  # mqtt_port: "1883"
+  # # mqtt_topic_filter: "sensor/#"
+  # mqtt_topic_subscription: "test-account/uas-test/#"
+
+  # mqtt_broker: "iot.pmel-dev.oarcloud.noaa.gov"
+  # mqtt_port: "8883"
+  # # mqtt_topic_filter: "sensor/#"
+  # # mqtt_topic_subscription: "test-account/uas-test/#"
+  # mqtt_topic_subscription: "uasdaq/#"
