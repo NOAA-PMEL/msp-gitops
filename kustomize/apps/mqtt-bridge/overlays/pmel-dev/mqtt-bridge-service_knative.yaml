@@ -17,7 +17,7 @@ spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-      - name: mqtt-bridge
+      # - name: mqtt-bridge
       - image: ghcr.io/noaa-pmel/msp/mqtt-bridge:0.1.0
         imagePullPolicy: "Always"
         env:
