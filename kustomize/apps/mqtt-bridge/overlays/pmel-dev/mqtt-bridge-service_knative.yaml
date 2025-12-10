@@ -90,9 +90,9 @@ spec:
               mountPath: /certs/remote/aws/private.key
               subPath: private-key
       volumes:
-      #   - name: remote-aws-certs
-      #     secret:
-      #       secretName: aws-iot-credentials
+        - name: remote-aws-certs
+          secret:
+            secretName: aws-iot-credentials
         # - name: http
         #   containerPort: 8080
         #   protocol: TCP
