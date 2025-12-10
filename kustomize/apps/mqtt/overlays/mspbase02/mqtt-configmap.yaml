@@ -10,7 +10,6 @@ data:
   mosquitto.conf: |
     sys_interval 1
     autosave_interval 1
-    allow_anonymous true
     autosave_on_changes true
     # logs
     log_dest stdout
@@ -22,9 +21,11 @@ data:
     persistence true
     persistence_location /mosquitto/data
     persistence_file mosquitto.db
+    per_listener_settings true
 
     # Non-TLS
     listener 1883
+    allow_anonymous true
     protocol mqtt
 
     # Bridge
