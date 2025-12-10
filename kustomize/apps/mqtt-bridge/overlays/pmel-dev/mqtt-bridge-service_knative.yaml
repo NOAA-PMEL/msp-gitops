@@ -12,7 +12,7 @@ spec:
         autoscaling.knative.dev/max-scale: "5"
         autoscaling.knative.dev/target: "10"
         # autoscaling.knative.dev/metric: "cpu" # or "memory"
-        autoscaling.knative.dev/target-utilization-percentage: "70"
+        # autoscaling.knative.dev/target-utilization-percentage: "70"
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
