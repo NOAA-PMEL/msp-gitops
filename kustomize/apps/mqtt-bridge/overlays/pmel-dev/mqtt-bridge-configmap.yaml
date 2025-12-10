@@ -22,7 +22,7 @@ data:
     envds/sensor/settings/update,
     envds/+/sensor/settings/update
 
-  local_validation_required: bool = "false"
+  local_validation_required: "False"
 
   # local_off
     # envds/+/+/+/data/update,   
@@ -53,7 +53,8 @@ data:
     envds/+/sensor/settings/update
     envds/+/+/+/controller/data/update  
 
-  remote_validation_required: bool = "true"
+  remote_validation_required: "True"
+
   # mqtt_broker: "mosquitto.default"
   # mqtt_port: "1883"
   # # mqtt_topic_filter: "sensor/#"
