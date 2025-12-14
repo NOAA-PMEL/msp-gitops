@@ -22,6 +22,7 @@ namespace: crk8s-system
 resources:
 - ../../base
 # - mqtt-pv.yaml
+- crk8s-server-iot-sealed.yaml
 - mqtt-configmap.yaml
 
 patches:
