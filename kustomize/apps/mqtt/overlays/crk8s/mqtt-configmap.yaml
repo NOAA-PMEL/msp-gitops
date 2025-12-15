@@ -32,7 +32,7 @@ data:
     # address 10.55.169.210:8883
     # remote_clientid payload01_mspbase01_bridge
     connection crk8s_aws-iot-core_bridge
-    address iot.pmel-dev.oarcloud.noaa.gov:443
+    address iot.pmel-dev.oarcloud.noaa.gov:8883
     # address ayfar3nvv1l0l.iot.us-east-1.amazonaws.com:443
     remote_clientid mspbase02_aws-iot-core_bridge
     # remote_clientid pmel-dev-server
@@ -73,8 +73,8 @@ data:
     bridge_keyfile /certs/private.key
     # tls_version tlsv1.2
 
-    # TLS ALPN
-    bridge_alpn "x-amzn-mqtt-ca"
+    # # TLS ALPN
+    # bridge_alpn "x-amzn-mqtt-ca"
 
     # # TLS
     # # https://mosquitto.org/man/mosquitto-tls-7.html
