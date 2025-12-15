@@ -38,10 +38,10 @@ data:
     # remote_clientid pmel-dev-server
     # bridge_protocol_version mqttv311
     # bridge_protocol_version mqttv50
-    # bridge_insecure false
+    bridge_insecure false
     # cleansession true
-    # try_private false
-    # start_type automatic
+    try_private false
+    start_type automatic
     # notifications false
 
     topic envds/+/sensor/+/data/update in 0 "" ""
