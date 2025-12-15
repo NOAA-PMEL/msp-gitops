@@ -57,8 +57,8 @@ data:
     # TLS ALPN
     bridge_alpn x-amzn-mqtt-ca
 
-    topic sdk/test/python both 1 "" ""
-    # topic envds/+/sensor/+/data/update out 1 "" ""
+    # topic sdk/test/python both 1 "" ""
+    topic envds/+/sensor/+/data/update out 1 "" ""
     # # # # topic envds/+/sensor/+/settings/update out 0 "" ""
     # # # # topic envds/+/sensor/+/settings/request in 0 "" ""
     # # # # topic envds/+/sensor/+/status/update in 0 "" ""
