@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: setup-env-payload03
+  name: setup-env-crk8s
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
