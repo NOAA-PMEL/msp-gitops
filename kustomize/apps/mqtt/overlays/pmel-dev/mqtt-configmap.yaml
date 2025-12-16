@@ -58,7 +58,7 @@ data:
     bridge_alpn x-amzn-mqtt-ca
 
     topic envds/+/sensor/+/data/update in 0 "" ""
-    topic envds/+/controller/+/controller/data/update in 0 "" ""
+    topic envds/+/controller/+/controller/data/update in 1 "" ""
     topic main/envds/+/registry/sync-bcast in 0 "" ""
     topic main/envds/+/registry/sync-update in 0 "" ""
     topic main/envds/+/registry/sync-request in 0 "" ""
