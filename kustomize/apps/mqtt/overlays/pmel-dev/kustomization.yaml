@@ -37,6 +37,13 @@ patches:
     patch: |-
       - op: remove 
         path: /spec/volumeName
+  - target:
+      kind: Service
+      name: mqtt
+    patch: |-
+      - op: replace 
+        path: /spec/type
+        value: ClusterIP
 
 # patches:
   # change configmap names to account for s/n suffix
