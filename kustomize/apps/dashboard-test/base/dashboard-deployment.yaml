@@ -27,11 +27,11 @@ spec:
             configMapKeyRef:
               name: dashboard-test
               key: daq_id
-        - name: DASHBOARD_WS_HOSTNAME
+        - name: DASHBOARD_EXTERNAL_HOSTNAME
           valueFrom:
             configMapKeyRef:
               name: dashboard-test
-              key: ws_hostname
+              key: external_hostname
         - name: DASHBOARD_PORT
           valueFrom:
             configMapKeyRef:

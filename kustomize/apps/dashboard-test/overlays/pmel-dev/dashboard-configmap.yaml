@@ -4,6 +4,7 @@ metadata:
   name: dashboard-test
   # namespace: msp
 data:
+  port: "8080" # service port
   daq_id: pmel-dev
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
@@ -14,9 +15,16 @@ data:
   # mqtt_topic_filter: "sensor/#"
   # mqtt_topic_subscription: "test-account/uas-test/#"
   # port: "8000"
-  # ws_hostname: "192.168.86.241"
-  ws_hostname: k8s.pmel-dev.oarcloud.noaa.gov
-  port: "443"
+  # external_hostname: "192.168.86.241"
+  external_hostname: k8s.pmel-dev.oarcloud.noaa.gov
+  http_use_tls: "True"
+  # http_port: "80"
+  # https_port: "443"
+  ws_use_tls: "true"
+  # ws_port: "1883"
+  # wss_port: "8883"
+
+  
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
   knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker
   # mongodb_data_user_name: "uasdaq-data"

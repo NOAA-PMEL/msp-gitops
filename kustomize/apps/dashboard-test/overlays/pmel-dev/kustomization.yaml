@@ -26,6 +26,25 @@ resources:
 
 patches:
   - target: 
+      kind: Deployment
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: DASHBOARD_HTTP_USE_TLS
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: http_use_tls
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: DASHBOARD_WS_USE_TLS
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: ws_use_tls
+  - target: 
       kind: IngressRoute
     patch: |-
       - op: add

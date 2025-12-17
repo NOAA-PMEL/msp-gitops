@@ -14,7 +14,7 @@ data:
   # mqtt_topic_filter: "sensor/#"
   # mqtt_topic_subscription: "test-account/uas-test/#"
   # port: "8000"
-  ws_hostname: "192.168.86.241"
+  external_hostname: "192.168.86.241"
   port: "8080"
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
   knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/kafka-broker
