@@ -55,38 +55,38 @@ data:
     topic envds/+/controller/+/controller/data/update out 0 "" ""
     # # topic envds/+/controller-definition/registry/update out 0 "" ""
 
-    # connection mspbase02_aws-iot-core_bridge
-    # address iot.pmel-dev.oarcloud.noaa.gov:443
-    # remote_clientid mspbase02_aws-iot-core_bridge
-    # cleansession true
-    # start_type automatic
-    # notifications false
+    connection mspbase02_aws-iot-core_bridge
+    address iot.pmel-dev.oarcloud.noaa.gov:443
+    remote_clientid mspbase02_aws-iot-core_bridge
+    cleansession true
+    start_type automatic
+    notifications false
 
-    # # Certificate-based authentication
-    # bridge_cafile /certs/rootCA.crt
-    # bridge_certfile /certs/cert.crt
-    # bridge_keyfile /certs/private.key
-    # # tls_version tlsv1.2
+    # Certificate-based authentication
+    bridge_cafile /certs/rootCA.crt
+    bridge_certfile /certs/cert.crt
+    bridge_keyfile /certs/private.key
+    # tls_version tlsv1.2
 
-    # # TLS ALPN
-    # bridge_alpn x-amzn-mqtt-ca
+    # TLS ALPN
+    bridge_alpn x-amzn-mqtt-ca
 
-    # topic envds/+/sensor/+/data/update out 1 "" ""
-    # topic envds/+/controller/+/controller/data/update out 1 "" ""
-    # topic main/envds/+/registry/sync-bcast out 0 "" ""
-    # topic main/envds/+/registry/sync-update out 0 "" ""
-    # topic main/envds/+/registry/sync-request out 0 "" ""
-    # topic server/envds/+/registry/sync-bcast in 0 "" ""
-    # topic server/envds/+/registry/sync-update in 1 "" ""
-    # topic server/envds/+/registry/sync-request in 0 "" ""
-    # topic envds/+/device-instance/registry/update out 0 "" ""
-    # topic envds/+/controller-instance/registry/update out 0 "" ""
-    # topic envds/+/controller/settings/update out 0 "" ""
-    # topic envds/+/controller/settings/request in 0 "" ""
-    # topic envds/+/sensor/+/settings/update out 0 "" ""
-    # topic envds/+/sensor/+/settings/request in 0 "" ""
-    # topic envds/+/sensor/+/status/update out 0 "" ""
-    # topic envds/+/controller/+/status/update out 0 "" ""
+    topic envds/+/sensor/+/data/update out 1 "" ""
+    topic envds/+/controller/+/controller/data/update out 1 "" ""
+    topic main/envds/+/registry/sync-bcast out 0 "" ""
+    topic main/envds/+/registry/sync-update out 0 "" ""
+    topic main/envds/+/registry/sync-request out 0 "" ""
+    topic server/envds/+/registry/sync-bcast in 0 "" ""
+    topic server/envds/+/registry/sync-update in 1 "" ""
+    topic server/envds/+/registry/sync-request in 0 "" ""
+    topic envds/+/device-instance/registry/update out 0 "" ""
+    topic envds/+/controller-instance/registry/update out 0 "" ""
+    topic envds/+/controller/settings/update out 0 "" ""
+    topic envds/+/controller/settings/request in 0 "" ""
+    topic envds/+/sensor/+/settings/update out 0 "" ""
+    topic envds/+/sensor/+/settings/request in 0 "" ""
+    topic envds/+/sensor/+/status/update out 0 "" ""
+    topic envds/+/controller/+/status/update out 0 "" ""
 
 
     # old stuff
