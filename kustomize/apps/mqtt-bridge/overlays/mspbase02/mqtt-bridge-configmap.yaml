@@ -7,7 +7,7 @@ data:
   # mqtt_bridge_host: "0.0.0.0"
   # mqtt_bridge_port: 80
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/default"
-  # knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker
+  # knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default
 
   local_mqtt_broker: "mqtt.mspbase02-system"
   local_mqtt_port: "1883"

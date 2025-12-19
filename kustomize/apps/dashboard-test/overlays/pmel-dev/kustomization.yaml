@@ -51,10 +51,10 @@ patches:
         path: /spec/routes/0/middlewares/-
         value:
           name: dashboardtest-upgrade
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
+  # - target:
+  #     kind: Trigger
+  #     # name: default
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/broker
+  #       value: kafka-broker

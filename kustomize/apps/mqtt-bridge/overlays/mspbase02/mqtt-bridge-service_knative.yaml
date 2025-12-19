@@ -78,10 +78,10 @@ spec:
                 key: remote_validation_required
         resources:
           requests:
-            cpu: "200m"
+            cpu: "350m"
           limits:
             memory: "1Gi"
-            cpu: "500m"
+            cpu: "700m"
         ports:
           - containerPort: 8080
         volumeMounts:

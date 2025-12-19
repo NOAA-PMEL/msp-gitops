@@ -11,7 +11,7 @@ data:
 
   port: "80"
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/default"
-  knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker
+  knative_broker: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default
 
   # mqtt_broker: "mqtt.payload03-system"
   # mqtt_port: "1883"

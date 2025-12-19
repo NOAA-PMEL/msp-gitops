@@ -40,7 +40,7 @@ metadata:
   name: status-request
   # namespace: msp-system
 spec:
-  broker: kafka-broker
+  broker: default
   filter:
     attributes:
       type: envds.status.request

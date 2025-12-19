@@ -52,13 +52,13 @@ patches:
     target: 
       kind: Service
       name: datastore
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
+  # - target:
+  #     kind: Trigger
+  #     # name: default
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/broker
+  #       value: kafka-broker
 
 
 # patches:

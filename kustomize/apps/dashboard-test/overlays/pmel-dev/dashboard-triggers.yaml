@@ -4,7 +4,7 @@ metadata:
   name: dashboard-to-mqtt
   # namespace: mspbase01-system
 spec:
-  broker: kafka-broker
+  broker: default
   filters:
      - any:
         - exact:
