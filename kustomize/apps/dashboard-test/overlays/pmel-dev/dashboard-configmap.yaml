@@ -20,7 +20,7 @@ data:
   http_use_tls: "True"
   # http_port: "80"
   # https_port: "443"
-  ws_use_tls: "true"
+  ws_use_tls: "True"
   # ws_port: "1883"
   # wss_port: "8883"
 
