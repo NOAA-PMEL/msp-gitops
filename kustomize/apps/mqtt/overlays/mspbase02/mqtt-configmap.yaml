@@ -85,8 +85,6 @@ data:
     topic envds/+/controller/settings/request in 0 "" ""
     topic envds/+/sensor/+/settings/update out 0 "" ""
     topic envds/+/sensor/+/settings/request in 0 "" ""
-    topic envds/+/sensor/+/status/update out 0 "" ""
-    topic envds/+/controller/+/status/update out 0 "" ""
 
 
     # old stuff
@@ -112,6 +110,8 @@ data:
     # # # topic envds/+/controller-instance/registry/update out 0 "" ""
     # # # topic envds/+/controller/+/controller/data/update out 0 "" ""
     # # # # # topic envds/+/controller-definition/registry/update out 0 "" ""
+    # topic envds/+/sensor/+/status/update out 0 "" ""
+    # topic envds/+/controller/+/status/update out 0 "" ""
 
     # # Certificate-based authentication
     # bridge_cafile /certs/rootCA.crt
