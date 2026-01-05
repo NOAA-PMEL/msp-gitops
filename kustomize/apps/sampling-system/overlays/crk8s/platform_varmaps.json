@@ -12,6 +12,7 @@
     "data": {
       "attributes": {
         "variablemap_type": "Platform",
+        "platform_type": "MSPPayload",
         "platform": "MSPPayload01",
         "sampling_namespace": "pmel.noaa.gov",
         "valid_config_time": "2025-10-01T00:00:00Z",
