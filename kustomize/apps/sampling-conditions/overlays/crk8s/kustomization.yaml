@@ -55,6 +55,10 @@ patches:
       - op: replace 
         path: /spec/broker
         value: kafka-broker
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: sampling-conditions-crk8s
+
 
 configurations:
   - config.yaml

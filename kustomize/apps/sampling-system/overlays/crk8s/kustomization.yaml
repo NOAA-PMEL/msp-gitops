@@ -54,6 +54,16 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
         value: sampling-system-variablemaps-crk8s
+  # - target:
+  #     kind: Trigger
+  #     # name: default
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/broker
+  #       value: kafka-broker
+  #     - op: replace 
+  #       path: /spec/subscriber/ref/name
+  #       value: sampling-system-crk8s
 
 configurations:
   - config.yaml
