@@ -14,7 +14,7 @@ spec:
       # apiVersion: v1
       apiVersion: serving.knative.dev/v1
       kind: Service
-      name: sampling-conditions
+      name: sampling-conditions-crk8s
       # namespace: msp-system
     uri: /variableset/data/update/
 ---
