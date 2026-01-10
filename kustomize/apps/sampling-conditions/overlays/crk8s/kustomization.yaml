@@ -48,6 +48,13 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
         value: sampling-conditions-conditions-crk8s
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
 
 configurations:
   - config.yaml
