@@ -1,0 +1,87 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sampling-conditions
+  # namespace: msp-system
+  # labels:
+  #   app: sampling-conditions
+spec:
+  # selector:
+  #   app: sampling-conditions
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "1"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        # - name: sampling-conditions
+        # image: uasbase2.pmel.noaa.gov:448/test/sampling-conditions@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/sampling-conditions:v1.0.3
+        - image: ghcr.io/noaa-pmel/msp/sampling-conditions:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: SAMPLING_CONDITIONS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: port
+            - name: SAMPLING_CONDITIONS_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: daq_id
+            - name: SAMPLING_CONDITIONS_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: mqtt_broker
+            - name: SAMPLING_CONDITIONS_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: mqtt_port
+            - name: SAMPLING_CONDITIONS_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: mqtt_topic_subscriptions
+            - name: SAMPLING_CONDITIONS_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: knative_broker
+          volumeMounts:
+            - name: sampling-conditions-conditions
+              mountPath: /app/config/sampling_conditions.json
+              subPath: sampling_conditions.json
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              memory: "2Gi"
+              cpu: "500m"
+          ports:
+            # - name: http
+              # containerPort: 8000
+            - containerPort: 8080
+              # protocol: TCP
+      volumes:
+        # - name: sampling-conditions
+        #   configMap:
+        #     name: sampling-conditions
+        - name: sampling-conditions-conditions
+          configMap:
+            name: sampling-conditions-conditions
+      # ports:
+      # - name: http
+      #   protocol: TCP
+      #   # port: 8000
+      #   port: 80
+      #   # targetPort: 8000
+      #   targetPort: 8080
+      # type: ClusterIP  
