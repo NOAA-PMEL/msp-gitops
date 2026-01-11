@@ -58,7 +58,7 @@ spec:
           volumeMounts:
             - name: sampling-states-states
               mountPath: /app/config/sampling_states.json
-              subPath: sampling_conditions.json
+              subPath: sampling_states.json
           resources:
             requests:
               cpu: "250m"
