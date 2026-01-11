@@ -7,7 +7,7 @@ spec:
   broker: default
   filter:
     attributes:
-      type: envds.sampling-condition.status.update
+      type: envds.samplingcondition.status.update
   subscriber:
     ref:
       # apiVersion: serving.knative.dev/v1
