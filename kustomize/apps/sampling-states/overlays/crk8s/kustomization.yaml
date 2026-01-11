@@ -29,7 +29,7 @@ resources:
 - sampling-states-triggers.yaml
 
 configMapGenerator:
-  - name: sampling-states-conditions
+  - name: sampling-states-states
     files:
       - sampling_states.json
 
