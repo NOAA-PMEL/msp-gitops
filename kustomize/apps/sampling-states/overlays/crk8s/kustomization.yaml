@@ -1,0 +1,83 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: sampling-states
+
+# set namespace
+namespace: crk8s-system
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: usconverters-uscdr301
+#     variant: test
+
+resources:
+- ../../base
+- sampling-states-configmap.yaml
+# - platform_defs_configmap.yaml
+# - platform_varmaps_configmap.yaml
+# - ghcr-secret-msp-system-sealed.yaml
+# uncomment this if using knative for data updates
+- sampling-states-triggers.yaml
+
+configMapGenerator:
+  - name: sampling-states-conditions
+    files:
+      - sampling_states.json
+
+nameSuffix: "-crk8s"
+
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      # version: serving.knative.dev/v1
+      kind: Service
+      name: sampling-states
+    patch: |-
+      # - op: replace 
+      #   path: /spec/template/spec/volumes/0/configMap/name
+      #   value: sampling-states-crk8s
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: sampling-states-states-crk8s
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: sampling-states-crk8s
+
+
+configurations:
+  - config.yaml
+
+# patches:
+#   - patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: REPLACED_DURING_PATCH
+#       spec:
+#         template:
+#           spec:
+#             containers:
+#               - name: webhook
+#                 env:
+#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
+#                     value: "true"
+#     target:
+#       group: apps
+#       kind: Deployment
+#       name: ".*webhook.*"

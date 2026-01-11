@@ -1,0 +1,87 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sampling-states
+  # namespace: msp-system
+  # labels:
+  #   app: sampling-states
+spec:
+  # selector:
+  #   app: sampling-states
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "1"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        # - name: sampling-states
+        # image: uasbase2.pmel.noaa.gov:448/test/sampling-states@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/sampling-states:v1.0.3
+        - image: ghcr.io/noaa-pmel/msp/sampling-states:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: SAMPLING_STATES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: port
+            - name: SAMPLING_STATES_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: daq_id
+            - name: SAMPLING_STATES_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: mqtt_broker
+            - name: SAMPLING_STATES_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: mqtt_port
+            - name: SAMPLING_STATES_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: mqtt_topic_subscriptions
+            - name: SAMPLING_STATES_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: knative_broker
+          volumeMounts:
+            - name: sampling-states-states
+              mountPath: /app/config/sampling_states.json
+              subPath: sampling_conditions.json
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              memory: "2Gi"
+              cpu: "500m"
+          ports:
+            # - name: http
+              # containerPort: 8000
+            - containerPort: 8080
+              # protocol: TCP
+      volumes:
+        # - name: sampling-states
+        #   configMap:
+        #     name: sampling-states
+        - name: sampling-states-states
+          configMap:
+            name: sampling-states-states
+      # ports:
+      # - name: http
+      #   protocol: TCP
+      #   # port: 8000
+      #   port: 80
+      #   # targetPort: 8000
+      #   targetPort: 8080
+      # type: ClusterIP  

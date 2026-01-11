@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sampling-states
+  # namespace: msp-system
+data:
+  daq_id: crk8s
+  # db_client_type: redis
+  # db_client_hostname: redis.crk8s-system
+  # db_client_port: '6379'
+  # db_data_ttl: '300'
+  # db_reg_device_definition_ttl: '0'
+  # db_reg_device_instance_ttl: '300'
+  
+  # mqtt_broker: "0.0.0.0"
+  # mqtt_port: "80"
+  # mqtt_topic_filter: "instrument/#"
+  # mqtt_topic_subscription: "instrument/#"
+  # mqtt_broker: "mosquitto.default"
+  # mqtt_port: "1883"
+  # mqtt_topic_filter: "sensor/#"
+  # mqtt_topic_subscription: "test-account/uas-test/#"
+  # port: "8000"
+  port: "8080"
+  # knative_broker: " http://broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/default"
+  knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/kafka-broker"
+  # mongodb_data_user_name: "uasdaq-data"
+  # mongodb_registry_user_name: "uasdaq-registry"
+  # mongodb_data_connection: mongodb://<username>:<password>@uasdaq-mongodb-0.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-1.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-2.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017/data?replicaSet=uasdaq-mongodb&ssl=false"
+  # mongodb_registry_connection: mongodb://<username>:<password>@uasdaq-mongodb-0.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-1.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-2.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017/registry?replicaSet=uasdaq-mongodb&ssl=false"
+  # erddap_http_connection: "http://erddap.default:8080/erddap"
+  # erddap_https_connection: "https://erddap.default:8443/erddap"
+  # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
+
+  mqtt_broker: "mqtt.crk8s-system"
+  mqtt_topic_subscriptions: >
+  mqtt_port: "1883"
+
+# off
+    # envds/+/+/+/data/update,   
+    # envds/+/+/+/controller/data/update   
