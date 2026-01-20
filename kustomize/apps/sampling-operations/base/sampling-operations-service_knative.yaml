@@ -1,0 +1,103 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sampling-operations
+  # namespace: msp-system
+  # labels:
+  #   app: sampling-operations
+spec:
+  # selector:
+  #   app: sampling-operations
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "1"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        # - name: sampling-operations
+        # image: uasbase2.pmel.noaa.gov:448/test/sampling-operations@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/sampling-operations:v1.0.3
+        - image: ghcr.io/noaa-pmel/msp/sampling-operations:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: SAMPLING_OPERATIONS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: port
+            - name: SAMPLING_OPERATIONS_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: daq_id
+            - name: SAMPLING_OPERATIONS_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: mqtt_broker
+            - name: SAMPLING_OPERATIONS_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: mqtt_port
+            - name: SAMPLING_OPERATIONS_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: mqtt_topic_subscriptions
+            - name: SAMPLING_OPERATIONS_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: knative_broker
+            - name: SAMPLING_OPERATIONS_SYSTEM_INIT_CONTROL
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: system_init_control
+            - name: SAMPLING_OPERATIONS_SYSTEM_INIT_MODE
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: system_init_mode
+          volumeMounts:
+            - name: sampling-operations-modes
+              mountPath: /app/config/sampling_operations_modes.json
+              subPath: sampling_operations_modes.json
+            - name: sampling-operations-actions
+              mountPath: /app/config/sampling_operations_actions.json
+              subPath: sampling_operations_actions.json
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              memory: "2Gi"
+              cpu: "500m"
+          ports:
+            # - name: http
+              # containerPort: 8000
+            - containerPort: 8080
+              # protocol: TCP
+      volumes:
+        # - name: sampling-operations
+        #   configMap:
+        #     name: sampling-operations
+        - name: sampling-operations-modes
+          configMap:
+            name: sampling-operations-modes
+        - name: sampling-operations-actions
+          configMap:
+            name: sampling-operations-actions
+      # ports:
+      # - name: http
+      #   protocol: TCP
+      #   # port: 8000
+      #   port: 80
+      #   # targetPort: 8000
+      #   targetPort: 8080
+      # type: ClusterIP  
