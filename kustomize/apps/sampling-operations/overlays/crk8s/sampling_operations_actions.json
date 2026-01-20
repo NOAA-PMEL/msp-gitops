@@ -4,7 +4,7 @@
         "kind": "SamplingAction",
         "metadata": {
             "name": "set_nominal_inlet_flow",
-            "action_module": "beacons_msp",
+            "action_module": "actions.beacons_msp",
             "action_def": "set_nominal_inlet_flow",
             "sampling_namespace": "pmel.noaa.gov",
             "valid_config_time": "2025-10-01T00:00:00Z",
@@ -31,6 +31,8 @@
         "kind": "SystemSamplingAction",
         "metadata": {
             "name": "set_isokintic_inlet_flow",
+            "action_module": "actions.beacons_msp",
+            "action_def": "set_isokintic_inlet_flow",
             "sampling_namespace": "pmel.noaa.gov",
             "valid_config_time": "2025-10-01T00:00:00Z",
             "revision": 1
