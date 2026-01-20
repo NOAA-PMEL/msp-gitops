@@ -10,7 +10,7 @@ spec:
         - exact:
             type: envds.samplingmode.status.update
     - not:
-        - exact:
+        exact:
             source: envds.crk8s.sampling-operations   
   # filter:
   #   attributes:
