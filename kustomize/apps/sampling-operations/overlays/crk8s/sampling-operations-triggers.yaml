@@ -6,11 +6,11 @@ metadata:
 spec:
   broker: default
   filters:
-     - all:
-          - exact:
-              type: envds.samplingmode.status.update
-          - not:
-              source: envds.crk8s.sampling-operations   
+    - all:
+        - exact:
+            type: envds.samplingmode.status.update
+        - not:
+            source: envds.crk8s.sampling-operations   
   # filter:
   #   attributes:
   #     type: envds.samplingmode.status.update
