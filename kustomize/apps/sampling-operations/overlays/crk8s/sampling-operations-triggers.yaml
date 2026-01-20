@@ -11,9 +11,6 @@ spec:
             type: envds.samplingmode.status.update
         - not:
             source: envds.crk8s.sampling-operations   
-  # filter:
-  #   attributes:
-  #     type: envds.samplingmode.status.update
   subscriber:
     ref:
       # apiVersion: serving.knative.dev/v1
