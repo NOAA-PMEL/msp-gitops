@@ -17,7 +17,7 @@ spec:
       name: sampling-conditions
       # namespace: msp-system
     uri: /variableset/data/update/
----
+# ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
 # metadata:
