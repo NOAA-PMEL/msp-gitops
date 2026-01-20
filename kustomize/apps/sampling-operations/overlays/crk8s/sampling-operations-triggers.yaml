@@ -1,7 +1,7 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: sampling-operations-mode-status-update-v2
+  name: sampling-operations-mode-status-update
   # namespace: msp-events
 spec:
   broker: default
@@ -10,7 +10,7 @@ spec:
         - exact:
             type: envds.samplingmode.status.update
         - not:
-            source: envds.crk8s.sampling-operations   
+            source: envds.crk8s.samplingoperations   
   subscriber:
     ref:
       # apiVersion: serving.knative.dev/v1
