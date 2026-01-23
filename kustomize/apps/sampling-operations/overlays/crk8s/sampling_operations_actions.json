@@ -30,9 +30,9 @@
         "version": "envds.sampling.operations/v1",
         "kind": "SystemSamplingAction",
         "metadata": {
-            "name": "set_isokintic_inlet_flow",
+            "name": "set_isokinetic_inlet_flow",
             "action_module": "actions.beacons_msp",
-            "action_def": "set_isokintic_inlet_flow",
+            "action_def": "set_isokinetic_inlet_flow",
             "sampling_namespace": "pmel.noaa.gov",
             "valid_config_time": "2025-10-01T00:00:00Z",
             "revision": 1
