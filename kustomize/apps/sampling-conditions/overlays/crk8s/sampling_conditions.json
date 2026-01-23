@@ -22,7 +22,7 @@
                     "sources": [
                         "cn"
                     ],
-                    "max_val": 1200,
+                    "max_val": 1000,
                     "min_val": 10,
                     "true_if": "inside"
                 }
