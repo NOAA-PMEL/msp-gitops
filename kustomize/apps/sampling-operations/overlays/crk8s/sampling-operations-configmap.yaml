@@ -33,7 +33,7 @@ data:
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
 
   system_init_control: auto
-  system_init_mode: startup
+  system_init_mode: normal
 
 
   mqtt_broker: "mqtt.crk8s-system"
