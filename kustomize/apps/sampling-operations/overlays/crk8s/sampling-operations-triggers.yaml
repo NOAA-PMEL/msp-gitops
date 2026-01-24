@@ -28,6 +28,33 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
+  name: sampling-operations-state-status-update
+  # namespace: msp-events
+spec:
+  broker: default
+  filters:
+    - all:
+        - exact:
+            type: envds.samplingstate.status.update
+    # - not:
+    #     exact:
+    #         source: envds.crk8s.sampling-operations   
+  # filter:
+  #   attributes:
+  #     type: envds.samplingmode.status.update
+  subscriber:
+    ref:
+      # apiVersion: serving.knative.dev/v1
+      # apiVersion: v1
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: sampling-operations
+      # namespace: msp-system
+    uri: /requirement/status/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
   name: sampling-operations-variableset-data-update
   # namespace: msp-events
 spec:
