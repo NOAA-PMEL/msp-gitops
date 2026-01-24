@@ -82,10 +82,6 @@
             {
                 "kind": "SamplingState",
                 "name": "in_sector"
-            },
-            {
-                "kind": "SamplingState",
-                "name": "sampling_limits"
             }
         ],
         "actions": {
