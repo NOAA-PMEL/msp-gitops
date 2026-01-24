@@ -14,7 +14,7 @@
                 "name": "cn_limit",
                 "required_time_to_transition": {
                     "to_become_false": 1,
-                    "to_become_true": 2
+                    "to_become_true": 1
                 }
             }
         ]
