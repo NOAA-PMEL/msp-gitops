@@ -24,7 +24,7 @@ resources:
 # - filemanager-pv
 - filemanager-configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
-# - filemanager-triggers.yaml
+- filemanager-triggers.yaml
 
 patches:
   # change configmap names to account for s/n suffix
@@ -37,7 +37,13 @@ patches:
         value: kafka-broker
   - target:
       kind: PersistentVolumeClaim
-      name: filemanager-pvc
+      name: filemanager-data-pvc
+    patch: |-
+      - op: remove 
+        path: /spec/volumeName
+  - target:
+      kind: PersistentVolumeClaim
+      name: filemanager-logs-pvc
     patch: |-
       - op: remove 
         path: /spec/volumeName

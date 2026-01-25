@@ -17,7 +17,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: filemanager-pvc
+  name: filemanager-data-pvc
   # namespace: msp-system
 spec:
   # storageClassName: local-path
@@ -26,4 +26,18 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: filemanager-pv
+  volumeName: filemanager-data-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: filemanager-logs-pvc
+  # namespace: msp-system
+spec:
+  # storageClassName: local-path
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: filemanager-logs-pv

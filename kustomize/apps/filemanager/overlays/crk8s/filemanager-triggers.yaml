@@ -1,18 +1,42 @@
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: filemanager-data-save-trigger
+#   # namespace: msp-system
+# spec:
+#   broker: kafka-broker
+#   filters:
+#     - any:
+#         - exact:
+#             type: envds.data.update
+#         - exact:
+#             type: envds.controller.data.update
+#   # filter:
+#   #   attributes:
+#   #     type: envds.device-definition.registry.ack
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: filemanager
+#       # namespace: msp-system
+#     uri: /data/save/
+# ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: filemanager-device-definition-registry-ack
+  name: filemanager-logs-save-trigger
   # namespace: msp-system
 spec:
   broker: kafka-broker
   filters:
     - any:
         - exact:
-            type: envds.device-definition.registry.ack
+            type: envds.samplingcondition.status.update
         - exact:
-            type: envds.controller-definition.registry.ack
-    - exact:
-        source: envds.crk8s.filemanager
+            type: envds.samplingstate.status.update
+        - exact:
+            type: envds.samplingmode.status.update
   # filter:
   #   attributes:
   #     type: envds.device-definition.registry.ack
@@ -20,96 +44,6 @@ spec:
     ref:
       apiVersion: v1
       kind: Service
-      name: kn-mqtt-adapter
+      name: filemanager
       # namespace: msp-system
-    uri: /mqtt/send/
-
-# apiVersion: eventing.knative.dev/v1
-# kind: Trigger
-# metadata:
-#   name: filemanager-device-data-update
-#   # namespace: msp-events
-# spec:
-#   broker: kafka-broker
-#   filter:
-#     attributes:
-#       type: envds.data.update
-#   subscriber:
-#     ref:
-#       apiVersion: serving.knative.dev/v1
-#       kind: Service
-#       name: filemanager
-#       # namespace: msp-system
-#     uri: /device/data/update
-# ---
-# apiVersion: eventing.knative.dev/v1
-# kind: Trigger
-# metadata:
-#   name: filemanager-sensor-settings-update
-#   # namespace: msp-events
-# spec:
-#   broker: kafka-broker
-#   filter:
-#     attributes:
-#       type: envds.sensor.settings.update
-#   subscriber:
-#     ref:
-#       apiVersion: serving.knative.dev/v1
-#       kind: Service
-#       name: filemanager
-#       # namespace: msp-system
-#     uri: /device/settings/update
-# ---
-# apiVersion: eventing.knative.dev/v1
-# kind: Trigger
-# metadata:
-#   name: filemanager-device-settings-update
-#   # namespace: msp-events
-# spec:
-#   broker: kafka-broker
-#   filter:
-#     attributes:
-#       type: envds.device.settings.update
-#   subscriber:
-#     ref:
-#       apiVersion: serving.knative.dev/v1
-#       kind: Service
-#       name: filemanager
-#       # namespace: msp-system
-#     uri: /device/settings/update
-# ---
-# apiVersion: eventing.knative.dev/v1
-# kind: Trigger
-# metadata:
-#   name: filemanager-device-definition-registry-update
-#   # namespace: msp-events
-# spec:
-#   broker: kafka-broker
-#   filter:
-#     attributes:
-#       type: envds.device-definition.registry.update
-#   subscriber:
-#     ref:
-#       apiVersion: serving.knative.dev/v1
-#       kind: Service
-#       name: filemanager
-#       # namespace: msp-system
-#     uri: /device-definition/registry/update
-# ---
-# apiVersion: eventing.knative.dev/v1
-# kind: Trigger
-# metadata:
-#   name: filemanager-device-registry-update
-#   # namespace: msp-events
-# spec:
-#   broker: kafka-broker
-#   filter:
-#     attributes:
-#       type: envds.device.registry.update
-#   subscriber:
-#     ref:
-#       apiVersion: serving.knative.dev/v1
-#       kind: Service
-#       name: filemanager
-#       # namespace: msp-system
-#     uri: /device/registry/update
+    uri: /logs/save/
