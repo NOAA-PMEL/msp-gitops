@@ -87,8 +87,8 @@ spec:
         volumeMounts:
           - name: filemanager-data-storage
             mountPath: /data
-          - name: filemanager-data-storage
-            mountPath: /data
+          - name: filemanager-logs-storage
+            mountPath: /logs
       volumes:
         - name: filemanager-data-storage
           persistentVolumeClaim:
