@@ -1,0 +1,57 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: filemanager
+
+# set namespace
+namespace: payload02-system
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: usconverters-uscdr301
+#     variant: test
+
+resources:
+- ../../base
+- filemanager-pv.yaml
+- filemanager-configmap.yaml
+# - ghcr-secret-msp-system-sealed.yaml
+# - filemanager-triggers.yaml
+
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Trigger
+#       # name: default
+#     patch: |-
+#       - op: replace 
+#         path: /spec/broker
+#         value: kafka-broker
+
+
+# patches:
+#   - patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: REPLACED_DURING_PATCH
+#       spec:
+#         template:
+#           spec:
+#             containers:
+#               - name: webhook
+#                 env:
+#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
+#                     value: "true"
+#     target:
+#       group: apps
+#       kind: Deployment
+#       name: ".*webhook.*"

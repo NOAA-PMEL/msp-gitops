@@ -1,0 +1,118 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filemanager
+  # namespace: msp-system
+  labels:
+    app: filemanager
+spec:
+  selector:
+    matchLabels:
+      app: filemanager
+  template:
+    metadata:
+      labels:
+        app: filemanager
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: filemanager
+        # image: uasbase2.pmel.noaa.gov:448/test/filemanager@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/filemanager:v1.0.3
+        image: ghcr.io/noaa-pmel/msp/filemanager:0.1.0
+        imagePullPolicy: "Always"
+        env:
+          - name: FILEMANAGER_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: port
+          - name: FILEMANAGER_DAQ_ID
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: daq_id
+          - name: FILEMANAGER_MQTT_BROKER
+            valueFrom:
+              configMapKeyRef:
+                name: datastore
+                key: mqtt_broker
+          - name: FILEMANAGER_MQTT_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: datastore
+                key: mqtt_port
+          - name: FILEMANAGER_MQTT_TOPIC_SUBSCRIPTIONS
+            valueFrom:
+              configMapKeyRef:
+                name: datastore
+                key: mqtt_topic_subscriptions
+          - name: FILEMANAGER_KNATIVE_BROKER
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: knative_broker
+          - name: FILEMANAGER_DATA_BASE_PATH
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: data_base_path
+          - name: FILEMANAGER_LOGS_BASE_PATH
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: logs_base_path
+          - name: FILEMANAGER_SAVE_INTERVAL
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: save_interval
+          - name: FILEMANAGER_FILE_INTERVAL
+            valueFrom:
+              configMapKeyRef:
+                name: filemanager
+                key: file_interval
+        resources:
+          requests:
+            cpu: "500m"
+          limits:
+            memory: "4Gi"
+            cpu: "1000m"
+        ports:
+          - name: http
+            # containerPort: 8000
+            containerPort: 8080
+            protocol: TCP
+        volumeMounts:
+          - name: filemanager-data-storage
+            mountPath: /data
+          - name: filemanager-logs-storage
+            mountPath: /logs
+      volumes:
+        - name: filemanager-data-storage
+          persistentVolumeClaim:
+            claimName: filemanager-data-pvc
+        - name: filemanager-logs-storage
+          persistentVolumeClaim:
+            claimName: filemanager-logs-pvc
+      #   volumeMounts:
+      #     - name: erddap-datasetd-storage
+      #       mountPath: /datasets.d
+      #       # subPath: datasets.d
+      #     - name: erddap-content-storage
+      #       mountPath: /usr/local/tomcat/content/erddap
+      #       # subPath: erddap
+      #     - name: erddap-data-pv-storage
+      #       mountPath: /erddapData
+      #       # subPath: erddapData
+      # volumes:
+      #   - name: erddap-datasetd-storage
+      #     persistentVolumeClaim:
+      #       claimName: dataserver-erddap-datasetsd-pvc
+      #   - name: erddap-content-storage
+      #     persistentVolumeClaim:
+      #       claimName: dataserver-erddap-content-pvc
+      #   - name: erddap-data-pv-storage
+      #     persistentVolumeClaim:
+      #       claimName: dataserver-erddap-data-pvc

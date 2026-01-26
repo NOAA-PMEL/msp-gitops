@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: filemanager
+  # namespace: msp-system
+  labels:
+    app: filemanager
+spec:
+  selector:
+    app: filemanager
+  ports:
+  - name: http
+    protocol: TCP
+    # port: 8000
+    port: 80
+    # targetPort: 8000
+    targetPort: 8080
+  type: ClusterIP  
