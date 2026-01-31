@@ -53,36 +53,6 @@ spec:
                 configMapKeyRef:
                   name: erddap
                   key: knative_broker
-            - name: ERDDAP_MAX_MEMORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: max_memory
-            - name: ERDDAP_MIN_MEMORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: min_memory
-            - name: ERDDAP_BASEURL
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseUrl
-            - name: ERDDAP_BASEHTTPSURL
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseHttpsUrl
-            - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: variablesMustHaveIoosCategory
-            - name: ERDDAP_CACHEMINUTES
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: cacheMinutes
           resources:
             requests:
               cpu: "500m"
