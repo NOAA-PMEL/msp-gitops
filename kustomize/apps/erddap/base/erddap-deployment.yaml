@@ -94,11 +94,11 @@ spec:
               # containerPort: 8000
               containerPort: 8080
               protocol: TCP
-          volumeMounts:
-            - name: erddap-data-storage
-              mountPath: /data
-            - name: erddap-logs-storage
-              mountPath: /logs
+          # volumeMounts:
+          #   - name: erddap-data-storage
+          #     mountPath: /data
+          #   - name: erddap-logs-storage
+          #     mountPath: /logs
         - name: erddap-core
           image: axiom/docker-erddap:latest
           resources:
