@@ -8,8 +8,8 @@ data:
 
   max_memory: "8G"
   min_memory: "4G"
-  baseUrl: http://192.168.86.44/msp
-  baseHttpsUrl: https://192.168.86.44/msp
+  baseUrl: http://192.168.86.241/msp
+  baseHttpsUrl: https://192.168.86.241/msp
   variablesMustHaveIoosCategory: "false"
   cacheMinutes: "1"
 
