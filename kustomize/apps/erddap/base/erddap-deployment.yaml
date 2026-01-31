@@ -1,0 +1,229 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erddap
+  # namespace: msp-system
+  labels:
+    app: erddap
+spec:
+  selector:
+    matchLabels:
+      app: erddap
+  template:
+    metadata:
+      labels:
+        app: erddap
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - name: erddap-util
+          # image: uasbase2.pmel.noaa.gov:448/test/erddap@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+          # image: registry-msp:5000/msp/erddap:v1.0.3
+          image: ghcr.io/noaa-pmel/msp/erddap:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: ERDDAP_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: port
+            - name: ERDDAP_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: daq_id
+            - name: ERDDAP_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: mqtt_broker
+            - name: ERDDAP_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: mqtt_port
+            - name: ERDDAP_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: mqtt_topic_subscriptions
+            - name: ERDDAP_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: knative_broker
+            - name: ERDDAP_MAX_MEMORY
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: max_memory
+            - name: ERDDAP_MIN_MEMORY
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: min_memory
+            - name: ERDDAP_BASEURL
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: baseUrl
+            - name: ERDDAP_BASEHTTPSURL
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: baseHttpsUrl
+            - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: variablesMustHaveIoosCategory
+            - name: ERDDAP_CACHEMINUTES
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: cacheMinutes
+          resources:
+            requests:
+              cpu: "500m"
+            limits:
+              memory: "4Gi"
+              cpu: "1000m"
+          ports:
+            - name: http
+              # containerPort: 8000
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: erddap-data-storage
+              mountPath: /data
+            - name: erddap-logs-storage
+              mountPath: /logs
+        - name: erddap-core
+          image: axiom/docker-erddap:latest
+          resources:
+            requests:
+              cpu: "500m"
+            limits:
+              memory: "4Gi"
+              cpu: "1000m"
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+            - name: https
+              containerPort: 8443
+              protocol: TCP
+          env:
+            - name: ERDDAP_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: knative_broker
+            - name: ERDDAP_MAX_MEMORY
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: max_memory
+            - name: ERDDAP_MIN_MEMORY
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: min_memory
+            - name: ERDDAP_BASEURL
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: baseUrl
+            - name: ERDDAP_BASEHTTPSURL
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: baseHttpsUrl
+            - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: variablesMustHaveIoosCategory
+            - name: ERDDAP_CACHEMINUTES
+              valueFrom:
+                configMapKeyRef:
+                  name: erddap
+                  key: cacheMinutes
+          # volumeMounts:
+          #   - name: erddap-data-storage
+          #     mountPath: /data
+          #   - name: erddap-logs-storage
+          #     mountPath: /logs
+          volumeMounts:
+            - name: watcher-script-vol
+              mountPath: /scripts/watcher.sh
+              subPath: watcher.sh
+            - name: shared-trigger
+              mountPath: /shared-state            
+            - name: erddap-content-storage
+              mountPath: /usr/local/tomcat/content/erddap
+            - name: erddap-data-pv-storage
+              mountPath: /erddapData
+              # subPath: data
+            # - name: erddap-server-pv-storage
+            # - name: erddap-data-pv-storage
+            #   mountPath: /usr/local/tomcat/conf/server.xml
+            #   subPath: conf/server.xml
+            - name: erddap-server-config
+              mountPath: /usr/local/tomcat/conf/server.xml
+              subPath: server.xml
+            - name: erddap-setup-config
+              mountPath: /usr/local/tomcat/content/erddap/setup.xml
+              subPath: setup.xml
+            # - name: erddap-ssl-crt-pv-storage
+            # - name: erddap-data-pv-storage
+            - name: erddap-jks
+              mountPath: /usr/local/tomcat/conf/erddap.jks
+              subPath: selfsigned.jks
+            - name: erddap-datasetsd-storage
+              mountPath: /datasets.d
+      volumes:
+        - name: watcher-script-vol
+          configMap:
+            name: erddap-watcher-script
+        - name: erddap-server-config
+          configMap:
+            name: erddap-server-config
+        - name: erddap-setup-config
+          configMap:
+            name: erddap-setup-config
+        - name: shared-trigger
+          emptyDir: {}        
+        - name: erddap-content-storage
+          persistentVolumeClaim:
+            claimName: erddap-content-pvc
+        - name: erddap-data-pv-storage
+          persistentVolumeClaim:
+            claimName: erddap-data-pvc
+        - name: erddap-datasetsd-storage
+          persistentVolumeClaim:
+            claimName: erddap-datasetsd-pvc
+        - name: erddap-jks
+          secret:
+            secretName: erddap-tls-keystore
+      #   volumeMounts:
+      #     - name: erddap-datasetd-storage
+      #       mountPath: /datasets.d
+      #       # subPath: datasets.d
+      #     - name: erddap-content-storage
+      #       mountPath: /usr/local/tomcat/content/erddap
+      #       # subPath: erddap
+      #     - name: erddap-data-pv-storage
+      #       mountPath: /erddapData
+      #       # subPath: erddapData
+      # volumes:
+      #   - name: erddap-datasetd-storage
+      #     persistentVolumeClaim:
+      #       claimName: dataserver-erddap-datasetsd-pvc
+      #   - name: erddap-content-storage
+      #     persistentVolumeClaim:
+      #       claimName: dataserver-erddap-content-pvc
+      #   - name: erddap-data-pv-storage
+      #     persistentVolumeClaim:
+      #       claimName: dataserver-erddap-data-pvc

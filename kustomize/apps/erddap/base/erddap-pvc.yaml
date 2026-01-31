@@ -17,7 +17,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: filemanager-data-pvc
+  name: erddap-content-storage
   # namespace: msp-system
 spec:
   # storageClassName: local-path
@@ -26,12 +26,26 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: filemanager-data-pv
+  volumeName: erddap-content-storage
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: filemanager-logs-pvc
+  name: erddap-data-pv-storage
+  # namespace: msp-system
+spec:
+  # storageClassName: local-path
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: erddap-data-pv-storage
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: erddap-datasetsd-storage
   # namespace: msp-system
 spec:
   # storageClassName: local-path
@@ -40,4 +54,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: filemanager-logs-pv
+  volumeName: erddap-datasetsd-storage

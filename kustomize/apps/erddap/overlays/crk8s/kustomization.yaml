@@ -22,9 +22,9 @@ namespace: crk8s-system
 resources:
 - ../../base
 # - filemanager-pv
-- filemanager-configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
-- filemanager-triggers.yaml
+- erddap-configmap.yaml
+- erddap-tls-keystore_sealed.yaml
+# - erddap-triggers.yaml
 
 patches:
   # change configmap names to account for s/n suffix
@@ -37,13 +37,19 @@ patches:
         value: kafka-broker
   - target:
       kind: PersistentVolumeClaim
-      name: filemanager-data-pvc
+      name: erddap-content-storage
     patch: |-
       - op: remove 
         path: /spec/volumeName
   - target:
       kind: PersistentVolumeClaim
-      name: filemanager-logs-pvc
+      name: erddap-data-pv-storage
+    patch: |-
+      - op: remove 
+        path: /spec/volumeName
+  - target:
+      kind: PersistentVolumeClaim
+      name: erddap-datasetsd-storage
     patch: |-
       - op: remove 
         path: /spec/volumeName

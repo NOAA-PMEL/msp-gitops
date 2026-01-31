@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: filemanager
+  name: erddap
 
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -10,8 +10,21 @@ metadata:
 
 resources:
 # - filemanager-deployment.yaml
-- filemanager-pvc.yaml
-- filemanager-deployment.yaml
-- filemanager-service.yaml
-# - filemanager-ingress.yaml
+- erddap-pvc.yaml
+- erddap-deployment.yaml
+- erddap-service.yaml
+- erddap-ingress.yaml
 # - filemanager-triggers.yaml
+
+configMapGenerator:
+  - name: erddap-watcher-script
+    files:
+      - watcher.sh
+  - name: erddap-server-config
+    files:
+      - server.xml
+  - name: erddap-setup-config
+    files:
+      - setup.xml
+
+
