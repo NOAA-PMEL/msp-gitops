@@ -43,7 +43,7 @@ patches:
         path: /spec/volumeName
   - target:
       kind: PersistentVolumeClaim
-      name: erddap-data-pv-storage
+      name: erddap-data-storage
     patch: |-
       - op: remove 
         path: /spec/volumeName
