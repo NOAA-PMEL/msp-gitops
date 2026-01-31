@@ -67,8 +67,8 @@ spec:
           volumeMounts:
             - name: shared-trigger
               mountPath: /shared-state
-            - name: erddap-data-storage
-              mountPath: /erddapData
+            # - name: erddap-data-storage
+            #   mountPath: /erddapData
           #   - name: erddap-data-storage
           #     mountPath: /data
           #   - name: erddap-logs-storage
