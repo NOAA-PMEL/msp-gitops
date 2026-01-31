@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: erddap-data-pv-storage
+  name: erddap-data-storage
   # namespace: msp-system
 spec:
   # storageClassName: local-path
@@ -40,7 +40,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  volumeName: erddap-data-pv-storage
+  volumeName: erddap-data-storage
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

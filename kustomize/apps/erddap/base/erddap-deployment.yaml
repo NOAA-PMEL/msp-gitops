@@ -135,7 +135,7 @@ spec:
               mountPath: /shared-state            
             - name: erddap-content-storage
               mountPath: /usr/local/tomcat/content/erddap
-            - name: erddap-data-pv-storage
+            - name: erddap-data-storage
               mountPath: /erddapData
               # subPath: data
             # - name: erddap-server-pv-storage
@@ -169,13 +169,13 @@ spec:
           emptyDir: {}        
         - name: erddap-content-storage
           persistentVolumeClaim:
-            claimName: erddap-content-pvc
-        - name: erddap-data-pv-storage
+            claimName: erddap-content-storage
+        - name: erddap-data-storage
           persistentVolumeClaim:
-            claimName: erddap-data-pvc
+            claimName: erddap-data-storage
         - name: erddap-datasetsd-storage
           persistentVolumeClaim:
-            claimName: erddap-datasetsd-pvc
+            claimName: erddap-datasetsd-storage
         - name: erddap-jks
           secret:
             secretName: erddap-tls-keystore
