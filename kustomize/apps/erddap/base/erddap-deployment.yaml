@@ -64,7 +64,9 @@ spec:
               # containerPort: 8000
               containerPort: 8080
               protocol: TCP
-          # volumeMounts:
+          volumeMounts:
+            - name: shared-trigger
+              mountPath: /shared-state
           #   - name: erddap-data-storage
           #     mountPath: /data
           #   - name: erddap-logs-storage
