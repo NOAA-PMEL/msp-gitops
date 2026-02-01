@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: erddap
+  name: pmel-erddap
   # namespace: msp-system
   labels:
-    app: erddap
+    app: pmel-erddap
 spec:
   selector:
     matchLabels:
-      app: erddap
+      app: pmel-erddap
   template:
     metadata:
       labels:
-        app: erddap
+        app: pmel-erddap
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
