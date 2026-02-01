@@ -101,7 +101,7 @@ spec:
             - name: https
               containerPort: 8443
               protocol: TCP
-          env:
+          # env:
             # - name: ERDDAP_KNATIVE_BROKER
             #   valueFrom:
             #     configMapKeyRef:
