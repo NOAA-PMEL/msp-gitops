@@ -104,21 +104,21 @@ spec:
                 configMapKeyRef:
                   name: erddap
                   key: min_memory
-            - name: ERDDAP_baseUrl
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseUrl
-            - name: ERDDAP_baseHttpsUrl
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseHttpsUrl
-            - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: variablesMustHaveIoosCategory
+            # - name: ERDDAP_baseUrl
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: baseUrl
+            # - name: ERDDAP_baseHttpsUrl
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: baseHttpsUrl
+            # - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: variablesMustHaveIoosCategory
             - name: ERDDAP_CACHEMINUTES
               valueFrom:
                 configMapKeyRef:

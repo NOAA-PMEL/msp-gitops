@@ -64,7 +64,7 @@ See the email account settings below.
 Whether or not you set up the email system, all potential email messages 
 are logged to an emailLogYEAR-MONTH.txt file in [bigParentDirectory]/logs/.
 -->
-<emailEverythingTo>your.email@yourInstitution.edu</emailEverythingTo>
+<emailEverythingTo>derek.coffman@noaa.gov</emailEverythingTo>
 <!-- optional: 
 <emailDailyReportsTo>your.boss@yourInstitution.edu</emailDailyReportsTo>
 -->
@@ -160,7 +160,7 @@ But if you you think someone is abusing the flag system,
 change this text again, restart ERDDAP, and send
 all of the users of the flag system the relevant new flagKeys
 (see the list in the Daily Report). -->
-<flagKeyKey>CHANGE THIS TO YOUR FAVORITE QUOTE</flagKeyKey>
+<flagKeyKey>CHANGE THIS TO YOUR FAVORITE QUOTE!</flagKeyKey>
 
 
 <!-- ******** End of MUST change settings.  ******************************** -->
@@ -375,7 +375,7 @@ because the NOAA IOOS office wants to be able to categorize variables and
 datasets in this way.
 For non-NOAA ERDDAP installations, there is no downside to setting this to "false".
 -->
-<variablesMustHaveIoosCategory>true</variablesMustHaveIoosCategory>
+<variablesMustHaveIoosCategory>false</variablesMustHaveIoosCategory>
 
 <!-- This is the comma-separated list (recommended: in alphabetical order) 
 of the global attribute and variable attribute names which will be
