@@ -170,7 +170,7 @@ spec:
             # - name: erddap-content-storage
             #   mountPath: /usr/local/tomcat/content/erddap
             - name: erddap-content
-              mountPath: /usr/local/tomcat/content/
+              mountPath: /usr/local/tomcat/content/erddap
               subPath: erddap
             - name: erddap-data-storage
               mountPath: /erddapData
