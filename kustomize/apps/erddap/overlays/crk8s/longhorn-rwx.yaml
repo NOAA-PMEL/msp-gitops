@@ -11,4 +11,5 @@ parameters:
   staleReplicaTimeout: "2880"
   fromBackup: ""
   fsType: "ext4" # Or "xfs"
+  migratable: "false"
   nfsOptions: "vers=4.1,noresvport,softerr,timeo=600,retrans=5" # Required NFS mount options
