@@ -26,10 +26,10 @@ resources:
 - erddap-tls-keystore_sealed.yaml
 # - erddap-triggers.yaml
 
-configMapGenerator:
-  - name: erddap-setup-config
-    files:
-      - setup.xml
+# configMapGenerator:
+#   - name: erddap-setup-config
+#     files:
+#       - setup.xml
 
 patches:
   # change configmap names to account for s/n suffix
