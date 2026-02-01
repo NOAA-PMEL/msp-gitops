@@ -31,7 +31,7 @@ For ERD releases, we use
 If you want to encourage all users to use https (not http), 
 make the baseUrl the same as the baseHttpsUrl (see below).
 -->
-<baseUrl>http://localhost:8080</baseUrl>
+<baseUrl>http://192.168.86.241/msp/data</baseUrl>
 
 <!-- This is a variant of <baseUrl> which is used when 
 authentication is active and the user is logged in.
@@ -50,7 +50,7 @@ For releases at ERD, we use:
 If you want to encourage all users to use https (not http), 
 make the baseUrl (see above) the same as the baseHttpsUrl.
 -->
-<baseHttpsUrl></baseHttpsUrl>
+<baseHttpsUrl>https://erddap</baseHttpsUrl>
 
 <!-- Daily status reports and all error messages are emailed to emailEverythingTo.
 Daily status reports are emailed to emailDailyReportsTo.

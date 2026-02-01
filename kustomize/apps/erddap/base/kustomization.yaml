@@ -23,8 +23,8 @@ configMapGenerator:
   - name: erddap-server-config
     files:
       - server.xml
-  - name: erddap-setup-config
-    files:
-      - setup.xml
+  # - name: erddap-setup-config
+  #   files:
+  #     - setup.xml
 
 
