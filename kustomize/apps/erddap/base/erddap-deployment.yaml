@@ -43,8 +43,8 @@ spec:
           volumeMounts:
             - name: erddap-setup-config
               mountPath: /tmp/config
-            - name: init-vol
-              mountPath: /content-data
+            - name: erddap-content
+              mountPath: /init-vol
       containers:
         - name: erddap-util
           # image: uasbase2.pmel.noaa.gov:448/test/erddap@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
