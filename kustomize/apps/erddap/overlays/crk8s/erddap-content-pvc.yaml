@@ -10,7 +10,6 @@ spec:
   resources:
     requests:
       storage: 100Mi
-  volumeName: erddap-content-storage
 # # ---
 # apiVersion: v1
 # kind: PersistentVolumeClaim
