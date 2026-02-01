@@ -104,12 +104,12 @@ spec:
                 configMapKeyRef:
                   name: erddap
                   key: min_memory
-            - name: ERDDAP_BASEURL
+            - name: ERDDAP_baseUrl
               valueFrom:
                 configMapKeyRef:
                   name: erddap
                   key: baseUrl
-            - name: ERDDAP_BASEHTTPSURL
+            - name: ERDDAP_baseHttpsUrl
               valueFrom:
                 configMapKeyRef:
                   name: erddap
