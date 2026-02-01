@@ -56,12 +56,12 @@ metadata:
 spec:
   stripPrefix:
     prefixes:
-      - /msp/dataserver
+      - /msp
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: dashboard-test
+  name: erddap
   # namespace: mspbase01-system
 
 spec:
@@ -72,7 +72,7 @@ spec:
     kind: Rule
     services:
     - name: erddap
-      port: 8080
+      port: 8000
     middlewares:
     - name: erddap-stripprefix
       # namespace: mspbase01-system
