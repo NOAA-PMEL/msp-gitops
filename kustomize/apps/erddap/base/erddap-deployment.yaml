@@ -135,8 +135,8 @@ spec:
               subPath: watcher.sh
             - name: shared-trigger
               mountPath: /shared-state            
-            - name: erddap-content-storage
-              mountPath: /usr/local/tomcat/content/erddap
+            # - name: erddap-content-storage
+            #   mountPath: /usr/local/tomcat/content/erddap
             - name: erddap-data-storage
               mountPath: /erddapData
               # subPath: data
@@ -169,9 +169,9 @@ spec:
         #     name: erddap-setup-config
         - name: shared-trigger
           emptyDir: {}        
-        - name: erddap-content-storage
-          persistentVolumeClaim:
-            claimName: erddap-content-storage
+        # - name: erddap-content-storage
+        #   persistentVolumeClaim:
+        #     claimName: erddap-content-storage
         - name: erddap-data-storage
           persistentVolumeClaim:
             claimName: erddap-data-storage

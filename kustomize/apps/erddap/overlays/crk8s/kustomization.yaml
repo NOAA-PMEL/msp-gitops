@@ -40,12 +40,12 @@ patches:
       - op: replace 
         path: /spec/broker
         value: kafka-broker
-  - target:
-      kind: PersistentVolumeClaim
-      name: erddap-content-storage
-    patch: |-
-      - op: remove 
-        path: /spec/volumeName
+  # - target:
+  #     kind: PersistentVolumeClaim
+  #     name: erddap-content-storage
+  #   patch: |-
+  #     - op: remove 
+  #       path: /spec/volumeName
   - target:
       kind: PersistentVolumeClaim
       name: erddap-data-storage
