@@ -32,7 +32,10 @@ spec:
               echo "Fixing permissions on Longhorn volume..."
               # Create a 'data' subfolder so we aren't fighting the volume root
               mkdir -p /init-vol/data
-              
+
+              echo "Copying setup.xml..."
+              cp /tmp/config/setup.xml /init-vol/data/setup.xml      
+
               # Recursively chown the subfolder to erddap user (1000)
               chown -R 1000:1000 /init-vol/data
               
@@ -168,7 +171,7 @@ spec:
             #   mountPath: /usr/local/tomcat/content/erddap
             - name: erddap-content
               mountPath: /usr/local/tomcat/content/erddap
-              subPath: data
+              subPath: erddap
             - name: erddap-data-storage
               mountPath: /erddapData
               # subPath: data
