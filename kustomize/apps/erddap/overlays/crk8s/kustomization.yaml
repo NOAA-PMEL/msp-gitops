@@ -28,7 +28,6 @@ resources:
 
 configMapGenerator:
   - name: erddap-setup-config
-    behavior: replace
     files:
       - setup.xml
 
