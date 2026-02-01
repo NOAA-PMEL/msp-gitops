@@ -10,9 +10,9 @@ spec:
     app: erddap
   ports:
     - name: http
-      port: 8000
+      port: 80
       targetPort: 8000
     - name: https
-      port: 8043
+      port: 443
       targetPort: 8043
   type: ClusterIP  
