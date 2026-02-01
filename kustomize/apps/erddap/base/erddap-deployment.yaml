@@ -31,18 +31,18 @@ spec:
             - |
               echo "Fixing permissions on Longhorn volume..."
               # Create a 'data' subfolder so we aren't fighting the volume root
-              mkdir -p /init-vol/data
+              mkdir -p /init-vol/erddap
 
               echo "Copying setup.xml..."
-              cp /tmp/config/setup.xml /init-vol/data/setup.xml      
+              cp /tmp/config/setup.xml /init-vol/erddap/setup.xml      
 
               # Recursively chown the subfolder to erddap user (1000)
-              chown -R 1000:1000 /init-vol/data
+              chown -R 1000:1000 /init-vol/erddap
               
               # Fallback: Open permissions (777) if chown is squashed by NFS/RWX
-              chmod -R 777 /init-vol/data
+              chmod -R 777 /init-vol/erddap
               
-              ls -ld /init-vol/data          
+              ls -ld /init-vol/erddap          
           volumeMounts:
             - name: erddap-setup-config
               mountPath: /tmp/config
@@ -170,7 +170,7 @@ spec:
             # - name: erddap-content-storage
             #   mountPath: /usr/local/tomcat/content/erddap
             - name: erddap-content
-              mountPath: /usr/local/tomcat/content/erddap
+              mountPath: /usr/local/tomcat/content/
               subPath: erddap
             - name: erddap-data-storage
               mountPath: /erddapData
