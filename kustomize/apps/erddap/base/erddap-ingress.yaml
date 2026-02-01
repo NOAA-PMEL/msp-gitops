@@ -24,7 +24,7 @@ spec:
     kind: Rule
     services:
     - name: pmel-erddap
-      port: 8000
+      port: 80
     middlewares:
     - name: erddap-stripprefix
       # namespace: mspbase01-system
