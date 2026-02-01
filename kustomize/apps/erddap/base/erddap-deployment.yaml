@@ -19,6 +19,16 @@ spec:
       securityContext:
         fsGroup: 1000           # 1000 is the standard GID for erddap/tomcat
         fsGroupChangePolicy: "OnRootMismatch" # Only chown if permissions are wrong (faster)
+      initContainers:
+        - name: setup-config
+          image: busybox
+          # Copy file and ensure erddap user (usually uid 1000 or similar) owns it
+          command: ['sh', '-c', 'cp /tmp/config/setup.xml /erddap-data/setup.xml && chown 1000:1000 /erddap-data/setup.xml']
+          volumeMounts:
+            - name: erddap-setup-config
+              mountPath: /tmp/config
+            - name: erddap-content
+              mountPath: /erddap-data
       containers:
         - name: erddap-util
           # image: uasbase2.pmel.noaa.gov:448/test/erddap@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
@@ -97,26 +107,26 @@ spec:
             #     configMapKeyRef:
             #       name: erddap
             #       key: knative_broker
-            - name: ERDDAP_MAX_MEMORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: max_memory
-            - name: ERDDAP_MIN_MEMORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: min_memory
-            - name: ERDDAP_baseUrl
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseUrl
-            - name: ERDDAP_baseHttpsUrl
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseHttpsUrl
+            # - name: ERDDAP_MAX_MEMORY
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: max_memory
+            # - name: ERDDAP_MIN_MEMORY
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: min_memory
+            # - name: ERDDAP_baseUrl
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: baseUrl
+            # - name: ERDDAP_baseHttpsUrl
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: baseHttpsUrl
             # - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
             #   valueFrom:
             #     configMapKeyRef:
@@ -140,6 +150,8 @@ spec:
               mountPath: /shared-state            
             # - name: erddap-content-storage
             #   mountPath: /usr/local/tomcat/content/erddap
+            - name: erddap-content
+              mountPath: /usr/local/tomcat/content/erddap
             - name: erddap-data-storage
               mountPath: /erddapData
               # subPath: data
@@ -171,6 +183,8 @@ spec:
           configMap:
             name: erddap-setup-config
         - name: shared-trigger
+          emptyDir: {}        
+        - name: erddap-content
           emptyDir: {}        
         # - name: erddap-content-storage
         #   persistentVolumeClaim:
