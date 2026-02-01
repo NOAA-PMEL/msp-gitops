@@ -61,8 +61,8 @@ spec:
               cpu: "1000m"
           ports:
             - name: http
-              # containerPort: 8000
-              containerPort: 8080
+              containerPort: 8000
+              # containerPort: 8080
               protocol: TCP
           volumeMounts:
             - name: shared-trigger
