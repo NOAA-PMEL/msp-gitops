@@ -8,8 +8,8 @@ data:
 
   max_memory: "8G"
   min_memory: "4G"
-  baseUrl: http://192.168.86.241/msp/erddap-util
-  baseHttpsUrl: https://192.168.86.241/msp/erddap-util
+  baseUrl: http://192.168.86.241/msp/data
+  baseHttpsUrl: https://192.168.86.241/msp/data
   variablesMustHaveIoosCategory: "false"
   cacheMinutes: "1"
 

@@ -13,7 +13,7 @@ spec:
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: pmel-erddap
+  name: erddap
   # namespace: mspbase01-system
 
 spec:
@@ -23,7 +23,7 @@ spec:
   - match: PathPrefix(`/msp/data`)
     kind: Rule
     services:
-    - name: pmel-erddap
+    - name: erddap
       port: 80
     middlewares:
     - name: erddap-stripprefix

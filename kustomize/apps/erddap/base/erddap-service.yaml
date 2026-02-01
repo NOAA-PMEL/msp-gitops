@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pmel-erddap
+  name: erddap
   # namespace: msp-system
   labels:
-    app: pmel-erddap
+    app: erddap
 spec:
   selector:
-    app: pmel-erddap
+    app: erddap
   ports:
     - name: http
       protocol: TCP
       port: 80
       targetPort: 8000
-    # - name: https
-    #   port: 443
-    #   targetPort: 8043
+    - name: https
+      port: 443
+      targetPort: 8443
   type: ClusterIP  
