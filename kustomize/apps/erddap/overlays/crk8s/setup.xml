@@ -19,7 +19,7 @@ removes files older than cacheMinutes).
 The ERDDAP log file (log.txt) will be put in this directory.
 At ERD, we use '/u00/cwatch/erddap/' for releases.
 -->
-<bigParentDirectory>/home/yourName/erddap/</bigParentDirectory>
+<bigParentDirectory>/erddapData/</bigParentDirectory>
 
 <!-- baseUrl is the start of the public url, to which "/erddap" 
 is appended. For example:
@@ -160,7 +160,7 @@ But if you you think someone is abusing the flag system,
 change this text again, restart ERDDAP, and send
 all of the users of the flag system the relevant new flagKeys
 (see the list in the Daily Report). -->
-<flagKeyKey>CHANGE THIS TO YOUR FAVORITE QUOTE!</flagKeyKey>
+<flagKeyKey>MSPTESTING</flagKeyKey>
 
 
 <!-- ******** End of MUST change settings.  ******************************** -->
