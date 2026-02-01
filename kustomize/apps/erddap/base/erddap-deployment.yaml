@@ -22,13 +22,29 @@ spec:
       initContainers:
         - name: setup-config
           image: busybox
-          # Copy file and ensure erddap user (usually uid 1000 or similar) owns it
-          command: ['sh', '-c', 'cp /tmp/config/setup.xml /erddap-data/setup.xml && chown 1000:1000 /erddap-data/setup.xml']
+          securityContext:
+            runAsUser: 0
+            runAsNonRoot: false          # Copy file and ensure erddap user (usually uid 1000 or similar) owns it
+          command:
+            - sh
+            - -c
+            - |
+              echo "Fixing permissions on Longhorn volume..."
+              # Create a 'data' subfolder so we aren't fighting the volume root
+              mkdir -p /init-vol/erddap
+              
+              # Recursively chown the subfolder to erddap user (1000)
+              chown -R 1000:1000 /init-vol/erddap
+              
+              # Fallback: Open permissions (777) if chown is squashed by NFS/RWX
+              chmod -R 777 /init-vol/erddap
+              
+              ls -ld /init-vol/erddap          
           volumeMounts:
             - name: erddap-setup-config
               mountPath: /tmp/config
-            - name: erddap-content
-              mountPath: /erddap-data
+            - name: init-vol
+              mountPath: /content-data
       containers:
         - name: erddap-util
           # image: uasbase2.pmel.noaa.gov:448/test/erddap@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
@@ -151,7 +167,8 @@ spec:
             # - name: erddap-content-storage
             #   mountPath: /usr/local/tomcat/content/erddap
             - name: erddap-content
-              mountPath: /usr/local/tomcat/content/erddap
+              mountPath: /usr/local/tomcat/content
+              subPath: erddap
             - name: erddap-data-storage
               mountPath: /erddapData
               # subPath: data
@@ -162,9 +179,9 @@ spec:
             - name: erddap-server-config
               mountPath: /usr/local/tomcat/conf/server.xml
               subPath: server.xml
-            - name: erddap-setup-config
-              mountPath: /usr/local/tomcat/content/erddap/setup.xml
-              subPath: setup.xml
+            # - name: erddap-setup-config
+            #   mountPath: /usr/local/tomcat/content/erddap/setup.xml
+            #   subPath: setup.xml
             # - name: erddap-ssl-crt-pv-storage
             # - name: erddap-data-pv-storage
             - name: erddap-jks
