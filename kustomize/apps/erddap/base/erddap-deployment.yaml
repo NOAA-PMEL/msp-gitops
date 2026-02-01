@@ -117,16 +117,16 @@ spec:
                 configMapKeyRef:
                   name: erddap
                   key: baseHttpsUrl
-            - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: variablesMustHaveIoosCategory
-            - name: ERDDAP_CACHEMINUTES
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: cacheMinutes
+            # - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: variablesMustHaveIoosCategory
+            # - name: ERDDAP_CACHEMINUTES
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: erddap
+            #       key: cacheMinutes
           # volumeMounts:
           #   - name: erddap-data-storage
           #     mountPath: /data
