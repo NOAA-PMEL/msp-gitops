@@ -22,6 +22,7 @@ namespace: crk8s-system
 resources:
 - ../../base
 # - filemanager-pv
+- longhorn-rwx.yaml
 - erddap-content-pvc.yaml
 - erddap-configmap.yaml
 - erddap-tls-keystore_sealed.yaml
