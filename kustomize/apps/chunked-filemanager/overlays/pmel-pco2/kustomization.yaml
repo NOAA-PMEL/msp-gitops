@@ -10,3 +10,4 @@ resources:
 - configmap.yaml
 - pv.yaml
 - pmel-pco2-server-iot-sealed.yaml # Added sealed secret resource
+- ghcr-secret-pmel-pco2-sealed.yaml
