@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: "" # Matches the PVC configuration
+  storageClassName: efs-sc # Matches the PVC configuration
   csi:
     driver: efs.csi.aws.com
     volumeHandle: fs-07e5bdd3919c7185c # REPLACE WITH YOUR MANUAL AWS EFS ID
