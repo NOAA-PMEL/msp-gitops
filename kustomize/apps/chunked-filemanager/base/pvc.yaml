@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: chunked-filemanager-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc # Empty to bind to the manual EFS PV
+  resources:
+    requests:
+      storage: 5Gi
+  volumeName: chunked-filemanager-efs-pv

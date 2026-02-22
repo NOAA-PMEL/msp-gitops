@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chunked-filemanager
+  labels:
+    app: chunked-filemanager
+spec:
+  selector:
+    matchLabels:
+      app: chunked-filemanager
+  template:
+    metadata:
+      labels:
+        app: chunked-filemanager
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: manager
+        image: ghcr.io/noaa-pmel/msp/chunked-filemanager:0.1.0
+        imagePullPolicy: "Always"
+        resources:
+          requests:
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+        - name: CHUNKED_FILEMANAGER_MQTT_BROKER
+          valueFrom:
+            configMapKeyRef:
+              name: chunked-filemanager
+              key: mqtt_broker
+        - name: CHUNKED_FILEMANAGER_MQTT_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: chunked-filemanager
+              key: mqtt_port
+        - name: CHUNKED_FILEMANAGER_STORAGE_BASE_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: chunked-filemanager
+              key: storage_base_path
+        - name: CHUNKED_FILEMANAGER_MQTT_CLIENT_ID
+          valueFrom:
+            configMapKeyRef:
+              name: chunked-filemanager
+              key: mqtt_client_id
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        volumeMounts:
+        - name: iot-certs
+          mountPath: "/app/certs" # Directory where the app looks for certs
+          readOnly: true
+        - name: storage
+          mountPath: "/data/pco2"
+      volumes:
+      - name: iot-certs
+        secret:
+          # This name must match the metadata.name in the unsealed Secret
+          # produced by pmel-pco2-server-iot-sealed.yaml
+          secretName: pmel-pco2-server-iot 
+      - name: storage
+        persistentVolumeClaim:
+          claimName: chunked-filemanager-pvc

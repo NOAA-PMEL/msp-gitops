@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chunked-filemanager
+data:
+  mqtt_broker: "iot.pmel-dev.oarcloud.noaa.gov"
+  mqtt_port: "8883"
+  mqtt_client_id: "pmel-pco2-data-testserver"
+  mqtt_sub_topic: "pmel/pco2/+/file/update"
+  storage_base_path: "/data/pco2"
