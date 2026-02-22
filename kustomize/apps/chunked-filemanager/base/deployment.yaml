@@ -61,7 +61,7 @@ spec:
         secret:
           # This name must match the metadata.name in the unsealed Secret
           # produced by pmel-pco2-server-iot-sealed.yaml
-          secretName: pmel-pco2-iot-credentials 
+          secretName: pco2-iot-credentials 
       - name: storage
         persistentVolumeClaim:
           claimName: chunked-filemanager-pvc
