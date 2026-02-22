@@ -52,8 +52,14 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: iot-certs
-          mountPath: "/app/certs" # Directory where the app looks for certs
-          readOnly: true
+          mountPath: "/app/certs/AmazonRootCA1.pem" # Directory where the app looks for certs
+          subPath: AmazonRootCA1.pem
+        - name: iot-certs
+          mountPath: "/app/certs/cert.crt" # Directory where the app looks for certs
+          subPath: device-certificate
+        - name: iot-certs
+          mountPath: "/app/certs/private.key" # Directory where the app looks for certs
+          subPath: private-key
         - name: storage
           mountPath: "/data/pco2"
       volumes:
