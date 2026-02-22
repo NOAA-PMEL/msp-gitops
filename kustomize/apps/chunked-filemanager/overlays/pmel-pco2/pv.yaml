@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: chunked-filemanager-efs-pv
   labels:
-    type: efs
+    type: efs-sc
 spec:
   capacity:
     storage: 5Gi
