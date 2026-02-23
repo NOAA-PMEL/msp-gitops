@@ -35,6 +35,8 @@ data:
   # erddap_https_connection: "https://erddap.default:8443/erddap"
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
 
+  chunked_filemanager_storage_base_path: "/data/pco2"
+
   mqtt_broker: "mqtt.pmel-dev-system"
   mqtt_port: "1883"
   # mqtt_topic_filter: "instrument/#"

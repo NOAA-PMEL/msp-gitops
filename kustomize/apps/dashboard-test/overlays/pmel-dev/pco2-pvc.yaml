@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pco2-filemanager-pvc
+  namespace: pmel-dev-system
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 5Gi
+  # This binds it to the existing EFS PV used by the other namespace
+  volumeName: chunked-filemanager-efs-pv

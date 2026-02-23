@@ -20,6 +20,7 @@ namespace: pmel-dev-system
 
 resources:
 - ../../base
+- pco2-pvc.yaml
 - dashboard-configmap.yaml
 - dashboard-mw-upgrade.yaml
 # - dashboard-ingress.yaml
@@ -28,6 +29,25 @@ patches:
   - target: 
       kind: Deployment
     patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: CHUNKED_FILEMANAGER_STORAGE_BASE_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: chunked_filemanager_storage_base_path
+      - op: add
+        path: /spec/template/spec/volumes
+        value:
+          name: storage
+          persistentVolumeClaim:
+            claimName: pco2-filemanager-pvc # Use the name defined in step 1
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts
+        value:
+          name: storage
+          mountPath: "/data/pco2"      
       - op: add
         path: /spec/template/spec/containers/0/env/-
         value:
