@@ -57,6 +57,6 @@ data:
     # TLS ALPN
     bridge_alpn x-amzn-mqtt-ca
 
-    topic pmel/pco2/+/file/update in 1 "" ""
+    topic pmel/pco2/+/file/update in 0 "" ""
 
   
