@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mqtt-pmel-pco2
+  name: chunked-filemanager-pmel-pco2
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,17 +10,19 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/mqtt/overlays/pmel-pco2
+    path: kustomize/apps/chunked-filemanager/overlays/pmel-pco2
+    # kustomize:
+    #   patches:
+    #     - patch: |-
+    #         - op: replace
+    #           path: /spec/subscriber/ref/namespace
+    #           value: mspbase02
+    #       target:
+    #         kind: Trigger
   destination:
     server: https://kubernetes.default.svc
-    # namespace: msp-system
+    # namespace: payload01
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
-  #   syncOptions:
-  #     - RespectIgnoreDifferences=true
-  # ignoreDifferences:
-  #   - jsonPointers:
-  #     - /spec/volumeName
-  #     kind: PersistentVolumeClaim
