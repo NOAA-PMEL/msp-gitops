@@ -20,6 +20,7 @@ namespace: pmel-dev-system
 
 resources:
 - ../../base
+- pco2-pv.yaml
 - pco2-pvc.yaml
 - dashboard-configmap.yaml
 - dashboard-mw-upgrade.yaml

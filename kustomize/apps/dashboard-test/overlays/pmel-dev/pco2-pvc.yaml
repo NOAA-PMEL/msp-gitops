@@ -11,4 +11,4 @@ spec:
     requests:
       storage: 5Gi
   # This binds it to the existing EFS PV used by the other namespace
-  volumeName: chunked-filemanager-efs-pv
+  volumeName: dashboard-test-efs-pv-pmel-dev
