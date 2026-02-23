@@ -40,14 +40,14 @@ patches:
       - op: add
         path: /spec/template/spec/volumes
         value:
-          name: storage
-          persistentVolumeClaim:
-            claimName: pco2-filemanager-pvc # Use the name defined in step 1
+          - name: storage
+            persistentVolumeClaim:
+              claimName: pco2-filemanager-pvc # Use the name defined in step 1
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts
         value:
-          name: storage
-          mountPath: "/data/pco2"      
+          - name: storage
+            mountPath: "/data/pco2"      
       - op: add
         path: /spec/template/spec/containers/0/env/-
         value:
