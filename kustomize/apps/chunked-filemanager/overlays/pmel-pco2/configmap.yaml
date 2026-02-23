@@ -5,6 +5,6 @@ metadata:
 data:
   mqtt_broker: "iot.pmel-dev.oarcloud.noaa.gov"
   mqtt_port: "443"
-  mqtt_client_id: "pmel-pco2-data-testserver"
+  mqtt_client_id: "pmel-pco2_aws-iot-core_bridge"
   mqtt_sub_topic: "pmel/pco2/+/file/update"
   storage_base_path: "/data/pco2"
