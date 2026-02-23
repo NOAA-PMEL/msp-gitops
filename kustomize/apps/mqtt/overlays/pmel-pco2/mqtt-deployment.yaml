@@ -60,5 +60,5 @@ spec:
             claimName: mqtt-pvc
         - name: mosquitto-certs
           secret:
-            secretName: aws-iot-credentials
+            secretName: pco2-iot-credentials
 
