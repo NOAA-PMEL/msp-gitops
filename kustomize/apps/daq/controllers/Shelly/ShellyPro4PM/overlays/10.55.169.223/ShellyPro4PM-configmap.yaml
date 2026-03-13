@@ -6,12 +6,12 @@ metadata:
   labels:
     app: shelly-shellypro4pm
 data:
-  namespace_prefix: mspbase02
-  envds_env_id: mspbase02
+  namespace_prefix: raz1
+  envds_env_id: raz1
   controller.conf: |
     uid: shel223
     host: 10.55.169.223
-    client_host: mqtt.mspbase02-system
+    client_host: mqtt.raz1-system
     client_port: 1883
     controller_id_prefix: shellypro4pm
 

@@ -5,23 +5,23 @@ metadata:
   # namespace: msp
   labels:
     app: kippzonen-splite2
-    app-group: envds-sensor-mspbase02
+    app-group: envds-sensor-raz1
 data:
-  namespace_prefix: mspbase02
-  envds_env_id: mspbase02
+  namespace_prefix: raz1
+  envds_env_id: raz1
   sensor.conf: |
     serial_number: "742"
-    daq_id: mspbase02
+    daq_id: raz1
     interfaces:
       default:
-        interface_env_id: mspbase02
+        interface_env_id: raz1
         interface_id: LabJack::Tx::ljtx207
         path: voltage_in-0
 
 
 # tmp        
 #       ref_volt:
-#         interface_env_id: mspbase02
+#         interface_env_id: raz1
 #         interface_id: LabJack::Tx::ljtx207
 #         path: voltage_in-1
 

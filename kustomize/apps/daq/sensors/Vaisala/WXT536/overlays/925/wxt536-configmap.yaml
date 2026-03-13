@@ -5,13 +5,13 @@ metadata:
   # namespace: msp
   labels:
     app: vaisala-wxt536
-    app-group: envds-sensor-mspbase02
+    app-group: envds-sensor-raz1
 data:
-  namespace_prefix: mspbase02
-  envds_env_id: mspbase02
+  namespace_prefix: raz1
+  envds_env_id: raz1
   sensor.conf: |
     serial_number: "925"
-    daq_id: mspbase02
+    daq_id: raz1
     interfaces:
       # default: serial
       default:

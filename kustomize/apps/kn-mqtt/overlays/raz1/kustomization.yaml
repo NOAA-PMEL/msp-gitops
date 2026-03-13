@@ -1,12 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: ist-hyt271
+  name: kn-mqtt-adapter
 
-
-namespace: raz1-hardware
-# namespace: crk8s-hardware
-
+namespace: raz1-system
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
@@ -22,22 +19,25 @@ namespace: raz1-hardware
 
 resources:
 - ../../base
-- hyt271-configmap.yaml
+- kn-mqtt-configmap.yaml
+# - adapter-triggers.yaml
+# - datastore-sealedsecrets.yaml
 
-nameSuffix: "-1234"
-
-# patchesStrategicMerge:
-#   - deployment.yaml
+# spec:
+#   template:
+#     metadata:
+#       # labels:
+#       #   app: kn-mqtt-adapter
+#       annotations:
+#         autoscaling.knative.dev/min-scale: "1"
 
 patches:
   # change configmap names to account for s/n suffix
   - target:
-      kind: Deployment
-      name: ist-hyt271
+      # version: serving.knative.dev/v1
+      kind: Service
+      name: kn-mqtt-adapter
     patch: |-
       - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: ist-hyt271-config-1234
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-1234
+        path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
+        value: "3"
