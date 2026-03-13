@@ -1,0 +1,25 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: msp-mspbase02
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: msp
+  sources:
+    - repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+      targetRevision: HEAD
+      path: argocd/msp01/mspbase02/apps/hardware
+    - repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+      targetRevision: HEAD
+      path: argocd/msp01/mspbase02/apps/system
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: true
+
