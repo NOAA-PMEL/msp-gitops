@@ -42,15 +42,15 @@ spec:
               subPath: mosquitto.conf
             - name: mosquitto-storage
               mountPath: /mosquitto/data
-            - name: mosquitto-certs
-              mountPath: /certs/rootCA.crt
-              subPath: AmazonRootCA1.pem
-            - name: mosquitto-certs
-              mountPath: /certs/cert.crt
-              subPath: device-certificate
-            - name: mosquitto-certs
-              mountPath: /certs/private.key
-              subPath: private-key
+            # - name: mosquitto-certs
+            #   mountPath: /certs/rootCA.crt
+            #   subPath: AmazonRootCA1.pem
+            # - name: mosquitto-certs
+            #   mountPath: /certs/cert.crt
+            #   subPath: device-certificate
+            # - name: mosquitto-certs
+            #   mountPath: /certs/private.key
+            #   subPath: private-key
       volumes:
         - name: mqtt-config
           configMap:
