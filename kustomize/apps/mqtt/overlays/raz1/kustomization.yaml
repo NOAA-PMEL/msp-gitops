@@ -21,7 +21,7 @@ namespace: raz1-system
 
 resources:
 - ../../base
-- mspbase02-server-iot-sealed.yaml
+# - mspbase02-server-iot-sealed.yaml
 - mqtt-pv.yaml
 - mqtt-configmap.yaml
 

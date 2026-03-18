@@ -58,7 +58,7 @@ spec:
         - name: mosquitto-storage
           persistentVolumeClaim:
             claimName: mqtt-pvc
-        - name: mosquitto-certs
-          secret:
-            secretName: aws-iot-credentials
+        # - name: mosquitto-certs
+        #   secret:
+        #     secretName: aws-iot-credentials
 
