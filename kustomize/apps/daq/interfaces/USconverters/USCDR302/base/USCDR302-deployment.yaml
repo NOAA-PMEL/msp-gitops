@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usconverters-uscdr302
+  # namespace: msp
+  labels:
+    app: usconverters-uscdr302
+spec:
+  selector:
+    matchLabels:
+      app: usconverters-uscdr302
+  template:
+    metadata:
+      labels:
+        app: usconverters-uscdr302
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: usconverters-uscdr302
+        # image: registry-msp:5000/msp/interface/usconverters-uscdr301:0.1.0
+        image: ghcr.io/noaa-pmel/msp/usconverters-uscdr301:0.1.1
+        imagePullPolicy: "Always"
+        env:
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
+            valueFrom:
+              configMapKeyRef:
+                name: usconverters-uscdr302-config
+                key: namespace_prefix
+          - name: ENVDS_ENV_ID
+            valueFrom:
+              configMapKeyRef:
+                name: usconverters-uscdr302-config
+                key: envds_env_id
+            # value: mspbase01
+          - name: REDIS_OM_URL
+            value: redis://redis.default
+          - name: LOG_LEVEL
+            value: DEBUG
+        resources:
+          requests:
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 9080
+          protocol: TCP
+        # - name: https
+        #   containerPort: 8883
+        #   protocol: TCP
+        volumeMounts:
+            - name: usconverters-uscdr302-config
+              mountPath: /app/config/interface.conf
+              subPath: interface.conf
+            # - name: mosquitto-certs
+            #   mountPath: /certs/ca.crt
+            #   subPath: ca.crt
+            # - name: mosquitto-certs
+            #   mountPath: /certs/server.crt
+            #   subPath: server.crt
+            # - name: mosquitto-certs
+            #   mountPath: /certs/server.key
+            #   subPath: server.key
+      volumes:
+        - name: usconverters-uscdr302-config
+          configMap:
+            name: usconverters-uscdr302-config
+        # - name: mosquitto-certs
+        #   configMap:
+        #     name: mosquitto-certs

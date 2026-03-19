@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: usconverters-uscdr301
+  name: usconverters-uscdr302
 
 
 namespace: raz1-hardware
@@ -20,7 +20,7 @@ namespace: raz1-hardware
 
 resources:
 - ../../base
-- USCDR301-configmap.yaml
+- USCDR302-configmap.yaml
 
 nameSuffix: -usc219
 # patchesStrategicMerge:
@@ -30,8 +30,8 @@ patches:
   # change configmap names to account for s/n suffix
   - target:
       kind: Deployment
-      name: usconverters-uscdr301
+      name: usconverters-uscdr302
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: usconverters-uscdr301-config-usc219
+        value: usconverters-uscdr302-config-usc219
