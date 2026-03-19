@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: shelly-shellypro3
+  name: shelly-shellypro1
 
 
 namespace: mspbase01-hardware
@@ -20,9 +20,9 @@ namespace: mspbase01-hardware
 
 resources:
 - ../../base
-- ShellyPro3-configmap.yaml
+- ShellyPro1-configmap.yaml
 
-nameSuffix: -shel209
+nameSuffix: -shel29
 # patchesStrategicMerge:
 #   - deployment.yaml
 
@@ -30,11 +30,11 @@ patches:
   # change configmap names to account for s/n suffix
   - target:
       kind: Deployment
-      name: shelly-shellypro3
+      name: shelly-shellypro1
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: shelly-shellypro3-config-shel209
+        value: shelly-shellypro1-config-shel29
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: controller-definition-shel209
+        value: controller-definition-shel29

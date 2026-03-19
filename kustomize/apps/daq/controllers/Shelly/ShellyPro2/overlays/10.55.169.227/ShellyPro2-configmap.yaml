@@ -9,15 +9,15 @@ data:
   namespace_prefix: mspbase01
   envds_env_id: mspbase01
   controller.conf: |
-    uid: shelIP
-    host: AddIP
+    uid: shel227
+    host: 10.55.169.227
     client_host: mqtt.mspbase01-system
     client_port: 1883
     controller_id_prefix: shellypro2
 
     # override definition values
     attributes:
-      serial_number: shelIP
+      serial_number: shel227
     # variables:
     #   channel_2_power:
     #     default_value: "0"

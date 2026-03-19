@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: shelly-shellypro3-config
+  name: shelly-shellypro1-config
   # namespace: msp
   labels:
-    app: shelly-shellypro3
+    app: shelly-shellypro1
 data:
   namespace_prefix: mspbase01
   envds_env_id: mspbase01
   controller.conf: |
-    uid: shel209
-    host: 10.55.169.209
+    uid: shel227
+    host: 10.55.179.29
     client_host: mqtt.mspbase01-system
     client_port: 1883
-    controller_id_prefix: shellypro3
+    controller_id_prefix: shellypro1
 
     # override definition values
     attributes:
-      serial_number: shel209
+      serial_number: shel29
     # variables:
     #   channel_2_power:
     #     default_value: "0"
