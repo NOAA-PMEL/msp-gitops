@@ -31,7 +31,7 @@ data:
     # Bridge
     connection raz1_mspbase01_bridge
     # address 161.55.169.94:1883
-    address 10.55.169.216:1883
+    address 10.55.159.1:1883
     remote_clientid raz1_mspbase01_bridge
     topic envds/+/sensor/+/data/update out 0 "" ""
     topic envds/+/sensor/+/settings/update out 0 "" ""
