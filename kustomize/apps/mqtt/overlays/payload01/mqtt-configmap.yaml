@@ -31,9 +31,12 @@ data:
     # connection payload03_mspbase01_bridge
     # address 10.55.169.210:1883
     # remote_clientid payload01_mspbase01_bridge
-    connection payload01_mspbase02_bridge
-    address 10.55.169.211:1883
-    remote_clientid payload01_mspbase02_bridge
+    # connection payload01_mspbase02_bridge
+    # address 10.55.169.211:1883
+    # remote_clientid payload01_mspbase02_bridge
+    connection payload01_raz1_bridge
+    address 10.55.169.210:1883
+    remote_clientid payload01_raz1_bridge
     topic envds/payload01/sensor/+/data/update out 0 "" ""
     topic envds/payload01/sensor/+/settings/update out 0 "" ""
     topic envds/payload01/sensor/+/settings/request in 0 "" ""
