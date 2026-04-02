@@ -24,7 +24,7 @@ spec:
     kind: Rule
     services:
     - name: dashboard-test
-      port: 80
+      port: 8080
     middlewares:
     - name: dashboardtest-stripprefix
       # namespace: mspbase01-system
