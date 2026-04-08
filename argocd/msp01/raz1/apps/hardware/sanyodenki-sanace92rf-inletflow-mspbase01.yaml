@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ist-hyt271-1234
+  name: sanyodenki-sanace92rf-inletflow-mspbase01
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,13 +10,13 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/sensors/IST/HYT271/overlays/1234
+    path: kustomize/apps/daq/operational/SanyoDenki/SanAce92RF/overlays/inletflow
     # kustomize:
     #   patches:
     #     - patch: |-
     #         - op: replace
     #           path: /spec/subscriber/ref/namespace
-    #           value: raz1
+    #           value: mspbase02
     #       target:
     #         kind: Trigger
   destination:
