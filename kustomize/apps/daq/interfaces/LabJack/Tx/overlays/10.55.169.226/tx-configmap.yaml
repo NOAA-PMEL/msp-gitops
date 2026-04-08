@@ -16,8 +16,8 @@ data:
     paths:
       i2c:
         path_type: I2C
-        sda_channel: 4
-        scl_channel: 5
+        sda_channel: 5
+        scl_channel: 4
         speed_throttle: 65516
       counter-2:
         path_type: COUNTER
