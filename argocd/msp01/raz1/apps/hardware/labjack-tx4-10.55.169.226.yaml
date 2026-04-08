@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: labjack-t7-10.55.169.226
+  name: labjack-t4-10.55.169.226
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io

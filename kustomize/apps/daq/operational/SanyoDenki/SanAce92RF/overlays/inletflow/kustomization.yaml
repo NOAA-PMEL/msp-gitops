@@ -4,7 +4,7 @@ metadata:
   name: sanyodenki-sanace92rf
 
 
-namespace: mspbase01-hardware
+namespace: raz1-hardware
 # namespace: crk8s-hardware
 
 # Example configuration for the webserver

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sanyodenki-sanace92rf-inletflow-mspbase01
+  name: sanyodenki-sanace92rf-inletflow-raz1
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
