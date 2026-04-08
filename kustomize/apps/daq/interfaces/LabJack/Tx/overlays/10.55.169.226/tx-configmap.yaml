@@ -19,9 +19,9 @@ data:
         sda_channel: 5
         scl_channel: 4
         speed_throttle: 65516
-      counter-2:
+      counter-18:
         path_type: COUNTER
-        channel: 2
+        channel: 18
         counter_mode: "interrupt"
         sample_mode: "unpolled"
         unpolled_interval_handle: 2
