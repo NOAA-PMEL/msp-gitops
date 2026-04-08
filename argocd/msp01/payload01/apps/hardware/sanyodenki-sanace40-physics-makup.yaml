@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sanyodenki-sanace40-physics_makeup
+  name: sanyodenki-sanace40-physics-makeup
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
