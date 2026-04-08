@@ -10,20 +10,20 @@ data:
   envds_env_id: mspbase01
   operational.conf: |
     serial_number: "inletflow"
-    daq_id: mspbase01
+    daq_id: raz1
     interfaces:
       # default: serial
       default: # to read fan speed
-        interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
-        interface_id: LabJack::Tx::ljtx207 
-        path: counter-1
+        interface_env_id: raz1 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx226 
+        path: counter-2
       fan_speed_sp: # to set fan speed
-        interface_env_id: mspbase01 # if omitted, defaults to envds_id of sensor
-        interface_id: LabJack::Tx::ljtx207 
+        interface_env_id: raz1 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx226 
         path: pwm-6
 
     settings:
-      fan_speed_sp: 25 # initialize with fan set to off
+      fan_speed_sp: 50 # initialize with fan set to off
 
       #   connection-properties:
       #     baudrate: 115200
