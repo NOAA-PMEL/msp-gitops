@@ -16,7 +16,7 @@ data:
       default: # to read fan speed
         interface_env_id: raz1 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx226 
-        path: counter-2
+        path: counter-18
       fan_speed_sp: # to set fan speed
         interface_env_id: raz1 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx226 
