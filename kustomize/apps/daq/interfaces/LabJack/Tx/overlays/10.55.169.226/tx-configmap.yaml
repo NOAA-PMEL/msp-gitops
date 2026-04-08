@@ -41,12 +41,12 @@ data:
       voltage_in-3:
         path_type: ADC
         channel: 3
-        input_voltage_range: 1.0
+        input_voltage_range: 10.0
         input_type: "single"
       voltage_in-2_3:
         path_type: ADC
         channel: 2
-        input_voltage_range: 1.0
+        input_voltage_range: 10.0
         input_type: "double"
         diff_ch_negative: 3
 

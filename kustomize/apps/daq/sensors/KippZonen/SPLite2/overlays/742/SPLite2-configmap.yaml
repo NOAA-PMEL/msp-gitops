@@ -16,7 +16,7 @@ data:
       default:
         interface_env_id: raz1
         interface_id: LabJack::Tx::ljtx226
-        path: voltage_in-2
+        path: voltage_in-3
 
 
 # tmp        
