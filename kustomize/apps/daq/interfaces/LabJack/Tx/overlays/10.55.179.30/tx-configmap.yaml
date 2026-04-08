@@ -16,28 +16,28 @@ data:
     paths:
       i2c:
         path_type: I2C
-        sda_channel: 2
-        scl_channel: 3
+        sda_channel: 5
+        scl_channel: 4
         speed_throttle: 65516
-      counter-1:
+      counter-6:
         path_type: COUNTER
-        channel: 1
+        channel: 6
         counter_mode: "interrupt"
         sample_mode: "unpolled"
         unpolled_interval_handle: 2
         unpolled_sample_frequency_sec: 1
-      pwm-6:
+      pwm-7:
         path_type: PWM
-        pwm_channel: 0
-        clock_channel: 0
+        pwm_channel: 7
+        clock_channel: 1
         clock_divisor: 1
         clock_desired_frequency: 25000
         counter_mode: "interrupt"
-      voltage_in-0:
-        path_type: ADC
-        channel: 0
-        input_voltage_range: 1.0
-        input_type: "single"
+      # voltage_in-0:
+      #   path_type: ADC
+      #   channel: 0
+      #   input_voltage_range: 1.0
+      #   input_type: "single"
 
 # tmp
       # voltage_in-1:
