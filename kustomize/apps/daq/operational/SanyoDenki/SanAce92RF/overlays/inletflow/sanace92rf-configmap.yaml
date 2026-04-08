@@ -6,8 +6,8 @@ metadata:
   labels:
     app: sanyodenki-sanace92rf
 data:
-  namespace_prefix: mspbase01
-  envds_env_id: mspbase01
+  namespace_prefix: raz1
+  envds_env_id: raz1
   operational.conf: |
     serial_number: "inletflow"
     daq_id: raz1
