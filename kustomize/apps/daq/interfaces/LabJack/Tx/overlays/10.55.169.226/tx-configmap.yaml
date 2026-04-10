@@ -22,7 +22,8 @@ data:
       counter-18:
         path_type: COUNTER
         channel: 18
-        counter_mode: "interrupt"
+        # counter_mode: "interrupt"
+        counter_mode: "high-speed"
         sample_mode: "unpolled"
         unpolled_interval_handle: 2
         unpolled_sample_frequency_sec: 1
@@ -42,7 +43,7 @@ data:
         path_type: ADC
         channel: 5
         input_voltage_range: 0.0
-        input_type: "double"
+        input_type: "differential"
         diff_ch_negative: 4
 
 # tmp
