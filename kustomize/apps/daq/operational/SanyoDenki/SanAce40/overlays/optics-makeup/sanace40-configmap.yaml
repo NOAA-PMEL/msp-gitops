@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sanyodenki-sanace40-config
+  # namespace: msp
+  labels:
+    app: sanyodenki-sanace40
+data:
+  namespace_prefix: payload02
+  envds_env_id: payload02
+  operational.conf: |
+    serial_number: "physics-makeup"
+    daq_id: payload02
+    interfaces:
+      # default: serial
+      default: # to read fan speed
+        interface_env_id: payload02 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx31 
+        path: counter-18
+      fan_speed_sp: # to set fan speed
+        interface_env_id: payload02 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx31 
+        path: pwm-7
+      pump_speed: # to read pump speed
+        interface_env_id: payload02 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx31 
+        path: counter-16
+      pump_speed_sp: # to set fan speed
+        interface_env_id: payload02 # if omitted, defaults to envds_id of sensor
+        interface_id: LabJack::Tx::ljtx31 
+        path: pwm-6
+
+    settings:
+      fan_speed_sp: 10 # initialize with fan set to off
+      pump_speed_sp: 50 # initialize with fan set to off
+
+      #   connection-properties:
+      #     baudrate: 115200
+      #     bytesize: 8
+      #     parity: N
+      #     stopbit: 1
+      #   # read-properties:
+      #     read_method: "readline" # default
+      #     # terminator: "\r"
+      #     # binary: true
+      #     # num-bytes: 1
+      #     # decode-errors: strict
+      # # power: # example of second interface (e.g., CDP enable signal)
+      # #   interface_id: system::mock::localhost
+      # #   path: port-01
+      
+    # settings: # used to override defaults
+    #   pump_power: 1
+    #   q_target: 300
