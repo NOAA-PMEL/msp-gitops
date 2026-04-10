@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/operational/SanyoDenki/SanAce40/overlays/physics_makeup
+    path: kustomize/apps/daq/operational/SanyoDenki/SanAce40/overlays/physics-makeup
     # kustomize:
     #   patches:
     #     - patch: |-

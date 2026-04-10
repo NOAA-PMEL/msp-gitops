@@ -24,7 +24,7 @@ resources:
 - ../../base
 - sanace40-configmap.yaml
 
-nameSuffix: "-physics_makeup"
+nameSuffix: "-physics-makeup"
 
 # patchesStrategicMerge:
 #   - deployment.yaml
@@ -37,7 +37,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: sanyodenki-sanace40-config-physics_makeup
+        value: sanyodenki-sanace40-config-physics-makeup
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: operational-definition-physics_makeup
+        value: operational-definition-physics-makeup
