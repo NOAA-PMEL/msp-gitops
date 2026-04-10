@@ -31,7 +31,7 @@ data:
         channel: 18
         counter_mode: "high-speed"
         sample_mode: "unpolled"
-        unpolled_interval_handle: 2
+        unpolled_interval_handle: 3
         unpolled_sample_frequency_sec: 1
       pwm-6:
         path_type: PWM
