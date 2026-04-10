@@ -39,12 +39,12 @@ data:
         channel: 5
         input_voltage_range: 0.0
         input_type: "single"
-      voltage_in-5_4:
+      voltage_in-4_5:
         path_type: ADC
-        channel: 5
+        channel: 4
         input_voltage_range: 0.0
         input_type: "differential"
-        diff_ch_negative: 4
+        diff_ch_negative: 5
 
 # tmp
       # voltage_in-1:
