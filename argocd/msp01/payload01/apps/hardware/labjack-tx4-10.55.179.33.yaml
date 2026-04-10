@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: labjack-t4-10.55.179.30
+  name: labjack-t4-10.55.179.33
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/interfaces/LabJack/Tx/overlays/10.55.179.30
+    path: kustomize/apps/daq/interfaces/LabJack/Tx/overlays/10.55.179.33
     # kustomize:
     #   patches:
     #     - patch: |-

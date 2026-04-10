@@ -22,7 +22,7 @@ resources:
 - ../../base
 - tx-configmap.yaml
 
-nameSuffix: -ljtx30
+nameSuffix: -ljtx33
 # patchesStrategicMerge:
 #   - deployment.yaml
 
@@ -34,7 +34,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: labjack-tx-config-ljtx30
+        value: labjack-tx-config-ljtx33
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: interface-definition-ljtx30
+        value: interface-definition-ljtx33

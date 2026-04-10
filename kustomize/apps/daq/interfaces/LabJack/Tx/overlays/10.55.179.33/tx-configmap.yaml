@@ -9,9 +9,9 @@ data:
   namespace_prefix: payload01
   envds_env_id: payload01
   interface.conf: |
-    uid: ljtx30
+    uid: ljtx33
     attributes:
-      host: 10.55.179.30
+      host: 10.55.179.33
       model: T4
     paths:
       i2c:

@@ -15,11 +15,11 @@ data:
       # default: serial
       default: # to read fan speed
         interface_env_id: payload01 # if omitted, defaults to envds_id of sensor
-        interface_id: LabJack::Tx::ljtx30 
+        interface_id: LabJack::Tx::ljtx33 
         path: counter-6
       fan_speed_sp: # to set fan speed
         interface_env_id: payload01 # if omitted, defaults to envds_id of sensor
-        interface_id: LabJack::Tx::ljtx30 
+        interface_id: LabJack::Tx::ljtx33 
         path: pwm-7
 
     settings:
