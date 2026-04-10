@@ -9,7 +9,7 @@ data:
   namespace_prefix: payload02
   envds_env_id: payload02
   operational.conf: |
-    serial_number: "physics-makeup"
+    serial_number: "optics-makeup"
     daq_id: payload02
     interfaces:
       # default: serial
