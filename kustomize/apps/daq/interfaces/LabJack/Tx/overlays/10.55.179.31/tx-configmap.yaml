@@ -38,14 +38,14 @@ data:
         pwm_channel: 6
         clock_channel: 1
         clock_divisor: 1
-        clock_desired_frequency: 25000
+        clock_desired_frequency: 15000
         counter_mode: "interrupt"
       pwm-7:
         path_type: PWM
         pwm_channel: 7
         clock_channel: 2
         clock_divisor: 1
-        clock_desired_frequency: 15000
+        clock_desired_frequency: 25000
         counter_mode: "interrupt"
       # voltage_in-0:
       #   path_type: ADC
