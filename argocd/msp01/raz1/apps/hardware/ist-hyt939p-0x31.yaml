@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ist-hyt939p-0x31
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: msp
+  source:
+    repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+    targetRevision: HEAD
+    path: kustomize/apps/daq/sensors/IST/HYT939P/overlays/0x31
+    # kustomize:
+    #   patches:
+    #     - patch: |-
+    #         - op: replace
+    #           path: /spec/subscriber/ref/namespace
+    #           value: raz1
+    #       target:
+    #         kind: Trigger
+  destination:
+    server: https://kubernetes.default.svc
+    # namespace: payload01
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
