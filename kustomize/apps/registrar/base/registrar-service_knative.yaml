@@ -1,0 +1,60 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: registrar
+  # namespace: msp-system
+  # labels:
+  #   app: registrar
+spec:
+  # template:
+  # selector:
+  #   matchLabels:
+  #     app: registrar
+  template:
+    metadata:
+      annotations:
+        # autoscaling.knative.dev/min-scale: "2"
+        autoscaling.knative.dev/max-scale: "5"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      # - name: registrar
+        # image: uasbase2.pmel.noaa.gov:448/test/registrar@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
+        # image: registry-msp:5000/msp/registrar:0.1.0
+        - image: ghcr.io/noaa-pmel/msp/registrar:0.0.2
+          imagePullPolicy: "Always"
+          env:
+            - name: REGISTRAR_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: registrar
+                  key: daq_id
+            - name: REGISTRAR_MQTT_BRIDGE_PREFIX
+              valueFrom:
+                configMapKeyRef:
+                  name: registrar
+                  key: mqtt_bridge_prefix
+            - name: REGISTRAR_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: registrar
+                  key: knative_broker
+            - name: REGISTRAR_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: registrar
+                  key: port
+          resources:
+            requests:
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+          ports:
+          - name: http
+            # containerPort: 8000
+            containerPort: 80
+            protocol: TCP
