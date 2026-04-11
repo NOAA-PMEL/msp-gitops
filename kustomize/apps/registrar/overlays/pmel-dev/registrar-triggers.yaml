@@ -36,7 +36,7 @@ spec:
             source: envds.pmel-dev.registrar
   subscriber:
     ref:
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
       kind: Service
       name: registrar
       # namespace: msp-system
@@ -65,7 +65,7 @@ spec:
   #     type: envds.registry-sync.broadcast
   subscriber:
     ref:
-      apiVersion: v1
+      apiVersion: serving.knative.dev/v1
       kind: Service
       name: kn-mqtt-adapter
       # namespace: msp-system
