@@ -23,7 +23,7 @@ data:
         path: pwm-6
 
     settings:
-      fan_speed_sp: 20 # initialize with fan set to off
+      fan_speed_sp: -30 # initialize with fan set to off
 
       #   connection-properties:
       #     baudrate: 115200
