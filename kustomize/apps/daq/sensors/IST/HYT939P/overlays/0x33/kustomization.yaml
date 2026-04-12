@@ -4,7 +4,7 @@ metadata:
   name: ist-hyt939p
 
 
-namespace: payload02-hardware
+namespace: payload01-hardware
 # namespace: crk8s-hardware
 
 # Example configuration for the webserver
