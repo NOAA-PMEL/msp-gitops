@@ -10,7 +10,7 @@
         },
         "description": {
             "type": "string",
-            "data": "Miniature Diaphrahm Pump for TAP (B1C-090V24AN-03)"
+            "data": "Miniature Diaphrahm Pump (B1C-090V24AN-03)"
         },
         "tags": {
             "type": "char",
@@ -89,7 +89,7 @@
                 },
                 "valid_min": {
                     "type": "float",
-                    "data": 0
+                    "data": 0.0
                 },
                 "valid_max": {
                     "type": "float",

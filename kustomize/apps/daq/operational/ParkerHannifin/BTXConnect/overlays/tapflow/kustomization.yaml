@@ -4,7 +4,7 @@ metadata:
   name: parkerhannifin-btxconnect
 
 
-namespace: mspbase01-hardware
+namespace: payload02-hardware
 # namespace: crk8s-hardware
 
 # Example configuration for the webserver
@@ -24,7 +24,7 @@ resources:
 - ../../base
 - btxconnect-configmap.yaml
 
-nameSuffix: "-sn"
+nameSuffix: "-tapflow"
 
 # patchesStrategicMerge:
 #   - deployment.yaml
@@ -37,7 +37,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: parkerhannifin-btxconnect-config-sn
+        value: parkerhannifin-btxconnect-config-tapflow
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: operational-definition-sn
+        value: operational-definition-tapflow
