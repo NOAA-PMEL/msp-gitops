@@ -28,7 +28,7 @@ patches:
   - target:
       # version: serving.knative.dev/v1
       kind: Service
-      name: kn-mqtt-adapter
+      name: registrar
     patch: |-
       - op: replace 
         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
