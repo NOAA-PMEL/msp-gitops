@@ -32,7 +32,7 @@ spec:
           value: "--appendonly yes"
         resources:
           requests:
-            cpu: "50m"
+            cpu: "200m"
           limits:
             memory: "256Mi"
             cpu: "500m"
