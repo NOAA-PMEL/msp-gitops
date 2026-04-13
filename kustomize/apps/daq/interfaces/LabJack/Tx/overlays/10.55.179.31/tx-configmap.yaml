@@ -22,14 +22,14 @@ data:
       counter-16:
         path_type: COUNTER
         channel: 16
-        counter_mode: "high-speed"
+        counter_mode: "interrupt"
         sample_mode: "unpolled"
         unpolled_interval_handle: 2
         unpolled_sample_frequency_sec: 1
       counter-18:
         path_type: COUNTER
         channel: 18
-        counter_mode: "high-speed"
+        counter_mode: "interrupt"
         sample_mode: "unpolled"
         unpolled_interval_handle: 3
         unpolled_sample_frequency_sec: 1
