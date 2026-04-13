@@ -43,6 +43,11 @@ spec:
             configMapKeyRef:
               name: datastore
               key: db_client_hostname
+        - name: DATASTORE_DB_CLEAR_DB
+          valueFrom:
+            configMapKeyRef:
+              name: datastore
+              key: db_clear_db
         - name: DATASTORE_DB_DATA_TTL
           valueFrom:
             configMapKeyRef:
