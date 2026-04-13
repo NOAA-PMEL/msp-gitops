@@ -82,7 +82,6 @@ spec:
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
-      # apiVersion: v1
       kind: Service
       name: kn-mqtt-adapter
       # namespace: msp-system
