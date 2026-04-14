@@ -16,7 +16,7 @@ data:
       default: # to read pump speed
         interface_env_id: payload02 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx31 
-        path: counter-19
+        path: counter-18
       pump_speed_sp: # to set pump speed
         interface_env_id: payload02 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx31 
