@@ -34,3 +34,4 @@ spec:
         - /metadata/labels
         - /spec/template/metadata/annotations
         - /spec/template/metadata/labels
+        - /spec/traffic
