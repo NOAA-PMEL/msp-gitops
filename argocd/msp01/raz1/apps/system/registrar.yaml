@@ -35,3 +35,5 @@ spec:
         - /spec/template/metadata/annotations
         - /spec/template/metadata/labels
         - /spec/traffic
+        - /spec/template/spec/containerConcurrency
+        - /spec/template/spec/timeoutSeconds
