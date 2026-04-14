@@ -26,17 +26,17 @@ spec:
     automated:
       selfHeal: true
       prune: true
-  # ignoreDifferences:
-  #   - group: serving.knative.dev
-  #     kind: Service
-  #     jsonPointers:
-  #       - /metadata/annotations
-  #       - /metadata/labels
-  #       - /spec/template/metadata/annotations
-  #       - /spec/template/metadata/labels
-  #       - /spec/traffic
-  #       - /spec/template/spec/containerConcurrency
-  #       - /spec/template/spec/timeoutSeconds
-  #       - /spec/template/spec/enableServiceLinks
-  #       - /spec/template/spec/containers/0/name
-  #       - /spec/template/spec/containers/0/readinessProbe
+  ignoreDifferences:
+    - group: serving.knative.dev
+      kind: Service
+      jsonPointers:
+        - /metadata/annotations
+        - /metadata/labels
+        - /spec/template/metadata/annotations
+        - /spec/template/metadata/labels
+        - /spec/traffic
+        - /spec/template/spec/containerConcurrency
+        - /spec/template/spec/timeoutSeconds
+        - /spec/template/spec/enableServiceLinks
+        - /spec/template/spec/containers/0/name
+        - /spec/template/spec/containers/0/readinessProbe
