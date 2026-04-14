@@ -33,3 +33,11 @@ patches:
       - op: replace 
         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
         value: "1"
+  # - target:
+  #     # version: serving.knative.dev/v1
+  #     kind: Service
+  #     name: datastore
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
+  #       value: "2"
