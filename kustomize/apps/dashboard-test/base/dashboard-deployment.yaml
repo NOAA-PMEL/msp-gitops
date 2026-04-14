@@ -37,6 +37,11 @@ spec:
             configMapKeyRef:
               name: dashboard-test
               key: port
+        - name: DASHBOARD_HTTP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: http_port
         - name: DASHBOARD_KNATIVE_BROKER
           valueFrom:
             configMapKeyRef:
