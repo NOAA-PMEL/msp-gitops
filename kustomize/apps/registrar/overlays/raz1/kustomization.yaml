@@ -23,16 +23,16 @@ resources:
 - registrar-triggers.yaml
 # - datastore-sealedsecrets.yaml
 
-# patches:
-#   # change configmap names to account for s/n suffix
-#   - target:
-#       # version: serving.knative.dev/v1
-#       kind: Service
-#       name: registrar
-#     patch: |-
-#       - op: replace 
-#         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
-#         value: "1"
+patches:
+  # change configmap names to account for s/n suffix
+  - target:
+      # version: serving.knative.dev/v1
+      kind: Service
+      name: registrar
+    patch: |-
+      - op: add 
+        path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
+        value: "1"
   # - target:
   #     # version: serving.knative.dev/v1
   #     kind: Service
