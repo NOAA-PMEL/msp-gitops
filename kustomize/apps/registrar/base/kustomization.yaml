@@ -9,8 +9,8 @@ metadata:
 #   app: nginx
 
 resources:
-# - registrar-deployment.yaml
-# - registrar-service.yaml
-- registrar-service_knative.yaml
+- registrar-deployment.yaml
+- registrar-service.yaml
+# - registrar-service_knative.yaml
 # - registrar-triggers.yaml
 # - kn-mqtt-ingress.yaml
