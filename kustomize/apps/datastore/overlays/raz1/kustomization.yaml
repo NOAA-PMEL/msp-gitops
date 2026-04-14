@@ -32,7 +32,7 @@ patches:
       kind: Service
       name: datastore
     patch: |-
-      - op: replace 
+      - op: add 
         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
         value: "2"
 # patches:
