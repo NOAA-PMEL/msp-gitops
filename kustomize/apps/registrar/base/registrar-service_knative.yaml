@@ -18,6 +18,9 @@ spec:
         autoscaling.knative.dev/target: "10"
         autoscaling.knative.dev/target-utilization-percentage: "70"
     spec:
+      containerConcurrency: 0
+      timeoutSeconds: 300
+      enableServiceLinks: false      
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
