@@ -80,8 +80,8 @@ spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-        - name: registrar
-          image: ghcr.io/noaa-pmel/msp/registrar:0.0.2
+        # - name: registrar
+        - image: ghcr.io/noaa-pmel/msp/registrar:0.0.2
           imagePullPolicy: "Always"
           readinessProbe:
             successThreshold: 1
@@ -110,10 +110,10 @@ spec:
                   key: port
           resources:
             requests:
-              cpu: "500m"
+              cpu: 150m
             limits:
-              memory: "2Gi"
-              cpu: "1000m"
+              memory: 2Gi
+              cpu: 300m
           ports:
             - containerPort: 80
               protocol: TCP
