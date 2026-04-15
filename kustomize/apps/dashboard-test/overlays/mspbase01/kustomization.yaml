@@ -24,3 +24,15 @@ resources:
 # - dashboard-triggers.yaml
 # - dashboard-ingress.yaml
 
+patches:
+  - target: 
+      kind: Deployment
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: DASHBOARD_WS_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: ws_port
