@@ -26,6 +26,6 @@ spec:
     - name: dashboard-test
       port: 80
       passHostHeader: true
-    # middlewares:
-    # - name: dashboardtest-stripprefix
-    #   # namespace: mspbase01-system
+    middlewares:
+    - name: dashboardtest-stripprefix
+      # namespace: mspbase01-system
