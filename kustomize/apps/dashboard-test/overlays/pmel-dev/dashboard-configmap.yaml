@@ -17,6 +17,8 @@ data:
   # port: "8000"
   # external_hostname: "192.168.86.241"
   external_hostname: k8s.pmel-dev.oarcloud.noaa.gov
+  http_port: "80"
+  
   http_use_tls: "True"
   # http_port: "80"
   # https_port: "443"
