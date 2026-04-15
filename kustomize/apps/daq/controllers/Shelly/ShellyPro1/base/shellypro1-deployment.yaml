@@ -18,7 +18,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: shelly-shellypro1
-        image: ghcr.io/noaa-pmel/msp/shelly-shellypro1:0.1.0
+        image: ghcr.io/noaa-pmel/msp/shelly-shellypro1:0.2.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
