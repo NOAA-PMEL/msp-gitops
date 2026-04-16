@@ -31,6 +31,14 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/env/-
         value:
+          name: DASHBOARD_HTTP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: dashboard-test
+              key: http_port
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
           name: DASHBOARD_WS_PORT
           valueFrom:
             configMapKeyRef:
