@@ -11,7 +11,7 @@ data:
   controller.conf: |
     uid: shel227
     host: 10.55.179.29
-    client_host: mqtt.raz1-system
+    client_host: mqtt.payload01-system
     client_port: 1883
     controller_id_prefix: shellypro1
 
