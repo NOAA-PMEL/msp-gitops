@@ -1,0 +1,621 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "raz1",
+      "sampling_namespace": "pmel.noaa.gov",
+      "platform": "MSPPayload03",
+      "valid_config_time": "2025-10-01T00:00:00Z",
+      "revision": 1
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Platform",
+        "platform_type": "MSPPayload",
+        "platform": "MSPPayload03",
+        "sampling_namespace": "pmel.noaa.gov",
+        "valid_config_time": "2025-10-01T00:00:00Z",
+        "revision": 1
+      },
+      "variablesets": {
+        "main": {
+          "index": {
+            "index_type": "time",
+            "index_value": 1
+          }
+        }
+      },
+      "variables": {
+        "wind_speed": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "ws": {
+              "source_type": "device",
+              "source_id": "Vaisala::WXT536::925",
+              "source_variable": "Sm"
+            }
+          },
+          "direct_value": {
+            "source_variable": "ws"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "m/s"
+            }
+          }
+        },
+        "wind_direction": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "wdir": {
+              "source_type": "device",
+              "source_id": "Vaisala::WXT536::925",
+              "source_variable": "Dm"
+            }
+          },
+          "direct_value": {
+            "source_variable": "wdir"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees"
+            }
+          }
+        },
+        "air_temperature": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "temp": {
+              "source_type": "device",
+              "source_id": "Vaisala::WXT536::925",
+              "source_variable": "Ta"
+            }
+          },
+          "direct_value": {
+            "source_variable": "temp"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees_C"
+            }
+          }
+        },
+        "relative_humidity": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "rh": {
+              "source_type": "device",
+              "source_id": "Vaisala::WXT536::925",
+              "source_variable": "Ua"
+            }
+          },
+          "direct_value": {
+            "source_variable": "rh"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "%"
+            }
+          }
+        },
+        "pressure": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "pres": {
+              "source_type": "device",
+              "source_id": "Vaisala::WXT536::925",
+              "source_variable": "Pa"
+            }
+          },
+          "direct_value": {
+            "source_variable": "pres"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "hPa"
+            }
+          }
+        },
+        "rain_intensity": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "rain": {
+              "source_type": "device",
+              "source_id": "Vaisala::WXT536::925",
+              "source_variable": "Ri"
+            }
+          },
+          "direct_value": {
+            "source_variable": "rain"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "mm/h"
+            }
+          }
+        },
+        "NO2": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "NO2": {
+              "source_type": "device",
+              "source_id": "Vaisala::AQT560::908",
+              "source_variable": "NO2"
+            }
+          },
+          "direct_value": {
+            "source_variable": "NO2"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "ppm"
+            }
+          }
+        },
+        "CO": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "CO": {
+              "source_type": "device",
+              "source_id": "Vaisala::AQT560::908",
+              "source_variable": "CO"
+            }
+          },
+          "direct_value": {
+            "source_variable": "CO"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "ppm"
+            }
+          }
+        },
+        "O3": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "O3": {
+              "source_type": "device",
+              "source_id": "Vaisala::AQT560::908",
+              "source_variable": "O3"
+            }
+          },
+          "direct_value": {
+            "source_variable": "O3"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "ppm"
+            }
+          }
+        },
+        "NO": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "NO": {
+              "source_type": "device",
+              "source_id": "Vaisala::AQT560::908",
+              "source_variable": "NO"
+            }
+          },
+          "direct_value": {
+            "source_variable": "NO"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "ppm"
+            }
+          }
+        },
+        "PM1": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "PM1": {
+              "source_type": "device",
+              "source_id": "Vaisala::AQT560::908",
+              "source_variable": "PM1"
+            }
+          },
+          "direct_value": {
+            "source_variable": "PM1"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "ug/m3"
+            }
+          }
+        },
+        "PM2_5": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "PM2_5": {
+              "source_type": "device",
+              "source_id": "Vaisala::AQT560::908",
+              "source_variable": "PM2_5"
+            }
+          },
+          "direct_value": {
+            "source_variable": "PM2_5"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "ug/m3"
+            }
+          }
+        },
+        "PM10": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "PM10": {
+              "source_type": "device",
+              "source_id": "Vaisala::AQT560::908",
+              "source_variable": "PM10"
+            }
+          },
+          "direct_value": {
+            "source_variable": "PM10"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "ug/m3"
+            }
+          }
+        },
+        "latitude": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "latitude": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "lat"
+            }
+          },
+          "direct_value": {
+            "source_variable": "latitude"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees_north"
+            }
+          }
+        },
+        "longitude": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "longitude": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "lon"
+            }
+          },
+          "direct_value": {
+            "source_variable": "longitude"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees_east"
+            }
+          }
+        },
+        "heading": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "heading": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "heading"
+            }
+          },
+          "direct_value": {
+            "source_variable": "heading"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees"
+            }
+          }
+        },
+        "speed": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "speed": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "speed"
+            }
+          },
+          "direct_value": {
+            "source_variable": "speed"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "kilometers/hour"
+            }
+          }
+        },
+        "yaw": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "yaw": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "yaw"
+            }
+          },
+          "direct_value": {
+            "source_variable": "yaw"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees"
+            }
+          }
+        },
+        "pitch": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "pitch": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "pitch"
+            }
+          },
+          "direct_value": {
+            "source_variable": "pitch"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees"
+            }
+          }
+        },
+        "roll": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "roll": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "roll"
+            }
+          },
+          "direct_value": {
+            "source_variable": "roll"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees"
+            }
+          }
+        },
+        "heave": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "heave": {
+              "source_type": "device",
+              "source_id": "Furuno::SCX21::582",
+              "source_variable": "heave"
+            }
+          },
+          "direct_value": {
+            "source_variable": "heave"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "meters"
+            }
+          }
+        }
+      }
+    }
+  }
+]
