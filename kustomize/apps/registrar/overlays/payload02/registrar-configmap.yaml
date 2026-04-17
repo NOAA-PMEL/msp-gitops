@@ -13,6 +13,8 @@ data:
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload02-system/default"
   # knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/payload02-system/default"
 
+  allowed_sync_sources: "payload02"
+
   # mqtt_broker: "mqtt.payload03-system"
   # mqtt_port: "1883"
   # # mqtt_topic_filter: "instrument/#"
