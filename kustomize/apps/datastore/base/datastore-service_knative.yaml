@@ -24,6 +24,7 @@ spec:
         # image: registry-msp:5000/msp/datastore:v1.0.3
         # - image: ghcr.io/noaa-pmel/msp/datastore:1.1.0
         - image: ghcr.io/noaa-pmel/msp/datastore:2.0.0
+          imagePullPolicy: "Always"
           env:
             - name: DATASTORE_PORT
               valueFrom:
