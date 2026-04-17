@@ -13,7 +13,7 @@ data:
     host: 10.55.179.28
     client_host: mqtt.payload01-system
     client_port: 1883
-    controller_id_prefix: shellypro3
+    controller_id_prefix: shellypro3-physics
 
     # override definition values
     attributes:
