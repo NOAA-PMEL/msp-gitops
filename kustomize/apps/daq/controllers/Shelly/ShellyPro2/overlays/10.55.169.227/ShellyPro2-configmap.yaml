@@ -13,7 +13,7 @@ data:
     host: 10.55.169.227
     client_host: mqtt.raz1-system
     client_port: 1883
-    controller_id_prefix: shellypro2
+    controller_id_prefix: shellypro2-main
 
     # override definition values
     attributes:
