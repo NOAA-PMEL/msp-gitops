@@ -81,7 +81,8 @@ spec:
       - name: ghcr-ro-secret
       containers:
         # - name: registrar
-        - image: ghcr.io/noaa-pmel/msp/registrar:0.0.2
+        # - image: ghcr.io/noaa-pmel/msp/registrar:0.0.2
+        - image: ghcr.io/noaa-pmel/msp/registrar:1.0.0
           imagePullPolicy: "Always"
           readinessProbe:
             successThreshold: 1

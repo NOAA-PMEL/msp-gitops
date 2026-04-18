@@ -12,7 +12,7 @@ data:
   port: "80"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/raz1-system/default"
 
-
+  allowed_sync_sources: "payload01,payload02,raz1"
   
   
   # mqtt_broker: "mosquitto.default"

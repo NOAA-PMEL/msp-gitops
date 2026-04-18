@@ -33,11 +33,14 @@ patches:
       - op: add 
         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
         value: "1"
-  # - target:
-  #     # version: serving.knative.dev/v1
-  #     kind: Service
-  #     name: datastore
-  #   patch: |-
-  #     - op: replace 
-  #       path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
-  #       value: "2"
+  - target: 
+      kind: Deployment
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: REGISTRAR_ALLOWED_SYNC_SOURCES
+          valueFrom:
+            configMapKeyRef:
+              name: registrar
+              key: allowed_sync_sources
