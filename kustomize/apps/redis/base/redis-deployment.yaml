@@ -32,9 +32,10 @@ spec:
           value: "--appendonly yes"
         resources:
           requests:
-            cpu: "200m"
+            memory: "512Mi"
+            cpu: "250m"
           limits:
-            memory: "256Mi"
+            memory: "950Mi"
             cpu: "500m"
         ports:
         - name: http
