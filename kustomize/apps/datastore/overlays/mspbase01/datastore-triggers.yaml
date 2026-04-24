@@ -60,3 +60,51 @@ spec:
 #       name: datastore
 #       # namespace: msp-system
 #     uri: /sensor/settings/update
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-variablemap-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.variablemap-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /variablemap-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-variableset-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.variableset-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /variableset-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-platform-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.platform-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /platform-definition/registry/update/
