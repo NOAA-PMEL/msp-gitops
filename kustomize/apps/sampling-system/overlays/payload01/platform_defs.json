@@ -3,7 +3,7 @@
     "version": "envds.apps.sampling-system/v1",
     "kind": "Platform",
     "metadata": {
-      "name": "Payload01",
+      "name": "MSPPayload01",
       "platform_type": "MSPPayload",
       "owner": "Local",
       "description": "",
