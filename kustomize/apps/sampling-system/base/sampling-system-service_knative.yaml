@@ -64,7 +64,7 @@ spec:
               subPath: platform_varmaps.json
           resources:
             requests:
-              cpu: "250m"
+              cpu: "300m"
             limits:
               memory: "2Gi"
               cpu: "500m"
