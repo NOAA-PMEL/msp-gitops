@@ -1,0 +1,285 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "payload02",
+      "sampling_namespace": "pmel.noaa.gov",
+      "platform": "MSPPayload02",
+      "valid_config_time": "2026-04-27T14:58:00Z",
+      "revision": 1
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Platform",
+        "platform_type": "MSPPayload",
+        "platform": "MSPPayload02",
+        "sampling_namespace": "pmel.noaa.gov",
+        "valid_config_time": "2026-04-27T14:58:00Z",
+        "revision": 1
+      },
+      "variablesets": {
+        "main": {
+          "index": {
+            "index_type": "time",
+            "index_value": 1
+          }
+        }
+      },
+      "variables": {
+        "scatter_red": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "scat_red": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "scat_coef_ch1_red"
+            }
+          },
+          "direct_value": {
+            "source_variable": "scat_red"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
+          }
+        },
+        "scatter_green": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "scat_green": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "scat_coef_ch2_green"
+            }
+          },
+          "direct_value": {
+            "source_variable": "scat_green"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
+          }
+        },
+        "scatter_blue": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "scat_blue": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "scat_coef_ch3_blue"
+            }
+          },
+          "direct_value": {
+            "source_variable": "scat_blue"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
+          }
+        },
+        "backscatter_red": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "bscat_red": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "backscatter_coef_ch1_red"
+            }
+          },
+          "direct_value": {
+            "source_variable": "bscat_red"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
+          }
+        },
+        "backscatter_green": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "bscat_green": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "backscatter_coef_ch2_green"
+            }
+          },
+          "direct_value": {
+            "source_variable": "bscat_green"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
+          }
+        },
+        "backscatter_blue": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "bscat_blue": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "backscatter_coef_ch3_blue"
+            }
+          },
+          "direct_value": {
+            "source_variable": "bscat_blue"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
+          }
+        },
+        "neph_sample_temperature": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "sample_T": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "sample_T"
+            }
+          },
+          "direct_value": {
+            "source_variable": "sample_T"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "degrees_C"
+            }
+          }
+        },
+        "neph_sample_rh": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "rh": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "rh"
+            }
+          },
+          "direct_value": {
+            "source_variable": "rh"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "%"
+            }
+          }
+        },
+        "neph_pressure": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "direct",
+          "source": {
+            "pressure": {
+              "source_type": "device",
+              "source_id": "ACOEM::Aurora3000::493",
+              "source_variable": "pressure"
+            }
+          },
+          "direct_value": {
+            "source_variable": "pressure"
+          },
+          "variableset": "main",
+          "index_method": [
+            "round",
+            "average"
+          ],
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "mbar"
+            }
+          }
+        }
+      }
+    }
+  }
+]
