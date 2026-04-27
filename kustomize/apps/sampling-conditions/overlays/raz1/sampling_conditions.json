@@ -10,7 +10,7 @@
         },
         "sources": {
             "cn": {
-                "variablemap_name": "MSPPayload01",
+                "variablemap_name": "payload01",
                 "variableset_name": "main",
                 "variable": "cn"
             }
