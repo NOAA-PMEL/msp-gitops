@@ -614,6 +614,52 @@
               "data": "meters"
             }
           }
+        },
+        "true_wind_speed": {
+          "type": "float",
+          "shape": [
+            "time"
+          ],
+          "map_type": "calculate",
+          "source": {
+            "rel_ws": {
+              "source_variable": "wind_speed"
+            },
+            "rel_wd": {
+              "source_variable": "wind_direction"
+            },
+            "p_speed": {
+              "source_variable": "speed"
+            },
+            "p_heading": {
+              "source_variable": "heading"
+            }
+          },
+          "variableset": "main",
+          "calculate_method": {
+            "action_module": "calculations.default",
+            "action_def": "calculate_true_wind_speed",
+            "parameters": {
+              "relative_wind_speed": {
+                "source-variable": "rel_ws"
+              },
+              "relative_wind_direction": {
+                "source-variable": "rel_wd"
+              },
+              "platform_speed": {
+                "source-variable": "p_speed"
+              },
+              "platform_heading": {
+                "source-variable": "p_heading"
+              }
+            }
+          },
+          "attributes": {
+            "units": {
+              "type": "string",
+              "data": "m/s"
+            }
+          }
         }
       }
     }
