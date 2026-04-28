@@ -6,7 +6,7 @@
       "name": "raz1",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "MSPPayload03",
-      "valid_config_time": "2025-10-01T00:00:00Z",
+      "valid_config_time": "2026-04-28T14:00:00Z",
       "revision": 1
     },
     "data": {
@@ -15,7 +15,7 @@
         "platform_type": "MSPPayload",
         "platform": "MSPPayload03",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2025-10-01T00:00:00Z",
+        "valid_config_time": "2026-04-28T14:00:00Z",
         "revision": 1
       },
       "variablesets": {
@@ -27,7 +27,7 @@
         }
       },
       "variables": {
-        "wind_speed": {
+        "relative_wind_speed": {
           "type": "float",
           "shape": [
             "time"
@@ -55,7 +55,7 @@
             }
           }
         },
-        "wind_direction": {
+        "relative_wind_direction": {
           "type": "float",
           "shape": [
             "time"
@@ -447,7 +447,7 @@
             }
           }
         },
-        "heading": {
+        "platform_heading": {
           "type": "float",
           "shape": [
             "time"
@@ -475,7 +475,7 @@
             }
           }
         },
-        "speed": {
+        "platform_speed": {
           "type": "float",
           "shape": [
             "time"
@@ -503,7 +503,7 @@
             }
           }
         },
-        "yaw": {
+        "platform_yaw": {
           "type": "float",
           "shape": [
             "time"
@@ -531,7 +531,7 @@
             }
           }
         },
-        "pitch": {
+        "platform_pitch": {
           "type": "float",
           "shape": [
             "time"
@@ -559,7 +559,7 @@
             }
           }
         },
-        "roll": {
+        "platform_roll": {
           "type": "float",
           "shape": [
             "time"
@@ -587,7 +587,7 @@
             }
           }
         },
-        "heave": {
+        "platform_heave": {
           "type": "float",
           "shape": [
             "time"
@@ -623,16 +623,16 @@
           "map_type": "calculate",
           "source": {
             "rel_ws": {
-              "source_variable": "wind_speed"
+              "source_variable": "relative_wind_speed"
             },
             "rel_wd": {
-              "source_variable": "wind_direction"
+              "source_variable": "relative_wind_direction"
             },
             "p_speed": {
-              "source_variable": "speed"
+              "source_variable": "platform_speed"
             },
             "p_heading": {
-              "source_variable": "heading"
+              "source_variable": "platform_heading"
             }
           },
           "variableset": "main",
