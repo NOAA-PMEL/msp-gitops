@@ -5,12 +5,12 @@
         "metadata": {
             "name": "cn_limit",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2025-10-01T00:00:00Z",
+            "valid_config_time": "2026-04-28T14:11:00Z",
             "revision": 1
         },
         "sources": {
             "cn": {
-                "variablemap_name": "payload01",
+                "variablemap_name": "raz1",
                 "variableset_name": "main",
                 "variable": "cn"
             }
@@ -24,6 +24,66 @@
                     ],
                     "max_val": 1000,
                     "min_val": 10,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "sampling_wind_direction_limit",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-28T14:11:00Z",
+            "revision": 1
+        },
+        "sources": {
+            "relative_wind_direction": {
+                "variablemap_name": "raz1",
+                "variableset_name": "main",
+                "variable": "relative_wind_direction"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "relative_wind_direction"
+                    ],
+                    "max_val": 100,
+                    "min_val": -100,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "sampling_wind_speed_limit",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-28T14:11:00Z",
+            "revision": 1
+        },
+        "sources": {
+            "relative_wind_speed": {
+                "variablemap_name": "raz1",
+                "variableset_name": "main",
+                "variable": "relative_wind_speed"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "relative_wind_speed"
+                    ],
+                    "max_val": 100,
+                    "min_val": 1,
                     "true_if": "inside"
                 }
             ]
