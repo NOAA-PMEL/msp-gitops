@@ -206,3 +206,84 @@ spec:
       kind: Service
       name: datastore
     uri: /platform-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-samplingcondition-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.samplingcondition-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /samplingcondition-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-samplingstate-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.samplingstate-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /samplingstate-definition/registry/update/
+---
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-action-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.action-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /action-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-samplingmode-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.samplingmode-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /samplingmode-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-systemmode-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.systemmode-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /systemmode-definition/registry/update/
