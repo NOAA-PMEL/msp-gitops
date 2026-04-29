@@ -39,7 +39,7 @@ data:
     topic main/envds/+/registry/sync-update out 0 "" ""
     topic main/envds/+/registry/sync-request out 0 "" ""
     topic server/envds/+/registry/sync-bcast in 0 "" ""
-    topic server/envds/+/registry/sync-update in 1 "" ""
+    topic server/envds/+/registry/sync-update in 0 "" ""
     topic server/envds/+/registry/sync-request in 0 "" ""
     topic envds/+/device-instance/registry/update out 0 "" ""
     topic envds/+/controller-instance/registry/update out 0 "" ""
