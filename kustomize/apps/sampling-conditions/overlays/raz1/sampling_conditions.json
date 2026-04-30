@@ -88,5 +88,50 @@
                 }
             ]
         }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "at_pmel",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-30T00:00:00Z",
+            "revision": 3
+        },
+        "sources": {
+            "gps_latitude": {
+                "variablemap_name": "raz1",
+                "variableset_name": "main",
+                "variable": "latitude"
+            },
+            "gps_longitude": {
+                "variablemap_name": "raz1",
+                "variableset_name": "main",
+                "variable": "longitude"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LatLonRegionLocation",
+                    "label": "NOAA/PMEL_Diamond_Geofence",
+                    "true_if": "inside",
+                    "sources": [
+                        "gps_latitude",
+                        "gps_longitude"
+                    ],
+                    "coordinates": {
+                        "latitude": "gps_latitude",
+                        "longitude": "gps_longitude"
+                    },
+                    "region": [
+                        {"latitude": 47.6950, "longitude": -122.2570},  
+                        {"latitude": 47.6850, "longitude": -122.2450},  
+                        {"latitude": 47.6750, "longitude": -122.2570},  
+                        {"latitude": 47.6850, "longitude": -122.2690}   
+                    ]
+                }
+            ]
+        }
     }
 ]
