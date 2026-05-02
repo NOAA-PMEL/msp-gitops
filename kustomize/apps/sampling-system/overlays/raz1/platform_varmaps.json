@@ -6,7 +6,7 @@
       "name": "raz1",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "MSPPayload03",
-      "valid_config_time": "2026-04-28T14:00:00Z",
+      "valid_config_time": "2026-05-02T10:00:00Z",
       "revision": 2
     },
     "data": {
@@ -15,7 +15,7 @@
         "platform_type": "MSPPayload",
         "platform": "MSPPayload03",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-02T09:00:00Z",
+        "valid_config_time": "2026-05-02T10:00:00Z",
         "revision": 2
       },
       "variablesets": {
