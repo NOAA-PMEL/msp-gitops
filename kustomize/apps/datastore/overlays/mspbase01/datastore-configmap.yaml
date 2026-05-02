@@ -15,6 +15,7 @@ data:
   db_data_ttl: '600'
   db_reg_device_definition_ttl: '0'
   db_reg_device_instance_ttl: '600'
+  db_clear_db: 'true'
 
 
   # mqtt_broker: "0.0.0.0"
