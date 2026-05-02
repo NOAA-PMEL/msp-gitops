@@ -34,7 +34,8 @@ data:
 
   mqtt_broker: "mqtt.mspbase01-system"
   mqtt_topic_subscriptions: >
-  
+    envds/+/sampling-conditions/status_update
+
   mqtt_port: "1883"
 
 # off

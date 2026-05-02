@@ -26,7 +26,7 @@ resources:
 # - platform_varmaps_configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 # uncomment this if using knative for data updates
-- sampling-states-triggers.yaml
+# - sampling-states-triggers.yaml
 
 configMapGenerator:
   - name: sampling-states-states

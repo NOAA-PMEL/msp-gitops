@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sampling-states
+  name: sampling-operations
   # namespace: msp-system
 data:
   daq_id: raz1
@@ -32,9 +32,15 @@ data:
   # erddap_https_connection: "https://erddap.default:8443/erddap"
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
 
+  system_init_control: auto
+  system_init_mode: normal
+
+
   mqtt_broker: "mqtt.raz1-system"
   mqtt_topic_subscriptions: >
-    envds/+/sampling-conditions/status_update
+    envds/+/variableset/+/data/update,
+    envds/+/sampling-state/status_update
+
 
   mqtt_port: "1883"
 

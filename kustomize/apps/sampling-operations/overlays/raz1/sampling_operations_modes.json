@@ -1,0 +1,110 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "normal",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-30T15:17:00Z",
+            "revision": 2
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "nominal_sampling"
+            }
+        ]
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "startup",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-30T15:17:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "system_startup"
+            }
+        ],
+        "transitions": {
+            "true": [
+                {
+                    "kind": "SystemMode",
+                    "name": "normal"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "system_startup",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-30T15:17:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingState",
+                "name": "in_sector"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "sampling_limits"
+            }
+        ],
+        "actions": {
+            "true": [
+            ],
+            "false": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_reverse_inlet_flow"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "nominal_sampling",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-30T15:17:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingState",
+                "name": "in_sector"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "nominal_concentrations"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "nominal_location"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_isokinetic_inlet_flow"
+                }
+            ],
+            "false": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_reverse_inlet_flow"
+                }
+            ]
+        }
+    }
+]

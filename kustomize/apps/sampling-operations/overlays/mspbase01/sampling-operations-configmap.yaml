@@ -1,22 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: datastore
+  name: sampling-operations
   # namespace: msp-system
 data:
+  daq_id: mspbase01
   # db_client_type: redis
   # db_client_hostname: redis.mspbase01-system
   # db_client_port: '6379'
-
-  daq_id: mspbase01
-  db_client_type: redis
-  db_client_hostname: redis.mspbase01-system
-  db_client_port: '6379'
-  db_data_ttl: '600'
-  db_reg_device_definition_ttl: '0'
-  db_reg_device_instance_ttl: '600'
-
-
+  # db_data_ttl: '300'
+  # db_reg_device_definition_ttl: '0'
+  # db_reg_device_instance_ttl: '300'
+  
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
   # mqtt_topic_filter: "instrument/#"
@@ -28,8 +23,7 @@ data:
   # port: "8000"
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
-  # knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
-  # knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
+  # knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/kafka-broker"
   # mongodb_data_user_name: "uasdaq-data"
   # mongodb_registry_user_name: "uasdaq-registry"
   # mongodb_data_connection: mongodb://<username>:<password>@uasdaq-mongodb-0.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-1.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017,uasdaq-mongodb-2.uasdaq-mongodb-svc.mongodb.svc.cluster.local:27017/data?replicaSet=uasdaq-mongodb&ssl=false"
@@ -37,3 +31,19 @@ data:
   # erddap_http_connection: "http://erddap.default:8080/erddap"
   # erddap_https_connection: "https://erddap.default:8443/erddap"
   # erddap_connection: "https://10.42.1.18:8443/erddap/tabledap"
+
+  system_init_control: auto
+  system_init_mode: normal
+
+
+  mqtt_broker: "mqtt.mspbase01-system"
+  mqtt_topic_subscriptions: >
+    envds/+/variableset/+/data/update,
+    envds/+/sampling-state/status_update
+
+
+  mqtt_port: "1883"
+
+# off
+    # envds/+/+/+/data/update,   
+    # envds/+/+/+/controller/data/update   

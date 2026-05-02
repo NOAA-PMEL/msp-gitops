@@ -4,7 +4,7 @@ metadata:
   name: sampling-operations
 
 # set namespace
-namespace: mspbase01-system
+namespace: raz1-system
 
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -36,7 +36,7 @@ configMapGenerator:
     files:
       - sampling_operations_actions.json
 
-nameSuffix: "-mspbase01"
+nameSuffix: "-raz1"
 
 patches:
   # change configmap names to account for s/n suffix
@@ -47,17 +47,17 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-operations-modes-mspbase01
+        value: sampling-operations-modes-raz1
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-operations-actions-mspbase01
+        value: sampling-operations-actions-raz1
   - target:
       kind: Trigger
       # name: default
     patch: |-
       - op: replace 
         path: /spec/subscriber/ref/name
-        value: sampling-operations-mspbase01
+        value: sampling-operations-raz1
 
 
 configurations:
