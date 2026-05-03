@@ -6,7 +6,7 @@
       "name": "raz1",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "MSPPayload03",
-      "valid_config_time": "2026-05-02T10:00:00Z",
+      "valid_config_time": "2026-05-03T10:00:00Z",
       "revision": 2
     },
     "data": {
@@ -15,7 +15,7 @@
         "platform_type": "MSPPayload",
         "platform": "MSPPayload03",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-02T10:00:00Z",
+        "valid_config_time": "2026-05-03T10:00:00Z",
         "revision": 2
       },
       "variablesets": {
@@ -53,7 +53,10 @@
           "direct_value": { "source_variable": "ws" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "attributes": { "units": { "type": "string", "data": "m/s" } }
+          "attributes": {
+            "units": { "type": "string", "data": "m/s" },
+            "long_name": { "type": "string", "data": "Relative Wind Speed" }
+          }
         },
         "relative_wind_direction": {
           "type": "float",
@@ -69,7 +72,10 @@
           "direct_value": { "source_variable": "wdir" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "attributes": { "units": { "type": "string", "data": "degrees" } }
+          "attributes": {
+            "units": { "type": "string", "data": "degrees" },
+            "long_name": { "type": "string", "data": "Relative Wind Direction" }
+          }
         },
         "air_temperature": {
           "type": "float",
@@ -293,7 +299,10 @@
           "direct_value": { "source_variable": "heading" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "attributes": { "units": { "type": "string", "data": "degrees" } }
+          "attributes": {
+            "units": { "type": "string", "data": "degrees" },
+            "long_name": { "type": "string", "data": "Platform Heading" }
+          }
         },
         "platform_speed": {
           "type": "float",
@@ -309,7 +318,10 @@
           "direct_value": { "source_variable": "speed" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "attributes": { "units": { "type": "string", "data": "kilometers/hour" } }
+          "attributes": {
+            "units": { "type": "string", "data": "kilometers/hour" },
+            "long_name": { "type": "string", "data": "Platform Speed Over Ground" }
+          }
         },
         "platform_yaw": {
           "type": "float",
@@ -378,7 +390,7 @@
         "true_wind_speed": {
           "type": "float",
           "shape": ["time"],
-          "map_type": "calculate",
+          "map_type": "calculated",
           "variableset": "derived",
           "source": {
             "rel_ws": {
@@ -417,10 +429,34 @@
             }
           },
           "attributes": {
-            "units": {
-              "type": "string",
-              "data": "m/s"
+            "units": { "type": "string", "data": "m/s" },
+            "long_name": { "type": "string", "data": "True Wind Speed" }
+          }
+        },
+        "true_wind_direction": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "calculated",
+          "variableset": "derived",
+          "calculate_method": {
+            "action_module": "calculations.default",
+            "action_def": "calculate_true_wind_direction",
+            "parameters": {
+              "rel_wind_dir": { "source-variable": "rel_wd" },
+              "heading": { "source-variable": "p_heading" },
+              "true_wind_speed": { "source-variable": "p_speed" }, 
+              "rel_wind_speed": { "source-variable": "rel_ws" }
             }
+          },
+          "source": {
+            "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "main" },
+            "p_heading": { "source_variable": "platform_heading", "variableset": "main" },
+            "p_speed": { "source_variable": "platform_speed", "variableset": "main" },
+            "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "main" }
+          },
+          "attributes": {
+            "units": { "type": "string", "data": "degrees" },
+            "long_name": { "type": "string", "data": "True Wind Direction" }
           }
         },
         "inlet_flow": {
