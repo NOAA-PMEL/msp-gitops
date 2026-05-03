@@ -6,7 +6,7 @@
       "name": "raz1",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "MSPPayload03",
-      "valid_config_time": "2026-05-03T10:00:00Z",
+      "valid_config_time": "2026-05-03T11:00:00Z",
       "revision": 2
     },
     "data": {
@@ -15,7 +15,7 @@
         "platform_type": "MSPPayload",
         "platform": "MSPPayload03",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-03T10:00:00Z",
+        "valid_config_time": "2026-05-03T11:00:00Z",
         "revision": 2
       },
       "variablesets": {
@@ -442,10 +442,10 @@
             "action_module": "calculations.default",
             "action_def": "calculate_true_wind_direction",
             "parameters": {
-              "rel_wind_dir": { "source-variable": "rel_wd" },
-              "heading": { "source-variable": "p_heading" },
-              "true_wind_speed": { "source-variable": "p_speed" }, 
-              "rel_wind_speed": { "source-variable": "rel_ws" }
+              "relative_wind_direction": { "source-variable": "rel_wd" },
+              "platform_heading": { "source-variable": "p_heading" },
+              "platform_speed": { "source-variable": "p_speed" }, 
+              "relative_wind_speed": { "source-variable": "rel_ws" }
             }
           },
           "source": {
