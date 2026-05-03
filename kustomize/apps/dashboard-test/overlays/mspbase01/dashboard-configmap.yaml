@@ -35,6 +35,10 @@ data:
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update,
-    envds/+/variableset/+/data/update
+    envds/+/variableset/+/data/update,
+    envds/+/sampling-conditions/data/update,
+    envds/+/sampling-states/data/update,
+    envds/+/sampling-modes/data/update,
+    envds/+/system-modes/data/update
 
   # tmp
