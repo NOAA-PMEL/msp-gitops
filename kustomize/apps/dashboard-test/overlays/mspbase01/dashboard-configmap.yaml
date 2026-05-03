@@ -36,9 +36,10 @@ data:
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update,
     envds/+/variableset/+/data/update,
-    envds/+/sampling-conditions/data/update,
-    envds/+/sampling-states/data/update,
-    envds/+/sampling-modes/data/update,
-    envds/+/system-modes/data/update
+    envds/+/sampling-conditions/status/update,
+    envds/+/sampling-states/status/update,
+    envds/+/sampling-modes/status/update,
+    envds/+/system-modes/status/update
+    
 
   # tmp
