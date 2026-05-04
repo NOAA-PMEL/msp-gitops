@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: system-modes-raz1
+  name: system-modes-mspbase01
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,7 +9,7 @@ spec:
   project: msp
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
-    targetRevision: HEAD
+    targetRevision: mspbase01
     path: kustomize/apps/sampling-operations/system-modes/overlays/raz1
     # kustomize:
     #   patches:
