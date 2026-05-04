@@ -34,7 +34,7 @@ data:
 
   system_init_control: auto
   system_init_mode: normal
-
+  is_primary_controller: "false" # ADD THIS LINE
 
   mqtt_broker: "mqtt.mspbase01-system"
   mqtt_topic_subscriptions: >
