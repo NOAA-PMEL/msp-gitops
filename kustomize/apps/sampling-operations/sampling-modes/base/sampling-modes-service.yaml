@@ -1,0 +1,78 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sampling-modes
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "1"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - image: ghcr.io/noaa-pmel/msp/sampling-modes:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: SAMPLING_MODES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-modes
+                  key: port
+            - name: SAMPLING_MODES_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-modes
+                  key: daq_id
+            - name: SAMPLING_MODES_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-modes
+                  key: mqtt_broker
+            - name: SAMPLING_MODES_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-modes
+                  key: mqtt_port
+            - name: SAMPLING_MODES_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-modes
+                  key: mqtt_topic_subscriptions
+            - name: SAMPLING_MODES_IS_PRIMARY_CONTROLLER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-modes
+                  key: is_primary_controller
+                  optional: true
+          
+          # Mount the ConfigMaps into the container filesystem
+          volumeMounts:
+            - name: sampling-modes-modes-vol
+              mountPath: /app/config/sampling_modes_modes.json
+              subPath: sampling_modes_modes.json
+            - name: sampling-modes-actions-vol
+              mountPath: /app/config/sampling_modes_actions.json
+              subPath: sampling_modes_actions.json
+              
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              memory: "2Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+            
+      # Declare the volumes mapping to the generated ConfigMaps
+      # NOTE: The order here must match volumes/0 and volumes/1 in your kustomization patch!
+      volumes:
+        - name: sampling-modes-modes-vol
+          configMap:
+            name: sampling-modes-modes
+        - name: sampling-modes-actions-vol
+          configMap:
+            name: sampling-modes-actions

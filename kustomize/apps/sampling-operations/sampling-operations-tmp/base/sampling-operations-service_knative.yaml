@@ -65,6 +65,12 @@ spec:
                 configMapKeyRef:
                   name: sampling-operations
                   key: system_init_mode
+            - name: SAMPLING_OPERATIONS_IS_PRIMARY_CONTROLLER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-operations
+                  key: is_primary_controller
+                  optional: true
           volumeMounts:
             - name: sampling-operations-modes
               mountPath: /app/config/sampling_operations_modes.json

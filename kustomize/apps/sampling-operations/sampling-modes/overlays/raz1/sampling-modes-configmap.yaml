@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sampling-modes
+  # namespace: msp-system
+data:
+  daq_id: raz1
+  port: "8080"
+  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/raz1-system/default"
+
+  is_primary_controller: "true" # ADD THIS LINE
+
+  mqtt_broker: "mqtt.raz1-system"
+  mqtt_topic_subscriptions: >
+    envds/+/+/+/data/#,
+    envds/+/sampling-states/#,
+    envds/raz1/sampling-modes/#
+
+
+  mqtt_port: "1883"

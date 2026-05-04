@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: raz1-system
+
+resources:
+- ../../base
+- system-modes-configmap.yaml
+
+# Generate the ConfigMap from your provided JSON file
+configMapGenerator:
+  - name: system-modes-modes
+    files:
+      - system_modes_modes.json
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+# Suffix used across the raz1 deployment
+nameSuffix: "-raz1"
+
+patches:
+  # Ensure the Service volume (index 0) points to the suffixed ConfigMap
+  - target:
+      kind: Service
+      name: system-modes
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: system-modes-modes-raz1
+  
+  # Ensure the Triggers route traffic to the suffixed Service
+  - target:
+      kind: Trigger
+    patch: |-
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: system-modes-raz1
+
+configurations:
+  - config.yaml

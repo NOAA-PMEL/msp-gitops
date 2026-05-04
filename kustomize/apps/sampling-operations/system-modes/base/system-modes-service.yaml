@@ -1,0 +1,73 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: system-modes
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+        autoscaling.knative.dev/max-scale: "1"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - image: ghcr.io/noaa-pmel/msp/system-modes:0.1.0
+          imagePullPolicy: "Always"
+          env:
+            - name: SYSTEM_MODES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: port
+            - name: SYSTEM_MODES_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: daq_id
+            - name: SYSTEM_MODES_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: mqtt_broker
+            - name: SYSTEM_MODES_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: mqtt_port
+            - name: SYSTEM_MODES_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: mqtt_topic_subscriptions
+            - name: SYSTEM_MODES_SYSTEM_INIT_CONTROL
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: system_init_control
+            - name: SYSTEM_MODES_SYSTEM_INIT_MODE
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: system_init_mode
+          
+          volumeMounts:
+            - name: system-modes-modes-vol
+              mountPath: /app/config/system_modes_modes.json
+              subPath: system_modes_modes.json
+              
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+            
+      volumes:
+        - name: system-modes-modes-vol
+          configMap:
+            name: system-modes-modes

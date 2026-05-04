@@ -1,0 +1,42 @@
+[
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "normal",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-30T15:17:00Z",
+            "revision": 2
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "nominal_sampling"
+            }
+        ]
+    },
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "startup",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-04-30T15:17:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "system_startup"
+            }
+        ],
+        "transitions": {
+            "true": [
+                {
+                    "kind": "SystemMode",
+                    "name": "normal"
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,48 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: sampling-modes
+
+# Set the namespace for the mspbase01 system
+namespace: mspbase01-system
+
+resources:
+- ../../base
+- sampling-modes-configmap.yaml
+
+# Dynamically generate ConfigMaps from local JSON files
+configMapGenerator:
+  - name: sampling-modes-modes
+    files:
+      - sampling_modes_modes.json
+  - name: sampling-modes-actions
+    files:
+      - sampling_modes_actions.json
+
+# Append the system-specific suffix to all resources
+nameSuffix: "-mspbase01"
+
+patches:
+  # Patch the Service volume definitions to use the suffixed ConfigMap names
+  - target:
+      kind: Service
+      name: sampling-modes
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: sampling-modes-modes-mspbase01
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: sampling-modes-actions-mspbase01
+  
+  # Patch the Knative Triggers to route events to the suffixed Service
+  - target:
+      kind: Trigger
+    patch: |-
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: sampling-modes-mspbase01
+
+# Reference the local Kustomize configuration definition
+configurations:
+  - config.yaml

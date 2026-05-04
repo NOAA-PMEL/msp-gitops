@@ -1,0 +1,34 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sampling-modes-variableset-data-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      # Catch incoming sensor telemetry updates
+      type: envds.variableset.data.update 
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: sampling-modes
+    uri: /variableset/data/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sampling-modes-requirement-status-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      # Catch incoming status updates (e.g., from SystemModes or external conditions)
+      # You can tighten this filter if needed (e.g., envds.systemmode.status.update)
+      type: envds.status.update 
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: sampling-modes
+    uri: /requirement/status/update/
