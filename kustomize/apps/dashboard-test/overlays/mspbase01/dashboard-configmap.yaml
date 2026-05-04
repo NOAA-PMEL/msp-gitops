@@ -38,7 +38,8 @@ data:
     envds/+/variableset/+/data/update,
     envds/+/sampling-conditions/status/update,
     envds/+/sampling-states/status/update,
-    envds/+/sampling-operations/status/update
+    envds/+/sampling-modes/status/update,
+    envds/+/system-modes/status/update
     
 
   # tmp
