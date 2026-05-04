@@ -50,17 +50,17 @@ spec:
         - name: DASHBOARD_MQTT_BROKER
           valueFrom:
             configMapKeyRef:
-              name: datastore
+              name: dashboard-test
               key: mqtt_broker
         - name: DASHBOARD_MQTT_PORT
           valueFrom:
             configMapKeyRef:
-              name: datastore
+              name: dashboard-test
               key: mqtt_port
         - name: DASHBOARD_MQTT_TOPIC_SUBSCRIPTIONS
           valueFrom:
             configMapKeyRef:
-              name: datastore
+              name: dashboard-test
               key: mqtt_topic_subscriptions
         # - name: DASHBOARD_MONGODB_DATA_USER_NAME
         #   valueFrom:
