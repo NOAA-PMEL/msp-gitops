@@ -26,8 +26,29 @@ resources:
 # - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
 
-patchesStrategicMerge:
-- patch-service_knative.yaml
+# patchesStrategicMerge:
+# - patch-service_knative.yaml
+patches:
+  - target: 
+      kind: Service
+      name: datastore
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: DATASTORE_DB_CLIENT_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: datastore
+              key: db_client_username
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: DATASTORE_DB_CLIENT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: datastore-db-password
+              key: db_password
 
 # patchesStrategicMerge:
 # - patch-service_knative.yaml
