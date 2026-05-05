@@ -1,0 +1,21 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: datastore
+spec:
+  template:
+    spec:
+      containers:
+        # The container name MUST match the name defined in ../../base
+        - name: datastore 
+          env:
+            - name: DATASTORE_DB_CLIENT_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: db_client_username
+            - name: DATASTORE_DB_CLIENT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: datastore-db-password
+                  key: db_password
