@@ -31,9 +31,6 @@ patches:
       - op: add 
         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
         value: "1"
-  - target: 
-      kind: Deployment
-    patch: |-
       - op: add
         path: /spec/template/spec/containers/0/env/-
         value:
