@@ -55,7 +55,7 @@ patches:
           name: DATASTORE_DB_CLEAR_DB
           valueFrom:
             secretKeyRef:
-              name: datastore-db-password
+              name: datastore
               key: db_clear_db
 
 
