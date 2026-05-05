@@ -49,6 +49,15 @@ patches:
             secretKeyRef:
               name: datastore-db-password
               key: db_password
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value:
+          name: DATASTORE_DB_CLEAR_DB
+          valueFrom:
+            secretKeyRef:
+              name: datastore-db-password
+              key: db_clear_db
+
 
 # patchesStrategicMerge:
 # - patch-service_knative.yaml
