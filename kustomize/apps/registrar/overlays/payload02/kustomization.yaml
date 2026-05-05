@@ -23,6 +23,14 @@ resources:
 - registrar-triggers.yaml
 
 patches:
+  - target:
+      # version: serving.knative.dev/v1
+      kind: Service
+      name: registrar
+    patch: |-
+      - op: add 
+        path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
+        value: "1"
   - target: 
       kind: Deployment
     patch: |-

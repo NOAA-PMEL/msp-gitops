@@ -6,6 +6,8 @@ metadata:
   labels:
     app: mqtt
   # namespace: envds-base
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1" # Tells ArgoCD to deploy this firstspec:
 spec:
   selector:
     matchLabels:
