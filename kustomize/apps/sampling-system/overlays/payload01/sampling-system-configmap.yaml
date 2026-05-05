@@ -5,22 +5,12 @@ metadata:
   # namespace: msp-system
 data:
   daq_id: payload01
-  # db_client_type: redis
-  # db_client_hostname: redis.crk8s-system
-  # db_client_port: '6379'
-  # db_data_ttl: '300'
-  # db_reg_device_definition_ttl: '0'
-  # db_reg_device_instance_ttl: '300'
-  
-  # mqtt_broker: "0.0.0.0"
-  # mqtt_port: "80"
-  # mqtt_topic_filter: "instrument/#"
-  # mqtt_topic_subscription: "instrument/#"
-  # mqtt_broker: "mosquitto.default"
-  # mqtt_port: "1883"
-  # mqtt_topic_filter: "sensor/#"
-  # mqtt_topic_subscription: "test-account/uas-test/#"
-  # port: "8000"
+
+  # --- ROLE-BASED COMPUTE DELEGATION ---
+  node_id: "payload01"
+  node_roles: "local-controller" # Ready for future TEC/Temp control
+  # -------------------------------------
+
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload01-system/default"
 
@@ -30,3 +20,4 @@ data:
     envds/+/+/+/controller/data/update   
   
   mqtt_port: "1883"
+

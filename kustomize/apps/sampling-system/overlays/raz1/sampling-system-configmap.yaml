@@ -5,6 +5,12 @@ metadata:
   # namespace: msp-system
 data:
   daq_id: raz1
+
+  # --- ADDED FOR ROLE-BASED COMPUTE DELEGATION ---
+  node_id: "raz1"
+  node_roles: "operations-controller"
+  # -----------------------------------------------
+  
   # db_client_type: redis
   # db_client_hostname: redis.crk8s-system
   # db_client_port: '6379'
@@ -28,4 +34,5 @@ data:
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update   
+  
   mqtt_port: "1883"

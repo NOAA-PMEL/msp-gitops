@@ -35,6 +35,18 @@ spec:
                 configMapKeyRef:
                   name: sampling-system
                   key: daq_id
+            # --- ADDED FOR ROLE-BASED COMPUTE DELEGATION ---
+            - name: SAMPLING_SYSTEM_NODE_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: node_id
+            - name: SAMPLING_SYSTEM_NODE_ROLES
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: node_roles
+            # -----------------------------------------------
             - name: SAMPLING_SYSTEM_MQTT_BROKER
               valueFrom:
                 configMapKeyRef:

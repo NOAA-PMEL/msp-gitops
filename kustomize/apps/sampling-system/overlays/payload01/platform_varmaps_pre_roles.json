@@ -6,7 +6,7 @@
       "name": "payload01",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "MSPPayload01",
-      "valid_config_time": "2026-05-05T15:14:00Z",
+      "valid_config_time": "2026-04-27T14:58:00Z",
       "revision": 1
     },
     "data": {
@@ -15,7 +15,7 @@
         "platform_type": "MSPPayload",
         "platform": "MSPPayload01",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-05T15:14:00Z",
+        "valid_config_time": "2026-04-27T14:58:00Z",
         "revision": 1
       },
       "variablesets": {
@@ -55,10 +55,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "operations-controller, data-server"
-            },
             "units": {
               "type": "string",
               "data": "cm-3"
@@ -87,10 +83,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "cm3 min-1"
@@ -120,10 +112,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "um"
@@ -153,10 +141,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "count"
@@ -186,10 +170,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "cm-3"
@@ -219,10 +199,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "cm-3"
@@ -251,10 +227,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "cm-3"
@@ -283,10 +255,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "lpm"
@@ -315,10 +283,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "lpm"
@@ -347,10 +311,6 @@
             "average"
           ],
           "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
             "units": {
               "type": "string",
               "data": "degrees_C"
