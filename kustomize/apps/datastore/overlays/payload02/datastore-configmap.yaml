@@ -37,6 +37,7 @@ data:
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
-    envds/+/+/+/controller/data/update   
+    envds/+/+/+/controller/data/update,
+    envds/+/variableset/+/data/update   
 
   # tmp
