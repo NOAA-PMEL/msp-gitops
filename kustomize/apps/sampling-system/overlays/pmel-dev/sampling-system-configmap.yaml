@@ -5,24 +5,14 @@ metadata:
   # namespace: msp-system
 data:
   daq_id: pmel-dev
-  # db_client_type: redis
-  # db_client_hostname: redis.crk8s-system
-  # db_client_port: '6379'
-  # db_data_ttl: '300'
-  # db_reg_device_definition_ttl: '0'
-  # db_reg_device_instance_ttl: '300'
-  
-  # mqtt_broker: "0.0.0.0"
-  # mqtt_port: "80"
-  # mqtt_topic_filter: "instrument/#"
-  # mqtt_topic_subscription: "instrument/#"
-  # mqtt_broker: "mosquitto.default"
-  # mqtt_port: "1883"
-  # mqtt_topic_filter: "sensor/#"
-  # mqtt_topic_subscription: "test-account/uas-test/#"
-  # port: "8000"
+
+  # --- ADDED FOR ROLE-BASED COMPUTE DELEGATION ---
+  node_id: "pmel-dev"
+  node_roles: "data-server"
+  # -----------------------------------------------
+
   port: "8080"
-  # knative_broker: " http://broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/default"
+  # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/crk8s-system/default"
   knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default"
   # mongodb_data_user_name: "uasdaq-data"
   # mongodb_registry_user_name: "uasdaq-registry"

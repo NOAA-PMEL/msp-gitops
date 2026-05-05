@@ -44,6 +44,11 @@ data:
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
-    envds/+/+/+/controller/data/update   
+    envds/+/+/+/controller/data/update,
+    envds/+/variableset/+/data/update,
+    envds/+/sampling-conditions/status/update,
+    envds/+/sampling-states/status/update,
+    envds/+/sampling-modes/status/update,
+    envds/+/system-modes/status/update  
 
   # tmp

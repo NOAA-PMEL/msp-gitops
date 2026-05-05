@@ -29,6 +29,11 @@ data:
     envds/+/controller/registry/update,
     envds/sensor/settings/update,
     envds/+/sensor/settings/update
+    envds/+/samplingcondition-definition/registry/update,
+    envds/+/samplingstate-definition/registry/update,
+    envds/+/samplingmode-definition/registry/update,
+    envds/+/systemmode-definition/registry/update,
+    envds/+/action-definition/registry/update
   
   # handled elsewhere
     # envds/+/+/+/data/update,   

@@ -12,7 +12,7 @@ data:
   db_reg_device_definition_ttl: '0'
   db_reg_device_instance_ttl: '300'
   db_client_username: 'acg'
-  db_clear_db: 'false'
+  db_clear_db: 'true'
   
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
@@ -39,6 +39,7 @@ data:
   # mqtt_topic_filter: "instrument/#"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
-    envds/+/+/+/controller/data/update   
+    envds/+/+/+/controller/data/update,
+    envds/+/variableset/+/data/update 
 
   # old
