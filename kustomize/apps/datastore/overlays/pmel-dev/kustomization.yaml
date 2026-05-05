@@ -54,7 +54,7 @@ patches:
         value:
           name: DATASTORE_DB_CLEAR_DB
           valueFrom:
-            secretKeyRef:
+            configMapKeyRef:
               name: datastore
               key: db_clear_db
 
