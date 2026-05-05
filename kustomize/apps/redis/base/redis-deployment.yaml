@@ -4,8 +4,8 @@ metadata:
   name: redis
   labels:
     app: redis
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1" # Tells ArgoCD to deploy this firstspec:
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "-1" # Tells ArgoCD to deploy this firstspec:
   replicas: 1
   selector:
     matchLabels:
