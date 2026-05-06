@@ -21,9 +21,9 @@ spec:
         # Must use redis-stack-server to support your RediSearch/RedisJSON Python calls
         image: redis/redis-stack-server:latest
         # imagePullPolicy: IfNotPresent
-        # command:
-        #   - redis-server
-        #   - "/etc/redis/redis-stack.conf"
+        command:
+          - redis-server
+          - "/etc/redis/redis-stack.conf"
         ports:
         - containerPort: 6379
           name: redis
