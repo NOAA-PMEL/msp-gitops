@@ -18,33 +18,19 @@
         },
         "format_version": {
             "type": "char",
-            "data": "2.4.0"
+            "data": "1.1.0"
         },
         "variable_types": {
             "type": "string",
-            "data": "main, setting, calibration, coordinate"
-        },
-        "valid_time": {
-            "type": "string",
-            "data": "2025-06-26T19:00:00Z"
+            "data": "main, setting, calibration"
         },
         "serial_number": {
             "type": "string",
             "data": ""
-        },
-        "device_type": {
-            "type": "string",
-            "data": "sensor"
-        },
-        "change_log": {
-            "type": "string",
-            "data": "2.4.0: Updated attributes to match MAGIC250 structure; added channel and wavelength dimensions; added coordinate variables for aliasing; added transmission, absorption, and 3D white_filter_ratios variables."
         }
     },
     "dimensions": {
-        "time": 0,
-        "channel": 8,
-        "wavelength": 3
+        "time": 0
     },
     "variables": {
         "time": {
@@ -53,34 +39,6 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "string", "data": "Time"}
-            }
-        },
-        "channel": {
-            "type": "int",
-            "shape": ["channel"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "coordinate"},
-                "long_name": {"type": "char", "data": "Sample Spot Number"},
-                "data": [1, 2, 3, 4, 5, 6, 7, 8]
-            }
-        },
-        "wavelength": {
-            "type": "int",
-            "shape": ["wavelength"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "coordinate"},
-                "long_name": {"type": "char", "data": "LED Centroid Wavelength"},
-                "units": {"type": "char", "data": "nm"},
-                "data": [652, 528, 467]
-            }
-        },
-        "wavelength_label": {
-            "type": "str",
-            "shape": ["wavelength"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "coordinate"},
-                "long_name": {"type": "char", "data": "Wavelength Color Alias"},
-                "data": ["red", "green", "blue"]
             }
         },
         "record_type": {
@@ -159,94 +117,13 @@
                 "units": {"type": "char", "data": "degrees_C"}
             }
         },
-        "red_transmission": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Red Transmission (tau)"},
-                "units": {"type": "char", "data": "1"}
-            }
-        },
-        "green_transmission": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Green Transmission (tau)"},
-                "units": {"type": "char", "data": "1"}
-            }
-        },
-        "blue_transmission": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Blue Transmission (tau)"},
-                "units": {"type": "char", "data": "1"}
-            }
-        },
-        "red_absorption": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Red Absorption Coefficient"},
-                "units": {"type": "char", "data": "Mm-1"}
-            }
-        },
-        "green_absorption": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Green Absorption Coefficient"},
-                "units": {"type": "char", "data": "Mm-1"}
-            }
-        },
-        "blue_absorption": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Blue Absorption Coefficient"},
-                "units": {"type": "char", "data": "Mm-1"}
-            }
-        },
-        "white_filter_ratios": {
-            "type": "float",
-            "shape": ["time", "channel", "wavelength"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "White Filter Baseline Ratios"},
-                "description": {"type": "char", "data": "2D array [channel][wavelength] (Red, Green, Blue) recorded over time."}
-            }
-        },
-        "run_white_filter_check": {
-            "type": "bool",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "char", "data": "Trigger White Filter Check"},
-                "default_value": {"type": "bool", "data": false}
-            }
-        },
-        "last_calibrated_wf_ratios": {
-            "type": "float",
-            "shape": ["channel", "wavelength"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "calibration"},
-                "long_name": {"type": "char", "data": "Persistent White Filter Ratios"},
-                "default_value": {"type": "float", "data": [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]}
-            }
-        },
         "ch0_dark_intensity": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 0 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch0_red_intensity": {
@@ -255,7 +132,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 0 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -266,7 +143,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 0 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -277,7 +154,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 0 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -288,7 +165,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 1 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch1_red_intensity": {
@@ -297,7 +174,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 1 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -308,7 +185,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 1 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -319,7 +196,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 1 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -330,7 +207,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 2 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch2_red_intensity": {
@@ -339,7 +216,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 2 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -350,7 +227,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 2 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -361,7 +238,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 2 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -372,7 +249,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 3 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch3_red_intensity": {
@@ -381,7 +258,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 3 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -392,7 +269,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 3 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -403,7 +280,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 3 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -414,7 +291,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 4 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch4_red_intensity": {
@@ -423,7 +300,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 4 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -434,7 +311,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 4 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -445,7 +322,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 4 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -456,7 +333,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 5 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch5_red_intensity": {
@@ -465,7 +342,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 5 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -476,7 +353,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 5 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -487,7 +364,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 5 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -498,7 +375,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 6 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch6_red_intensity": {
@@ -507,7 +384,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 6 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -518,7 +395,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 6 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -529,7 +406,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 6 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -540,7 +417,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 7 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch7_red_intensity": {
@@ -549,7 +426,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 7 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -560,7 +437,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 7 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -571,7 +448,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 7 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -582,7 +459,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 8 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch8_red_intensity": {
@@ -591,7 +468,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 8 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -602,7 +479,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 8 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -613,7 +490,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 8 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -624,7 +501,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 9 Dark Intensity"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "EDIT"}
             }
         },
         "ch9_red_intensity": {
@@ -633,7 +510,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 9 Red Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 652},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -644,7 +521,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 9 Green Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 528},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
@@ -655,7 +532,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 9 Blue Intensity"},
-                "units": {"type": "char", "data": "count"},
+                "units": {"type": "char", "data": "EDIT"},
                 "wavelength": {"type": "int", "data": 467},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
