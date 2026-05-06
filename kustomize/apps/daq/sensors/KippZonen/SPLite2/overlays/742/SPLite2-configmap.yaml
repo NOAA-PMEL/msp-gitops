@@ -18,7 +18,6 @@ data:
         interface_id: LabJack::Tx::ljtx226
         path: voltage_in-0
 
-
 # tmp        
 #       ref_volt:
 #         interface_env_id: raz1
