@@ -16,15 +16,10 @@
             "type": "char",
             "data": "met, temperature, rh, sensor"
         },
-        "format_version": {"type": "char", "data": "2.0.0"},
-        "device_type": {"type": "string", "data": "sensor"},
-        "valid_time": {"type": "string", "data": "2025-06-26T19:00:00Z"},
-        "variable_types": {"type": "string", "data": "main"},
-        "change_log": {
-            "type": "string",
-            "data": "2.0.0: added device_type, valid_time, variable_types, change_log to attributes, removed settings and added variable_type to attributes of each variable"
-        } 
-
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        }
     },
     "dimensions": {
         "time": 0
