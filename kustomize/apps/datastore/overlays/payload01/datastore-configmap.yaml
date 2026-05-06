@@ -9,8 +9,17 @@ data:
   db_client_hostname: redis.payload01-system
   db_client_port: '6379'
   db_data_ttl: '300'
-  db_reg_device_definition_ttl: '0'
+  # db_reg_device_definition_ttl: '0'
   db_reg_device_instance_ttl: '300'
+
+# --- ADDED/UPDATED DEFINITION TTLS (1 Hour = 3600 seconds) ---
+  db_reg_device_definition_ttl: '3600'
+  db_reg_controller_definition_ttl: '3600'
+  db_reg_variablemap_definition_ttl: '3600'
+  db_reg_variableset_definition_ttl: '3600'
+  db_reg_sampling_definition_ttl: '3600'
+  #
+
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
   # mqtt_topic_filter: "instrument/#"
