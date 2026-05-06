@@ -34,11 +34,18 @@ data:
         clock_divisor: 1
         clock_desired_frequency: 25000
         counter_mode: "interrupt"
-      voltage_in-4:
+      voltage_in-0:
         path_type: ADC
-        channel: 4
-        input_voltage_range: 0.0
-        input_type: "single"
+        channel: 0                 # Maps to AIN0 on the LabJack
+        input_type: single         # Single-ended input from the Tick
+        input_voltage_range: 10.0  # Sets the LabJack AIN range to +/- 10V
+        gain: 11.0                 # InAmp x11 multiplier
+        offset: 1.25               # Standard Tick-InAmp reference voltage
+      # voltage_in-4:
+      #   path_type: ADC
+      #   channel: 4
+      #   input_voltage_range: 0.0
+      #   input_type: "single"
       # voltage_in-4_5:
       #   path_type: ADC
       #   channel: 4

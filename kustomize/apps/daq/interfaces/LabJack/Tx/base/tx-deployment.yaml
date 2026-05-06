@@ -19,7 +19,8 @@ spec:
       containers:
       - name: labjack-tx
         # image: registry-msp:5000/msp/interface/labjack-tx:0.1.0
-        image: ghcr.io/noaa-pmel/msp/labjack-tx:0.1.2
+        # image: ghcr.io/noaa-pmel/msp/labjack-tx:0.1.2
+        image: ghcr.io/noaa-pmel/msp/labjack-tx:0.2.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX

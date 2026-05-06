@@ -26,11 +26,11 @@
         },
         "format_version": {
             "type": "char",
-            "data": "3.0.0"
+            "data": "2.0.1"
         },
         "changlog": {
             "type": "string",
-            "data": "3.0.0: add gain,offset to ADC to allow for a tick; 2.0.1: change type from float to double; 2.0.0: added ADC attributes to allow for differential input and set voltage range;"
+            "data": "2.0.1: change type from float to double; 2.0.0: added ADC attributes to allow for differential input and set voltage range;"
         }
     },
     "path_types": {
@@ -75,9 +75,8 @@
                 "unpolled_sample_frequency_sec": {
                     "type": "double",
                     "data": 1.0
-                },
-                "gain": { "type": "double", "data": 1.0 },
-                "offset": { "type": "double", "data": 0.0 }            }
+                }
+            }
         },
         "DAC": {
             "attributes": {
