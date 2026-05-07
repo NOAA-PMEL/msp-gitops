@@ -1,35 +1,33 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: filemanager-device-data-update
-  # namespace: msp-events
+  name: filemanager-data-trigger
 spec:
   broker: default
   filter:
     attributes:
-      type: envds.data.update
+      # Matches the event types handled in handle_save_buffer()
+      type: envds.data.update 
   subscriber:
     ref:
       apiVersion: v1
       kind: Service
       name: filemanager
-      # namespace: msp-system
     uri: /data/save/
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: filemanager-controller-data-update
-  # namespace: msp-events
+  name: filemanager-status-trigger
 spec:
   broker: default
   filter:
     attributes:
-      type: envds.controller.data.update
+      type: envds.sampling.condition.status.update
   subscriber:
     ref:
       apiVersion: v1
       kind: Service
       name: filemanager
-      # namespace: msp-system
-    uri: /data/save/
+    uri: /logs/save/
+    
