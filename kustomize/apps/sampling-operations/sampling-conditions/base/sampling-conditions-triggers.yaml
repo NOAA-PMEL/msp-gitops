@@ -1,0 +1,15 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: sampling-conditions-samplingcondition-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.samplingcondition-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /samplingcondition-definition/registry/update/
