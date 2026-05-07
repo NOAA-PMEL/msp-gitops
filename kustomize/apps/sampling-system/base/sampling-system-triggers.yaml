@@ -1,7 +1,7 @@
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: sampling-system=variablemap-definition-update
+  name: sampling-system-variablemap-definition-update
 spec:
   broker: default
   filter:
@@ -17,7 +17,7 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: sampling-system=variableset-definition-update
+  name: sampling-system-variableset-definition-update
 spec:
   broker: default
   filter:
@@ -33,7 +33,7 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: sampling-system=platform-definition-update
+  name: sampling-system-platform-definition-update
 spec:
   broker: default
   filter:
