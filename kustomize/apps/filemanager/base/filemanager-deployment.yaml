@@ -18,7 +18,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
         - name: filemanager
-          image: ghcr.io/noaa-pmel/filemanager:0.1.0
+          image: ghcr.io/noaa-pmel/msp/filemanager:0.1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
