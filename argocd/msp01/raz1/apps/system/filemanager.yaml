@@ -23,6 +23,7 @@ spec:
     #         kind: Trigger
   destination:
     server: https://kubernetes.default.svc
+    namespace: raz1-system
     # namespace: payload01
   syncPolicy:
     automated:
