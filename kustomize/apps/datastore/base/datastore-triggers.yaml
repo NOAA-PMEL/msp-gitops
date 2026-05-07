@@ -57,7 +57,7 @@
 #       name: datastore
 #       # namespace: msp-system
 #     uri: /device/settings/update
----
+# ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
@@ -158,7 +158,7 @@ spec:
       name: datastore
       # namespace: msp-system
     uri: /controller/registry/update/
----
+# ---
 # apiVersion: eventing.knative.dev/v1
 # kind: Trigger
 # metadata:
