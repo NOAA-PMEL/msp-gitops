@@ -10,17 +10,11 @@
             "type": "char",
             "data": "aerosol, spectrometer, particles, sizing, aerodynamic, diameter, sensor"
         },
-        "format_version": {"type": "char", "data": "2.2.1"},
+        "format_version": {"type": "char", "data": "2.2.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "serial_number": {"type": "string", "data": ""},
-        "device_type": {
-            "type": "string",
-            "data": "sensor"
-        },
-        "change_log": {
-            "type": "string",
-            "data": "2.2.1: Restored calibration_routine setting; 2.2.0: Implemented MQTT health check recursion fix; 2.1.0: added device_type and cleaned up names."
-        } 
+        "device_type": {"type": "string", "data": "sensor"},
+        "change_log": {"type": "string", "data": "2.2.0: Added state variables for dict recursion fix implementation."} 
     },
     "dimensions": {"time": 0, "diameter": 52, "channel": 64},
     "variables": {
@@ -74,17 +68,9 @@
             "type": "int", "shape": ["time"],
             "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Total Particles Measured"}, "units": {"type": "char", "data": "count"}}
         },
-        "particle_counts_accum": {
-            "type": "int", "shape": ["time", "diameter", "channel"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Pulse Height Accumulator Bins"}, "units": {"type": "char", "data": "count"}}
-        },
         "particle_counts": {
             "type": "int", "shape": ["time", "diameter"],
             "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Diameter Channel Counts"}, "units": {"type": "char", "data": "count"}}
-        },
-        "particle_counts_ss": {
-            "type": "int", "shape": ["time", "channel", "diameter"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Side Scatter Counts"}, "units": {"type": "char", "data": "count"}}
         },
         "bpress": {
             "type": "float", "shape": ["time"],
@@ -98,61 +84,9 @@
             "type": "float", "shape": ["time"],
             "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sheath Flow"}, "units": {"type": "char", "data": "lpm"}}
         },
-        "lpower": {
-            "type": "int", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Laser Power"}, "units": {"type": "char", "data": "%"}}
-        },
-        "lcur": {
-            "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Laser Current"}, "units": {"type": "char", "data": "mA"}}
-        },
-        "spumpv": {
-            "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sheath Pump Voltage"}, "units": {"type": "char", "data": "V"}}
-        },
-        "tpumpv": {
-            "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Total Pump Voltage"}, "units": {"type": "char", "data": "V"}}
-        },
         "itemp": {
             "type": "float", "shape": ["time"],
             "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Inlet Temperature"}, "units": {"type": "char", "data": "degrees_C"}}
-        },
-        "btemp": {
-            "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Internal Box Temperature"}, "units": {"type": "char", "data": "degrees_C"}}
-        },
-        "dtemp": {
-            "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Detector Temperature"}, "units": {"type": "char", "data": "degrees_C"}}
-        },
-        "Vop": {
-            "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "APD Operating Voltage"}, "units": {"type": "char", "data": "V"}}
-        },
-        "diameter": {
-            "type": "int", "shape": ["time", "diameter"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Diameter (aero)"}, "units": {"type": "string", "data": "um"}}
-        },
-        "channel": {
-            "type": "int", "shape": ["time", "channel"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Side Scatter Channel"}}
-        },
-        "dN": {
-            "type": "int", "shape": ["time", "diameter"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "dN"}, "units": {"type": "char", "data": "cm-3"}}
-        },
-        "dlogDp": {
-            "type": "int", "shape": ["time", "diameter"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "dlogDp"}}
-        },
-        "dNdlogDp": {
-            "type": "int", "shape": ["time", "diameter"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "dN/dlogDp"}, "units": {"type": "char", "data": "cm-3"}}
-        },
-        "intN": {
-            "type": "int", "shape": ["time"],
-            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Integral Number Concentration"}, "units": {"type": "char", "data": "cm-3"}}
         }
     }
 }
