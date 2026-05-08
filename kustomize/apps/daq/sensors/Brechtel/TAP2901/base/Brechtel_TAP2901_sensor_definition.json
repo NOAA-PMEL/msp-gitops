@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "2.4.0"
+            "data": "2.11.0"
         },
         "variable_types": {
             "type": "string",
@@ -38,7 +38,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "2.4.0: Updated attributes to match MAGIC250 structure; added channel and wavelength dimensions; added coordinate variables for aliasing; added transmission, absorption, and 3D white_filter_ratios variables."
+            "data": "2.11.0: Implemented Option 2 architecture with top-level sampling_state and sensor-specific calibration_routine. Prepared for local disk state persistence."
         }
     },
     "dimensions": {
@@ -71,7 +71,7 @@
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "LED Centroid Wavelength"},
                 "units": {"type": "char", "data": "nm"},
-                "data": [652, 528, 467]
+                "data": [640, 520, 465]
             }
         },
         "wavelength_label": {
@@ -81,6 +81,67 @@
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "Wavelength Color Alias"},
                 "data": ["red", "green", "blue"]
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "char", "data": "idle, sampling, calibration, maintenance"},
+                "default_value": {"type": "string", "data": "idle"}
+            }
+        },
+        "calibration_routine": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Specific Calibration to Execute"},
+                "allowed_values": {"type": "char", "data": "none, white_filter"},
+                "default_value": {"type": "string", "data": "none"}
+            }
+        },
+        "set_active_spot": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Manual Override Spot (0=Use Last)"},
+                "default_value": {"type": "int", "data": 0}
+            }
+        },
+        "last_active_spot": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "calibration"},
+                "long_name": {"type": "char", "data": "Persistent Resume Spot"},
+                "default_value": {"type": "int", "data": 1}
+            }
+        },
+        "white_filter_ratios": {
+            "type": "float",
+            "shape": ["time", "channel", "wavelength"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Active White Filter Baselines"}
+            }
+        },
+        "last_calibrated_wf_ratios": {
+            "type": "float",
+            "shape": ["channel", "wavelength"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "calibration"},
+                "long_name": {"type": "char", "data": "Persistent White Filter Ratios"},
+                "default_value": {
+                    "type": "float",
+                    "data": [
+                        [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], 
+                        [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]
+                    ]
+                }
             }
         },
         "record_type": {
@@ -116,11 +177,11 @@
             }
         },
         "active_spot": {
-            "type": "str",
+            "type": "int",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "string", "data": "Active Sample Channel"}
+                "long_name": {"type": "string", "data": "Reported Active Sample Channel"}
             }
         },
         "flow_rate": {
@@ -213,33 +274,6 @@
                 "units": {"type": "char", "data": "Mm-1"}
             }
         },
-        "white_filter_ratios": {
-            "type": "float",
-            "shape": ["time", "channel", "wavelength"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "White Filter Baseline Ratios"},
-                "description": {"type": "char", "data": "2D array [channel][wavelength] (Red, Green, Blue) recorded over time."}
-            }
-        },
-        "run_white_filter_check": {
-            "type": "bool",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "char", "data": "Trigger White Filter Check"},
-                "default_value": {"type": "bool", "data": false}
-            }
-        },
-        "last_calibrated_wf_ratios": {
-            "type": "float",
-            "shape": ["channel", "wavelength"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "calibration"},
-                "long_name": {"type": "char", "data": "Persistent White Filter Ratios"},
-                "default_value": {"type": "float", "data": [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]}
-            }
-        },
         "ch0_dark_intensity": {
             "type": "float",
             "shape": ["time"],
@@ -256,7 +290,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 0 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -267,7 +301,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 0 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -278,7 +312,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 0 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -298,7 +332,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 1 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -309,7 +343,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 1 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -320,7 +354,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 1 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -340,7 +374,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 2 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -351,7 +385,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 2 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -362,7 +396,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 2 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -382,7 +416,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 3 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -393,7 +427,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 3 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -404,7 +438,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 3 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -424,7 +458,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 4 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -435,7 +469,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 4 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -446,7 +480,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 4 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -466,7 +500,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 5 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -477,7 +511,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 5 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -488,7 +522,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 5 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -508,7 +542,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 6 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -519,7 +553,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 6 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -530,7 +564,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 6 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -550,7 +584,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 7 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -561,7 +595,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 7 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -572,7 +606,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 7 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -592,7 +626,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 8 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -603,7 +637,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 8 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -614,7 +648,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 8 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -634,7 +668,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 9 Red Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 652},
+                "wavelength": {"type": "int", "data": 640},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -645,7 +679,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 9 Green Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 528},
+                "wavelength": {"type": "int", "data": 520},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         },
@@ -656,7 +690,7 @@
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Channel 9 Blue Intensity"},
                 "units": {"type": "char", "data": "count"},
-                "wavelength": {"type": "int", "data": 467},
+                "wavelength": {"type": "int", "data": 465},
                 "wavelength_units": {"type": "char", "data": "nm"}
             }
         }

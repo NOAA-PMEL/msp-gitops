@@ -10,7 +10,7 @@
         },
         "description": {
             "type": "string",
-            "data": "Water based Condensation Particle Counter (CPC) manufactured by Aerosol Dynamics and distributed by Aerosol Devices/Handix"
+            "data": "Water based Condensation Particle Counter (CPC) manufactured by Aerosol Dyanamics and distributed by Aerosol Devices/Handix"
         },
         "tags": {
             "type": "char",
@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "2.1.0"
+            "data": "2.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -38,7 +38,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "2.1.0: Implemented MQTT settings health check interception and added top-level sampling_state; 2.0.0: added device_type, change_log to attributes, removed settings and added variable_type to attributes of each variable"
+            "data": "2.0.0: added device_type, change_log to attributes, removed settings and added variable_type to attributes of each variable"
         } 
     },
     "dimensions": {
@@ -58,54 +58,6 @@
                 "long_name": {
                     "type": "string",
                     "data": "Time"
-                }
-            }
-        },
-        "sampling_state": {
-            "type": "str",
-            "shape": [
-                "time"
-            ],
-            "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "setting"
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Instrument Operational State"
-                },
-                "allowed_values": {
-                    "type": "char",
-                    "data": "idle, sampling, calibration, maintenance, error"
-                },
-                "default_value": {
-                    "type": "string",
-                    "data": "sampling"
-                }
-            }
-        },
-        "calibration_routine": {
-            "type": "str",
-            "shape": [
-                "time"
-            ],
-            "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "setting"
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Specific Calibration to Execute"
-                },
-                "allowed_values": {
-                    "type": "char",
-                    "data": "none, zero_check"
-                },
-                "default_value": {
-                    "type": "string",
-                    "data": "none"
                 }
             }
         },

@@ -10,7 +10,7 @@
             "type": "char",
             "data": "aerosol, spectrometer, particles, sizing, aerodynamic, diameter, sensor"
         },
-        "format_version": {"type": "char", "data": "2.1.0"},
+        "format_version": {"type": "char", "data": "2.2.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "serial_number": {"type": "string", "data": ""},
         "device_type": {
@@ -19,7 +19,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "2.1.0: added device_type and change_log attr; cleaned up long names; changed diameter units"
+            "data": "2.2.0: Implemented MQTT settings health check interception and added top-level sampling_state; 2.1.0: added device_type and change_log attr; cleaned up long names; changed diameter units"
         } 
     },
     "dimensions": {"time": 0, "diameter": 52, "channel": 64},
@@ -30,6 +30,16 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "char", "data": "idle, sampling, calibration, maintenance, error"},
+                "default_value": {"type": "string", "data": "sampling"}
             }
         },
         "ffff": {
