@@ -2,9 +2,10 @@
     "attributes": {
         "make": {"type": "string", "data": "TSI"},
         "model": {"type": "string", "data": "APS3321"},
-        "format_version": {"type": "char", "data": "2.2.0"},
+        "format_version": {"type": "char", "data": "3.0.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
-        "device_type": {"type": "string", "data": "sensor"}
+        "device_type": {"type": "string", "data": "sensor"},
+        "change_log": {"type": "string", "data": "3.0.0: Added missing calculated variables to schema; fixed 3D array shapes for particle_counts_accum and particle_counts_ss."}
     },
     "dimensions": {
         "time": 0, 
@@ -100,7 +101,7 @@
             }
         },
         "particle_counts_accum": {
-            "type": "int", "shape": ["time", "channel"],
+            "type": "int", "shape": ["time", "diameter", "channel"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"}, 
                 "long_name": {"type": "string", "data": "Accumulated Particle Counts"}, 
@@ -108,7 +109,7 @@
             }
         },
         "particle_counts_ss": {
-            "type": "int", "shape": ["time", "diameter"],
+            "type": "int", "shape": ["time", "channel", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"}, 
                 "long_name": {"type": "string", "data": "Side Scatter Particle Counts"}, 
