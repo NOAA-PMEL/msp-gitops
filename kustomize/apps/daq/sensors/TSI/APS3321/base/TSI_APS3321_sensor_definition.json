@@ -10,7 +10,7 @@
             "type": "char",
             "data": "aerosol, spectrometer, particles, sizing, aerodynamic, diameter, sensor"
         },
-        "format_version": {"type": "char", "data": "2.2.0"},
+        "format_version": {"type": "char", "data": "2.2.1"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "serial_number": {"type": "string", "data": ""},
         "device_type": {
@@ -19,22 +19,17 @@
         },
         "change_log": {
             "type": "string",
-            "data": "2.2.0: Implemented MQTT settings health check interception and added top-level sampling_state; 2.1.0: added device_type and change_log attr; cleaned up long names; changed diameter units"
+            "data": "2.2.1: Restored calibration_routine setting; 2.2.0: Implemented MQTT health check recursion fix; 2.1.0: added device_type and cleaned up names."
         } 
     },
     "dimensions": {"time": 0, "diameter": 52, "channel": 64},
     "variables": {
         "time": {
-            "type": "str",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "string", "data": "Time"}
-            }
+            "type": "str", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Time"}}
         },
         "sampling_state": {
-            "type": "str",
-            "shape": ["time"],
+            "type": "str", "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "setting"},
                 "long_name": {"type": "char", "data": "Instrument Operational State"},
@@ -42,245 +37,122 @@
                 "default_value": {"type": "string", "data": "sampling"}
             }
         },
-        "ffff": {
-            "type": "str",
-            "shape": ["time"],
+        "calibration_routine": {
+            "type": "str", "shape": ["time"],
             "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Status Flags (4 digit hex)"}
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Specific Calibration to Execute"},
+                "allowed_values": {"type": "char", "data": "none, zero_check"},
+                "default_value": {"type": "string", "data": "none"}
             }
+        },
+        "ffff": {
+            "type": "str", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Status Flags (4 digit hex)"}}
         },
         "stime": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Sample Time (not corrected for dead time)"},
-                "units": {"type": "char", "data": "seconds"}
-            }
+            "type": "int", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sample Time"}, "units": {"type": "char", "data": "seconds"}}
         },
         "dtime": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Dead Time"},
-                "units": {"type": "char", "data": "milliseconds"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Dead Time"}, "units": {"type": "char", "data": "milliseconds"}}
         },
         "evt1": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Number of Single Hump Events"},
-                "units": {"type": "char", "data": "count"}
-            }
+            "type": "int", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Number of Single Hump Events"}, "units": {"type": "char", "data": "count"}}
         },
         "evt3": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Number of 3+ Hump Events"},
-                "units": {"type": "char", "data": "count"}
-            }
+            "type": "int", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Number of 3+ Hump Events"}, "units": {"type": "char", "data": "count"}}
         },
         "evt4": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Number of Timer Overflow Events"},
-                "units": {"type": "char", "data": "count"}
-            }
+            "type": "int", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Number of Timer Overflow Events"}, "units": {"type": "char", "data": "count"}}
         },
         "total": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Total (2-hump) Particles Measured "},
-                "units": {"type": "char", "data": "count"}
-            }
+            "type": "int", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Total Particles Measured"}, "units": {"type": "char", "data": "count"}}
         },
         "particle_counts_accum": {
-            "type": "int",
-            "shape": ["time", "diameter", "channel"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Particle Counts in Each Pulse Height Accumulator Bin (Correlated / Paired Record)"},
-                "units": {"type": "char", "data": "count"}
-            }
+            "type": "int", "shape": ["time", "diameter", "channel"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Pulse Height Accumulator Bins"}, "units": {"type": "char", "data": "count"}}
         },
         "particle_counts": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Particle Counts in Calibrated Diameter Channels"},
-                "units": {"type": "char", "data": "count"}
-            }
+            "type": "int", "shape": ["time", "diameter"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Diameter Channel Counts"}, "units": {"type": "char", "data": "count"}}
         },
         "particle_counts_ss": {
-            "type": "int",
-            "shape": ["time", "channel", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Particle Counts in Side Scatter Channels"},
-                "units": {"type": "char", "data": "count"}
-            }
+            "type": "int", "shape": ["time", "channel", "diameter"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Side Scatter Counts"}, "units": {"type": "char", "data": "count"}}
         },
         "bpress": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Barometric Inlet Pressure (average over sample time)"},
-                "units": {"type": "char", "data": "mbar"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Barometric Inlet Pressure"}, "units": {"type": "char", "data": "mbar"}}
         },
         "tflow": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Total Flow (average over sample time)"},
-                "units": {"type": "char", "data": "lpm"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Total Flow"}, "units": {"type": "char", "data": "lpm"}}
         },
         "sflow": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Sheath Flow (average over sample time)"},
-                "units": {"type": "char", "data": "lpm"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sheath Flow"}, "units": {"type": "char", "data": "lpm"}}
         },
         "lpower": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Laser Power (% of maximum power)"},
-                "units": {"type": "char", "data": "%"}
-            }
+            "type": "int", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Laser Power"}, "units": {"type": "char", "data": "%"}}
         },
         "lcur": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Laser Current"},
-                "units": {"type": "char", "data": "mA"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Laser Current"}, "units": {"type": "char", "data": "mA"}}
         },
         "spumpv": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Sheath Pump Voltage"},
-                "units": {"type": "char", "data": "V"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sheath Pump Voltage"}, "units": {"type": "char", "data": "V"}}
         },
         "tpumpv": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Total Pump Voltage)"},
-                "units": {"type": "char", "data": "V"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Total Pump Voltage"}, "units": {"type": "char", "data": "V"}}
         },
         "itemp": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Inlet Temperature"},
-                "units": {"type": "char", "data": "degrees_C"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Inlet Temperature"}, "units": {"type": "char", "data": "degrees_C"}}
         },
         "btemp": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Internal Box Temperature"},
-                "units": {"type": "char", "data": "degrees_C"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Internal Box Temperature"}, "units": {"type": "char", "data": "degrees_C"}}
         },
         "dtemp": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Detector Temperature for APD and Optics"},
-                "units": {"type": "char", "data": "degrees_C"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Detector Temperature"}, "units": {"type": "char", "data": "degrees_C"}}
         },
         "Vop": {
-            "type": "float",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "APD Operating Voltage"},
-                "units": {"type": "char", "data": "V"}
-            }
+            "type": "float", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "APD Operating Voltage"}, "units": {"type": "char", "data": "V"}}
         },
         "diameter": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "string", "data": "Diameter (aero)"},
-                "units": {"type": "string", "data": "um"}
-            }
+            "type": "int", "shape": ["time", "diameter"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Diameter (aero)"}, "units": {"type": "string", "data": "um"}}
         },
         "channel": {
-            "type": "int",
-            "shape": ["time", "channel"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Side Scatter Channel"}
-            }
+            "type": "int", "shape": ["time", "channel"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Side Scatter Channel"}}
         },
         "dN": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "dN"},
-                "units": {"type": "char", "data": "cm-3"}
-            }
+            "type": "int", "shape": ["time", "diameter"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "dN"}, "units": {"type": "char", "data": "cm-3"}}
         },
         "dlogDp": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "dlogDp"}
-            }
+            "type": "int", "shape": ["time", "diameter"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "dlogDp"}}
         },
         "dNdlogDp": {
-            "type": "int",
-            "shape": ["time", "diameter"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "dN/dlogDp"},
-                "units": {"type": "char", "data": "cm-3"}
-            }
+            "type": "int", "shape": ["time", "diameter"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "dN/dlogDp"}, "units": {"type": "char", "data": "cm-3"}}
         },
         "intN": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Integral Number Concentration"},
-                "units": {"type": "char", "data": "cm-3"}
-            }
+            "type": "int", "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Integral Number Concentration"}, "units": {"type": "char", "data": "cm-3"}}
         }
     }
 }
