@@ -16,7 +16,10 @@
     "variables": {
         "time": {
             "type": "str", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Time"}
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Time"}
+            }
         },
         "wavelength": {
             "type": "int",
@@ -40,85 +43,85 @@
         "sampling_state": {
             "type": "str", "shape": ["time"],
             "attributes": {
-                "variable_type": "setting",
-                "long_name": "Instrument Operational State",
-                "allowed_values": "idle, sampling, calibration, maintenance",
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "string", "data": "idle, sampling, calibration, maintenance"},
                 "default_value": {"type": "string", "data": "idle"}
             }
         },
         "calibration_routine": {
             "type": "str", "shape": ["time"],
             "attributes": {
-                "variable_type": "setting",
-                "long_name": "Specific Calibration to Execute",
-                "allowed_values": "none, zero_cal, span_cal_co2, zero_check, span_check",
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Specific Calibration to Execute"},
+                "allowed_values": {"type": "string", "data": "none, zero_cal, span_cal_co2, zero_check, span_check"},
                 "default_value": {"type": "string", "data": "none"}
             }
         },
         "ext_valve_state": {
             "type": "str", "shape": ["time"],
             "attributes": {
-                "variable_type": "setting",
-                "long_name": "External 3-Way Valve Position",
-                "allowed_values": "position_0, position_1",
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "External 3-Way Valve Position"},
+                "allowed_values": {"type": "string", "data": "position_0, position_1"},
                 "default_value": {"type": "string", "data": "position_0"}
             }
         },
         "aurora_date": {
             "type": "str", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Internal Date"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Internal Date"}}
         },
         "aurora_time": {
             "type": "str", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Internal Time"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Internal Time"}}
         },
         "scat_coef_ch1_red": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Channel 1 Scattering (Red)", "units": "Mm-1"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Channel 1 Scattering (Red)"}, "units": {"type": "string", "data": "Mm-1"}}
         },
         "scat_coef_ch2_green": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Channel 2 Scattering (Green)", "units": "Mm-1"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Channel 2 Scattering (Green)"}, "units": {"type": "string", "data": "Mm-1"}}
         },
         "scat_coef_ch3_blue": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Channel 3 Scattering (Blue)", "units": "Mm-1"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Channel 3 Scattering (Blue)"}, "units": {"type": "string", "data": "Mm-1"}}
         },
         "backscatter_ch1_red": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Channel 1 Backscatter (Red)", "units": "Mm-1"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Channel 1 Backscatter (Red)"}, "units": {"type": "string", "data": "Mm-1"}}
         },
         "backscatter_ch2_green": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Channel 2 Backscatter (Green)", "units": "Mm-1"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Channel 2 Backscatter (Green)"}, "units": {"type": "string", "data": "Mm-1"}}
         },
         "backscatter_ch3_blue": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Channel 3 Backscatter (Blue)", "units": "Mm-1"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Channel 3 Backscatter (Blue)"}, "units": {"type": "string", "data": "Mm-1"}}
         },
         "sample_T": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Sample Temperature", "units": "degrees_C"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Sample Temperature"}, "units": {"type": "string", "data": "degrees_C"}}
         },
         "enclosure_T": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Enclosure Temperature", "units": "degrees_C"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Enclosure Temperature"}, "units": {"type": "string", "data": "degrees_C"}}
         },
         "rh": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Relative Humidity", "units": "%"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Relative Humidity"}, "units": {"type": "string", "data": "percent"}}
         },
         "pressure": {
             "type": "float", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Barometric Pressure", "units": "mbar"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Barometric Pressure"}, "units": {"type": "string", "data": "mbar"}}
         },
         "major_state": {
             "type": "int", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "Major State Code"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "Major State Code"}}
         },
         "DIO_state": {
             "type": "str", "shape": ["time"],
-            "attributes": {"variable_type": "main", "long_name": "DIO Hex State"}
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "string", "data": "DIO Hex State"}}
         }
     }
 }

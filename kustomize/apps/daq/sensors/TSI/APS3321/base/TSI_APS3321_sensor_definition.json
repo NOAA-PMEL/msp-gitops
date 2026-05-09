@@ -2,10 +2,10 @@
     "attributes": {
         "make": {"type": "string", "data": "TSI"},
         "model": {"type": "string", "data": "APS3321"},
-        "format_version": {"type": "char", "data": "3.0.0"},
+        "format_version": {"type": "char", "data": "3.1.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "device_type": {"type": "string", "data": "sensor"},
-        "change_log": {"type": "string", "data": "3.0.0: Added missing calculated variables to schema; fixed 3D array shapes for particle_counts_accum and particle_counts_ss."}
+        "change_log": {"type": "string", "data": "3.1.0: added dropped variables; 3.0.0: Added missing calculated variables to schema; fixed 3D array shapes for particle_counts_accum and particle_counts_ss."}
     },
     "dimensions": {
         "time": 0, 
@@ -192,6 +192,62 @@
                 "variable_type": {"type": "string", "data": "main"}, 
                 "long_name": {"type": "string", "data": "Inlet Temperature"}, 
                 "units": {"type": "string", "data": "degrees_C"}
+            }
+        },
+        "lpower": {
+            "type": "float", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Laser Power"},
+                "units": {"type": "string", "data": "mW"}
+            }
+        },
+        "lcur": {
+            "type": "float", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Laser Current"},
+                "units": {"type": "string", "data": "mA"}
+            }
+        },
+        "spumpv": {
+            "type": "float", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Sheath Pump Voltage"},
+                "units": {"type": "string", "data": "V"}
+            }
+        },
+        "tpumpv": {
+            "type": "float", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Total Pump Voltage"},
+                "units": {"type": "string", "data": "V"}
+            }
+        },
+        "btemp": {
+            "type": "float", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Box Temperature"},
+                "units": {"type": "string", "data": "degrees_C"}
+            }
+        },
+        "dtemp": {
+            "type": "float", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Detector Temperature"},
+                "units": {"type": "string", "data": "degrees_C"}
+            }
+        },
+        "Vop": {
+            "type": "float", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"}, 
+                "long_name": {"type": "string", "data": "Avalanche Photo Diode Voltage"},
+                "units": {"type": "string", "data": "V"}
             }
         }
     }

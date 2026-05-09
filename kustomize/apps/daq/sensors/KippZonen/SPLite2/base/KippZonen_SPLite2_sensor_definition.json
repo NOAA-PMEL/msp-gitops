@@ -2,100 +2,222 @@
     "attributes": {
         "make": {
             "type": "string",
-            "data": "KippZonen"
+            "data": "Furuno"
         },
         "model": {
             "type": "string",
-            "data": "SPLite2"
+            "data": "SCX21"
         },
         "description": {
             "type": "string",
-            "data": "Pyranometer"
+            "data": "Compact Dome Satellite Compass manufactured by Furuno Electric Company and distributed by The GPS Store"
         },
         "tags": {
             "type": "char",
-            "data": "met, temperature, rh, sensor"
+            "data": "satellite, compass, GPS, sensor"
         },
-        "format_version": {"type": "char", "data": "2.0.0"},
-        "device_type": {"type": "string", "data": "sensor"},
-        "valid_time": {"type": "string", "data": "2025-06-26T19:00:00Z"},
-        "variable_types": {"type": "string", "data": "main"},
-        "change_log": {
+        "format_version": {
+            "type": "char",
+            "data": "2.0.0"
+        },
+        "variable_types": {
             "type": "string",
-            "data": "2.0.0: added device_type, valid_time, variable_types, change_log to attributes, removed settings and added variable_type to attributes of each variable"
-        } 
-
+            "data": "main, setting, calibration"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        },
+        "change_log": {
+            "type": "string", 
+            "data": "2.0.0: Added sampling_state setting, fixed change_log attribute key. 1.1.0: convert lat/lon to degrees_north and degrees_east and change units"
+        }
     },
-    "dimensions": {
-        "time": 0
-    },
+    "dimensions": {"time": 0},
     "variables": {
         "time": {
             "type": "str",
             "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "string",
-                    "data": "Time"
-                }
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
         },
-        "volts": {
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "string", "data": "idle, sampling, maintenance, error"},
+                "default_value": {"type": "string", "data": "sampling"}
+            }
+        },
+        "scx21_timestamp": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Internal Timestamp (UTC)"},
+                "description": {
                     "type": "char",
-                    "data": "Measured voltage"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "volts"
+                    "data": "NMEA 0183 ID: ZDA"
                 }
             }
         },
-        "sensitivity": {
+        "lat": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Latitude"},
+                "description": {
                     "type": "char",
-                    "data": "Sensitivity of sensor (uV / W*m2)"
+                    "data": "NMEA 0183 ID: GNS"
                 },
-                "units": {
+                "units": {"type": "char", "data": "degrees_north"}
+            }
+        },
+        "lat_dir": {
+            "type": "char",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Direction of Latitude"},
+                "description": {
                     "type": "char",
-                    "data": "uV W-1 m2"
+                    "data": "NMEA 0183 ID: GNS"
                 }
             }
         },
-        "irradiance": {
+        "lon": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Longitude"},
+                "description": {
                     "type": "char",
-                    "data": "Irradiance of sensor (uV / W*m2)"
+                    "data": "NMEA 0183 ID: GNS"
                 },
-                "units": {
+                "units": {"type": "char", "data": "degrees_east"}
+            }
+        },
+        "lon_dir": {
+            "type": "char",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Direction of Longitude"},
+                "description": {
                     "type": "char",
-                    "data": "W m-2"
-                } 
+                    "data": "NMEA 0183 ID: GNS"
+                },
+                "units": {"type": "char", "data": "unitless"}
+            }
+        },
+        "mode": {
+            "type": "char",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Mode Indicator"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: GNS"
+                },
+                "units": {"type": "char", "data": "unitless"}
+            }
+        },
+        "sv_num": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Number of SVs in Use"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: GNS"
+                },
+                "units": {"type": "char", "data": "count"}
+            }
+        },
+        "heading": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Heading from True north"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: HDT"
+                },
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "speed": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Speed Over Ground"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: VTG"
+                },
+                "units": {"type": "char", "data": "kilometers/hour"}
+            }
+        },
+        "yaw": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Yaw"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: GPatt"
+                },
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "pitch": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Pitch"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: GPatt"
+                },
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "roll": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Roll"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: GPatt"
+                },
+                "units": {"type": "char", "data": "degrees"}
+            }
+        },
+        "heave": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Heave"},
+                "description": {
+                    "type": "char",
+                    "data": "NMEA 0183 ID: GPhve"
+                },
+                "units": {"type": "char", "data": "meters"}
             }
         }
     }
