@@ -10,7 +10,7 @@
             "type": "char",
             "data": "aerosol, particles, concentration, sensor, sizing, size distribution"
         },
-        "format_version": {"type": "char", "data": "5.2.0"},
+        "format_version": {"type": "char", "data": "5.0.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration"},
         "serial_number": {
             "type": "string",
@@ -22,7 +22,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "5.2.0: Added calibration_routine, added calibration to sampling_state, fixed sizing variable types to float, fixed bin_count units. 5.0.0: added dN, dNdlogDp, dlogDp, intN; cleaned up long_names"
+            "data": "5.0.0: added dN, dNdlogDp, dlogDp, intN; cleaned up long_names"
         } 
     },
     "dimensions": {"time": 0, "diameter": 16},
@@ -33,26 +33,6 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "string", "data": "Time"}
-            }
-        },
-        "sampling_state": {
-            "type": "str",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "string", "data": "Instrument Operational State"},
-                "allowed_values": {"type": "string", "data": "idle, sampling, calibration, maintenance, error"},
-                "default_value": {"type": "string", "data": "sampling"}
-            }
-        },
-        "calibration_routine": {
-            "type": "str",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "string", "data": "Specific Calibration to Execute"},
-                "allowed_values": {"type": "string", "data": "none, flow_check, zero_check, sizing_cal"},
-                "default_value": {"type": "string", "data": "none"}
             }
         },
         "POPS_ID": {
@@ -428,11 +408,11 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Raw bin counts for each diameter"},
-                "units": {"type": "char", "data": "count"}
+                "units": {"type": "char", "data": "nm"}
             }
         },
         "dN": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -441,7 +421,7 @@
             }
         },
         "dlogDp": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -449,7 +429,7 @@
             }
         },
         "dNdlogDp": {
-            "type": "float",
+            "type": "int",
             "shape": ["time", "diameter"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
@@ -459,25 +439,12 @@
             }
         },
         "intN": {
-            "type": "float",
+            "type": "int",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
                 "long_name": {"type": "char", "data": "Integral Number Concentration"},
                 "units": {"type": "char", "data": "cm-3"}
-            }
-        },
-        "pump_power": {
-            "type": "int",
-            "shape": ["time"],
-            "attributes": {
-                "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "char", "data": "Pump Power"},
-                "units": {"type": "char", "data": "count"},
-                "valid_min": {"type": "int", "data": 0},
-                "valid_max": {"type": "int", "data": 1},
-                "step_increment": {"type": "int", "data": 1},
-                "default_value": {"type": "int", "data": 1}
             }
         }
     }
