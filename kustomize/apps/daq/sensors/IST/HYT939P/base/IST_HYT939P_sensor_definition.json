@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.0.0"
+            "data": "2.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -27,6 +27,10 @@
         "serial_number": {
             "type": "string",
             "data": ""
+        },
+        "change_log": {
+            "type": "string",
+            "data": "2.0.0: Removed hardcoded metadata, added sampling_state."
         }
     },
     "dimensions": {
@@ -35,58 +39,38 @@
     "variables": {
         "time": {
             "type": "str",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "string",
-                    "data": "Time"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "string", "data": "idle, sampling, maintenance, error"},
+                "default_value": {"type": "string", "data": "sampling"}
             }
         },
         "temperature": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Temperature"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "degree_C"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Temperature"},
+                "units": {"type": "char", "data": "degree_C"}
             }
         },
         "rh": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Relative Humidity"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "%"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Relative Humidity"},
+                "units": {"type": "char", "data": "%"}
             }
         }
     }
