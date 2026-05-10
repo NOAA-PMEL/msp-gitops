@@ -1,36 +1,36 @@
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: system-modes-systemmode-definition-update
-spec:
-  broker: default
-  filter:
-    attributes:
-      type: envds.systemmode-definition.registry.update
-  subscriber:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: datastore
-    uri: /systemmode-definition/registry/update/
----
-apiVersion: eventing.knative.dev/v1
-kind: Trigger
-metadata:
-  name: system-modes-requirement-status-update
-spec:
-  broker: default
-  filter:
-    attributes:
-      # Receives SamplingMode and SystemMode status updates for requirement evaluation
-      type: envds.status.update 
-  subscriber:
-    ref:
-      apiVersion: serving.knative.dev/v1
-      kind: Service
-      name: system-modes
-    uri: /requirement/status/update/
----
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: system-modes-systemmode-definition-update
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       type: envds.systemmode-definition.registry.update
+#   subscriber:
+#     ref:
+#       apiVersion: serving.knative.dev/v1
+#       kind: Service
+#       name: datastore
+#     uri: /systemmode-definition/registry/update/
+# ---
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: system-modes-requirement-status-update
+# spec:
+#   broker: default
+#   filter:
+#     attributes:
+#       # Receives SamplingMode and SystemMode status updates for requirement evaluation
+#       type: envds.status.update 
+#   subscriber:
+#     ref:
+#       apiVersion: serving.knative.dev/v1
+#       kind: Service
+#       name: system-modes
+#     uri: /requirement/status/update/
+# ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:

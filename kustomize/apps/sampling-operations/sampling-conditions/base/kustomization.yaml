@@ -13,4 +13,4 @@ resources:
 # - sampling-conditions-service.yaml
 - sampling-conditions-service_knative.yaml
 # - sampling-conditions-ingress.yaml
-- sampling-conditions-triggers.yaml
+# - sampling-conditions-triggers.yaml

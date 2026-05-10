@@ -22,8 +22,8 @@ namespace: mspbase01-system
 resources:
 - ../../base
 - datastore-configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
+# - ghcr-secret-msp-system-sealed.yaml
 
 patches:
   # change configmap names to account for s/n suffix

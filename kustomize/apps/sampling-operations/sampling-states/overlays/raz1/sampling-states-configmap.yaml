@@ -34,7 +34,7 @@ data:
 
   mqtt_broker: "mqtt.raz1-system"
   mqtt_topic_subscriptions: >
-    envds/+/sampling-conditions/status_update
+    envds/+/sampling-conditions/status/update
 
   mqtt_port: "1883"
 

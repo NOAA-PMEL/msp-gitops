@@ -5,4 +5,4 @@ metadata:
 
 resources:
 - sampling-modes-service.yaml
-- sampling-modes-triggers.yaml
+# - sampling-modes-triggers.yaml

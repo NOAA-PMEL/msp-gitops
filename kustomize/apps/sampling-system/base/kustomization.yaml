@@ -13,4 +13,4 @@ resources:
 # - sampling-system-service.yaml
 - sampling-system-service_knative.yaml
 # - sampling-system-ingress.yaml
-- sampling-system-triggers.yaml
+# - sampling-system-triggers.yaml
