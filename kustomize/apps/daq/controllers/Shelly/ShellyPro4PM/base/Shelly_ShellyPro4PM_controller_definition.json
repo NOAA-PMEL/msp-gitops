@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.1.0"
+            "data": "2.1.0"
         },
         "variable_types": {
             "type": "string",
@@ -27,6 +27,10 @@
         "serial_number": {
             "type": "string",
             "data": ""
+        },
+        "change_log": {
+            "type": "string",
+            "data": "2.1.0: Shifted sampling_state allowed values to active. 2.0.0: Added sampling_state, stripped hardcoded metadata."
         }
     },
     "dimensions": {
@@ -35,486 +39,205 @@
     "variables": {
         "time": {
             "type": "str",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "string",
-                    "data": "Time"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Operational State"},
+                "allowed_values": {"type": "string", "data": "idle, active, maintenance, error"},
+                "default_value": {"type": "string", "data": "active"}
             }
         },
         "temperature": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Temperature"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "degree_C"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Temperature"},
+                "units": {"type": "char", "data": "degree_C"}
             }
         },
         "channel_0_voltage": {
-                "type": "float",
-                "shape": [
-                    "time"
-                ],
-                "attributes": {
-                    "variable_type": {
-                        "type": "string",
-                        "data": "main"
-                    },
-                    "channel": {
-                        "type": "int",
-                        "data": 0
-                    },
-                    "long_name": {
-                        "type": "char",
-                        "data": "Channel 1 Voltage"
-                    },
-                    "units": {
-                        "type": "char",
-                        "data": "Volts"
-                    }
-                }
-            },
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 0},
+                "long_name": {"type": "char", "data": "Channel 1 Voltage"},
+                "units": {"type": "char", "data": "Volts"}
+            }
+        },
         "channel_1_voltage": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 1
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 2 Voltage"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Volts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 1},
+                "long_name": {"type": "char", "data": "Channel 2 Voltage"},
+                "units": {"type": "char", "data": "Volts"}
             }
         },
         "channel_2_voltage": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 2
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 3 Voltage"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Volts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 2},
+                "long_name": {"type": "char", "data": "Channel 3 Voltage"},
+                "units": {"type": "char", "data": "Volts"}
             }
         },
         "channel_3_voltage": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 3
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 4 Voltage"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Volts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 3},
+                "long_name": {"type": "char", "data": "Channel 4 Voltage"},
+                "units": {"type": "char", "data": "Volts"}
             }
         },
         "channel_0_current": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 0
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 1 Current"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Amperes"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 0},
+                "long_name": {"type": "char", "data": "Channel 1 Current"},
+                "units": {"type": "char", "data": "Amperes"}
             }
         },
         "channel_1_current": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 1
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 2 Current"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Amperes"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 1},
+                "long_name": {"type": "char", "data": "Channel 2 Current"},
+                "units": {"type": "char", "data": "Amperes"}
             }
         },
         "channel_2_current": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 2
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 3 Current"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Amperes"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 2},
+                "long_name": {"type": "char", "data": "Channel 3 Current"},
+                "units": {"type": "char", "data": "Amperes"}
             }
         },
         "channel_3_current": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 3
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 4 Current"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Amperes"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 3},
+                "long_name": {"type": "char", "data": "Channel 4 Current"},
+                "units": {"type": "char", "data": "Amperes"}
             }
         },
         "channel_0_power_meas": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 0
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 1 Instantaneous Active Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Watts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 0},
+                "long_name": {"type": "char", "data": "Channel 1 Instantaneous Active Power"},
+                "units": {"type": "char", "data": "Watts"}
             }
         },
         "channel_1_power_meas": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 1
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 2 Instantaneous Active Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Watts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 1},
+                "long_name": {"type": "char", "data": "Channel 2 Instantaneous Active Power"},
+                "units": {"type": "char", "data": "Watts"}
             }
         },
         "channel_2_power_meas": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 2
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 3 Instantaneous Active Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Watts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 2},
+                "long_name": {"type": "char", "data": "Channel 3 Instantaneous Active Power"},
+                "units": {"type": "char", "data": "Watts"}
             }
         },
         "channel_3_power_meas": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 3
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 4 Instantaneous Active Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "Watts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "channel": {"type": "int", "data": 3},
+                "long_name": {"type": "char", "data": "Channel 4 Instantaneous Active Power"},
+                "units": {"type": "char", "data": "Watts"}
             }
         },
         "channel_0_power": {
             "type": "int",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string", 
-                    "data": "setting"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 0
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 1 Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "count"
-                },
-                "valid_min": {
-                    "type": "int",
-                    "data": 0
-                },
-                "valid_max": {
-                    "type": "int",
-                    "data": 1
-                },
-                "step_increment": {
-                    "type": "int",
-                    "data": 1
-                },
-                "default_value": {
-                    "type": "int",
-                    "data": 1
-                }
+                "variable_type": {"type": "string", "data": "setting"},
+                "channel": {"type": "int", "data": 0},
+                "long_name": {"type": "char", "data": "Channel 1 Power"},
+                "units": {"type": "char", "data": "count"},
+                "valid_min": {"type": "int", "data": 0},
+                "valid_max": {"type": "int", "data": 1},
+                "step_increment": {"type": "int", "data": 1},
+                "default_value": {"type": "int", "data": 1}
             }
         },
         "channel_1_power": {
             "type": "int",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string", 
-                    "data": "setting"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 1
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 2 Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "count"
-                },
-                "valid_min": {
-                    "type": "int",
-                    "data": 0
-                },
-                "valid_max": {
-                    "type": "int",
-                    "data": 1
-                },
-                "step_increment": {
-                    "type": "int",
-                    "data": 1
-                },
-                "default_value": {
-                    "type": "int",
-                    "data": 1
-                }
+                "variable_type": {"type": "string", "data": "setting"},
+                "channel": {"type": "int", "data": 1},
+                "long_name": {"type": "char", "data": "Channel 2 Power"},
+                "units": {"type": "char", "data": "count"},
+                "valid_min": {"type": "int", "data": 0},
+                "valid_max": {"type": "int", "data": 1},
+                "step_increment": {"type": "int", "data": 1},
+                "default_value": {"type": "int", "data": 1}
             }
         },
         "channel_2_power": {
             "type": "int",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string", 
-                    "data": "setting"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 2
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 3 Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "count"
-                },
-                "valid_min": {
-                    "type": "int",
-                    "data": 0
-                },
-                "valid_max": {
-                    "type": "int",
-                    "data": 1
-                },
-                "step_increment": {
-                    "type": "int",
-                    "data": 1
-                },
-                "default_value": {
-                    "type": "int",
-                    "data": 1
-                }
+                "variable_type": {"type": "string", "data": "setting"},
+                "channel": {"type": "int", "data": 2},
+                "long_name": {"type": "char", "data": "Channel 3 Power"},
+                "units": {"type": "char", "data": "count"},
+                "valid_min": {"type": "int", "data": 0},
+                "valid_max": {"type": "int", "data": 1},
+                "step_increment": {"type": "int", "data": 1},
+                "default_value": {"type": "int", "data": 1}
             }
         },
         "channel_3_power": {
             "type": "int",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string", 
-                    "data": "setting"
-                },
-                "channel": {
-                    "type": "int",
-                    "data": 3
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Channel 4 Power"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "count"
-                },
-                "valid_min": {
-                    "type": "int",
-                    "data": 0
-                },
-                "valid_max": {
-                    "type": "int",
-                    "data": 1
-                },
-                "step_increment": {
-                    "type": "int",
-                    "data": 1
-                },
-                "default_value": {
-                    "type": "int",
-                    "data": 1
-                }
+                "variable_type": {"type": "string", "data": "setting"},
+                "channel": {"type": "int", "data": 3},
+                "long_name": {"type": "char", "data": "Channel 4 Power"},
+                "units": {"type": "char", "data": "count"},
+                "valid_min": {"type": "int", "data": 0},
+                "valid_max": {"type": "int", "data": 1},
+                "step_increment": {"type": "int", "data": 1},
+                "default_value": {"type": "int", "data": 1}
             }
         }
     }

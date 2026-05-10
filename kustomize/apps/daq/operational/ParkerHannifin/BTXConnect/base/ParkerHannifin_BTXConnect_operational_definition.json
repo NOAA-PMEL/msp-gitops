@@ -10,7 +10,7 @@
         },
         "description": {
             "type": "string",
-            "data": "Miniature Diaphrahm Pump (B1C-090V24AN-03)"
+            "data": "Miniature Diaphragm Pump (B1C-090V24AN-03)"
         },
         "tags": {
             "type": "char",
@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.0.0"
+            "data": "2.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -27,6 +27,10 @@
         "serial_number": {
             "type": "string",
             "data": ""
+        },
+        "change_log": {
+            "type": "string",
+            "data": "2.0.0: Added sampling_state setting, removed hardcoded metadata."
         }
     },
     "dimensions": {
@@ -35,74 +39,42 @@
     "variables": {
         "time": {
             "type": "str",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "string",
-                    "data": "Time"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Operational State"},
+                "allowed_values": {"type": "string", "data": "idle, sampling, maintenance, error"},
+                "default_value": {"type": "string", "data": "sampling"}
             }
         },
         "pump_speed": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Pump Speed - RPM"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "RPM"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Pump Speed - RPM"},
+                "units": {"type": "char", "data": "RPM"}
             }
         },
         "pump_speed_sp": {
             "type": "float",
-            "shape": [
-                "time"
-            ],
+            "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "setting"
-                },
-                "long_name": {
-                    "type": "string",
-                    "data": "Pump Speed SP"
-                },
-                "units": {
-                    "type": "string",
-                    "data": "%"
-                },
-                "valid_min": {
-                    "type": "float",
-                    "data": 0.0
-                },
-                "valid_max": {
-                    "type": "float",
-                    "data": 100.0
-                },
-                "step_increment": {
-                    "type": "float",
-                    "data": 10.0
-                },
-                "default_value": {
-                    "type": "float",
-                    "data": 0.0
-                }
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Pump Speed SP"},
+                "units": {"type": "string", "data": "%"},
+                "valid_min": {"type": "float", "data": 0.0},
+                "valid_max": {"type": "float", "data": 100.0},
+                "step_increment": {"type": "float", "data": 10.0},
+                "default_value": {"type": "float", "data": 0.0}
             }
         }
     }

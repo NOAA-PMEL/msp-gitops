@@ -2,23 +2,23 @@
     "attributes": {
         "make": {
             "type": "string",
-            "data": "SanyoDenki"
+            "data": "Dwyer"
         },
         "model": {
             "type": "string",
-            "data": "SanAce40"
+            "data": "SCD1000"
         },
         "description": {
             "type": "string",
-            "data": "Fan"
+            "data": "Temperature Controller"
         },
         "tags": {
             "type": "char",
-            "data": "flow"
+            "data": "temperature, controller, pid"
         },
         "format_version": {
             "type": "char",
-            "data": "2.0.0"
+            "data": "1.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -30,7 +30,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "2.0.0: Added sampling_state setting, removed hardcoded metadata."
+            "data": "1.0.0: Initial operational definition."
         }
     },
     "dimensions": {
@@ -55,26 +55,26 @@
                 "default_value": {"type": "string", "data": "sampling"}
             }
         },
-        "fan_speed": {
+        "process_value": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Fan Speed - RPM"},
-                "units": {"type": "char", "data": "min-1"}
+                "long_name": {"type": "char", "data": "Process Value (PV)"},
+                "units": {"type": "char", "data": "degrees_C"}
             }
         },
-        "fan_speed_sp": {
+        "set_value": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "string", "data": "Fan Speed SP"},
-                "units": {"type": "string", "data": "%"},
+                "long_name": {"type": "string", "data": "Set Value (SV)"},
+                "units": {"type": "string", "data": "degrees_C"},
                 "valid_min": {"type": "float", "data": 0.0},
-                "valid_max": {"type": "float", "data": 100.0},
-                "step_increment": {"type": "float", "data": 10.0},
-                "default_value": {"type": "float", "data": 0.0}
+                "valid_max": {"type": "float", "data": 1000.0},
+                "step_increment": {"type": "float", "data": 0.1},
+                "default_value": {"type": "float", "data": 25.0}
             }
         }
     }

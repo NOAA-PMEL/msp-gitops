@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dwyer-scd1000-config
+  labels:
+    app: dwyer-scd1000
+data:
+  namespace_prefix: main
+  envds_env_id: main
+  operational.conf: |
+    serial_number: "main"
+    daq_id: main
+    modbus_address: 1
+    interfaces:
+      default: # to read PV and write SV via serial-to-TCP gateway
+        interface_env_id: main 
+        interface_id: serial::tcp::gateway # Update to match your actual TCP gateway convention
+        path: port-01 # Update to match your target COM port mapping
+    settings:
+      set_value: 25.0
