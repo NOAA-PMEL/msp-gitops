@@ -70,10 +70,12 @@ spec:
             httpGet:
               path: /
             timeoutSeconds: 10
+            periodSeconds: 10   # <--- ADD THIS
           livenessProbe:
             httpGet:
               path: /
             timeoutSeconds: 10
+            periodSeconds: 10
             
       # Declare the volumes mapping to the generated ConfigMaps
       # NOTE: The order here must match volumes/0 and volumes/1 in your kustomization patch!

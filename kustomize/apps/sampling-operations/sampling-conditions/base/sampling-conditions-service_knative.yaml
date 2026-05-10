@@ -75,10 +75,12 @@ spec:
             httpGet:
               path: /
             timeoutSeconds: 10
+            periodSeconds: 10   # <--- ADD THIS
           livenessProbe:
             httpGet:
               path: /
             timeoutSeconds: 10
+            periodSeconds: 10
       volumes:
         # - name: sampling-conditions
         #   configMap:
