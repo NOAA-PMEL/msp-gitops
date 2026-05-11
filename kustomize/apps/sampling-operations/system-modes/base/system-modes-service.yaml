@@ -52,6 +52,11 @@ spec:
                 configMapKeyRef:
                   name: system-modes
                   key: system_init_mode
+            - name: SYSTEM_MODES_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: knative_broker
           
           volumeMounts:
             - name: system-modes-modes-vol

@@ -42,6 +42,11 @@ spec:
                 configMapKeyRef:
                   name: sampling-modes
                   key: mqtt_topic_subscriptions
+            - name: SAMPLING_MODES_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-modes
+                  key: knative_broker
             - name: SAMPLING_MODES_IS_PRIMARY_CONTROLLER
               valueFrom:
                 configMapKeyRef:
