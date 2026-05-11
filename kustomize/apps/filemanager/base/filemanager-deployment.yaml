@@ -31,7 +31,7 @@ spec:
           # ADD THIS BLOCK:
           resources:
             requests:
-              cpu: 100m       # Guarantees 1/10th of a core to keep the MQTT loop alive
+              cpu: 200m       # Guarantees 1/10th of a core to keep the MQTT loop alive
               memory: 128Mi   # Baseline memory for a Python/FastAPI app
             limits:
               cpu: 500m       # Caps burst processing at half a core
