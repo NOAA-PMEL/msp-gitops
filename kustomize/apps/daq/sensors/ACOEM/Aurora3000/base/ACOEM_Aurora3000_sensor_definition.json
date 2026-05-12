@@ -46,7 +46,7 @@
                 "variable_type": {"type": "string", "data": "setting"},
                 "long_name": {"type": "string", "data": "Instrument Operational State"},
                 "allowed_values": {"type": "string", "data": "idle, sampling, calibration, maintenance"},
-                "default_value": {"type": "string", "data": "idle"}
+                "default_value": {"type": "string", "data": "sampling"}
             }
         },
         "calibration_routine": {
