@@ -4,10 +4,10 @@
         "model": {"type": "string", "data": "Aurora3000"},
         "description": {"type": "string", "data": "Three wavelength integrating nephelometer with backscatter"},
         "tags": {"type": "char", "data": "aerosol, nephelometer, scattering, backscatter, sensor"},
-        "format_version": {"type": "char", "data": "2.0.0"},
+        "format_version": {"type": "char", "data": "2.1.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration, coordinate"},
         "device_type": {"type": "string", "data": "sensor"},
-        "change_log": {"type": "string", "data": "2.0.0: Re-aligned variables for VI099 output. Added sampling_state, calibration_routine, and generic ext_valve_state for 3-way valve control."}
+        "change_log": {"type": "string", "data": "2.1.0: fix data field in wl and wl_label; 2.0.0: Re-aligned variables for VI099 output. Added sampling_state, calibration_routine, and generic ext_valve_state for 3-way valve control."}
     },
     "dimensions": {
         "time": 0,
@@ -28,7 +28,7 @@
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "LED Centroid Wavelength"},
                 "units": {"type": "char", "data": "nm"},
-                "data": [635, 525, 450]
+                "data": {"type": "int", "data": [635, 525, 450]}
             }
         },
         "wavelength_label": {
@@ -37,7 +37,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "Wavelength Color Alias"},
-                "data": ["red", "green", "blue"]
+                "data": {"type": "str", "data": ["red", "green", "blue"]}
             }
         },
         "sampling_state": {

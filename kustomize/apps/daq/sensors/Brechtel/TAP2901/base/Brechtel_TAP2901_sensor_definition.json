@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "2.11.0"
+            "data": "2.12.0"
         },
         "variable_types": {
             "type": "string",
@@ -38,7 +38,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "2.11.0: Implemented Option 2 architecture with top-level sampling_state and sensor-specific calibration_routine. Prepared for local disk state persistence."
+            "data": "2.12.0: fix data field in wl and wl_label; 2.11.0: Implemented Option 2 architecture with top-level sampling_state and sensor-specific calibration_routine. Prepared for local disk state persistence."
         }
     },
     "dimensions": {
@@ -61,7 +61,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "Sample Spot Number"},
-                "data": [1, 2, 3, 4, 5, 6, 7, 8]
+                "data": {"type": "int", "data": [1, 2, 3, 4, 5, 6, 7, 8]}
             }
         },
         "wavelength": {
@@ -71,7 +71,7 @@
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "LED Centroid Wavelength"},
                 "units": {"type": "char", "data": "nm"},
-                "data": [640, 520, 465]
+                "data": {"type": "int", "data": [640, 520, 465]}
             }
         },
         "wavelength_label": {
@@ -80,7 +80,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "Wavelength Color Alias"},
-                "data": ["red", "green", "blue"]
+                "data": {"type": "str", "data": ["red", "green", "blue"]}
             }
         },
         "sampling_state": {
