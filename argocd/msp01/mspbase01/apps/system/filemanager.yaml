@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: filemanager-mspbase01
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"  # Deploys first
+spec:
+  project: msp
+  source:
+    repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+    targetRevision: HEAD
+    path: kustomize/apps/filemanager/overlays/mspbase01
+    # kustomize:
+    #   patches:
+    #     - patch: |-
+    #         - op: replace
+    #           path: /spec/subscriber/ref/namespace
+    #           value: mspbase01
+    #       target:
+    #         kind: Trigger
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mspbase01-system
+    # namespace: payload01
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
