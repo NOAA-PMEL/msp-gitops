@@ -7,7 +7,7 @@
         "format_version": {"type": "char", "data": "2.1.0"},
         "variable_types": {"type": "string", "data": "main, setting, calibration, coordinate"},
         "device_type": {"type": "string", "data": "sensor"},
-        "change_log": {"type": "string", "data": "2.1.0: fix data field in wl and wl_label; 2.0.0: Re-aligned variables for VI099 output. Added sampling_state, calibration_routine, and generic ext_valve_state for 3-way valve control."}
+        "change_log": {"type": "string", "data": "2.2.0: update date type to list; 2.1.0: fix data field in wl and wl_label; 2.0.0: Re-aligned variables for VI099 output. Added sampling_state, calibration_routine, and generic ext_valve_state for 3-way valve control."}
     },
     "dimensions": {
         "time": 0,
@@ -28,7 +28,7 @@
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "LED Centroid Wavelength"},
                 "units": {"type": "char", "data": "nm"},
-                "data": {"type": "int", "data": [635, 525, 450]}
+                "data": {"type": "list", "data": [635, 525, 450]}
             }
         },
         "wavelength_label": {
@@ -37,7 +37,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "Wavelength Color Alias"},
-                "data": {"type": "str", "data": ["red", "green", "blue"]}
+                "data": {"type": "list", "data": ["red", "green", "blue"]}
             }
         },
         "sampling_state": {
