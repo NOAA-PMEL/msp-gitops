@@ -80,7 +80,7 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "Wavelength Color Alias"},
-                "data": {"type": "str", "data": ["red", "green", "blue"]}
+                "data": {"type": "list", "data": ["red", "green", "blue"]}
             }
         },
         "sampling_state": {
@@ -136,7 +136,7 @@
                 "variable_type": {"type": "string", "data": "calibration"},
                 "long_name": {"type": "char", "data": "Persistent White Filter Ratios"},
                 "default_value": {
-                    "type": "float",
+                    "type": "list",
                     "data": [
                         [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], 
                         [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]
