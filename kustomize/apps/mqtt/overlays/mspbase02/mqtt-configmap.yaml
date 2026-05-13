@@ -35,7 +35,7 @@ data:
     remote_clientid raz1_mspbase01_bridge
     topic envds/+/sensor/+/data/update out 1 "" ""
     topic envds/+/controller/+/controller/data/update out 1 "" ""
-  
+    topic envds/+/+/registry/update out 1 "" ""
 
     # Bridge
     # connection mspbase02_mspbase01_bridge
