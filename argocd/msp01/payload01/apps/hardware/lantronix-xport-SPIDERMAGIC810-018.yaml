@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kn-mqtt-mspbase02
+  name: lantronix-xport-spidermagic810-018
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,17 +10,19 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/kn-mqtt/overlays/mspbase02
+    path: kustomize/apps/daq/interfaces/Lantronix/XPort/overlays/SPIDERMAGIC810-018
+    # kustomize:
+    #   patches:
+    #     - patch: |-
+    #         - op: replace
+    #           path: /spec/subscriber/ref/namespace
+    #           value: mspbase02
+    #       target:
+    #         kind: Trigger
   destination:
     server: https://kubernetes.default.svc
-    # namespace: msp-system
+    # namespace: payload01
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
-  #   syncOptions:
-  #     - RespectIgnoreDifferences=true
-  # ignoreDifferences:
-  #   - jsonPointers:
-  #     - /spec/volumeName
-  #     kind: PersistentVolumeClaim

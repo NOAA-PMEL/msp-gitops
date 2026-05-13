@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: datastore-mspbase02
+  name: aerosoldynamics-spidermagic810-018-payload01
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/datastore/overlays/mspbase02
+    path: kustomize/apps/daq/sensors/AerosolDynamics/SpiderMagic810/overlays/018
     # kustomize:
     #   patches:
     #     - patch: |-
