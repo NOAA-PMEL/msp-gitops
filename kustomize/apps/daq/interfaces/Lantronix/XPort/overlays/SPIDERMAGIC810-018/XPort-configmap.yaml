@@ -12,7 +12,7 @@ data:
     uid: spidermagic810-018
     # serial_number: "1234"
     # daq_id: clearsky
-    host: 10.55.179.18
+    host: 10.55.179.34
     paths:
       port-1:
           # host: 10.55.169.52
