@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "2.12.0"
+            "data": "3.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -38,7 +38,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "2.13.0: update date type to list for coordinate variables; 2.12.0: fix data field in wl and wl_label; 2.11.0: Implemented Option 2 architecture with top-level sampling_state and sensor-specific calibration_routine. Prepared for local disk state persistence."
+            "data": "3.0.0: fix coordinate schema; 2.13.0: update date type to list for coordinate variables; 2.12.0: fix data field in wl and wl_label; 2.11.0: Implemented Option 2 architecture with top-level sampling_state and sensor-specific calibration_routine. Prepared for local disk state persistence."
         }
     },
     "dimensions": {
@@ -60,9 +60,9 @@
             "shape": ["channel"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
-                "long_name": {"type": "char", "data": "Sample Spot Number"},
-                "data": {"type": "list", "data": [1, 2, 3, 4, 5, 6, 7, 8]}
-            }
+                "long_name": {"type": "char", "data": "Sample Spot Number"}
+            },
+            "data": [1, 2, 3, 4, 5, 6, 7, 8]
         },
         "wavelength": {
             "type": "int",
@@ -70,18 +70,18 @@
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
                 "long_name": {"type": "char", "data": "LED Centroid Wavelength"},
-                "units": {"type": "char", "data": "nm"},
-                "data": {"type": "list", "data": [640, 520, 465]}
-            }
+                "units": {"type": "char", "data": "nm"}
+            },
+            "data": [640, 520, 465]
         },
         "wavelength_label": {
             "type": "str",
             "shape": ["wavelength"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "coordinate"},
-                "long_name": {"type": "char", "data": "Wavelength Color Alias"},
-                "data": {"type": "list", "data": ["red", "green", "blue"]}
-            }
+                "long_name": {"type": "char", "data": "Wavelength Color Alias"}
+            },
+            "data": ["red", "green", "blue"]
         },
         "sampling_state": {
             "type": "str",
