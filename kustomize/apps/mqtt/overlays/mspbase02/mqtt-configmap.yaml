@@ -36,6 +36,12 @@ data:
     topic envds/+/sensor/+/data/update out 1 "" ""
     topic envds/+/controller/+/controller/data/update out 1 "" ""
     topic envds/+/+/registry/update out 1 "" ""
+    topic envds/device/settings/request both 0 "" ""
+    topic envds/sensor/settings/request both 0 "" ""
+    topic envds/+/sensor/+/settings/request in 0 "" ""
+    topic envds/+/sensor/+/status/update out 0 "" ""
+    topic envds/controller/settings/request both 0 "" ""
+    topic envds/+/controller/settings/update out 0 "" ""
 
     # Bridge
     # connection mspbase02_mspbase01_bridge
