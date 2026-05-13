@@ -1,0 +1,49 @@
+# apiVersion: eventing.knative.dev/v1
+# kind: Trigger
+# metadata:
+#   name: filemanager-data-save-trigger
+#   # namespace: msp-system
+# spec:
+#   broker: kafka-broker
+#   filters:
+#     - any:
+#         - exact:
+#             type: envds.data.update
+#         - exact:
+#             type: envds.controller.data.update
+#   # filter:
+#   #   attributes:
+#   #     type: envds.device-definition.registry.ack
+#   subscriber:
+#     ref:
+#       apiVersion: v1
+#       kind: Service
+#       name: filemanager
+#       # namespace: msp-system
+#     uri: /data/save/
+# ---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: filemanager-logs-save-trigger
+  # namespace: msp-system
+spec:
+  broker: kafka-broker
+  filters:
+    - any:
+        - exact:
+            type: envds.samplingcondition.status.update
+        - exact:
+            type: envds.samplingstate.status.update
+        - exact:
+            type: envds.samplingmode.status.update
+  # filter:
+  #   attributes:
+  #     type: envds.device-definition.registry.ack
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: filemanager
+      # namespace: msp-system
+    uri: /logs/save/
