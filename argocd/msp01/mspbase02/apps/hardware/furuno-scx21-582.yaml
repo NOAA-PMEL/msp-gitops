@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: furuno-scx21-582-mspbase02
+  name: furuno-scx21-582
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io

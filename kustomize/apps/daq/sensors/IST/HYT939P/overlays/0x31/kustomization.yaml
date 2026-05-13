@@ -4,7 +4,7 @@ metadata:
   name: ist-hyt939p
 
 
-namespace: raz1-hardware
+namespace: mspbase02-hardware
 # namespace: crk8s-hardware
 
 # Example configuration for the webserver

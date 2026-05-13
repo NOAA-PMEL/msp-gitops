@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: usconverters-uscdr301-10.55.169.206-mspbase02
+  name: usconverters-uscdr301-10.55.169.206-raz1
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -16,7 +16,7 @@ spec:
     #     - patch: |-
     #         - op: replace
     #           path: /spec/subscriber/ref/namespace
-    #           value: mspbase02
+    #           value: raz1
     #       target:
     #         kind: Trigger
   destination:

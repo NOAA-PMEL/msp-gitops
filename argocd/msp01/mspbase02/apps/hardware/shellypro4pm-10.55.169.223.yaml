@@ -16,7 +16,7 @@ spec:
     #     - patch: |-
     #         - op: replace
     #           path: /spec/subscriber/ref/namespace
-    #           value: mspbase02
+    #           value: raz1
     #       target:
     #         kind: Trigger
   destination:

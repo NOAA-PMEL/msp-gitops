@@ -3,13 +3,13 @@ kind: Kustomization
 metadata:
   name: dwyer-scd1000
 
-namespace: main-hardware
+namespace: mspbase01-hardware
 
 resources:
 - ../../base
 - scd1000-configmap.yaml
 
-nameSuffix: "-main"
+nameSuffix: "-mspbase01"
 
 patches:
   # change configmap names to account for s/n suffix
@@ -19,7 +19,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: dwyer-scd1000-config-main
+        value: dwyer-scd1000-config-mspbase01
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: operational-definition-main
+        value: operational-definition-mspbase01

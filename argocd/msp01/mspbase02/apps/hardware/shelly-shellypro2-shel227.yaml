@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: usconverters-uscdr302-10.55.169.225-raz1
+  name: shelly-shellypro2-shel227
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,13 +10,13 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/interfaces/USconverters/USCDR302/overlays/10.55.169.225
+    path: kustomize/apps/daq/controllers/Shelly/ShellyPro2/overlays/10.55.169.227
     # kustomize:
     #   patches:
     #     - patch: |-
     #         - op: replace
     #           path: /spec/subscriber/ref/namespace
-    #           value: raz1
+    #           value: mspbase02
     #       target:
     #         kind: Trigger
   destination:

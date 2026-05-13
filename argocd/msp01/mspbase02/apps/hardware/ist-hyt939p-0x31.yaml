@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: usconverters-uscdr301-10.55.169.206-raz1
+  name: ist-hyt939p-0x31
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,13 +10,13 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/interfaces/USconverters/USCDR301/overlays/10.55.169.206
+    path: kustomize/apps/daq/sensors/IST/HYT939P/overlays/0x31
     # kustomize:
     #   patches:
     #     - patch: |-
     #         - op: replace
     #           path: /spec/subscriber/ref/namespace
-    #           value: raz1
+    #           value: mspbase02
     #       target:
     #         kind: Trigger
   destination:

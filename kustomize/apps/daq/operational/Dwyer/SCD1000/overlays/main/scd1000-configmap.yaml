@@ -14,7 +14,7 @@ data:
     interfaces:
       default: # to read PV and write SV via serial-to-TCP gateway
         interface_env_id: main 
-        interface_id: serial::tcp::gateway # Update to match your actual TCP gateway convention
+        interface_id: USconverters::USCDR301::usc219 TCP gateway convention
         path: port-01 # Update to match your target COM port mapping
     settings:
       set_value: 25.0

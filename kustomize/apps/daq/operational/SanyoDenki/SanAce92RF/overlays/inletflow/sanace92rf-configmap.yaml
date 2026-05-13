@@ -6,19 +6,19 @@ metadata:
   labels:
     app: sanyodenki-sanace92rf
 data:
-  namespace_prefix: raz1
-  envds_env_id: raz1
+  namespace_prefix: mspbase02
+  envds_env_id: mspbase02
   operational.conf: |
     serial_number: "inletflow"
-    daq_id: raz1
+    daq_id: mspbase02
     interfaces:
       # default: serial
       default: # to read fan speed
-        interface_env_id: raz1 # if omitted, defaults to envds_id of sensor
+        interface_env_id: mspbase02 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx226 
         path: counter-18
       fan_speed_sp: # to set fan speed
-        interface_env_id: raz1 # if omitted, defaults to envds_id of sensor
+        interface_env_id: mspbase02 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx226 
         path: pwm-6
 

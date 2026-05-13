@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vaisala-wxt536-925-mspbase02
+  name: vaisala-wxt536-925
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -16,7 +16,7 @@ spec:
     #     - patch: |-
     #         - op: replace
     #           path: /spec/subscriber/ref/namespace
-    #           value: mspbase02
+    #           value: raz1
     #       target:
     #         kind: Trigger
   destination:

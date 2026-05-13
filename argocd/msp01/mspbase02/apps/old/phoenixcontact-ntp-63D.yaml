@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sanyodenki-sanace92rf-inletflow-raz1
+  name: phoenixcontact-ntp-63d
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/operational/SanyoDenki/SanAce92RF/overlays/inletflow
+    path: kustomize/apps/daq/sensors/PhoenixContact/TimeserverNTP/overlays/63D
     # kustomize:
     #   patches:
     #     - patch: |-

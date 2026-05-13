@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: furuno-scx21-582-raz1
+  name: usconverters-uscdr302-10.55.169.225
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/sensors/Furuno/SCX21/overlays/582
+    path: kustomize/apps/daq/interfaces/USconverters/USCDR302/overlays/10.55.169.225
     # kustomize:
     #   patches:
     #     - patch: |-
