@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "3.0.0"
+            "data": "3.1.0"
         },
         "variable_types": {
             "type": "string",
@@ -38,7 +38,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "3.0.0: fix coordinate schema; 2.13.0: update date type to list for coordinate variables; 2.12.0: fix data field in wl and wl_label; 2.11.0: Implemented Option 2 architecture with top-level sampling_state and sensor-specific calibration_routine. Prepared for local disk state persistence."
+            "data": "3.1.0: make white_filter_ratios a calibration variable; 3.0.0: fix coordinate schema; 2.13.0: update date type to list for coordinate variables; 2.12.0: fix data field in wl and wl_label; 2.11.0: Implemented Option 2 architecture with top-level sampling_state and sensor-specific calibration_routine. Prepared for local disk state persistence."
         }
     },
     "dimensions": {
@@ -125,7 +125,7 @@
             "type": "float",
             "shape": ["time", "channel", "wavelength"],
             "attributes": {
-                "variable_type": {"type": "string", "data": "main"},
+                "variable_type": {"type": "string", "data": "calibration"},
                 "long_name": {"type": "char", "data": "Active White Filter Baselines"}
             }
         },
