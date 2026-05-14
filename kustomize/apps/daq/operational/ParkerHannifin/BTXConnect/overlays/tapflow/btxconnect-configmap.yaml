@@ -23,7 +23,7 @@ data:
         path: pwm-6
 
     settings:
-      pump_speed_sp: 0 # initialize with pump set to off
+      pump_speed_sp: 20 # initialize with pump set to off
 
       #   connection-properties:
       #     baudrate: 115200
