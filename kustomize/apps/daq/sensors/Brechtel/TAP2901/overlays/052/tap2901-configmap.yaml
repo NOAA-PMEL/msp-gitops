@@ -18,6 +18,9 @@ data:
         interface_env_id: payload02-hardware # if omitted, defaults to envds_id of sensor
         interface_id: USconverters::USCDR301::usc16
         path: port-1
+      settings:
+        sampling_state: sampling
+        
       #   connection-properties:
       #     baudrate: 115200
       #     bytesize: 8
