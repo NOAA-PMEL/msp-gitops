@@ -5,7 +5,7 @@ metadata:
   labels:
     app: dwyer-scd1000
 data:
-  namespace_prefix: main
+  namespace_prefix: mspbase02
   envds_env_id: mspbase02
   operational.conf: |
     serial_number: "main"
