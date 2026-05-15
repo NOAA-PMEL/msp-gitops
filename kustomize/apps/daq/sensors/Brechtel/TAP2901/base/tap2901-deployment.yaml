@@ -56,6 +56,9 @@ spec:
             - name: sensor-definition
               mountPath: /app/Brechtel_TAP2901_sensor_definition.json
               subPath: Brechtel_TAP2901_sensor_definition.json
+            # NEW MOUNT
+            - name: tap-state-volume
+              mountPath: /app/state
       volumes:
         - name: brechtel-tap2901-config
           configMap:
@@ -63,3 +66,8 @@ spec:
         - name: sensor-definition
           configMap:
             name: sensor-definition
+        # NEW VOLUME
+        - name: tap-state-volume
+          persistentVolumeClaim:
+            claimName: tap2901-state-pvc
+            

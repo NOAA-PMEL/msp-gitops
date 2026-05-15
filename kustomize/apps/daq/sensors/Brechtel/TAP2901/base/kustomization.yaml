@@ -11,6 +11,7 @@ metadata:
 resources:
 - tap2901-deployment.yaml
 - tap2901-service.yaml
+- tap2901-pvc.yaml
 
 configMapGenerator:
   - name: sensor-definition
