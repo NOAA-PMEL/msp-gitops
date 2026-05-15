@@ -20,4 +20,10 @@ data:
         interface_env_id: payload01 # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx33
         path: voltage_in-0
-    diameter: "0.5" # diameter of union, inches
+    
+    calibrations:
+      tubing_diameter: 0.5 # inches
+      zero_flow_voltage: 0.125 # volts
+      zero_flow_temperature: 22.5 # degrees C
+      calibration_flows: [0.0, 1.5, 3] # m3/s
+      calibration_voltages: [3.6, 5.0, 7.5] # volts

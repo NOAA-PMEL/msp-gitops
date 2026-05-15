@@ -18,11 +18,11 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.0.0"
+            "data": "1.1.0"
         },
         "variable_types": {
             "type": "string",
-            "data": "main, setting, calibration"
+            "data": "main, setting, calibration, coordinate"
         },
         "serial_number": {
             "type": "string",
@@ -30,11 +30,12 @@
         },
         "change_log": {
             "type": "string",
-            "data": ""
+            "data": "1.1.0: Added flow calibration routine and grouped calibration coefficients into a single array."
         }
     },
     "dimensions": {
-        "time": 0
+        "time": 0,
+        "poly_coeff": 3
     },
     "variables": {
         "time": {
@@ -45,32 +46,96 @@
                 "long_name": {"type": "string", "data": "Time"}
             }
         },
+        "poly_coeff": {
+            "type": "int",
+            "shape": ["poly_coeff"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "coordinate"},
+                "long_name": {"type": "char", "data": "Polynomial Coefficient Index"}
+            },
+            "data": [0, 1, 2]
+        },
         "sampling_state": {
             "type": "str",
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "setting"},
                 "long_name": {"type": "string", "data": "Instrument Operational State"},
-                "allowed_values": {"type": "string", "data": "idle, sampling, maintenance, error"},
+                "allowed_values": {"type": "string", "data": "idle, sampling, calibration, maintenance, error"},
                 "default_value": {"type": "string", "data": "sampling"}
+            }
+        },
+        "calibration_routine": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Specific Calibration to Execute"},
+                "allowed_values": {"type": "char", "data": "none, flow_calibration"},
+                "default_value": {"type": "string", "data": "none"}
             }
         },
         "volts": {
             "type": "float",
             "shape": ["time"],
             "attributes": {
-                "variable_type": {
-                    "type": "string",
-                    "data": "main"
-                },
-                "long_name": {
-                    "type": "char",
-                    "data": "Measured voltage"
-                },
-                "units": {
-                    "type": "char",
-                    "data": "volts"
-                }
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Measured voltage"},
+                "units": {"type": "char", "data": "volts"}
+            }
+        },
+        "flow_uncorrected": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Uncorrected Flow"},
+                "units": {"type": "char", "data": "LPM"}
+            }
+        },
+        "zero_flow_voltage": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "calibration"},
+                "long_name": {"type": "char", "data": "Zero Flow Calibration Voltage"},
+                "units": {"type": "char", "data": "volts"}
+            }
+        },
+        "zero_flow_temperature": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "calibration"},
+                "long_name": {"type": "char", "data": "Temperature at Zero Flow Calibration"},
+                "units": {"type": "char", "data": "degrees_C"}
+            }
+        },
+        "calibration_flows": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "calibration"},
+                "long_name": {"type": "char", "data": "Calibration Flow Values"},
+                "calibration_type": {"type": "string", "data": "LPM"}
+            }
+        },
+        "calibration_voltages": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "calibration"},
+                "long_name": {"type": "char", "data": "Calibration Voltage Values"},
+                "calibration_type": {"type": "string", "data": "volts"}
+            }
+        },
+        "tubing_diameter": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "calibration"},
+                "long_name": {"type": "char", "data": "Installation Tubing Diameter"},
+                "units": {"type": "char", "data": "inches"}
             }
         }
     }
