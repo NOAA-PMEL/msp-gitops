@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: dwyer-scd1000
+
+namespace: payload02-hardware
+
+resources:
+- ../../base
+
+nameSuffix: "-payload02"
+
+# Generate the ConfigMap dynamically so it gets a hash suffix
+configMapGenerator:
+  - name: dwyer-scd1000-config
+    literals:
+      - namespace_prefix=payload02
+      - envds_env_id=payload02
+    files:
+      - operational.conf
