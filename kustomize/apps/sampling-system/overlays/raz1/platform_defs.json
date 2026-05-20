@@ -3,28 +3,47 @@
     "version": "envds.apps.sampling-system/v1",
     "kind": "Platform",
     "metadata": {
-      "name": "Payload03",
-      "platform_type": "MSPPayload",
-      "owner": "Local",
-      "description": "",
-      "contacts": [
-        ""
-      ]
+      "name": "platform.pmel.payload_03",
+      "sampling_namespace": "pmel.noaa.gov"
     },
-    "revision-time": "2026-04-01T00:00:00Z",
-    "interface": {
-      "power-input": [
-        "input-24v-ups",
-        "input-24v",
-        "input-110v"
+    "revision-time": "2026-05-20T00:00:00Z",
+    "data": {
+      "display_name": "MSP Payload 03",
+      "platform_type": "MSP_Payload",
+      "description": "Aerosol science payload featuring a dual-compute-node architecture. Designed for unattended autonomous operations within an MSP Enclosure.",
+      "owner_institution": "NOAA PMEL",
+      "identifiers": {
+        "serial_number": "MSP-PAYLOAD-03"
+      },
+      "compute_nodes": [
+        {
+          "hostname": "raz1",
+          "hardware": "Raspberry Pi CM4",
+          "node_role": "Operations Controller & Data Gateway",
+          "identifiers": {
+            "mac_address": "AA:BB:CC:DD:EE:01"
+          }
+        },
+        {
+          "hostname": "revpi1",
+          "hardware": "Revolution Pi (RevPi)",
+          "node_role": "Hardware DAQ Controller",
+          "identifiers": {
+            "mac_address": "AA:BB:CC:DD:EE:02"
+          }
+        }
       ],
-      "network": [
-        "internal",
-        "external"
+      "contacts": [
+        {
+          "contact_ref": "contact.pmel.hardware_lead",
+          "platform_role": "Lead Hardware Engineer"
+        }
       ],
-      "sample-input": [
-        "sample-line-01"
-      ]
+      "interfaces": {
+        "power-input": ["24V-DC-Main"],
+        "network": ["local-mqtt-broker", "starlink-bridge-uplink"],
+        "sample-input": ["main-aerosol-inlet"]
+      }
     }
   }
 ]
