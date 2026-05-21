@@ -25,7 +25,7 @@ data:
   db_reg_sampling_definition_ttl: '3600'
   #
 
-  DATASTORE_LOG_LEVEL: debug
+  log_level: debug
 
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"

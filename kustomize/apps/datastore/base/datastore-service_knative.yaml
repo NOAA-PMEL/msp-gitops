@@ -36,6 +36,12 @@ spec:
                 configMapKeyRef:
                   name: datastore
                   key: daq_id
+            - name: DATASTORE_LOG_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: log_level
+                  optional: true
             - name: DATASTORE_DB_CLIENT_TYPE
               valueFrom:
                 configMapKeyRef:
