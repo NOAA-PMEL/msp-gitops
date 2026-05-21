@@ -15,7 +15,7 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`0.0.0.0`) && PathPrefix(`/msp/envops`)
+  - match: PathPrefix(`/msp/envops`)
     kind: Rule
     services:
     - name: envops
