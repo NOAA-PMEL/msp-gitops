@@ -73,6 +73,38 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
+  name: datastore-project-definition-registry-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.project-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /project-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-contact-definition-registry-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.contact-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /contact-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
   name: datastore-platform-definition-registry-update
 spec:
   broker: default
@@ -85,6 +117,22 @@ spec:
       kind: Service
       name: datastore
     uri: /platform-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-deployment-definition-registry-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.platform-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: datastore
+    uri: /deployment-definition/registry/update/
 ---
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
