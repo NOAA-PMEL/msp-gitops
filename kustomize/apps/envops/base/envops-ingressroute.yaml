@@ -1,0 +1,25 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: envops-stripprefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /msp/envops
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: envops
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: PathPrefix(`/msp/envops`)
+    kind: Rule
+    services:
+    - name: envops
+      port: 80
+      passHostHeader: true
+    middlewares:
+    - name: envops-stripprefix

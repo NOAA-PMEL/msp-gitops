@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: envops-config
+data:
+  # Base App settings
+  PORT: "8080"
+  
+  # Dashboard specific settings
+  DASHBOARD_DAQ_ID: mspbase01
+  DASHBOARD_EXTERNAL_HOSTNAME: mspbase01.pmel.noaa.gov
+  
+  # MQTT / Eventing Settings
+  DASHBOARD_KNATIVE_BROKER: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/default/default"
+  DASHBOARD_MQTT_BROKER: "mqtt.mspbase01-system"
+  DASHBOARD_MQTT_PORT: "1883"
+  DASHBOARD_MQTT_TOPIC_SUBSCRIPTIONS: >
+    envds/+/+/+/data/update,   
+    envds/+/+/+/controller/data/update,
+    envds/+/variableset/+/data/update,
+    envds/+/sampling-conditions/status/update,
+    envds/+/sampling-states/status/update,
+    envds/+/sampling-modes/status/update,
+    envds/+/system-modes/status/update

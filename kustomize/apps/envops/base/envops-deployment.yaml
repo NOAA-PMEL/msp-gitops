@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envops
+  labels:
+    app: envops
+spec:
+  selector:
+    matchLabels:
+      app: envops
+  template:
+    metadata:
+      labels:
+        app: envops
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: envops
+        image: ghcr.io/noaa-pmel/msp/envops:latest # Rebranded image tag
+        imagePullPolicy: "Always"
+        envFrom:
+          - configMapRef:
+              name: envops-config
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+          limits:
+            memory: "4Gi"
+            cpu: "1000m"
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
