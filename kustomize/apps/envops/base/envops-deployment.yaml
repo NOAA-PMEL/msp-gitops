@@ -17,7 +17,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: envops
-        image: ghcr.io/noaa-pmel/msp/envops:latest # Rebranded image tag
+        image: ghcr.io/noaa-pmel/msp/envops:0.1.0 # Rebranded image tag
         imagePullPolicy: "Always"
         envFrom:
           - configMapRef:
