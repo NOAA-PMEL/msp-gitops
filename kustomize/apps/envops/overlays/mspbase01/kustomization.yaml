@@ -8,6 +8,6 @@ commonLabels:
   platform: mspbase01
 
 resources:
-  - ../base                   # Points to your base deployment, service, and ingress files
+  - ../../base                   # Points to your base deployment, service, and ingress files
   - envops-configmap.yaml     # Applies the mspbase01 environment variables
-  - envops-triggers.yaml      # Applies the Knative routing rules (from the previous step)
+  # - envops-triggers.yaml      # Applies the Knative routing rules (from the previous step)
