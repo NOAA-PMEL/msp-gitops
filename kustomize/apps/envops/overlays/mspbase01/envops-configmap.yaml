@@ -11,7 +11,7 @@ data:
   ENVOPS_WS_PORT: "8080"
   ENVOPS_WS_USE_TLS: "false"
 
-  ENVOPS_KNATIVE_BROKER: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
+  # ENVOPS_KNATIVE_BROKER: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
 
   # MQTT Connection & Routing
   ENVOPS_MQTT_BROKER: "mqtt.mspbase01-system"
