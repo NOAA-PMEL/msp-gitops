@@ -6,8 +6,8 @@ resources:
   - ../../base
 
 # Optional: Set a common namespace or labels for the mspbase01 deployment
-namespace: msp-system
-nameSuffix: -mspbase01
+namespace: mspbase01-system
+# nameSuffix: -mspbase01
 
 # 1. GENERATE THE CONFIGMAPS FROM YOUR JSON FILES
 configMapGenerator:
