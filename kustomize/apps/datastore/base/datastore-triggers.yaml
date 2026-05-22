@@ -126,7 +126,7 @@ spec:
   broker: default
   filter:
     attributes:
-      type: envds.platform-definition.registry.update
+      type: envds.deployment-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
