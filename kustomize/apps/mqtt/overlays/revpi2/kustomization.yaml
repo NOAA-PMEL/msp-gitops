@@ -25,12 +25,12 @@ resources:
 - mqtt-pv.yaml
 - mqtt-configmap.yaml
 
-patches:
-  # change configmap names to account for s/n suffix
-  - path: mqtt-deployment.yaml
-    target: 
-      kind: Deployment
-      name: mqtt
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - path: mqtt-deployment.yaml
+#     target: 
+#       kind: Deployment
+#       name: mqtt
 
 # patchesStrategicMerge:
 #   - deployment.yaml
