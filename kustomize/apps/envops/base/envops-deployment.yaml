@@ -19,22 +19,25 @@ spec:
       - name: envops
         image: ghcr.io/noaa-pmel/msp/envops:0.1.0
         imagePullPolicy: "Always"
-        env:
-        - name: ENVOPS_DAQ_ID
-          valueFrom:
-            configMapKeyRef:
-              name: envops
-              key: daq_id
-        - name: ENVOPS_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: envops
-              key: port
-        - name: ENVOPS_EXTERNAL_HOSTNAME
-          valueFrom:
-            configMapKeyRef:
-              name: envops
-              key: external_hostname
+        envFrom:
+        - configMapRef:
+            name: envops
+        # env:
+        # - name: ENVOPS_DAQ_ID
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: envops
+        #       key: daq_id
+        # - name: ENVOPS_PORT
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: envops
+        #       key: port
+        # - name: ENVOPS_EXTERNAL_HOSTNAME
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: envops
+        #       key: external_hostname
         resources:
           requests:
             cpu: "250m"
