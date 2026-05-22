@@ -1,10 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: mqtt
-
-# set namespace
-namespace: revpi2-system
+  name: setup-brokers
 
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -20,17 +17,15 @@ namespace: revpi2-system
 #   variant: lopez
 
 resources:
-- ../../base
-# - revpi2-server-iot-sealed.yaml
-- mqtt-pv.yaml
-- mqtt-configmap.yaml
+# - ../../base
+- knative-brokers.yaml
 
-patches:
-  # change configmap names to account for s/n suffix
-  - path: mqtt-deployment.yaml
-    target: 
-      kind: Deployment
-      name: mqtt
-
-# patchesStrategicMerge:
-#   - deployment.yaml
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       kind: Broker
+#       name: default
+#     patch: |-
+#       - op: replace 
+#         path: /metadata/namespace
+#         value: revpi2-system
