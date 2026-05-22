@@ -20,6 +20,11 @@ spec:
         image: ghcr.io/noaa-pmel/msp/envops:0.1.0
         imagePullPolicy: "Always"
         env:
+        - name: ENVOPS_DAQ_ID
+          valueFrom:
+            configMapKeyRef:
+              name: envops
+              key: daq_id
         - name: ENVOPS_PORT
           valueFrom:
             configMapKeyRef:
