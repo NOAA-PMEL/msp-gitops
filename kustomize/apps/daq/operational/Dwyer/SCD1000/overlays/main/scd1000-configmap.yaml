@@ -5,15 +5,15 @@ metadata:
   labels:
     app: dwyer-scd1000
 data:
-  namespace_prefix: mspbase02
-  envds_env_id: mspbase02
+  namespace_prefix: revpi2
+  envds_env_id: revpi2
   operational.conf: |
     serial_number: "main"
-    daq_id: mspbase02
+    daq_id: revpi2
     modbus_address: 1
     interfaces:
       default: # to read PV and write SV via serial-to-TCP gateway
-        interface_env_id: mspbase02 
+        interface_env_id: revpi2 
         interface_id: USconverters::USCDR301::usc219
         path: port-1 # Update to match your target COM port mapping
     settings:

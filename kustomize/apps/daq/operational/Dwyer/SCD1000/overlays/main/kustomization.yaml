@@ -3,19 +3,19 @@ kind: Kustomization
 metadata:
   name: dwyer-scd1000
 
-namespace: mspbase02-hardware
+namespace: revpi2-hardware
 
 resources:
 - ../../base
 
-nameSuffix: "-mspbase02"
+nameSuffix: "-revpi2"
 
 # Generate the ConfigMap dynamically so it gets a hash suffix
 configMapGenerator:
   - name: dwyer-scd1000-config
     literals:
-      - namespace_prefix=mspbase02
-      - envds_env_id=mspbase02
+      - namespace_prefix=revpi2
+      - envds_env_id=revpi2
     files:
       - operational.conf
 
@@ -25,13 +25,13 @@ configMapGenerator:
 # metadata:
 #   name: dwyer-scd1000
 
-# namespace: mspbase02-hardware
+# namespace: revpi2-hardware
 
 # resources:
 # - ../../base
 # - scd1000-configmap.yaml
 
-# nameSuffix: "-mspbase02"
+# nameSuffix: "-revpi2"
 
 # patches:
 #   # change configmap names to account for s/n suffix
@@ -41,7 +41,7 @@ configMapGenerator:
 #     patch: |-
 #       - op: replace 
 #         path: /spec/template/spec/volumes/0/configMap/name
-#         value: dwyer-scd1000-config-mspbase02
+#         value: dwyer-scd1000-config-revpi2
 #       - op: replace 
 #         path: /spec/template/spec/volumes/1/configMap/name
-#         value: operational-definition-mspbase02
+#         value: operational-definition-revpi2
