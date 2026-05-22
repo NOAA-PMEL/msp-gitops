@@ -19,5 +19,42 @@
         "power_supply_type": "24V Marine UPS"
       }
     }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": {
+      "name": "platform.pmel.wrc_marina",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "revision-time": "2026-05-21T00:00:00Z",
+    "data": {
+      "display_name": "NOAA WRC Marina",
+      "platform_type": "Fixed Station",
+      "description": "Fixed test site and pier located at the NOAA Western Regional Center in Seattle, WA. Used for instrument intercomparison and pre-deployment validation.",
+      "owner_institution": "NOAA PMEL",
+      "location": {
+        "lat": 47.686,
+        "lon": -122.256
+      }
+    }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": {
+      "name": "platform.pasha.marjorie_c",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "revision-time": "2026-05-21T00:00:00Z",
+    "data": {
+      "display_name": "M/V Marjorie C",
+      "platform_type": "Vessel",
+      "description": "Pasha Hawaii Container/Ro-Ro vessel operating between the US West Coast and Hawaii.",
+      "owner_institution": "Pasha Hawaii",
+      "identifiers": {
+        "imo_number": "9614000"
+      }
+    }
   }
 ]
