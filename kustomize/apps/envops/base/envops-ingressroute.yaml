@@ -5,7 +5,7 @@ metadata:
 spec:
   stripPrefix:
     prefixes:
-      - /msp/envops
+      - /envds/envops
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
