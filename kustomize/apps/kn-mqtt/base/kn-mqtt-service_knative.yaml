@@ -8,10 +8,15 @@ spec:
       # labels:
       #   app: kn-mqtt-adapter
       annotations:
+        # 1. Switch from KPA to HPA
+        autoscaling.knative.dev/class: "hpa.autoscaling.knative.dev"
+        # 2. Tell HPA to scale based on CPU
+        autoscaling.knative.dev/metric: "cpu"
+        # 3. Set the target CPU utilization to 70%
+        autoscaling.knative.dev/target: "70"
+        # 4. HPA cannot scale to zero, it needs at least 1 pod to measure metrics
         autoscaling.knative.dev/min-scale: "1"
         autoscaling.knative.dev/max-scale: "5"
-        autoscaling.knative.dev/target: "10"
-        autoscaling.knative.dev/target-utilization-percentage: "70"
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
@@ -62,3 +67,70 @@ spec:
             path: /
           timeoutSeconds: 5
           periodSeconds: 10
+
+# apiVersion: serving.knative.dev/v1
+# kind: Service
+# metadata:
+#   name: kn-mqtt-adapter
+# spec:
+#   template:
+#     metadata:
+#       # labels:
+#       #   app: kn-mqtt-adapter
+#       annotations:
+#         autoscaling.knative.dev/min-scale: "1"
+#         autoscaling.knative.dev/max-scale: "5"
+#         autoscaling.knative.dev/target: "10"
+#         autoscaling.knative.dev/target-utilization-percentage: "70"
+#     spec:
+#       imagePullSecrets:
+#       - name: ghcr-ro-secret
+#       containers:
+#       # - name: kn-mqtt-adapter
+#       - image: ghcr.io/noaa-pmel/msp/kn-mqtt-adapter:0.1.7
+#         imagePullPolicy: "Always"
+#         env:
+#           - name: KN_MQTT_MQTT_BROKER
+#             valueFrom:
+#               configMapKeyRef:
+#                 name: kn-mqtt-adapter
+#                 key: mqtt_broker
+#           - name: KN_MQTT_MQTT_PORT
+#             valueFrom:
+#               configMapKeyRef:
+#                 name: kn-mqtt-adapter
+#                 key: mqtt_port
+#           - name: KN_MQTT_MQTT_TOPIC_SUBSCRIPTIONS
+#             valueFrom:
+#               configMapKeyRef:
+#                 name: kn-mqtt-adapter
+#                 key: mqtt_topic_subscriptions
+#           - name: KN_MQTT_KNATIVE_BROKER
+#             valueFrom:
+#               configMapKeyRef:
+#                 name: kn-mqtt-adapter
+#                 key: knative_broker
+#         resources:
+#           requests:
+#             cpu: "200m"
+#             memory: "512Mi"
+#           limits:
+#             memory: "1Gi"
+#             cpu: "500m"
+#         ports:
+#           - containerPort: 8080
+#         # - name: http
+#         #   containerPort: 8080
+#         #   protocol: TCP
+#         readinessProbe:
+#           httpGet:
+#             path: /
+#           timeoutSeconds: 5
+#           periodSeconds: 10  # <--- ADD THIS
+#         livenessProbe:
+#           httpGet:
+#             path: /
+#           timeoutSeconds: 5
+#           periodSeconds: 10
+
+        
