@@ -81,7 +81,7 @@ spec:
           source: envds.mspbase02.registrar
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       # apiVersion: v1
       kind: Service
       name: kn-mqtt-adapter

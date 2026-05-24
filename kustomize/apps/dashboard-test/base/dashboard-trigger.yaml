@@ -41,7 +41,7 @@ spec:
       type: envds.sensor.settings.request
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       # apiVersion: v1
       kind: Service
       name: kn-mqtt-adapter
@@ -92,7 +92,7 @@ spec:
       type: envds.controller.settings.request
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       # apiVersion: v1
       kind: Service
       name: kn-mqtt-adapter
