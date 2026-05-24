@@ -11,7 +11,7 @@ data:
   db_data_ttl: '300'
   # db_reg_device_definition_ttl: '0'
   db_reg_device_instance_ttl: '300'
-  db_clear_db: 'false'
+  db_clear_db: 'true'
 
   # --- ADDED/UPDATED DEFINITION TTLS (1 Hour = 3600 seconds) ---
   db_reg_device_definition_ttl: '3600'
@@ -21,7 +21,7 @@ data:
   db_reg_sampling_definition_ttl: '3600'
 
   log_level: debug
-  
+
   #
   # mqtt_broker: "0.0.0.0"
   # mqtt_port: "80"
