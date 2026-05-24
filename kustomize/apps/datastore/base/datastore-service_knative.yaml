@@ -11,14 +11,10 @@ spec:
   template:
     metadata:
       annotations:
-        # 1. Switch from KPA to HPA
-        autoscaling.knative.dev/class: "hpa.autoscaling.knative.dev"
-        # 2. Tell HPA to scale based on CPU
-        autoscaling.knative.dev/metric: "cpu"
-        # 3. Set the target CPU utilization to 70%
-        autoscaling.knative.dev/target: "70"
-        # 4. HPA cannot scale to zero, it needs at least 1 pod to measure metrics
-        autoscaling.knative.dev/min-scale: "1"
+        # Standard KPA scaling (Concurrency-based)
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target-utilization-percentage: "70"
+        autoscaling.knative.dev/min-scale: "1"  # Keeps at least 1 pod running (no scale-to-zero)
         autoscaling.knative.dev/max-scale: "5"
     spec:
       imagePullSecrets:
