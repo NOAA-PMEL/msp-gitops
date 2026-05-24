@@ -3,19 +3,19 @@
     "version": "envds.sampling.system/v1",
     "kind": "PlatformVariableMap",
     "metadata": {
-      "name": "raz1",
+      "name": "payload_03",
       "sampling_namespace": "pmel.noaa.gov",
-      "platform": "MSPPayload03",
-      "valid_config_time": "2026-05-05T15:14:00Z",
+      "platform": "platform.pmel.payload_03",
+      "valid_config_time": "2026-05-24T00:00:00Z",
       "revision": 1
     },
     "data": {
       "attributes": {
         "variablemap_type": "Platform",
-        "platform_type": "MSPPayload",
-        "platform": "MSPPayload03",
+        "platform_type": "MSP_Payload",
+        "platform": "platform.pmel.payload_03",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-05T15:14:00Z",
+        "valid_config_time": "2026-05-24T00:00:00Z",
         "revision": 1
       },
       "variablesets": {
@@ -322,8 +322,7 @@
           "variableset": "main",
           "index_method": ["round", "average"],
           "attributes": { 
-            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
-            "units": { "type": "string", "data": "degrees_east" } 
+            "evaluate_by": { "type": "string", "data": "degrees_east" } 
           }
         },
         "platform_heading": {
@@ -438,8 +437,7 @@
           "variableset": "main",
           "index_method": ["round", "average"],
           "attributes": { 
-            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
-            "units": { "type": "string", "data": "meters" } 
+            "evaluate_by": { "type": "string", "data": "meters" } 
           }
         },
         "true_wind_speed": {
