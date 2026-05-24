@@ -9,9 +9,9 @@ metadata:
   name: datastore-device-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.device-definition.registry.update
+  filters:
+    - exact:
+        type: envds.device-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -25,9 +25,9 @@ metadata:
   name: datastore-device-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.device.registry.update
+  filters:
+    - exact:
+        type: envds.device.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -41,9 +41,9 @@ metadata:
   name: datastore-controller-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.controller-definition.registry.update
+  filters:
+    - exact:
+        type: envds.controller-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -57,9 +57,9 @@ metadata:
   name: datastore-controller-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.controller.registry.update
+  filters:
+    - exact:
+        type: envds.controller.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -76,9 +76,9 @@ metadata:
   name: datastore-project-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.project-definition.registry.update
+  filters:
+    - exact:
+        type: envds.project-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -92,9 +92,9 @@ metadata:
   name: datastore-contact-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.contact-definition.registry.update
+  filters:
+    - exact:
+        type: envds.contact-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -108,9 +108,9 @@ metadata:
   name: datastore-platform-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.platform-definition.registry.update
+  filters:
+    - exact:
+        type: envds.platform-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -124,9 +124,9 @@ metadata:
   name: datastore-deployment-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.deployment-definition.registry.update
+  filters:
+    - exact:
+        type: envds.deployment-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -140,9 +140,9 @@ metadata:
   name: datastore-variablemap-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.variablemap-definition.registry.update
+  filters:
+    - exact:
+        type: envds.variablemap-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -156,9 +156,9 @@ metadata:
   name: datastore-variableset-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.variableset-definition.registry.update
+  filters:
+    - exact:
+        type: envds.variableset-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -175,9 +175,9 @@ metadata:
   name: datastore-samplingcondition-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.samplingcondition-definition.registry.update
+  filters:
+    - exact:
+        type: envds.samplingcondition-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -191,9 +191,9 @@ metadata:
   name: datastore-samplingstate-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.samplingstate-definition.registry.update
+  filters:
+    - exact:
+        type: envds.samplingstate-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -207,9 +207,9 @@ metadata:
   name: datastore-samplingmode-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.samplingmode-definition.registry.update
+  filters:
+    - exact:
+        type: envds.samplingmode-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -223,9 +223,9 @@ metadata:
   name: datastore-action-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.action-definition.registry.update
+  filters:
+    - exact:
+        type: envds.action-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
@@ -239,9 +239,9 @@ metadata:
   name: datastore-systemmode-definition-registry-update
 spec:
   broker: default
-  filter:
-    attributes:
-      type: envds.systemmode-definition.registry.update
+  filters:
+    - exact:
+        type: envds.systemmode-definition.registry.update
   subscriber:
     ref:
       apiVersion: serving.knative.dev/v1
