@@ -14,7 +14,7 @@ spec:
         type: envds.device-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /device-definition/registry/update/
@@ -30,7 +30,7 @@ spec:
         type: envds.device.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /device/registry/update/
@@ -46,7 +46,7 @@ spec:
         type: envds.controller-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /controller-definition/registry/update/
@@ -62,7 +62,7 @@ spec:
         type: envds.controller.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /controller/registry/update/
@@ -81,7 +81,7 @@ spec:
         type: envds.project-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /project-definition/registry/update/
@@ -97,7 +97,7 @@ spec:
         type: envds.contact-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /contact-definition/registry/update/
@@ -113,7 +113,7 @@ spec:
         type: envds.platform-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /platform-definition/registry/update/
@@ -129,7 +129,7 @@ spec:
         type: envds.deployment-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /deployment-definition/registry/update/
@@ -145,7 +145,7 @@ spec:
         type: envds.variablemap-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /variablemap-definition/registry/update/
@@ -161,7 +161,7 @@ spec:
         type: envds.variableset-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /variableset-definition/registry/update/
@@ -180,7 +180,7 @@ spec:
         type: envds.samplingcondition-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /samplingcondition-definition/registry/update/
@@ -196,7 +196,7 @@ spec:
         type: envds.samplingstate-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /samplingstate-definition/registry/update/
@@ -212,7 +212,7 @@ spec:
         type: envds.samplingmode-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /samplingmode-definition/registry/update/
@@ -228,7 +228,7 @@ spec:
         type: envds.action-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /action-definition/registry/update/
@@ -244,7 +244,7 @@ spec:
         type: envds.systemmode-definition.registry.update
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: datastore
     uri: /systemmode-definition/registry/update/
