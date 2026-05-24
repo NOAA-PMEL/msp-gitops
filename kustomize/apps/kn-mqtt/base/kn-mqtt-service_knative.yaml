@@ -47,7 +47,7 @@ spec:
                 key: knative_broker
         resources:
           requests:
-            cpu: "200m"
+            cpu: "250m"
             memory: "512Mi"
           limits:
             memory: "1Gi"
@@ -60,11 +60,13 @@ spec:
         readinessProbe:
           httpGet:
             path: /
+          initialDelaySeconds: 15
           timeoutSeconds: 5
           periodSeconds: 10  # <--- ADD THIS
         livenessProbe:
           httpGet:
             path: /
+          initialDelaySeconds: 30
           timeoutSeconds: 5
           periodSeconds: 10
 

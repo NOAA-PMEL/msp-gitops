@@ -99,11 +99,11 @@ spec:
                   key: knative_broker
           resources:
             requests:
-              cpu: "250m"
+              cpu: "500m"
               memory: "512Mi"
             limits:
               memory: "2Gi"
-              cpu: "500m"
+              cpu: "1000m"
           ports:
             # - name: http
               # containerPort: 8000
@@ -112,11 +112,13 @@ spec:
           readinessProbe:
             httpGet:
               path: /
+            initialDelaySeconds: 15
             timeoutSeconds: 10
             periodSeconds: 10   
           livenessProbe:
             httpGet:
               path: /
+            initialDelaySeconds: 30
             timeoutSeconds: 10
             periodSeconds: 10
       # ports:
