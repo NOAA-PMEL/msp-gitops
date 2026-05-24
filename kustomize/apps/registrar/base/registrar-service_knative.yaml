@@ -119,16 +119,3 @@ spec:
           ports:
             - containerPort: 80
               protocol: TCP
-          readinessProbe:
-            httpGet:
-              path: /
-            timeoutSeconds: 10
-            periodSeconds: 10   # <--- ADD THIS
-          livenessProbe:
-            httpGet:
-              path: /
-            timeoutSeconds: 10
-            periodSeconds: 10
-  traffic:
-    - latestRevision: true
-      percent: 100

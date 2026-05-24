@@ -109,18 +109,6 @@ spec:
               # containerPort: 8000
             - containerPort: 8080
               # protocol: TCP
-          readinessProbe:
-            httpGet:
-              path: /
-            initialDelaySeconds: 15
-            timeoutSeconds: 10
-            periodSeconds: 10   
-          livenessProbe:
-            httpGet:
-              path: /
-            initialDelaySeconds: 30
-            timeoutSeconds: 10
-            periodSeconds: 10
       # ports:
       # - name: http
       #   protocol: TCP

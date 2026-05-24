@@ -57,18 +57,6 @@ spec:
         # - name: http
         #   containerPort: 8080
         #   protocol: TCP
-        readinessProbe:
-          httpGet:
-            path: /
-          initialDelaySeconds: 15
-          timeoutSeconds: 5
-          periodSeconds: 10  # <--- ADD THIS
-        livenessProbe:
-          httpGet:
-            path: /
-          initialDelaySeconds: 30
-          timeoutSeconds: 5
-          periodSeconds: 10
 
 # apiVersion: serving.knative.dev/v1
 # kind: Service
