@@ -3,19 +3,19 @@
     "version": "envds.sampling.system/v1",
     "kind": "PlatformVariableMap",
     "metadata": {
-      "name": "payload02",
+      "name": "payload_02",
       "sampling_namespace": "pmel.noaa.gov",
-      "platform": "MSPPayload02",
-      "valid_config_time": "2026-05-05T15:14:00Z",
+      "platform": "platform.pmel.payload_02",
+      "valid_config_time": "2026-05-24T00:00:00Z",
       "revision": 1
     },
     "data": {
       "attributes": {
         "variablemap_type": "Platform",
-        "platform_type": "MSPPayload",
-        "platform": "MSPPayload02",
+        "platform_type": "MSP_Payload",
+        "platform": "platform.pmel.payload_02",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-05T15:14:00Z",
+        "valid_config_time": "2026-05-24T00:00:00Z",
         "revision": 1
       },
       "variablesets": {
@@ -196,6 +196,177 @@
           "attributes": {
             "evaluate_by": { "type": "string", "data": "data-server" },
             "units": { "type": "string", "data": "mbar" }
+          }
+        },
+        "absorption_red": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "abs_red": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "red_absorption"
+            }
+          },
+          "direct_value": { "source_variable": "abs_red" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "Mm-1" }
+          }
+        },
+        "absorption_green": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "abs_green": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "green_absorption"
+            }
+          },
+          "direct_value": { "source_variable": "abs_green" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "Mm-1" }
+          }
+        },
+        "absorption_blue": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "abs_blue": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "blue_absorption"
+            }
+          },
+          "direct_value": { "source_variable": "abs_blue" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "Mm-1" }
+          }
+        },
+        "transmission_red": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "trans_red": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "red_transmission"
+            }
+          },
+          "direct_value": { "source_variable": "trans_red" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "1" }
+          }
+        },
+        "transmission_green": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "trans_green": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "green_transmission"
+            }
+          },
+          "direct_value": { "source_variable": "trans_green" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "1" }
+          }
+        },
+        "transmission_blue": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "trans_blue": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "blue_transmission"
+            }
+          },
+          "direct_value": { "source_variable": "trans_blue" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "1" }
+          }
+        },
+        "tap_sample_temperature": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "sample_T": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "sample_T"
+            }
+          },
+          "direct_value": { "source_variable": "sample_T" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "degrees_C" }
+          }
+        },
+        "tap_flow_rate": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "flow_rate": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "flow_rate"
+            }
+          },
+          "direct_value": { "source_variable": "flow_rate" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "SLPM" }
+          }
+        },
+        "tap_active_spot": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "active_spot": {
+              "source_type": "device",
+              "source_id": "Brechtel::TAP2901::052",
+              "source_variable": "active_spot"
+            }
+          },
+          "direct_value": { "source_variable": "active_spot" },
+          "variableset": "main",
+          "index_method": ["last"],
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "data-server" },
+            "units": { "type": "string", "data": "spot" }
           }
         }
       }

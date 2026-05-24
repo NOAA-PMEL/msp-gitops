@@ -3,15 +3,15 @@
     "version": "envds.apps.sampling-system/v1",
     "kind": "Platform",
     "metadata": {
-      "name": "MSPPayload01",
-      "platform_type": "MSPPayload",
+      "name": "platform.pmel.payload_01",
+      "platform_type": "MSP_Payload",
       "owner": "Local",
       "description": "",
       "contacts": [
         ""
       ]
     },
-    "revision-time": "2026-04-01T00:00:00Z",
+    "revision-time": "2026-05-24T00:00:00Z",
     "interface": {
       "power-input": [
         "input-24v-ups",

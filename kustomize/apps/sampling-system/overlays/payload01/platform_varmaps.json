@@ -3,19 +3,19 @@
     "version": "envds.sampling.system/v1",
     "kind": "PlatformVariableMap",
     "metadata": {
-      "name": "payload01",
+      "name": "payload_01",
       "sampling_namespace": "pmel.noaa.gov",
-      "platform": "MSPPayload01",
-      "valid_config_time": "2026-05-05T15:14:00Z",
+      "platform": "platform.pmel.payload_01",
+      "valid_config_time": "2026-05-24T00:00:00Z",
       "revision": 1
     },
     "data": {
       "attributes": {
         "variablemap_type": "Platform",
-        "platform_type": "MSPPayload",
-        "platform": "MSPPayload01",
+        "platform_type": "MSP_Payload",
+        "platform": "platform.pmel.payload_01",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-05T15:14:00Z",
+        "valid_config_time": "2026-05-24T00:00:00Z",
         "revision": 1
       },
       "variablesets": {
