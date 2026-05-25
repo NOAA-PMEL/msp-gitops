@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: filemanager-data-pvc
+  labels:
+    app: filemanager
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-host-mapped
+  resources:
+    requests:
+      storage: 50Gi # Adjust based on how much data you generate locally

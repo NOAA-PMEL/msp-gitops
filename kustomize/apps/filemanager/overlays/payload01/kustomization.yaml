@@ -9,6 +9,8 @@ namespace: payload01-system
 resources:
   - ../../base
   - filemanager-configmap.yaml
+  - filemanager-pv.yaml
+  - filemanager-pvc.yaml
   # Comment the line below out if you ONLY want MQTT ingestion on raz1 right now
   # - filemanager-triggers.yaml 
 
