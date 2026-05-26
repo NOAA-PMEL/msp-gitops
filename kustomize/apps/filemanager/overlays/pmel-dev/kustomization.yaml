@@ -4,7 +4,7 @@ metadata:
   name: filemanager
 
 # set namespace
-namespace: mspbase01-system
+namespace: pmel-dev-system
 
 resources:
   - ../../base

@@ -4,7 +4,7 @@ metadata:
   name: filemanager-config
 data:
   # Instructs the system to rely on MQTT for ingestion
-  FILEMANAGER_MQTT_BROKER: "mqtt.mspbase01-system.svc.cluster.local"
+  FILEMANAGER_MQTT_BROKER: "mqtt.pmel-dev-system.svc.cluster.local"
   FILEMANAGER_MQTT_PORT: "1883"
   FILEMANAGER_MQTT_TOPIC_SUBSCRIPTIONS: >
     envds/+/+/+/data/update,
