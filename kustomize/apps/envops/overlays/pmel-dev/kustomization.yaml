@@ -17,4 +17,4 @@ patches:
       - op: add
         path: /spec/routes/0/middlewares/-
         value:
-          name: dashboardtest-upgrade
+          name: envops-upgrade
