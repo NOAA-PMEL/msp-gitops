@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: filemanager-data-pv
+  labels:
+    app: filemanager
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  # We use a custom storage class name to force the PVC to bind specifically to this PV
+  storageClassName: local-host-mapped
+  hostPath:
+    # This is the path inside the k3d node container, 
+    # which your k3d config maps to /home/acg/data/msp/data on your host!
+    path: /data/msp/data/filemanager/mspbase01
+    type: DirectoryOrCreate
