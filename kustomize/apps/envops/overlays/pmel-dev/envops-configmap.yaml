@@ -7,7 +7,7 @@ data:
   # Base Environment
   ENVOPS_DAQ_ID: "pmel-dev"
   ENVOPS_EXTERNAL_HOSTNAME: "k8s.pmel-dev.oarcloud.noaa.gov"
-  # ENVOPS_PORT: "8080"
+  ENVOPS_PORT: "8080"
   # ENVOPS_WS_PORT: "8080"
   ENVOPS_HTTP_USE_TLS: "true"
   ENVOPS_WS_USE_TLS: "true"
