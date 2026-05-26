@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: envops
+  # namespace: msp
+data:
+  # Base Environment
+  ENVOPS_DAQ_ID: "pmel-dev"
+  ENVOPS_EXTERNAL_HOSTNAME: "k8s.pmel-dev.oarcloud.noaa.gov"
+  # ENVOPS_PORT: "8080"
+  # ENVOPS_WS_PORT: "8080"
+  ENVOPS_HTTP_USE_TLS: "true"
+  ENVOPS_WS_USE_TLS: "true"
+
+  ENVOPS_LOG_LEVEL: debug
+
+  # ENVOPS_KNATIVE_BROKER: "http://broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default"
+  ENVOPS_KNATIVE_BROKER: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default
+
+  # MQTT Connection & Routing
+  ENVOPS_MQTT_BROKER: "mqtt.pmel-dev-system"
+  ENVOPS_MQTT_PORT: "1883"
+  ENVOPS_MQTT_TOPIC_SUBSCRIPTIONS: >
+    envds/+/+/+/data/update,
+    envds/+/+/+/controller/data/update,
+    envds/+/variableset/+/data/update,
+    envds/+/sampling-conditions/status/update,
+    envds/+/sampling-states/status/update,
+    envds/+/sampling-modes/status/update,
+    envds/+/system-modes/status/update
+    
