@@ -1,78 +1,55 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: sampling-system
+  name: sampling-modes
 
-# set namespace
+# Set the namespace for the pmel-dev system
 namespace: pmel-dev-system
-
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
-# resources:
-# # Example configuration for the webserver
-# # at https://github.com/monopole/hello
-#   nameSuffix: -usc206
-#   commonLabels:
-#     app: usconverters-uscdr301
-#     variant: test
 
 resources:
 - ../../base
-- sampling-system-configmap.yaml
-# - platform_defs_configmap.yaml
-# - platform_varmaps_configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
-# uncomment this if using knative for data updates
-# - sampling-system-triggers.yaml
+- sampling-modes-configmap.yaml
 
+# Dynamically generate ConfigMaps from local JSON files
 configMapGenerator:
-  - name: sampling-system-platforms
+  - name: sampling-modes-modes
     files:
-      - platform_defs.json
-  - name: sampling-system-variablemaps
+      - sampling_modes_modes.json
+  - name: sampling-modes-actions
     files:
-      - platform_varmaps.json
+      - sampling_modes_actions.json
 
+# Append the system-specific suffix to all resources
 nameSuffix: "-pmel-dev"
 
 patches:
-  # change configmap names to account for s/n suffix
+  # Patch the Service volume definitions to use the suffixed ConfigMap names
   - target:
-      # version: serving.knative.dev/v1
       kind: Service
-      name: sampling-system
+      name: sampling-modes
     patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-system-crk8s
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-pmel-dev
+        value: sampling-modes-modes-pmel-dev
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-variablemaps-pmel-dev
+        value: sampling-modes-actions-pmel-dev
+  
+  # Patch the Knative Triggers to route events to the suffixed Service
+  - target:
+      kind: Trigger
+    patch: |-
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: sampling-modes-pmel-dev
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
 
+# Reference the local Kustomize configuration definition
 configurations:
   - config.yaml
-
-# patches:
-#   - patch: |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: REPLACED_DURING_PATCH
-#       spec:
-#         template:
-#           spec:
-#             containers:
-#               - name: webhook
-#                 env:
-#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
-#                     value: "true"
-#     target:
-#       group: apps
-#       kind: Deployment
-#       name: ".*webhook.*"

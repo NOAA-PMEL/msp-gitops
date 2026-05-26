@@ -30,8 +30,8 @@ resources:
 # - patch-service_knative.yaml
 patches:
   - target: 
-      kind: Service
-      name: datastore
+      kind: Deployment # <-- Fixed from Service
+      name: datastore    
     patch: |-
       - op: add
         path: /spec/template/spec/containers/0/env/-
@@ -58,13 +58,12 @@ patches:
               name: datastore
               key: db_clear_db
   - target:
-      # version: serving.knative.dev/v1
-      kind: Service
-      name: datastore
+      kind: Trigger
+      # name: default
     patch: |-
-      - op: add 
-        path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
-        value: "2"
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
 
 
 # patchesStrategicMerge:

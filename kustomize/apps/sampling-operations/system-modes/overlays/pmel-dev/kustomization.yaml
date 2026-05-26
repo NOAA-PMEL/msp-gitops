@@ -1,78 +1,46 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: sampling-system
-
-# set namespace
 namespace: pmel-dev-system
-
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
-# resources:
-# # Example configuration for the webserver
-# # at https://github.com/monopole/hello
-#   nameSuffix: -usc206
-#   commonLabels:
-#     app: usconverters-uscdr301
-#     variant: test
 
 resources:
 - ../../base
-- sampling-system-configmap.yaml
-# - platform_defs_configmap.yaml
-# - platform_varmaps_configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
-# uncomment this if using knative for data updates
-# - sampling-system-triggers.yaml
+- system-modes-configmap.yaml
 
+# Generate the ConfigMap from your provided JSON file
 configMapGenerator:
-  - name: sampling-system-platforms
+  - name: system-modes-modes
     files:
-      - platform_defs.json
-  - name: sampling-system-variablemaps
-    files:
-      - platform_varmaps.json
+      - system_modes_modes.json
 
+generatorOptions:
+  disableNameSuffixHash: true
+
+# Suffix used across the pmel-dev deployment
 nameSuffix: "-pmel-dev"
 
 patches:
-  # change configmap names to account for s/n suffix
+  # Ensure the Service volume (index 0) points to the suffixed ConfigMap
   - target:
-      # version: serving.knative.dev/v1
       kind: Service
-      name: sampling-system
+      name: system-modes
     patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-system-crk8s
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-pmel-dev
+        value: system-modes-modes-pmel-dev
+  # Ensure the Triggers route traffic to the suffixed Service
+  - target:
+      kind: Trigger
+    patch: |-
       - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-variablemaps-pmel-dev
+        path: /spec/subscriber/ref/name
+        value: system-modes-pmel-dev
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
 
 configurations:
   - config.yaml
-
-# patches:
-#   - patch: |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: REPLACED_DURING_PATCH
-#       spec:
-#         template:
-#           spec:
-#             containers:
-#               - name: webhook
-#                 env:
-#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
-#                     value: "true"
-#     target:
-#       group: apps
-#       kind: Deployment
-#       name: ".*webhook.*"

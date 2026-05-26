@@ -3,76 +3,167 @@ kind: Kustomization
 metadata:
   name: sampling-system
 
-# set namespace
+# Optional: Set a common namespace or labels for the pmel-dev deployment
 namespace: pmel-dev-system
 
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
-# resources:
-# # Example configuration for the webserver
-# # at https://github.com/monopole/hello
-#   nameSuffix: -usc206
-#   commonLabels:
-#     app: usconverters-uscdr301
-#     variant: test
-
+# Point this to wherever your base sampling-system Knative service lives
 resources:
-- ../../base
-- sampling-system-configmap.yaml
-# - platform_defs_configmap.yaml
-# - platform_varmaps_configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
-# uncomment this if using knative for data updates
-# - sampling-system-triggers.yaml
+  - ../../base
+  - sampling-system-configmap.yaml
 
+nameSuffix: -pmel-dev
+
+# 1. GENERATE THE CONFIGMAPS FROM YOUR JSON FILES
 configMapGenerator:
   - name: sampling-system-platforms
-    files:
+    files: 
       - platform_defs.json
+  - name: sampling-system-deployments
+    files: 
+      - deployments.json
+  - name: sampling-system-projects
+    files: 
+      - projects.json
+  - name: sampling-system-contacts
+    files: 
+      - contacts.json
   - name: sampling-system-variablemaps
-    files:
+    files: 
       - platform_varmaps.json
 
-nameSuffix: "-pmel-dev"
-
+# 2. INJECT THEM INTO THE KNATIVE SERVICE VOLUMES
 patches:
-  # change configmap names to account for s/n suffix
   - target:
-      # version: serving.knative.dev/v1
       kind: Service
       name: sampling-system
     patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-system-crk8s
+      # Mount Platforms
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
         value: sampling-system-platforms-pmel-dev
+      
+      # Mount Variablemaps
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
         value: sampling-system-variablemaps-pmel-dev
 
+      # Mount Deployments (This is the new one!)
+      - op: replace 
+        path: /spec/template/spec/volumes/2/configMap/name
+        value: sampling-system-deployments-pmel-dev
+      
+      # Mount Projects
+      - op: replace 
+        path: /spec/template/spec/volumes/3/configMap/name
+        value: sampling-system-projects-pmel-dev
+      
+      # Mount Contacts
+      - op: replace 
+        path: /spec/template/spec/volumes/4/configMap/name
+        value: sampling-system-contacts-pmel-dev
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: sampling-system-pmel-dev
+        
+
 configurations:
   - config.yaml
 
-# patches:
-#   - patch: |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: REPLACED_DURING_PATCH
-#       spec:
-#         template:
-#           spec:
-#             containers:
-#               - name: webhook
-#                 env:
-#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
-#                     value: "true"
-#     target:
-#       group: apps
-#       kind: Deployment
-#       name: ".*webhook.*"
+
+
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: sampling-system
+
+# # set namespace
+# namespace: pmel-dev-system
+
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+# # commonLabels:
+# #   app: nginx
+
+# # resources:
+# # # Example configuration for the webserver
+# # # at https://github.com/monopole/hello
+# #   nameSuffix: -usc206
+# #   commonLabels:
+# #     app: usconverters-uscdr301
+# #     variant: test
+
+# resources:
+# - ../../base
+# - sampling-system-configmap.yaml
+# # - platform_defs_configmap.yaml
+# # - platform_varmaps_configmap.yaml
+# # - ghcr-secret-msp-system-sealed.yaml
+# # uncomment this if using knative for data updates
+# # - sampling-system-triggers.yaml
+
+# configMapGenerator:
+#   - name: sampling-system-platforms
+#     files:
+#       - platform_defs.json
+#   - name: sampling-system-variablemaps
+#     files:
+#       - platform_varmaps.json
+
+# nameSuffix: "-pmel-dev"
+
+patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       # version: serving.knative.dev/v1
+#       kind: Service
+#       name: sampling-system
+#     patch: |-
+#       # - op: replace 
+#       #   path: /spec/template/spec/volumes/0/configMap/name
+#       #   value: sampling-system-pmel-dev
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-system-platforms-pmel-dev
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-system-variablemaps-pmel-dev
+  # - target:
+  #     kind: Trigger
+  #     # name: default
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/broker
+  #       value: kafka-broker
+  #     - op: replace 
+  #       path: /spec/subscriber/ref/name
+  #       value: sampling-system-pmel--dev
+
+# configurations:
+#   - config.yaml
+
+# # patches:
+# #   - patch: |-
+# #       apiVersion: apps/v1
+# #       kind: Deployment
+# #       metadata:
+# #         name: REPLACED_DURING_PATCH
+# #       spec:
+# #         template:
+# #           spec:
+# #             containers:
+# #               - name: webhook
+# #                 env:
+# #                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
+# #                     value: "true"
+# #     target:
+# #       group: apps
+# #       kind: Deployment
+# #       name: ".*webhook.*"

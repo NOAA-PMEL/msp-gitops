@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: sampling-system
+  name: sampling-states
 
 # set namespace
 namespace: pmel-dev-system
@@ -21,20 +21,17 @@ namespace: pmel-dev-system
 
 resources:
 - ../../base
-- sampling-system-configmap.yaml
+- sampling-states-configmap.yaml
 # - platform_defs_configmap.yaml
 # - platform_varmaps_configmap.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 # uncomment this if using knative for data updates
-# - sampling-system-triggers.yaml
+# - sampling-states-triggers.yaml
 
 configMapGenerator:
-  - name: sampling-system-platforms
+  - name: sampling-states-states
     files:
-      - platform_defs.json
-  - name: sampling-system-variablemaps
-    files:
-      - platform_varmaps.json
+      - sampling_states.json
 
 nameSuffix: "-pmel-dev"
 
@@ -43,36 +40,21 @@ patches:
   - target:
       # version: serving.knative.dev/v1
       kind: Service
-      name: sampling-system
+      name: sampling-states
     patch: |-
       # - op: replace 
       #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-system-crk8s
+      #   value: sampling-states-pmel-dev
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-pmel-dev
+        value: sampling-states-states-pmel-dev
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
       - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-variablemaps-pmel-dev
+        path: /spec/broker
+        value: kafka-broker
 
 configurations:
   - config.yaml
-
-# patches:
-#   - patch: |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: REPLACED_DURING_PATCH
-#       spec:
-#         template:
-#           spec:
-#             containers:
-#               - name: webhook
-#                 env:
-#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
-#                     value: "true"
-#     target:
-#       group: apps
-#       kind: Deployment
-#       name: ".*webhook.*"

@@ -40,6 +40,13 @@ patches:
       #       configMapKeyRef:
       #         name: registrar
       #         key: allowed_sync_sources
+  - target:
+      kind: Trigger
+      # name: default
+    patch: |-
+      - op: replace 
+        path: /spec/broker
+        value: kafka-broker
 
 # patches:
 #   # change configmap names to account for s/n suffix

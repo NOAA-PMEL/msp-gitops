@@ -1,0 +1,29 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Contact",
+    "metadata": {
+      "name": "contact.pmel.beacons_pi",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "data": {
+      "name": "Dr. Jane Smith",
+      "email": "jane.smith@noaa.gov",
+      "institution": "NOAA PMEL",
+      "orcid": "0000-0000-0000-0000"
+    }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Contact",
+    "metadata": {
+      "name": "contact.pnnl.data_manager",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "data": {
+      "name": "Dr. John Doe",
+      "email": "john.doe@pnnl.gov",
+      "institution": "Pacific Northwest National Laboratory (PNNL)"
+    }
+  }
+]

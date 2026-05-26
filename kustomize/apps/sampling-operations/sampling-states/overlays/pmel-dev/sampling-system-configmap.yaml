@@ -35,8 +35,7 @@ data:
   mqtt_broker: "mqtt.pmel-dev-system"
   mqtt_port: "1883"
   mqtt_topic_subscriptions: >
-    envds/+/+/+/data/update,   
-    envds/+/+/+/controller/data/update   
+    envds/+/sampling-conditions/#  
 
 # mqtt off
 
