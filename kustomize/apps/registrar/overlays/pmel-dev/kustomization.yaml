@@ -32,14 +32,6 @@ patches:
       - op: add 
         path: /spec/template/metadata/annotations/autoscaling.knative.dev~1min-scale
         value: "1"
-      # - op: add
-      #   path: /spec/template/spec/containers/0/env/-
-      #   value:
-      #     name: REGISTRAR_ALLOWED_SYNC_SOURCES
-      #     valueFrom:
-      #       configMapKeyRef:
-      #         name: registrar
-      #         key: allowed_sync_sources
 
 # patches:
 #   # change configmap names to account for s/n suffix

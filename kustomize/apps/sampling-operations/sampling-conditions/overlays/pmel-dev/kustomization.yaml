@@ -54,7 +54,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/subscriber/ref/name
-        value: sampling-system-pmel-dev
+        value: sampling-conditions-pmel-dev
 
 
 configurations:

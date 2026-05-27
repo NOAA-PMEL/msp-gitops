@@ -4,18 +4,18 @@ metadata:
   name: sampling-modes
   # namespace: msp-system
 data:
-  daq_id: mspbase01
+  daq_id: pmel-dev
   port: "8080"
-  # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
+  # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default"
   knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker"
   
   is_primary_controller: "false" # ADD THIS LINE
 
-  mqtt_broker: "mqtt.mspbase01-system"
+  mqtt_broker: "mqtt.pmel-dev-system"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/#,
     envds/+/sampling-states/#,
-    envds/mspbase01/sampling-modes/#
+    envds/pmel-dev/sampling-modes/#
 
 
   mqtt_port: "1883"
