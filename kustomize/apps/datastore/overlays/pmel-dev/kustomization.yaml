@@ -57,14 +57,6 @@ patches:
             configMapKeyRef:
               name: datastore
               key: db_clear_db
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
-
 
 # patchesStrategicMerge:
 # - patch-service_knative.yaml

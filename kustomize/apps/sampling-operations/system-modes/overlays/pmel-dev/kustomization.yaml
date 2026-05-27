@@ -34,13 +34,6 @@ patches:
       - op: replace 
         path: /spec/subscriber/ref/name
         value: system-modes-pmel-dev
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
 
 configurations:
   - config.yaml

@@ -42,13 +42,6 @@ patches:
       - op: replace 
         path: /spec/subscriber/ref/name
         value: sampling-modes-pmel-dev
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
 
 # Reference the local Kustomize configuration definition
 configurations:

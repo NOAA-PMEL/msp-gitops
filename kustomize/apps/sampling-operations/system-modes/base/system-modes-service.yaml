@@ -52,6 +52,11 @@ spec:
                 configMapKeyRef:
                   name: system-modes
                   key: system_init_mode
+            - name: SYSTEM_MODES_IS_PRIMARY_CONTROLLER
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: is_primary_controller
             - name: SYSTEM_MODES_KNATIVE_BROKER
               valueFrom:
                 configMapKeyRef:
