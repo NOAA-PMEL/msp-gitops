@@ -7,8 +7,8 @@
             "action_module": "actions.beacons_msp",
             "action_def": "set_isokinetic_inlet_flow",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-11T00:00:00Z",
-            "revision": 1
+            "valid_config_time": "2026-05-30T00:00:00Z",
+            "revision": 2
         },
         "source_max_age": 10,
         "sources": {
@@ -19,10 +19,10 @@
             }
         },
         "targets": {
-            "fan_speed_sp": {
-                "variablemap_name": "raz1",
-                "variableset_name": "main",
-                "variable": "fan_speed_sp"
+            "inlet_fan_speed_sp": {
+                "variablemap_name": "payload_03",
+                "variableset_name": "operations",
+                "variable": "inlet_fan_speed_sp"
             }
         }
     },
@@ -34,104 +34,16 @@
             "action_module": "actions.beacons_msp",
             "action_def": "set_reverse_inlet_flow",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-11T00:00:00Z",
-            "revision": 1
+            "valid_config_time": "2026-05-30T00:00:00Z",
+            "revision": 2
         },
         "source_max_age": 10,
         "sources": {},
         "targets": {
-            "fan_speed_sp": {
-                "variablemap_name": "raz1",
-                "variableset_name": "main",
-                "variable": "fan_speed_sp"
-            }
-        }
-    },
-    {
-        "version": "envds.sampling.operations/v1",
-        "kind": "SamplingAction",
-        "metadata": {
-            "name": "turn_on_main_power",
-            "action_module": "actions.beacons_msp",
-            "action_def": "turn_on_main_power",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-11T00:00:00Z",
-            "revision": 1
-        },
-        "source_max_age": 10,
-        "sources": {},
-        "targets": {
-            "main_power_state": {
-                "variablemap_name": "raz1",
-                "variableset_name": "main",
-                "variable": "main_power_state",
-                "target_type": "controller"
-            }
-        }
-    },
-    {
-        "version": "envds.sampling.operations/v1",
-        "kind": "SamplingAction",
-        "metadata": {
-            "name": "turn_on_physics_power",
-            "action_module": "actions.beacons_msp",
-            "action_def": "turn_on_physics_power",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-11T00:00:00Z",
-            "revision": 1
-        },
-        "source_max_age": 10,
-        "sources": {},
-        "targets": {
-            "physics_power_state": {
-                "variablemap_name": "raz1",
-                "variableset_name": "main",
-                "variable": "physics_power_state",
-                "target_type": "controller"
-            }
-        }
-    },
-    {
-        "version": "envds.sampling.operations/v1",
-        "kind": "SamplingAction",
-        "metadata": {
-            "name": "turn_on_optics_power",
-            "action_module": "actions.beacons_msp",
-            "action_def": "turn_on_optics_power",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-11T00:00:00Z",
-            "revision": 1
-        },
-        "source_max_age": 10,
-        "sources": {},
-        "targets": {
-            "optics_power_state": {
-                "variablemap_name": "raz1",
-                "variableset_name": "main",
-                "variable": "optics_power_state",
-                "target_type": "controller"
-            }
-        }
-    },
-    {
-        "version": "envds.sampling.operations/v1",
-        "kind": "SamplingAction",
-        "metadata": {
-            "name": "turn_on_spare_power",
-            "action_module": "actions.beacons_msp",
-            "action_def": "turn_on_spare_power",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-11T00:00:00Z",
-            "revision": 1
-        },
-        "source_max_age": 10,
-        "sources": {},
-        "targets": {
-            "spare_power_state": {
-                "variablemap_name": "raz1",
-                "variableset_name": "main",
-                "variable": "spare_power_state",
-                "target_type": "controller"
+            "inlet_fan_speed_sp": {
+                "variablemap_name": "payload_03",
+                "variableset_name": "operations",
+                "variable": "inlet_fan_speed_sp"
             }
         }
     }

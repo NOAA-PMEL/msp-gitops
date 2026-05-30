@@ -24,6 +24,12 @@
             "index_type": "time",
             "index_value": 1
           }
+        },
+        "power": {
+          "index": {
+            "index_type": "time",
+            "index_value": 1
+          }
         }
       },
       "variables": {
@@ -368,6 +374,73 @@
             "evaluate_by": { "type": "string", "data": "data-server" },
             "units": { "type": "string", "data": "spot" }
           }
+        }
+      }
+    }
+  },
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "payload_02",
+      "sampling_namespace": "pmel.noaa.gov",
+      "platform": "platform.pmel.payload_02",
+      "valid_config_time": "2026-05-30T00:00:00Z",
+      "revision": 1
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Platform",
+        "platform_type": "MSP_Payload",
+        "platform": "platform.pmel.payload_02",
+        "sampling_namespace": "pmel.noaa.gov",
+        "valid_config_time": "2026-05-30T00:00:00Z",
+        "revision": 1
+      },
+      "variablesets": {
+        "power": {
+          "index": {
+            "index_type": "time",
+            "index_value": 1
+          }
+        }
+      },
+      "variables": {
+        "power_neph": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_neph"},
+          "source": { "power_neph": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_1_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "Nephelometer Power"} }
+        },
+        "power_absorb": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_absorb"},
+          "source": { "power_absorb": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_2_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "Brechel TAP Power"} }
+        },
+        "power_24v_bus": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_24v_bus"},
+          "source": { "power_24v_bus": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_3_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "24V Power Supply"} }
+        },
+        "power_tec": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_tec"},
+          "source": { "power_tec": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_4_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "Thermo Electric Cooler"} }
         }
       }
     }

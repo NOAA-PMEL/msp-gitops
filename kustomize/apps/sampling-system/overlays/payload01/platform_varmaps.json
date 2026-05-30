@@ -6,8 +6,8 @@
       "name": "payload_01",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "platform.pmel.payload_01",
-      "valid_config_time": "2026-05-24T00:00:00Z",
-      "revision": 1
+      "valid_config_time": "2026-05-30T00:00:00Z",
+      "revision": 2
     },
     "data": {
       "attributes": {
@@ -15,8 +15,8 @@
         "platform_type": "MSP_Payload",
         "platform": "platform.pmel.payload_01",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-24T00:00:00Z",
-        "revision": 1
+        "valid_config_time": "2026-05-30T00:00:00Z",
+        "revision": 2
       },
       "variablesets": {
         "main": {
@@ -30,332 +30,150 @@
             "index_type": "time",
             "index_value": 30
           }
+        },
+        "power": {
+          "index": {
+            "index_type": "time",
+            "index_value": 1
+          }
         }
       },
       "variables": {
         "cn": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "concentration": {
-              "source_type": "device",
-              "source_id": "AerosolDynamics::MAGIC250::154",
-              "source_variable": "concentration"
-            }
-          },
-          "direct_value": {
-            "source_variable": "concentration"
-          },
+          "source": { "concentration": { "source_type": "device", "source_id": "AerosolDynamics::MAGIC250::154", "source_variable": "concentration" } },
+          "direct_value": { "source_variable": "concentration" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "operations-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "cm-3"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "cn_flow": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "flow": {
-              "source_type": "device",
-              "source_id": "AerosolDynamics::MAGIC250::154",
-              "source_variable": "flow"
-            }
-          },
-          "direct_value": {
-            "source_variable": "flow"
-          },
+          "source": { "flow": { "source_type": "device", "source_id": "AerosolDynamics::MAGIC250::154", "source_variable": "flow" } },
+          "direct_value": { "source_variable": "flow" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "cm3 min-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "cm3 min-1" } }
         },
         "aps_diameter": {
           "type": "float",
-          "shape": [
-            "time",
-            "diameter"
-          ],
+          "shape": ["time", "diameter"],
           "map_type": "direct",
-          "source": {
-            "dp": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "diameter"
-            }
-          },
-          "direct_value": {
-            "source_variable": "dp"
-          },
+          "source": { "dp": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "diameter" } },
+          "direct_value": { "source_variable": "dp" },
           "variableset": "sizing",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "um"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "um" } }
         },
         "aps_particle_counts": {
           "type": "int",
-          "shape": [
-            "time",
-            "diameter"
-          ],
+          "shape": ["time", "diameter"],
           "map_type": "direct",
-          "source": {
-            "counts": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "particle_counts"
-            }
-          },
-          "direct_value": {
-            "source_variable": "counts"
-          },
+          "source": { "counts": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "particle_counts" } },
+          "direct_value": { "source_variable": "counts" },
           "variableset": "sizing",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "count"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "count" } }
         },
         "aps_dN": {
           "type": "float",
-          "shape": [
-            "time",
-            "diameter"
-          ],
+          "shape": ["time", "diameter"],
           "map_type": "direct",
-          "source": {
-            "dn": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "dN"
-            }
-          },
-          "direct_value": {
-            "source_variable": "dn"
-          },
+          "source": { "dn": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "dN" } },
+          "direct_value": { "source_variable": "dn" },
           "variableset": "sizing",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "cm-3"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_dNdlogDp": {
           "type": "float",
-          "shape": [
-            "time",
-            "diameter"
-          ],
+          "shape": ["time", "diameter"],
           "map_type": "direct",
-          "source": {
-            "dndlogdp": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "dNdlogDp"
-            }
-          },
-          "direct_value": {
-            "source_variable": "dndlogdp"
-          },
+          "source": { "dndlogdp": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "dNdlogDp" } },
+          "direct_value": { "source_variable": "dndlogdp" },
           "variableset": "sizing",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "cm-3"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_intN": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "intn": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "intN"
-            }
-          },
-          "direct_value": {
-            "source_variable": "intn"
-          },
+          "source": { "intn": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "intN" } },
+          "direct_value": { "source_variable": "intn" },
           "variableset": "sizing",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "cm-3"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_total_flow": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "tflow": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "tflow"
-            }
-          },
-          "direct_value": {
-            "source_variable": "tflow"
-          },
+          "source": { "tflow": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "tflow" } },
+          "direct_value": { "source_variable": "tflow" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "lpm"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "lpm" } }
         },
         "aps_sheath_flow": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "sflow": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "sflow"
-            }
-          },
-          "direct_value": {
-            "source_variable": "sflow"
-          },
+          "source": { "sflow": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "sflow" } },
+          "direct_value": { "source_variable": "sflow" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "lpm"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "lpm" } }
         },
         "aps_inlet_temperature": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "itemp": {
-              "source_type": "device",
-              "source_id": "TSI::APS3321::273",
-              "source_variable": "itemp"
-            }
-          },
-          "direct_value": {
-            "source_variable": "itemp"
-          },
+          "source": { "itemp": { "source_type": "device", "source_id": "TSI::APS3321::273", "source_variable": "itemp" } },
+          "direct_value": { "source_variable": "itemp" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "degrees_C"
-            }
-          }
+          "index_method": ["round", "average"],
+          "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "degrees_C" } }
+        },
+        "power_opc": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_opc"},
+          "source": { "power_opc": { "source_type": "controller", "source_id": "Shelly::ShellyPro1::shel29", "source_variable": "channel_0_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "OPC Power"} }
+        },
+        "power_smps": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_smps"},
+          "source": { "power_smps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_1_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "SMPS Power"} }
+        },
+        "power_cpc": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_cpc"},
+          "source": { "power_cpc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_2_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "CPC Power"} }
+        },
+        "power_aps": {
+          "type": "int",
+          "shape": ["time"],
+          "map_type": "direct",
+          "direct_value": {"source_variable": "power_aps"},
+          "source": { "power_aps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_3_power" } },
+          "variableset": "power",
+          "attributes": { "long_name": {"type": "string", "data": "APS Power"} }
         }
       }
     }
