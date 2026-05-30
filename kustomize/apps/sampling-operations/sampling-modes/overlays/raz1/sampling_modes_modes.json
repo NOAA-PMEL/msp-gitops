@@ -68,32 +68,12 @@
         }
     },
     {
-        "metadata": {"name": "startup_main_power", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-11T00:00:00Z"},
+        "version": "envds.sampling.operations/v1",
         "kind": "SamplingMode",
-        "requirements": [{"kind": "SamplingState", "name": "cascade_ready"}],
-        "actions": {"true": [{"kind": "SamplingAction", "name": "turn_on_main_power"}]}
-    },
-    {
-        "metadata": {"name": "startup_physics_power", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-11T00:00:00Z"},
-        "kind": "SamplingMode",
-        "requirements": [{"kind": "SamplingState", "name": "main_power_ready"}],
-        "actions": {"true": [{"kind": "SamplingAction", "name": "turn_on_physics_power"}]}
-    },
-    {
-        "metadata": {"name": "startup_optics_power", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-11T00:00:00Z"},
-        "kind": "SamplingMode",
-        "requirements": [{"kind": "SamplingState", "name": "physics_power_ready"}],
-        "actions": {"true": [{"kind": "SamplingAction", "name": "turn_on_optics_power"}]}
-    },
-    {
-        "metadata": {"name": "startup_spare_power", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-11T00:00:00Z"},
-        "kind": "SamplingMode",
-        "requirements": [{"kind": "SamplingState", "name": "optics_power_ready"}],
-        "actions": {"true": [{"kind": "SamplingAction", "name": "turn_on_spare_power"}]}
-    },
-    {
-        "metadata": {"name": "startup_complete", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-11T00:00:00Z"},
-        "kind": "SamplingMode",
-        "requirements": [{"kind": "SamplingState", "name": "spare_power_ready"}]
+        "metadata": { "name": "startup_complete", "sampling_namespace": "pmel.noaa.gov", "execution_node": "raz1", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "requirements": [ 
+            { "kind": "SamplingState", "name": "raz1_boot_buffer_complete" } 
+        ],
+        "actions": {}
     }
 ]

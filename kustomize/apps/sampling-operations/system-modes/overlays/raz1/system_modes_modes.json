@@ -5,15 +5,16 @@
         "metadata": {
             "name": "normal",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-04-30T15:17:00Z",
-            "revision": 2
+            "valid_config_time": "2026-05-30T00:00:00Z",
+            "revision": 3
         },
         "requirements": [
             {
                 "kind": "SamplingMode",
                 "name": "nominal_sampling"
             }
-        ]
+        ],
+        "transitions": {}
     },
     {
         "version": "envds.system.modes/v1",
@@ -21,20 +22,46 @@
         "metadata": {
             "name": "startup",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-11T00:00:00Z",
-            "revision": 2
+            "valid_config_time": "2026-05-30T00:00:00Z",
+            "revision": 3
         },
         "requirements": [
-            {"kind": "SamplingMode", "name": "startup_main_power"},
-            {"kind": "SamplingMode", "name": "startup_physics_power"},
-            {"kind": "SamplingMode", "name": "startup_optics_power"},
-            {"kind": "SamplingMode", "name": "startup_spare_power"},
-            {"kind": "SamplingMode", "name": "startup_complete"}
+            {
+                "kind": "SamplingMode", 
+                "name": "startup_complete"
+            }
         ],
         "transitions": {
             "true": [
-                {"kind": "SystemMode", "name": "normal"}
+                {
+                    "kind": "SystemMode", 
+                    "name": "normal"
+                }
             ]
         }
+    },
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "shutdown",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-05-30T00:00:00Z",
+            "revision": 1
+        },
+        "requirements": [],
+        "transitions": {}
+    },
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "standby",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-05-30T00:00:00Z",
+            "revision": 1
+        },
+        "requirements": [],
+        "transitions": {}
     }
 ]

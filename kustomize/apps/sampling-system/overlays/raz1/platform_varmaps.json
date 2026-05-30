@@ -576,42 +576,6 @@
             "description": { "type": "string", "data": "Target setpoint for the main inlet flow controller." }
           }
         }
-        "main_power_state": {
-            "type": "int", "shape": ["time"], "map_type": "direct",
-            "source": {"power": {"source_type": "controller", "source_id": "Shelly::ShellyPro4PM::shel223", "source_variable": "channel_0_power"}},
-            "direct_value": {"source_variable": "power"}, "variableset": "main", "index_method": ["round", "average"],
-            "attributes": {
-                "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
-                "units": {"type": "string", "data": "state"}
-            }
-        },
-        "physics_power_state": {
-            "type": "int", "shape": ["time"], "map_type": "direct",
-            "source": {"power": {"source_type": "controller", "source_id": "Shelly::ShellyPro4PM::shel223", "source_variable": "channel_1_power"}},
-            "direct_value": {"source_variable": "power"}, "variableset": "main", "index_method": ["round", "average"],
-            "attributes": {
-                "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
-                "units": {"type": "string", "data": "state"}
-            }
-        },
-        "optics_power_state": {
-            "type": "int", "shape": ["time"], "map_type": "direct",
-            "source": {"power": {"source_type": "controller", "source_id": "Shelly::ShellyPro4PM::shel223", "source_variable": "channel_2_power"}},
-            "direct_value": {"source_variable": "power"}, "variableset": "main", "index_method": ["round", "average"],
-            "attributes": {
-                "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
-                "units": {"type": "string", "data": "state"}
-            }
-        },
-        "spare_power_state": {
-            "type": "int", "shape": ["time"], "map_type": "direct",
-            "source": {"power": {"source_type": "controller", "source_id": "Shelly::ShellyPro4PM::shel223", "source_variable": "channel_3_power"}},
-            "direct_value": {"source_variable": "power"}, "variableset": "main", "index_method": ["round", "average"],
-            "attributes": {
-                "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
-                "units": {"type": "string", "data": "state"}
-            }
-        }
       }
     }
   }

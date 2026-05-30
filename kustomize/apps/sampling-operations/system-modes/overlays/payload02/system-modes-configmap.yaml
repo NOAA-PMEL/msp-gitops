@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: system-modes
+  # namespace: msp-system
+data:
+  daq_id: payload02
+  port: "8080"
+  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload02-system/default"
+
+  system_init_control: "auto"
+  system_init_mode: "normal"
+  is_primary_controller: "true"
+
+  mqtt_broker: "mqtt.payload02-system"
+  mqtt_topic_subscriptions: >
+    envds/+/+/+/data/#,
+    envds/+/system-modes/#,
+    envds/+/sampling-modes/#
+
+
+  mqtt_port: "1883"

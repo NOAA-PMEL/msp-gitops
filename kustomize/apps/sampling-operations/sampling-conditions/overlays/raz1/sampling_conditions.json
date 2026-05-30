@@ -133,5 +133,58 @@
                 }
             ]
         }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": { 
+            "name": "raz1_telemetry_active", 
+            "sampling_namespace": "pmel.noaa.gov", 
+            "execution_node": "raz1", 
+            "valid_config_time": "2026-05-30T00:00:00Z", 
+            "revision": 3 
+        },
+        "sources": {
+            "gps_lat": { 
+                "variablemap_name": "payload_03", 
+                "variableset_name": "main", 
+                "variable": "latitude" 
+            },
+            "air_temp": { 
+                "variablemap_name": "payload_03", 
+                "variableset_name": "main", 
+                "variable": "air_temperature" 
+            },
+            "irrad": { 
+                "variablemap_name": "payload_03", 
+                "variableset_name": "main", 
+                "variable": "irradiance" 
+            }
+        },
+        "criteria": {
+            "any": [
+                { 
+                    "criterion_class": "LimitMinMax", 
+                    "sources": ["gps_lat"], 
+                    "min_val": -90.0, 
+                    "max_val": 90.0, 
+                    "true_if": "inside" 
+                },
+                { 
+                    "criterion_class": "LimitMinMax", 
+                    "sources": ["air_temp"], 
+                    "min_val": -80.0, 
+                    "max_val": 80.0, 
+                    "true_if": "inside" 
+                },
+                { 
+                    "criterion_class": "LimitMinMax", 
+                    "sources": ["irrad"], 
+                    "min_val": -10.0, 
+                    "max_val": 2000.0, 
+                    "true_if": "inside" 
+                }
+            ]
+        }
     }
 ]

@@ -1,0 +1,40 @@
+[
+    {
+        "version": "envds.system.operations/v1",
+        "kind": "SystemMode",
+        "metadata": { "name": "normal", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-30T00:00:00Z" },
+        "requirements": [],
+        "transitions": {}
+    },
+    {
+        "version": "envds.system.operations/v1",
+        "kind": "SystemMode",
+        "metadata": { "name": "startup", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-30T00:00:00Z" },
+        "requirements": [
+            {"kind": "SamplingMode", "name": "startup_step1_opc"},
+            {"kind": "SamplingMode", "name": "startup_step2_smps"},
+            {"kind": "SamplingMode", "name": "startup_step3_cpc"},
+            {"kind": "SamplingMode", "name": "startup_step4_aps"}
+        ],
+        "transitions": {}
+    },
+    {
+        "version": "envds.system.operations/v1",
+        "kind": "SystemMode",
+        "metadata": { "name": "shutdown", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-30T00:00:00Z" },
+        "requirements": [
+            {"kind": "SamplingMode", "name": "shutdown_step1_aps"},
+            {"kind": "SamplingMode", "name": "shutdown_step2_cpc"},
+            {"kind": "SamplingMode", "name": "shutdown_step3_smps"},
+            {"kind": "SamplingMode", "name": "shutdown_step4_opc"}
+        ],
+        "transitions": {}
+    },
+    {
+        "version": "envds.system.operations/v1",
+        "kind": "SystemMode",
+        "metadata": { "name": "standby", "sampling_namespace": "pmel.noaa.gov", "valid_config_time": "2026-05-30T00:00:00Z" },
+        "requirements": [],
+        "transitions": {}
+    }
+]
