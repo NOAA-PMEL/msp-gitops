@@ -145,7 +145,7 @@
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_opc"},
-          "source": { "power_opc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_1_power" } },
+          "source": { "power_opc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_0_power" } },
           "variableset": "power",
           "attributes": { "long_name": {"type": "string", "data": "OPC Power"} }
         },
@@ -155,7 +155,7 @@
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_smps"},
-          "source": { "power_smps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_2_power" } },
+          "source": { "power_smps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_1_power" } },
           "variableset": "power",
           "attributes": { "long_name": {"type": "string", "data": "SMPS Power"} }
         },
@@ -165,7 +165,7 @@
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_cpc"},
-          "source": { "power_cpc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_3_power" } },
+          "source": { "power_cpc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_2_power" } },
           "variableset": "power",
           "attributes": { "long_name": {"type": "string", "data": "CPC Power"} }
         },

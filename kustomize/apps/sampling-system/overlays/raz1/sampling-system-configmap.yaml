@@ -35,6 +35,6 @@ data:
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update,
     envds/+/+/+/settings/update,
-    envds/+/+/+/controller/settings/update   
+    envds/+/controller/settings/update   
   
   mqtt_port: "1883"

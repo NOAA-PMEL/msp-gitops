@@ -23,6 +23,8 @@ data:
   ENVOPS_MQTT_TOPIC_SUBSCRIPTIONS: >
     envds/+/+/+/data/update,
     envds/+/+/+/controller/data/update,
+    envds/+/controller/settings/update,
+    envds/+/+/+/settings/update,
     envds/+/variableset/+/data/update,
     envds/+/sampling-conditions/status/update,
     envds/+/sampling-states/status/update,
