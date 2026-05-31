@@ -6,7 +6,7 @@
       "name": "payload_01",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "platform.pmel.payload_01",
-      "valid_config_time": "2026-05-30T00:00:00Z",
+      "valid_config_time": "2026-05-31T00:00:00Z",
       "revision": 2
     },
     "data": {
@@ -15,7 +15,7 @@
         "platform_type": "MSP_Payload",
         "platform": "platform.pmel.payload_01",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-05-30T00:00:00Z",
+        "valid_config_time": "2026-05-31T00:00:00Z",
         "revision": 2
       },
       "variablesets": {
@@ -144,7 +144,7 @@
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_opc"},
-          "source": { "power_opc": { "source_type": "controller", "source_id": "Shelly::ShellyPro1::shel29", "source_variable": "channel_0_power" } },
+          "source": { "power_opc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_1_power" } },
           "variableset": "power",
           "attributes": { "long_name": {"type": "string", "data": "OPC Power"} }
         },
@@ -153,7 +153,7 @@
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_smps"},
-          "source": { "power_smps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_1_power" } },
+          "source": { "power_smps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_2_power" } },
           "variableset": "power",
           "attributes": { "long_name": {"type": "string", "data": "SMPS Power"} }
         },
@@ -162,7 +162,7 @@
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_cpc"},
-          "source": { "power_cpc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_2_power" } },
+          "source": { "power_cpc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_3_power" } },
           "variableset": "power",
           "attributes": { "long_name": {"type": "string", "data": "CPC Power"} }
         },
@@ -171,7 +171,7 @@
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_aps"},
-          "source": { "power_aps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_3_power" } },
+          "source": { "power_aps": { "source_type": "controller", "source_id": "Shelly::ShellyPro1::shel29", "source_variable": "channel_0_power" } },
           "variableset": "power",
           "attributes": { "long_name": {"type": "string", "data": "APS Power"} }
         }
