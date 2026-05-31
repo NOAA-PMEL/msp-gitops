@@ -5,6 +5,8 @@ metadata:
   # namespace: msp-system
 data:
   daq_id: payload01
+  
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_01_in_msp_01"
   # db_client_type: redis
   # db_client_hostname: redis.payload01-system
   # db_client_port: '6379'

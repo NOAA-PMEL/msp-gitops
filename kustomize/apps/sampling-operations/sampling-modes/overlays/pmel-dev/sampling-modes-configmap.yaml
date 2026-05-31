@@ -5,6 +5,9 @@ metadata:
   # namespace: msp-system
 data:
   daq_id: pmel-dev
+
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.msp_enclosure_01_at_marina"
+  
   port: "8080"
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default"
   knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker"

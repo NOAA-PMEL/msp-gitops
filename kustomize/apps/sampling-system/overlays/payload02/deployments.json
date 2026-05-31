@@ -1,0 +1,21 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "deploy.pmel.payload_02_in_msp_01",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "revision-time": "2026-05-31T00:00:00Z",
+    "data": {
+      "display_name": "Payload 02 (Aerosol Optics)",
+      "description": "Internal deployment of the Payload 02 Aerosol Optics instrument package into the standard MSP 01 enclosure.",
+      "project_ref": "project.pmel.beacons",
+      "platform_ref": "platform.pmel.payload_02",
+      "host_platform_ref": "platform.pmel.msp_enclosure_01",
+      "planned_start_time": "2026-05-01T00:00:00Z",
+      "planned_end_time": "2027-12-31T23:59:59Z",
+      "deployment_type": "Hardware Integration"
+    }
+  }
+]

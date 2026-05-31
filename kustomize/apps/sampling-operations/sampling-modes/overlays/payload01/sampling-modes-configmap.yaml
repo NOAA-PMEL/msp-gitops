@@ -5,6 +5,9 @@ metadata:
   # namespace: msp-system
 data:
   daq_id: payload01
+
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_01_in_msp_01"
+  
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload01-system/default"
 

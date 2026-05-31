@@ -5,6 +5,9 @@ metadata:
   # namespace: msp-system
 data:
   daq_id: mspbase01
+
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.msp_enclosure_01_at_marina"
+  
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/mspbase01-system/default"
 

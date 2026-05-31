@@ -12,6 +12,8 @@ data:
   system_init_mode: "normal"
   is_primary_controller: "false"
 
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_01_in_msp_01"
+  
   mqtt_broker: "mqtt.payload01-system"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/#,
