@@ -377,6 +377,7 @@
         },
         "power_neph": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_neph"},
@@ -386,6 +387,7 @@
         },
         "power_absorb": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_absorb"},
@@ -395,6 +397,7 @@
         },
         "power_24v_bus": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_24v_bus"},
@@ -404,6 +407,7 @@
         },
         "power_tec": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_tec"},

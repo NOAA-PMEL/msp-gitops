@@ -141,6 +141,7 @@
         },
         "power_opc": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_opc"},
@@ -150,6 +151,7 @@
         },
         "power_smps": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_smps"},
@@ -159,6 +161,7 @@
         },
         "power_cpc": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_cpc"},
@@ -168,6 +171,7 @@
         },
         "power_aps": {
           "type": "int",
+          "variable_type": "setting",
           "shape": ["time"],
           "map_type": "direct",
           "direct_value": {"source_variable": "power_aps"},
