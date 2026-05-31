@@ -7,7 +7,7 @@ metadata:
     app: shelly-shellypro2
 data:
   namespace_prefix: revpi2
-  envds_env_id: mrevpi2
+  envds_env_id: revpi2
   controller.conf: |
     uid: shel227
     host: 10.55.169.227
