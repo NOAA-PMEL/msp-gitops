@@ -10,7 +10,7 @@ data:
 
   system_init_control: "auto"
   system_init_mode: "normal"
-  is_primary_controller: "true"
+  is_primary_controller: "false"
 
   mqtt_broker: "mqtt.payload02-system"
   mqtt_topic_subscriptions: >
