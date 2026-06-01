@@ -35,25 +35,33 @@ configMapGenerator:
   - name: sampling-system-variablemaps
     files:
       - platform_varmaps.json
+  - name: sampling-system-deployments
+    files:
+      - deployments.json
 
 nameSuffix: "-payload02"
 
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      # version: serving.knative.dev/v1
-      kind: Service
-      name: sampling-system
-    patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-system-payload02
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-payload02
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-variablemaps-payload02
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       # version: serving.knative.dev/v1
+#       kind: Service
+#       name: sampling-system
+#     patch: |-
+#       # - op: replace 
+#       #   path: /spec/template/spec/volumes/0/configMap/name
+#       #   value: sampling-system-payload02
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-system-platforms-payload02
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-system-variablemaps-payload02
+#       - op: replace 
+#         path: /spec/template/spec/volumes/2/configMap/name
+#         value: sampling-system-deployments-payload02
+
+
   # - target:
   #     kind: Trigger
   #     # name: default

@@ -25,22 +25,22 @@ configMapGenerator:
 
 nameSuffix: "-raz1"
 
-# --- PATCH VOLUME NAMES WITH SUFFIX ---
-patches:
-  - target:
-      kind: Service
-      name: sampling-system
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-raz1
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-variablemaps-raz1
-      - op: replace 
-        path: /spec/template/spec/volumes/2/configMap/name
-        value: sampling-system-deployments-raz1
-# --------------------------------------
+# # --- PATCH VOLUME NAMES WITH SUFFIX ---
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-system
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-system-platforms-raz1
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-system-variablemaps-raz1
+#       - op: replace 
+#         path: /spec/template/spec/volumes/2/configMap/name
+#         value: sampling-system-deployments-raz1
+# # --------------------------------------
 
 configurations:
   - config.yaml
