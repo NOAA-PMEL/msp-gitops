@@ -47,6 +47,8 @@ data:
     topic envds/+/controller/settings/request in 0 "" ""
     topic envds/+/sensor/+/settings/update out 0 "" ""
     topic envds/+/sensor/+/settings/request in 0 "" ""
+    topic envds/+/variableset/+/data/update out 0 "" ""
+
 
     #old
     # topic envds/+/sensor/+/settings/request in 0 "" ""

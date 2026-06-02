@@ -8,7 +8,8 @@ data:
 
   # --- ADDED FOR ROLE-BASED COMPUTE DELEGATION ---
   node_id: "mspbase01"
-  node_roles: "data-server"
+  # node_roles: "data-server"
+  node_roles: "field-server"
   # -----------------------------------------------
 
   port: "8080"
@@ -19,11 +20,12 @@ data:
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update,
     envds/+/+/+/settings/update,
-    envds/+/controller/settings/update   
+    envds/+/controller/settings/update,
+    envds/+/variableset/+/data/update   
   
   mqtt_port: "1883"
 
   log_level: info
-  tick_delay_direct: "8.5"
-  tick_delay_calc: "9.5"
+  tick_delay_direct: "0.3"
+  tick_delay_calc: "1.0"
 

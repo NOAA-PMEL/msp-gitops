@@ -35,7 +35,9 @@
       "variables": {
         "scatter_red": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "scat_red": {
@@ -44,17 +46,30 @@
               "source_variable": "scat_coef_ch1_red"
             }
           },
-          "direct_value": { "source_variable": "scat_red" },
+          "direct_value": {
+            "source_variable": "scat_red"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "scatter_green": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "scat_green": {
@@ -63,17 +78,30 @@
               "source_variable": "scat_coef_ch2_green"
             }
           },
-          "direct_value": { "source_variable": "scat_green" },
+          "direct_value": {
+            "source_variable": "scat_green"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "scatter_blue": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "scat_blue": {
@@ -82,17 +110,30 @@
               "source_variable": "scat_coef_ch3_blue"
             }
           },
-          "direct_value": { "source_variable": "scat_blue" },
+          "direct_value": {
+            "source_variable": "scat_blue"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "backscatter_red": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "bscat_red": {
@@ -101,17 +142,30 @@
               "source_variable": "backscatter_coef_ch1_red"
             }
           },
-          "direct_value": { "source_variable": "bscat_red" },
+          "direct_value": {
+            "source_variable": "bscat_red"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "backscatter_green": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "bscat_green": {
@@ -120,17 +174,30 @@
               "source_variable": "backscatter_coef_ch2_green"
             }
           },
-          "direct_value": { "source_variable": "bscat_green" },
+          "direct_value": {
+            "source_variable": "bscat_green"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "backscatter_blue": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "bscat_blue": {
@@ -139,17 +206,30 @@
               "source_variable": "backscatter_coef_ch3_blue"
             }
           },
-          "direct_value": { "source_variable": "bscat_blue" },
+          "direct_value": {
+            "source_variable": "bscat_blue"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "neph_sample_temperature": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "sample_T": {
@@ -158,17 +238,30 @@
               "source_variable": "sample_T"
             }
           },
-          "direct_value": { "source_variable": "sample_T" },
+          "direct_value": {
+            "source_variable": "sample_T"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "degrees_C" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "degrees_C"
+            }
           }
         },
         "neph_sample_rh": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "rh": {
@@ -177,17 +270,30 @@
               "source_variable": "rh"
             }
           },
-          "direct_value": { "source_variable": "rh" },
+          "direct_value": {
+            "source_variable": "rh"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "%" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "%"
+            }
           }
         },
         "neph_pressure": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "pressure": {
@@ -196,17 +302,30 @@
               "source_variable": "pressure"
             }
           },
-          "direct_value": { "source_variable": "pressure" },
+          "direct_value": {
+            "source_variable": "pressure"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "mbar" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "mbar"
+            }
           }
         },
         "absorption_red": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "abs_red": {
@@ -215,17 +334,30 @@
               "source_variable": "red_absorption"
             }
           },
-          "direct_value": { "source_variable": "abs_red" },
+          "direct_value": {
+            "source_variable": "abs_red"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "absorption_green": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "abs_green": {
@@ -234,17 +366,30 @@
               "source_variable": "green_absorption"
             }
           },
-          "direct_value": { "source_variable": "abs_green" },
+          "direct_value": {
+            "source_variable": "abs_green"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "absorption_blue": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "abs_blue": {
@@ -253,17 +398,30 @@
               "source_variable": "blue_absorption"
             }
           },
-          "direct_value": { "source_variable": "abs_blue" },
+          "direct_value": {
+            "source_variable": "abs_blue"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "Mm-1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "Mm-1"
+            }
           }
         },
         "transmission_red": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "trans_red": {
@@ -272,17 +430,30 @@
               "source_variable": "red_transmission"
             }
           },
-          "direct_value": { "source_variable": "trans_red" },
+          "direct_value": {
+            "source_variable": "trans_red"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "1"
+            }
           }
         },
         "transmission_green": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "trans_green": {
@@ -291,17 +462,30 @@
               "source_variable": "green_transmission"
             }
           },
-          "direct_value": { "source_variable": "trans_green" },
+          "direct_value": {
+            "source_variable": "trans_green"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "1"
+            }
           }
         },
         "transmission_blue": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "trans_blue": {
@@ -310,17 +494,30 @@
               "source_variable": "blue_transmission"
             }
           },
-          "direct_value": { "source_variable": "trans_blue" },
+          "direct_value": {
+            "source_variable": "trans_blue"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "1" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "1"
+            }
           }
         },
         "tap_sample_temperature": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "sample_T": {
@@ -329,17 +526,30 @@
               "source_variable": "sample_T"
             }
           },
-          "direct_value": { "source_variable": "sample_T" },
+          "direct_value": {
+            "source_variable": "sample_T"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "degrees_C" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "degrees_C"
+            }
           }
         },
         "tap_flow_rate": {
           "type": "float",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "flow_rate": {
@@ -348,17 +558,30 @@
               "source_variable": "flow_rate"
             }
           },
-          "direct_value": { "source_variable": "flow_rate" },
+          "direct_value": {
+            "source_variable": "flow_rate"
+          },
           "variableset": "main",
-          "index_method": ["round", "average"],
+          "index_method": [
+            "round",
+            "average"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "SLPM" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "SLPM"
+            }
           }
         },
         "tap_active_spot": {
           "type": "int",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
           "source": {
             "active_spot": {
@@ -367,53 +590,127 @@
               "source_variable": "active_spot"
             }
           },
-          "direct_value": { "source_variable": "active_spot" },
+          "direct_value": {
+            "source_variable": "active_spot"
+          },
           "variableset": "main",
-          "index_method": ["last"],
+          "index_method": [
+            "last"
+          ],
           "attributes": {
-            "evaluate_by": { "type": "string", "data": "data-server" },
-            "units": { "type": "string", "data": "spot" }
+            "evaluate_by": {
+              "type": "string",
+              "data": "local-controller, data-server"
+            },
+            "units": {
+              "type": "string",
+              "data": "spot"
+            }
           }
         },
         "power_neph": {
           "type": "int",
           "variable_type": "setting",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
-          "direct_value": {"source_variable": "power_neph"},
-          "source": { "power_neph": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_1_power" } },
+          "direct_value": {
+            "source_variable": "power_neph"
+          },
+          "source": {
+            "power_neph": {
+              "source_type": "controller",
+              "source_id": "Synaccess::NP05B::synaccess25",
+              "source_variable": "outlet_1_power"
+            }
+          },
           "variableset": "power",
-          "attributes": { "long_name": {"type": "string", "data": "Nephelometer Power"} }
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+            "long_name": {
+              "type": "string",
+              "data": "Nephelometer Power"
+            }
+          }
         },
         "power_absorb": {
           "type": "int",
           "variable_type": "setting",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
-          "direct_value": {"source_variable": "power_absorb"},
-          "source": { "power_absorb": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_2_power" } },
+          "direct_value": {
+            "source_variable": "power_absorb"
+          },
+          "source": {
+            "power_absorb": {
+              "source_type": "controller",
+              "source_id": "Synaccess::NP05B::synaccess25",
+              "source_variable": "outlet_2_power"
+            }
+          },
           "variableset": "power",
-          "attributes": { "long_name": {"type": "string", "data": "Brechel TAP Power"} }
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+            "long_name": {
+              "type": "string",
+              "data": "Brechel TAP Power"
+            }
+          }
         },
         "power_24v_bus": {
           "type": "int",
           "variable_type": "setting",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
-          "direct_value": {"source_variable": "power_24v_bus"},
-          "source": { "power_24v_bus": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_3_power" } },
+          "direct_value": {
+            "source_variable": "power_24v_bus"
+          },
+          "source": {
+            "power_24v_bus": {
+              "source_type": "controller",
+              "source_id": "Synaccess::NP05B::synaccess25",
+              "source_variable": "outlet_3_power"
+            }
+          },
           "variableset": "power",
-          "attributes": { "long_name": {"type": "string", "data": "24V Power Supply"} }
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+            "long_name": {
+              "type": "string",
+              "data": "24V Power Supply"
+            }
+          }
         },
         "power_tec": {
           "type": "int",
           "variable_type": "setting",
-          "shape": ["time"],
+          "shape": [
+            "time"
+          ],
           "map_type": "direct",
-          "direct_value": {"source_variable": "power_tec"},
-          "source": { "power_tec": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_4_power" } },
+          "direct_value": {
+            "source_variable": "power_tec"
+          },
+          "source": {
+            "power_tec": {
+              "source_type": "controller",
+              "source_id": "Synaccess::NP05B::synaccess25",
+              "source_variable": "outlet_4_power"
+            }
+          },
           "variableset": "power",
-          "attributes": { "long_name": {"type": "string", "data": "Thermo Electric Cooler"} }
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+            "long_name": {
+              "type": "string",
+              "data": "Thermo Electric Cooler"
+            }
+          }
         }
       }
     }
