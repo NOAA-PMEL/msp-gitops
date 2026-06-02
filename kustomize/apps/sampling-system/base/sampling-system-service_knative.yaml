@@ -57,6 +57,12 @@ spec:
                 configMapKeyRef:
                   name: sampling-system
                   key: knative_broker
+            - name: SAMPLING_SYSTEM_LOG_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: log_level
+                  optional: true  
           
           # --- UNIVERSAL GITOPS VOLUME MOUNTS ---
           volumeMounts:

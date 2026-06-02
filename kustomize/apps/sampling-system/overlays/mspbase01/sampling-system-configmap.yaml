@@ -23,4 +23,4 @@ data:
   
   mqtt_port: "1883"
 
-  SAMPLING_SYSTEM_LOG_LEVEL: "DEBUG"
+  log_level: "DEBUG"
