@@ -23,18 +23,27 @@
           "index": {
             "index_type": "time",
             "index_value": 1
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }
           }
         },
         "operations": {
           "index": {
             "index_type": "time",
             "index_value": 1
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }
           }
         },
         "derived": {
           "index": {
             "index_type": "time",
             "index_value": 1
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }
           }
         }
       },

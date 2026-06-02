@@ -23,18 +23,27 @@
           "index": {
             "index_type": "time",
             "index_value": 1
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
           }
         },
         "sizing": {
           "index": {
             "index_type": "time",
             "index_value": 60
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
           }
         },
         "power": {
           "index": {
             "index_type": "time",
             "index_value": 1
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
           }
         }
       },
