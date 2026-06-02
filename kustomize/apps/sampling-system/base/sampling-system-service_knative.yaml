@@ -63,6 +63,18 @@ spec:
                   name: sampling-system
                   key: log_level
                   optional: true  
+            - name: SAMPLING_TICK_DELAY_DIRECT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: tick_delay_direct
+                  optional: true  
+            - name: SAMPLING_TICK_DELAY_CALC
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-system
+                  key: tick_delay_calc
+                  optional: true  
           
           # --- UNIVERSAL GITOPS VOLUME MOUNTS ---
           volumeMounts:

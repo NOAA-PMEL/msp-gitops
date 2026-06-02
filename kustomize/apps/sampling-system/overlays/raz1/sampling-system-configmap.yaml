@@ -40,3 +40,5 @@ data:
   mqtt_port: "1883"
 
   log_level: "INFO"
+  tick_delay_direct: "3.5"
+  tick_delay_calc: "4.5"
