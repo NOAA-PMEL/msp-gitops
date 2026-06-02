@@ -73,8 +73,8 @@ nameSuffix: "-payload01"
   #       path: /spec/subscriber/ref/name
   #       value: sampling-system-crk8s
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 # patches:
 #   - patch: |-

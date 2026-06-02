@@ -1,0 +1,148 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampling-system
+  labels:
+    app: sampling-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sampling-system
+  template:
+    metadata:
+      labels:
+        app: sampling-system
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: sampling-system
+        image: ghcr.io/noaa-pmel/msp/sampling-system:0.2.0
+        imagePullPolicy: "Always"
+        env:
+        - name: SAMPLING_SYSTEM_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: port
+        - name: SAMPLING_SYSTEM_DAQ_ID
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: daq_id
+        - name: SAMPLING_SYSTEM_NODE_ID
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: node_id
+        - name: SAMPLING_SYSTEM_NODE_ROLES
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: node_roles
+        - name: SAMPLING_SYSTEM_MQTT_BROKER
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: mqtt_broker
+        - name: SAMPLING_SYSTEM_MQTT_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: mqtt_port
+        - name: SAMPLING_SYSTEM_MQTT_TOPIC_SUBSCRIPTIONS
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: mqtt_topic_subscriptions
+        - name: SAMPLING_SYSTEM_KNATIVE_BROKER
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: knative_broker
+        - name: SAMPLING_SYSTEM_LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: log_level
+              optional: true  
+        - name: SAMPLING_TICK_DELAY_DIRECT
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: tick_delay_direct
+              optional: true  
+        - name: SAMPLING_TICK_DELAY_CALC
+          valueFrom:
+            configMapKeyRef:
+              name: sampling-system
+              key: tick_delay_calc
+              optional: true  
+        
+        # --- UNIVERSAL GITOPS VOLUME MOUNTS ---
+        volumeMounts:
+        - name: sampling-system-platforms
+          mountPath: /app/config/platform_defs.json
+          subPath: platform_defs.json
+        - name: sampling-system-variablemaps
+          mountPath: /app/config/platform_variablemaps.json
+          subPath: platform_varmaps.json
+        - name: sampling-system-deployments
+          mountPath: /app/config/deployments.json
+          subPath: deployments.json
+        - name: sampling-system-projects
+          mountPath: /app/config/projects.json
+          subPath: projects.json
+        - name: sampling-system-contacts
+          mountPath: /app/config/contacts.json
+          subPath: contacts.json
+        # --------------------------------------
+        
+        resources:
+          requests:
+            cpu: "300m"
+            memory: "512Mi"
+          limits:
+            memory: "2Gi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          timeoutSeconds: 10
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          timeoutSeconds: 10
+          periodSeconds: 10
+          
+      # --- OPTIONAL CONFIGMAP VOLUMES ---
+      volumes:
+      - name: sampling-system-platforms
+        configMap:
+          name: sampling-system-platforms
+          optional: true
+      - name: sampling-system-variablemaps
+        configMap:
+          name: sampling-system-variablemaps
+          optional: true
+      - name: sampling-system-deployments
+        configMap:
+          name: sampling-system-deployments
+          optional: true
+      - name: sampling-system-projects
+        configMap:
+          name: sampling-system-projects
+          optional: true
+      - name: sampling-system-contacts
+        configMap:
+          name: sampling-system-contacts
+          optional: true
+      # ----------------------------------

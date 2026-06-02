@@ -32,46 +32,46 @@ configMapGenerator:
       - platform_varmaps.json
 
 # 2. INJECT THEM INTO THE KNATIVE SERVICE VOLUMES
-patches:
-  - target:
-      kind: Service
-      name: sampling-system
-    patch: |-
-      # Mount Platforms
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-pmel-dev
+# patches:
+  # - target:
+  #     kind: Service
+  #     name: sampling-system
+  #   patch: |-
+  #     # Mount Platforms
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/0/configMap/name
+  #       value: sampling-system-platforms-pmel-dev
       
-      # Mount Variablemaps
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-variablemaps-pmel-dev
+  #     # Mount Variablemaps
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/1/configMap/name
+  #       value: sampling-system-variablemaps-pmel-dev
 
-      # Mount Deployments (This is the new one!)
-      - op: replace 
-        path: /spec/template/spec/volumes/2/configMap/name
-        value: sampling-system-deployments-pmel-dev
+  #     # Mount Deployments (This is the new one!)
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/2/configMap/name
+  #       value: sampling-system-deployments-pmel-dev
       
-      # Mount Projects
-      - op: replace 
-        path: /spec/template/spec/volumes/3/configMap/name
-        value: sampling-system-projects-pmel-dev
+  #     # Mount Projects
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/3/configMap/name
+  #       value: sampling-system-projects-pmel-dev
       
-      # Mount Contacts
-      - op: replace 
-        path: /spec/template/spec/volumes/4/configMap/name
-        value: sampling-system-contacts-pmel-dev
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-system-pmel-dev
+  #     # Mount Contacts
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/4/configMap/name
+  #       value: sampling-system-contacts-pmel-dev
+  # - target:
+  #     kind: Trigger
+  #     # name: default
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/subscriber/ref/name
+  #       value: sampling-system-pmel-dev
         
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 
 

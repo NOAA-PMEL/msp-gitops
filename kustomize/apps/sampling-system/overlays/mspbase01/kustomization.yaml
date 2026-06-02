@@ -31,40 +31,40 @@ configMapGenerator:
     files: 
       - platform_varmaps.json
 
-# 2. INJECT THEM INTO THE KNATIVE SERVICE VOLUMES
-patches:
-  - target:
-      kind: Service
-      name: sampling-system
-    patch: |-
-      # Mount Platforms
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-system-platforms-mspbase01
+# # 2. INJECT THEM INTO THE KNATIVE SERVICE VOLUMES
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-system
+#     patch: |-
+#       # Mount Platforms
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-system-platforms-mspbase01
       
-      # Mount Variablemaps
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-system-variablemaps-mspbase01
+#       # Mount Variablemaps
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-system-variablemaps-mspbase01
 
-      # Mount Deployments (This is the new one!)
-      - op: replace 
-        path: /spec/template/spec/volumes/2/configMap/name
-        value: sampling-system-deployments-mspbase01
+#       # Mount Deployments (This is the new one!)
+#       - op: replace 
+#         path: /spec/template/spec/volumes/2/configMap/name
+#         value: sampling-system-deployments-mspbase01
       
-      # Mount Projects
-      - op: replace 
-        path: /spec/template/spec/volumes/3/configMap/name
-        value: sampling-system-projects-mspbase01
+#       # Mount Projects
+#       - op: replace 
+#         path: /spec/template/spec/volumes/3/configMap/name
+#         value: sampling-system-projects-mspbase01
       
-      # Mount Contacts
-      - op: replace 
-        path: /spec/template/spec/volumes/4/configMap/name
-        value: sampling-system-contacts-mspbase01
+#       # Mount Contacts
+#       - op: replace 
+#         path: /spec/template/spec/volumes/4/configMap/name
+#         value: sampling-system-contacts-mspbase01
         
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 
 

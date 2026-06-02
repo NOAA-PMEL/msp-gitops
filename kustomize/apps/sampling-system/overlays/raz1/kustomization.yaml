@@ -42,8 +42,8 @@ nameSuffix: "-raz1"
 #         value: sampling-system-deployments-raz1
 # # --------------------------------------
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
