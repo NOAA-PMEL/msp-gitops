@@ -38,3 +38,5 @@ data:
     envds/+/controller/settings/update   
   
   mqtt_port: "1883"
+
+  SAMPLING_SYSTEM_LOG_LEVEL: "INFO"
