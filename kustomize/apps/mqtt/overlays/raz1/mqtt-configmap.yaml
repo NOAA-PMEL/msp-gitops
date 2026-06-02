@@ -45,8 +45,10 @@ data:
     topic envds/+/controller-instance/registry/update out 0 "" ""
     topic envds/+/controller/settings/update out 0 "" ""
     topic envds/+/controller/settings/request in 0 "" ""
+    topic envds/controller/settings/request in 0 "" ""
     topic envds/+/sensor/+/settings/update out 0 "" ""
     topic envds/+/sensor/+/settings/request in 0 "" ""
+    topic envds/sensor/settings/request in 0 "" ""
     topic envds/+/variableset/+/data/update out 0 "" ""
 
 
@@ -102,8 +104,10 @@ data:
     topic envds/+/controller-instance/registry/update out 0 "" ""
     topic envds/+/controller/settings/update out 0 "" ""
     topic envds/+/controller/settings/request in 0 "" ""
+    topic envds/controller/settings/request in 0 "" ""
     topic envds/+/sensor/+/settings/update out 0 "" ""
     topic envds/+/sensor/+/settings/request in 0 "" ""
+    topic envds/sensor/settings/request in 0 "" ""
 
 
     # old stuff

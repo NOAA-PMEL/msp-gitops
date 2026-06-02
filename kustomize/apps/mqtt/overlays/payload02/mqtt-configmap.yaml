@@ -52,6 +52,8 @@ data:
     topic envds/payload02/sensor/+/settings/update out 0 "" ""
     topic envds/payload02/sensor/+/settings/request in 0 "" ""
     topic envds/+/variableset/+/data/update out 0 "" ""
+    topic envds/controller/settings/request in 0 "" ""
+    topic envds/sensor/settings/request in 0 "" ""
 
 
     # old payload02
