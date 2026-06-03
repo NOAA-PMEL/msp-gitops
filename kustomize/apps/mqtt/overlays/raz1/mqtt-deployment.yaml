@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mqtt
+  # namespace: msp-system
   labels:
     app: mqtt
+  # namespace: envds-base
 spec:
   selector:
     matchLabels:
@@ -14,9 +16,14 @@ spec:
         app: mqtt
     spec:
       containers:
-      # --- 1. Your Existing Mosquitto Container ---
       - name: mqtt
-        image: eclipse-mosquitto:2.0.21
+        # image: localhost:5000/envds/eclipse-mosquitto:2.0.14
+        # image: envds-registry:36301/eclipse-mosquitto:2.0.14
+        # image: envds-registry:5000/core/eclipse-mosquitto:2.0.14
+        # image: envds-registry:5000/core/eclipse-mosquitto:2.0.15
+        # image: registry-msp:5000/msp/eclipse-mosquitto:2.0.21
+        # image: eclipse-mosquitto:2.0.21
+        image: eclipse-mosquitto:openssl
         resources:
           requests:
             cpu: "200m"
@@ -27,28 +34,24 @@ spec:
         - name: http
           containerPort: 1883
           protocol: TCP
+        # - name: https
+        #   containerPort: 8883
+        #   protocol: TCP
         volumeMounts:
             - name: mqtt-config
               mountPath: /mosquitto/config/mosquitto.conf
               subPath: mosquitto.conf
             - name: mosquitto-storage
               mountPath: /mosquitto/data
-
-      # --- 2. The NEW Python Relay Sidecar ---
-      - name: mqtt-relay
-        image: python:3.10-slim
-        # Install the MQTT library and run our script
-        command: ["/bin/sh", "-c"]
-        args: ["pip install paho-mqtt==1.6.1 && python -u /scripts/relay.py"]
-        resources:
-          requests:
-            cpu: "50m"
-            memory: "64Mi"
-        volumeMounts:
-          - name: relay-script-vol
-            mountPath: /scripts/relay.py
-            subPath: relay.py
-
+            - name: mosquitto-certs
+              mountPath: /certs/rootCA.crt
+              subPath: AmazonRootCA1.pem
+            - name: mosquitto-certs
+              mountPath: /certs/cert.crt
+              subPath: device-certificate
+            - name: mosquitto-certs
+              mountPath: /certs/private.key
+              subPath: private-key
       volumes:
         - name: mqtt-config
           configMap:
@@ -56,7 +59,7 @@ spec:
         - name: mosquitto-storage
           persistentVolumeClaim:
             claimName: mqtt-pvc
-        # Mount the script ConfigMap
-        - name: relay-script-vol
-          configMap:
-            name: mqtt-relay-script
+        - name: mosquitto-certs
+          secret:
+            secretName: aws-iot-credentials
+
