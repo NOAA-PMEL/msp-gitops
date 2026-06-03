@@ -1,0 +1,91 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqtt-relay-script
+  namespace: raz1-system
+data:
+  relay.py: |
+    import paho.mqtt.client as mqtt
+    import ssl
+    import logging
+    import time
+
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+    # --- Configuration ---
+    LOCAL_BROKER = "127.0.0.1"
+    LOCAL_PORT = 1883
+
+    REMOTE_BROKER = "k8s.pmel-dev.oarcloud.noaa.gov"
+    REMOTE_PORT = 443
+    REMOTE_WS_PATH = "/envds/mqtt"
+
+    # Topics from raz1 out to pmel-dev
+    OUT_TOPICS = [
+        "envds/+/sensor/+/data/update",
+        "envds/+/controller/+/controller/data/update",
+        "main/envds/+/registry/sync-bcast",
+        "main/envds/+/registry/sync-update",
+        "main/envds/+/registry/sync-request",
+        "envds/+/device-instance/registry/update",
+        "envds/+/controller-instance/registry/update",
+        "envds/+/controller/settings/update",
+        "envds/+/sensor/+/settings/update",
+        "envds/+/variableset/+/data/update"
+    ]
+
+    # Topics from pmel-dev into raz1
+    IN_TOPICS = [
+        "server/envds/+/registry/sync-bcast",
+        "server/envds/+/registry/sync-update",
+        "server/envds/+/registry/sync-request",
+        "envds/+/controller/settings/request",
+        "envds/controller/settings/request",
+        "envds/+/sensor/+/settings/request",
+        "envds/sensor/settings/request"
+    ]
+
+    # --- Callbacks ---
+    def on_local_message(client, userdata, msg):
+        logging.debug(f"Local -> Remote: {msg.topic}")
+        remote_client.publish(msg.topic, msg.payload, qos=1)
+
+    def on_remote_message(client, userdata, msg):
+        logging.debug(f"Remote -> Local: {msg.topic}")
+        local_client.publish(msg.topic, msg.payload, qos=1)
+
+    def on_local_connect(client, userdata, flags, rc):
+        logging.info(f"Connected to Local Broker (Code {rc})")
+        for topic in OUT_TOPICS:
+            client.subscribe(topic, qos=1)
+
+    def on_remote_connect(client, userdata, flags, rc):
+        logging.info(f"Connected to Remote AWS Broker (Code {rc})")
+        for topic in IN_TOPICS:
+            client.subscribe(topic, qos=1)
+
+    # --- Setup Local Client (TCP) ---
+    local_client = mqtt.Client(client_id="raz1_relay_local")
+    local_client.on_connect = on_local_connect
+    local_client.on_message = on_local_message
+
+    # --- Setup Remote Client (WebSockets + TLS) ---
+    remote_client = mqtt.Client(client_id="raz1_relay_remote", transport="websockets")
+    remote_client.ws_set_options(path=REMOTE_WS_PATH)
+    # This enables standard TLS using the OS's built-in root CAs to trust the AWS ALB
+    remote_client.tls_set(cert_reqs=ssl.CERT_REQUIRED) 
+    
+    # Optional: Add username/password if you set it up on pmel-dev later
+    # remote_client.username_pw_set("your_username", "your_password")
+    
+    remote_client.on_connect = on_remote_connect
+    remote_client.on_message = on_remote_message
+
+    # --- Start ---
+    logging.info("Starting MQTT Relay Service...")
+    local_client.connect(LOCAL_BROKER, LOCAL_PORT, 60)
+    remote_client.connect(REMOTE_BROKER, REMOTE_PORT, 60)
+
+    # Run local loop in the background, block on the remote loop
+    local_client.loop_start()
+    remote_client.loop_forever()

@@ -92,34 +92,34 @@ data:
     # # TLS ALPN
     # bridge_alpn x-amzn-mqtt-ca
 
-    connection raz1_pmel-dev_bridge
-    address k8s.pmel-dev.oarcloud.noaa.gov:443/envds/mqtt
-    remote_clientid raz1_pmel-dev_bridge
-    cleansession true
-    start_type automatic
-    notifications false
+    # connection raz1_pmel-dev_bridge
+    # address k8s.pmel-dev.oarcloud.noaa.gov:443/envds/mqtt
+    # remote_clientid raz1_pmel-dev_bridge
+    # cleansession true
+    # start_type automatic
+    # notifications false
 
-    # Standard WebSockets over Port 443
-    bridge_protocol websockets
-    bridge_cafile /etc/ssl/certs/ca-certificates.crt
-    bridge_insecure false
+    # # Standard WebSockets over Port 443
+    # bridge_protocol websockets
+    # bridge_cafile /etc/ssl/certs/ca-certificates.crt
+    # bridge_insecure false
 
-    topic envds/+/sensor/+/data/update out 0 "" ""
-    topic envds/+/controller/+/controller/data/update out 0 "" ""
-    topic main/envds/+/registry/sync-bcast out 0 "" ""
-    topic main/envds/+/registry/sync-update out 0 "" ""
-    topic main/envds/+/registry/sync-request out 0 "" ""
-    topic server/envds/+/registry/sync-bcast in 0 "" ""
-    topic server/envds/+/registry/sync-update in 0 "" ""
-    topic server/envds/+/registry/sync-request in 0 "" ""
-    topic envds/+/device-instance/registry/update out 0 "" ""
-    topic envds/+/controller-instance/registry/update out 0 "" ""
-    topic envds/+/controller/settings/update out 0 "" ""
-    topic envds/+/controller/settings/request in 0 "" ""
-    topic envds/controller/settings/request in 0 "" ""
-    topic envds/+/sensor/+/settings/update out 0 "" ""
-    topic envds/+/sensor/+/settings/request in 0 "" ""
-    topic envds/sensor/settings/request in 0 "" ""
+    # topic envds/+/sensor/+/data/update out 0 "" ""
+    # topic envds/+/controller/+/controller/data/update out 0 "" ""
+    # topic main/envds/+/registry/sync-bcast out 0 "" ""
+    # topic main/envds/+/registry/sync-update out 0 "" ""
+    # topic main/envds/+/registry/sync-request out 0 "" ""
+    # topic server/envds/+/registry/sync-bcast in 0 "" ""
+    # topic server/envds/+/registry/sync-update in 0 "" ""
+    # topic server/envds/+/registry/sync-request in 0 "" ""
+    # topic envds/+/device-instance/registry/update out 0 "" ""
+    # topic envds/+/controller-instance/registry/update out 0 "" ""
+    # topic envds/+/controller/settings/update out 0 "" ""
+    # topic envds/+/controller/settings/request in 0 "" ""
+    # topic envds/controller/settings/request in 0 "" ""
+    # topic envds/+/sensor/+/settings/update out 0 "" ""
+    # topic envds/+/sensor/+/settings/request in 0 "" ""
+    # topic envds/sensor/settings/request in 0 "" ""
 
 
     # old stuff

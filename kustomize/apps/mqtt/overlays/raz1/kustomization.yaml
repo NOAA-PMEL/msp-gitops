@@ -21,9 +21,10 @@ namespace: raz1-system
 
 resources:
 - ../../base
-- raz1-server-iot-sealed.yaml
+# - raz1-server-iot-sealed.yaml
 - mqtt-pv.yaml
 - mqtt-configmap.yaml
+- mqtt-relay-configmap.yaml
 
 patches:
   # change configmap names to account for s/n suffix

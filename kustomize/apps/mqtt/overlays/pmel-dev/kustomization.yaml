@@ -22,7 +22,7 @@ namespace: pmel-dev-system
 resources:
 - ../../base
 # - mqtt-pv.yaml
-- pmel-dev-server-iot-sealed.yaml
+# - pmel-dev-server-iot-sealed.yaml
 - mqtt-configmap.yaml
 - mqtt-ingressroute.yaml
 

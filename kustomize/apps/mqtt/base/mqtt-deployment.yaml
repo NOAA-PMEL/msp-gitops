@@ -36,9 +36,9 @@ spec:
         - name: http
           containerPort: 1883
           protocol: TCP
-        - name: ws            # <-- ADD THIS
-          containerPort: 9001 # <-- ADD THIS
-          protocol: TCP       # <-- ADD THIS
+        # - name: ws            # <-- ADD THIS
+        #   containerPort: 9001 # <-- ADD THIS
+        #   protocol: TCP       # <-- ADD THIS
         volumeMounts:
             - name: mqtt-config
               mountPath: /mosquitto/config/mosquitto.conf
