@@ -92,8 +92,8 @@ data:
     # TLS ALPN
     bridge_alpn x-amzn-mqtt-ca
 
-    topic envds/+/sensor/+/data/update out 0 "" ""
-    topic envds/+/controller/+/controller/data/update out 0 "" ""
+    topic envds/+/sensor/+/data/update out 1 "" ""
+    topic envds/+/controller/+/controller/data/update out 1 "" ""
     topic main/envds/+/registry/sync-bcast out 0 "" ""
     topic main/envds/+/registry/sync-update out 0 "" ""
     topic main/envds/+/registry/sync-request out 0 "" ""
@@ -103,11 +103,11 @@ data:
     topic envds/+/device-instance/registry/update out 0 "" ""
     topic envds/+/controller-instance/registry/update out 0 "" ""
     topic envds/+/controller/settings/update out 0 "" ""
-    topic envds/+/controller/settings/request in 0 "" ""
-    # topic envds/controller/settings/request in 0 "" ""
+    # topic envds/+/controller/settings/request in 0 "" ""
+    topic envds/controller/settings/request in 0 "" ""
     topic envds/+/sensor/+/settings/update out 0 "" ""
-    topic envds/+/sensor/+/settings/request in 0 "" ""
-    # topic envds/sensor/settings/request in 0 "" ""
+    # topic envds/+/sensor/+/settings/request in 0 "" ""
+    topic envds/sensor/settings/request in 0 "" ""
 
 
     # old stuff
