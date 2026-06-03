@@ -24,16 +24,16 @@ nameSuffix: "-pmel-dev"
 
 patches:
   # Patch the Service volume definitions to use the suffixed ConfigMap names
-  - target:
-      kind: Service
-      name: sampling-modes
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-modes-modes-pmel-dev
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-modes-actions-pmel-dev
+  # - target:
+  #     kind: Service
+  #     name: sampling-modes
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/0/configMap/name
+  #       value: sampling-modes-modes-pmel-dev
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/1/configMap/name
+  #       value: sampling-modes-actions-pmel-dev
   
   # Patch the Knative Triggers to route events to the suffixed Service
   - target:

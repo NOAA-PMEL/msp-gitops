@@ -37,17 +37,17 @@ nameSuffix: "-pmel-dev"
 
 patches:
   # change configmap names to account for s/n suffix
-  - target:
-      # version: serving.knative.dev/v1
-      kind: Service
-      name: sampling-conditions
-    patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-conditions-pmel-dev
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-conditions-conditions-pmel-dev
+  # - target:
+  #     # version: serving.knative.dev/v1
+  #     kind: Service
+  #     name: sampling-conditions
+  #   patch: |-
+  #     # - op: replace 
+  #     #   path: /spec/template/spec/volumes/0/configMap/name
+  #     #   value: sampling-conditions-pmel-dev
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/0/configMap/name
+  #       value: sampling-conditions-conditions-pmel-dev
   - target:
       kind: Trigger
       # name: default

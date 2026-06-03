@@ -116,7 +116,7 @@ configMapGenerator:
 
 # nameSuffix: "-pmel-dev"
 
-patches:
+# patches:
 #   # change configmap names to account for s/n suffix
 #   - target:
 #       # version: serving.knative.dev/v1

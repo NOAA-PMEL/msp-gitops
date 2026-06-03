@@ -20,14 +20,14 @@ nameSuffix: "-pmel-dev"
 
 patches:
   # Ensure the Service volume (index 0) points to the suffixed ConfigMap
-  - target:
-      kind: Service
-      name: system-modes
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: system-modes-modes-pmel-dev
-  # Ensure the Triggers route traffic to the suffixed Service
+  # - target:
+  #     kind: Service
+  #     name: system-modes
+  #   patch: |-
+  #     - op: replace 
+  #       path: /spec/template/spec/volumes/0/configMap/name
+  #       value: system-modes-modes-pmel-dev
+  # # Ensure the Triggers route traffic to the suffixed Service
   - target:
       kind: Trigger
     patch: |-
