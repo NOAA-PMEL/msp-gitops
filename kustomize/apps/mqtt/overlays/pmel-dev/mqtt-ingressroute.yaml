@@ -1,0 +1,27 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: mqtt-stripprefix
+  # namespace: pmel-dev-system
+spec:
+  stripPrefix:
+    prefixes:
+      - /envds/mqtt
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: mqtt-wss
+  # namespace: pmel-dev-system
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`k8s.pmel-dev.oarcloud.noaa.gov`) && PathPrefix(`/envds/mqtt`)
+    kind: Rule
+    services:
+    - name: mqtt
+      port: 9001
+      passHostHeader: true
+    middlewares:
+    - name: mqtt-stripprefix

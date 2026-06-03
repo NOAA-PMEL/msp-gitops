@@ -14,7 +14,8 @@ spec:
     protocol: TCP
     port: 1883
     targetPort: 1883
-  # - name: https
-  #   port: 8883
-  #   targetPort: 8883
+  - name: ws           # <-- ADD THIS
+    protocol: TCP      # <-- ADD THIS
+    port: 9001         # <-- ADD THIS
+    targetPort: 9001   # <-- ADD THIS
   type: LoadBalancer

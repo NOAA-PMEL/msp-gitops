@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: pmel-dev-mqtt-cert
+  namespace: pmel-dev-system
+spec:
+  # The domain you want to secure
+  dnsNames:
+    - iot.pmel-dev.oarcloud.noaa.gov
+  # The name of the Secret cert-manager will automatically create/update
+  secretName: pmel-dev-tls-secret
+  issuerRef:
+    # Replace this with the actual name of your Let's Encrypt ClusterIssuer
+    name: letsencrypt-prod 
+    kind: ClusterIssuer

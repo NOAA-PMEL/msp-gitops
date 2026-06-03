@@ -76,21 +76,33 @@ data:
     # topic envds/+/controller/+/controller/data/update out 0 "" ""
     # # topic envds/+/controller-definition/registry/update out 0 "" ""
 
-    connection msp01_aws-iot-core_bridge
-    address iot.pmel-dev.oarcloud.noaa.gov:443
-    remote_clientid msp01_aws-iot-core_bridge
+    # connection msp01_aws-iot-core_bridge
+    # address iot.pmel-dev.oarcloud.noaa.gov:443
+    # remote_clientid msp01_aws-iot-core_bridge
+    # cleansession true
+    # start_type automatic
+    # notifications false
+
+    # # Certificate-based authentication
+    # bridge_cafile /certs/rootCA.crt
+    # bridge_certfile /certs/cert.crt
+    # bridge_keyfile /certs/private.key
+    # # tls_version tlsv1.2
+
+    # # TLS ALPN
+    # bridge_alpn x-amzn-mqtt-ca
+
+    connection raz1_pmel-dev_bridge
+    address k8s.pmel-dev.oarcloud.noaa.gov:443/envds/mqtt
+    remote_clientid raz1_pmel-dev_bridge
     cleansession true
     start_type automatic
     notifications false
 
-    # Certificate-based authentication
-    bridge_cafile /certs/rootCA.crt
-    bridge_certfile /certs/cert.crt
-    bridge_keyfile /certs/private.key
-    # tls_version tlsv1.2
-
-    # TLS ALPN
-    bridge_alpn x-amzn-mqtt-ca
+    # Standard WebSockets over Port 443
+    bridge_protocol websockets
+    bridge_cafile /etc/ssl/certs/ca-certificates.crt
+    bridge_insecure false
 
     topic envds/+/sensor/+/data/update out 0 "" ""
     topic envds/+/controller/+/controller/data/update out 0 "" ""
