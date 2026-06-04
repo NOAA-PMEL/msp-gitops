@@ -10,13 +10,10 @@ resources:
 - erddap-mw-upgrade.yaml
 - erddap-configmap.yaml
 
-# Merge in our AWS-specific deployment scaling and storage 
-patchesStrategicMerge:
-  - storage-patch.yaml
-  - resources-patch.yaml
 
 patches:
   - path: storage-patch.yaml
+  - path: resources-patch.yaml
   - target: 
       kind: IngressRoute
       name: erddap
