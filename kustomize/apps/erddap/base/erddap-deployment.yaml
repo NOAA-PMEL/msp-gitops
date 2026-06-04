@@ -42,6 +42,8 @@ spec:
             configMapKeyRef:
               name: erddap
               key: ERDDAP_BASE_HTTPS_URL
+        - name: ERDDAP_datasetsXmlUrl
+          value: "file:///erddapData/datasets.xml"
         resources:
           requests:
             cpu: 250m
