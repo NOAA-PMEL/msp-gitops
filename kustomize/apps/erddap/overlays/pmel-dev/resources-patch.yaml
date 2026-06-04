@@ -9,21 +9,21 @@ spec:
       - name: erddap
         env:
         - name: ERDDAP_MIN_MEMORY
-          value: "4G"  # Bump up Tomcat memory for AWS
+          value: "2G"  # Reduced from 4G
         - name: ERDDAP_MAX_MEMORY
-          value: "8G"  
+          value: "4G"  # Reduced from 8G
         resources:
           requests:
-            cpu: 1000m
-            memory: 5Gi
+            cpu: 250m     # Reduced from 1000m
+            memory: 2.5Gi # Reduced from 5Gi
           limits:
-            cpu: 4000m
-            memory: 10Gi
+            cpu: 2000m    
+            memory: 5Gi   
       - name: erddap-sidecar
         resources:
           requests:
-            cpu: 500m
-            memory: 256Mi
+            cpu: 100m     # Reduced from 500m
+            memory: 128Mi # Reduced from 256Mi
           limits:
-            cpu: 1000m
-            memory: 1Gi
+            cpu: 500m
+            memory: 512Mi
