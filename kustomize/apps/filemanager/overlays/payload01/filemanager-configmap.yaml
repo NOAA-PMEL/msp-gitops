@@ -15,7 +15,8 @@ data:
     envds/+/sampling-conditions/status/update,
     envds/+/sampling-states/status/update,
     envds/+/sampling-modes/status/update,
-    envds/+/system-modes/status/update
+    envds/+/system-modes/status/update,
+    envds/+/operations/log
   FILEMANAGER_SAVE_INTERVAL: "60"
   FILEMANAGER_FILE_INTERVAL: "day"
   FILEMANAGER_BASE_PATH: "/data"
