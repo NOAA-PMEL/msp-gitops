@@ -56,9 +56,9 @@ spec:
         - name: erddap-data
           mountPath: /erddapData
         # Mount B: The direct Tomcat file injection
-        # - name: erddap-data
-        #   mountPath: /usr/local/tomcat/content/erddap/datasets.xml
-          # subPath: datasets.xml
+        - name: erddap-data
+          mountPath: /usr/local/tomcat/content/erddap/datasets.xml
+          subPath: datasets.xml
           
       # 2. FastAPI Sidecar Proxy & Ingester
       - name: erddap-sidecar
