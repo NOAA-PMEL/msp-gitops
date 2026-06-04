@@ -23,3 +23,11 @@ spec:
       passHostHeader: true
     middlewares:
     - name: erddap-stripprefix
+  # ROUTE 2: The Catch-All for ERDDAP's hardcoded assets
+  # (No middleware here, because we WANT the sidecar to see the /erddap path)
+  - match: PathPrefix(`/erddap`)
+    kind: Rule
+    services:
+    - name: erddap
+      port: 80
+      passHostHeader: true
