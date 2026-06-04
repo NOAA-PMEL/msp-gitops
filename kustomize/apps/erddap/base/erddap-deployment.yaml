@@ -32,6 +32,16 @@ spec:
           value: "2G"
         - name: ERDDAP_MAX_MEMORY
           value: "4G"
+        - name: ERDDAP_baseUrl
+          valueFrom:
+            configMapKeyRef:
+              name: erddap
+              key: ERDDAP_BASE_URL
+        - name: ERDDAP_baseHttpsUrl
+          valueFrom:
+            configMapKeyRef:
+              name: erddap
+              key: ERDDAP_BASE_HTTPS_URL
         resources:
           requests:
             cpu: 250m
