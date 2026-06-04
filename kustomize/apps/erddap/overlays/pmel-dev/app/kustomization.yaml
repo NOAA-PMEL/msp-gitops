@@ -5,14 +5,17 @@ metadata:
 namespace: pmel-dev-system
 
 resources:
-- ../../base
+- ../../../base
 - erddap-secret-sealed.yaml
 - erddap-mw-upgrade.yaml
-- erddap-configmap.yaml
+# - erddap-configmap.yaml
 
+configMapGenerator:
+  - name: erddap
+    envs:
+      - erddap-config.env
 
 patches:
-  - path: storage-patch.yaml
   - path: resources-patch.yaml
   - target: 
       kind: IngressRoute
