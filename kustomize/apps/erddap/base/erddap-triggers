@@ -1,0 +1,101 @@
+# --------------------------
+# HARDWARE DEFINITIONS
+# --------------------------
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-device-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.device-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-controller-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.controller-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+# --------------------------
+# SAMPLING & OPERATIONS
+# --------------------------
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-samplingcondition-definition-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.samplingcondition-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-samplingstate-definition-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.samplingstate-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-samplingmode-definition-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.samplingmode-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-systemmode-definition-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.systemmode-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/

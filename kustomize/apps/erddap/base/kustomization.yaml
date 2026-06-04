@@ -8,3 +8,4 @@ resources:
 - erddap-service.yaml
 - erddap-ingressroute.yaml
 - erddap-pvc.yaml
+- erddap-trigger.yaml
