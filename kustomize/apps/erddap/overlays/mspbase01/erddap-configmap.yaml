@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: erddap
 data:
-  ERDDAP_SIDECAR_DAQ_ID: "pmel-dev"
-  ERDDAP_SIDECAR_LOG_LEVEL: "debug"
-  ERDDAP_SIDECAR_MQTT_BROKER: "mqtt.pmel-dev-system"
+  ERDDAP_SIDECAR_DAQ_ID: "mspbase01"
+  ERDDAP_SIDECAR_LOG_LEVEL: "info"
+  ERDDAP_SIDECAR_MQTT_BROKER: "mqtt.mspbase01-system"
   ERDDAP_SIDECAR_MQTT_PORT: "1883"
   ERDDAP_SIDECAR_ERDDAP_INTERNAL_URL: "http://127.0.0.1:8080/erddap"

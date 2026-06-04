@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erddap
+spec:
+  template:
+    spec:
+      containers:
+      - name: erddap
+        env:
+        - name: ERDDAP_MIN_MEMORY
+          value: "4G"  # Bump up Tomcat memory for AWS
+        - name: ERDDAP_MAX_MEMORY
+          value: "8G"  
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 5Gi
+          limits:
+            cpu: 4000m
+            memory: 10Gi
+      - name: erddap-sidecar
+        resources:
+          requests:
+            cpu: 500m
+            memory: 256Mi
+          limits:
+            cpu: 1000m
+            memory: 1Gi

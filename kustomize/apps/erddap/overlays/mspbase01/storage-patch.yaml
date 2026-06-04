@@ -5,6 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: local-host-mapped
   resources:
     requests:
       storage: 10Gi

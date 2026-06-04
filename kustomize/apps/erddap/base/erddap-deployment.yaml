@@ -2,239 +2,74 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: erddap
-  # namespace: msp-system
   labels:
     app: erddap
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: erddap
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         app: erddap
     spec:
-      imagePullSecrets:
-      - name: ghcr-ro-secret
-      securityContext:
-        fsGroup: 1000           # 1000 is the standard GID for erddap/tomcat
-        fsGroupChangePolicy: "OnRootMismatch" # Only chown if permissions are wrong (faster)
-      # initContainers:
-      #   - name: setup-config
-      #     image: busybox
-      #     securityContext:
-      #       runAsUser: 0
-      #       runAsNonRoot: false          # Copy file and ensure erddap user (usually uid 1000 or similar) owns it
-      #     command:
-      #       - sh
-      #       - -c
-      #       - |
-      #         echo "Fixing permissions on Longhorn volume..."
-      #         # Create a 'data' subfolder so we aren't fighting the volume root
-      #         mkdir -p /init-vol/erddap
-
-      #         echo "Copying setup.xml..."
-      #         cp /tmp/config/setup.xml /init-vol/erddap/setup.xml      
-
-      #         # Recursively chown the subfolder to erddap user (1000)
-      #         chown -R 1000:1000 /init-vol/erddap
-              
-      #         # Fallback: Open permissions (777) if chown is squashed by NFS/RWX
-      #         chmod -R 777 /init-vol/erddap
-              
-      #         ls -ld /init-vol/erddap          
-      #     volumeMounts:
-      #       - name: erddap-setup-config
-      #         mountPath: /tmp/config
-      #       - name: erddap-content
-      #         mountPath: /init-vol
       containers:
-        - name: erddap-util
-          # image: uasbase2.pmel.noaa.gov:448/test/erddap@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
-          # image: registry-msp:5000/msp/erddap:v1.0.3
-          image: ghcr.io/noaa-pmel/msp/erddap:0.1.0
-          imagePullPolicy: "Always"
-          env:
-            - name: ERDDAP_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: port
-            - name: ERDDAP_DAQ_ID
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: daq_id
-            - name: ERDDAP_MQTT_BROKER
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: mqtt_broker
-            - name: ERDDAP_MQTT_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: mqtt_port
-            - name: ERDDAP_MQTT_TOPIC_SUBSCRIPTIONS
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: mqtt_topic_subscriptions
-            - name: ERDDAP_KNATIVE_BROKER
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: knative_broker
-          resources:
-            requests:
-              cpu: "500m"
-            limits:
-              memory: "4Gi"
-              cpu: "1000m"
-          ports:
-            - name: http
-              containerPort: 8000
-              # containerPort: 8080
-              protocol: TCP
-          volumeMounts:
-            - name: shared-trigger
-              mountPath: /shared-state
-            # - name: erddap-data-storage
-            #   mountPath: /erddapData
-          #   - name: erddap-data-storage
-          #     mountPath: /data
-          #   - name: erddap-logs-storage
-          #     mountPath: /logs
-        - name: erddap-core
-          image: axiom/docker-erddap:latest
-          resources:
-            requests:
-              cpu: "500m"
-            limits:
-              memory: "4Gi"
-              cpu: "1000m"
-          ports:
-            - name: http
-              containerPort: 8080
-              protocol: TCP
-            - name: https
-              containerPort: 8443
-              protocol: TCP
-          env:
-            # - name: ERDDAP_KNATIVE_BROKER
-            #   valueFrom:
-            #     configMapKeyRef:
-            #       name: erddap
-            #       key: knative_broker
-            - name: ERDDAP_MAX_MEMORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: max_memory
-            - name: ERDDAP_MIN_MEMORY
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: min_memory
-            - name: ERDDAP_baseUrl
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseUrl
-            - name: ERDDAP_baseHttpsUrl
-              valueFrom:
-                configMapKeyRef:
-                  name: erddap
-                  key: baseHttpsUrl
-            # - name: ERDDAP_VARIABLESMUSTHAVEIOOSCATEGORY
-            #   valueFrom:
-            #     configMapKeyRef:
-            #       name: erddap
-            #       key: variablesMustHaveIoosCategory
-            # - name: ERDDAP_CACHEMINUTES
-            #   valueFrom:
-            #     configMapKeyRef:
-            #       name: erddap
-            #       key: cacheMinutes
-          # volumeMounts:
-          #   - name: erddap-data-storage
-          #     mountPath: /data
-          #   - name: erddap-logs-storage
-          #     mountPath: /logs
-          volumeMounts:
-            - name: watcher-script-vol
-              mountPath: /scripts/watcher.sh
-              subPath: watcher.sh
-            - name: shared-trigger
-              mountPath: /shared-state            
-            - name: erddap-content-storage
-              mountPath: /usr/local/tomcat/content/erddap
-            # - name: erddap-content
-            #   mountPath: /usr/local/tomcat/content/erddap
-            #   subPath: erddap
-            - name: erddap-data-storage
-              mountPath: /erddapData
-              # subPath: data
-            # - name: erddap-server-pv-storage
-            # - name: erddap-data-pv-storage
-            #   mountPath: /usr/local/tomcat/conf/server.xml
-            #   subPath: conf/server.xml
-            - name: erddap-server-config
-              mountPath: /usr/local/tomcat/conf/server.xml
-              subPath: server.xml
-            - name: erddap-setup-config
-              mountPath: /usr/local/tomcat/content/erddap/setup.xml
-              subPath: setup.xml
-            # - name: erddap-ssl-crt-pv-storage
-            # - name: erddap-data-pv-storage
-            - name: erddap-jks
-              mountPath: /usr/local/tomcat/conf/erddap.jks
-              subPath: selfsigned.jks
-            - name: erddap-datasetsd-storage
-              mountPath: /datasets.d
+      # 1. Official ERDDAP Backend
+      - name: erddap
+        # Using the official image (you can pin a specific tag like 2.24-jdk17-openjdk if preferred)
+        image: erddap/erddap:latest 
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        # The official image uses these exact same vars to configure Tomcat's heap
+        - name: ERDDAP_MIN_MEMORY
+          value: "2G"
+        - name: ERDDAP_MAX_MEMORY
+          value: "4G"
+        resources:
+          requests:
+            cpu: 250m
+            memory: 1.5Gi # Keep k8s request slightly above JVM min
+          limits:
+            cpu: 1000m
+            memory: 2.5Gi # Keep k8s limit slightly above JVM max
+        volumeMounts:
+        - name: erddap-data
+          mountPath: /erddapData
+          
+      # 2. FastAPI Sidecar Proxy & Ingester
+      - name: erddap-sidecar
+        image: ghcr.io/noaa-pmel/msp/erddap-sidecar:0.1.0 # Replace with your actual image/tag
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: erddap
+        env:
+        - name: ERDDAP_INSERT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: erddap-secret
+              key: insert-password
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        volumeMounts:
+        - name: erddap-data
+          mountPath: /erddapData
+          
       volumes:
-        - name: watcher-script-vol
-          configMap:
-            name: erddap-watcher-script
-        - name: erddap-server-config
-          configMap:
-            name: erddap-server-config
-        - name: erddap-setup-config
-          configMap:
-            name: erddap-setup-config
-        - name: shared-trigger
-          emptyDir: {}        
-        # - name: erddap-content
-        #   emptyDir: {}        
-        - name: erddap-content-storage
-          persistentVolumeClaim:
-            claimName: erddap-content-storage
-        - name: erddap-data-storage
-          persistentVolumeClaim:
-            claimName: erddap-data-storage
-        - name: erddap-datasetsd-storage
-          persistentVolumeClaim:
-            claimName: erddap-datasetsd-storage
-        - name: erddap-jks
-          secret:
-            secretName: erddap-tls-keystore
-      #   volumeMounts:
-      #     - name: erddap-datasetd-storage
-      #       mountPath: /datasets.d
-      #       # subPath: datasets.d
-      #     - name: erddap-content-storage
-      #       mountPath: /usr/local/tomcat/content/erddap
-      #       # subPath: erddap
-      #     - name: erddap-data-pv-storage
-      #       mountPath: /erddapData
-      #       # subPath: erddapData
-      # volumes:
-      #   - name: erddap-datasetd-storage
-      #     persistentVolumeClaim:
-      #       claimName: dataserver-erddap-datasetsd-pvc
-      #   - name: erddap-content-storage
-      #     persistentVolumeClaim:
-      #       claimName: dataserver-erddap-content-pvc
-      #   - name: erddap-data-pv-storage
-      #     persistentVolumeClaim:
-      #       claimName: dataserver-erddap-data-pvc
+      - name: erddap-data
+        persistentVolumeClaim:
+          claimName: erddap-pvc

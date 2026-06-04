@@ -3,28 +3,8 @@ kind: Kustomization
 metadata:
   name: erddap
 
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
 resources:
-# - filemanager-deployment.yaml
-- erddap-pvc.yaml
 - erddap-deployment.yaml
 - erddap-service.yaml
-- erddap-ingress.yaml
-# - filemanager-triggers.yaml
-
-configMapGenerator:
-  - name: erddap-watcher-script
-    files:
-      - watcher.sh
-  - name: erddap-server-config
-    files:
-      - server.xml
-  # - name: erddap-setup-config
-  #   files:
-  #     - setup.xml
-
-
+- erddap-ingressroute.yaml
+- erddap-pvc.yaml

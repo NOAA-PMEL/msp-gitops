@@ -3,8 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: erddap-pvc
 spec:
-  accessModes:
-    - ReadWriteOnce
+  storageClassName: gp3
   resources:
     requests:
-      storage: 10Gi
+      storage: 100Gi

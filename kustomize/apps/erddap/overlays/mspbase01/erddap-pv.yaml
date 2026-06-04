@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: erddap-data-pv
+  labels:
+    app: erddap
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-host-mapped
+  hostPath:
+    # Maps directly to your physical host via k3d container mounts
+    path: /data/msp/data/erddap/mspbase01 
+    type: DirectoryOrCreate

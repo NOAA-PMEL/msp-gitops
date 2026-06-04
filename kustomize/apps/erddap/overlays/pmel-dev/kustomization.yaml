@@ -2,81 +2,26 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: erddap
-
-# set namespace
-namespace: crk8s-system
-
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
-# resources:
-# # Example configuration for the webserver
-# # at https://github.com/monopole/hello
-#   nameSuffix: -usc206
-#   commonLabels:
-#     app: usconverters-uscdr301
-#     variant: test
+namespace: pmel-dev-system
 
 resources:
 - ../../base
-# - filemanager-pv
-- longhorn-rwx.yaml
-- erddap-content-pvc.yaml
+- erddap-secret-sealed.yaml
+- erddap-mw-upgrade.yaml
 - erddap-configmap.yaml
-- erddap-tls-keystore_sealed.yaml
-# - erddap-triggers.yaml
 
-configMapGenerator:
-  - name: erddap-setup-config
-    files:
-      - setup.xml
+# Merge in our AWS-specific deployment scaling and storage 
+patchesStrategicMerge:
+  - storage-patch.yaml
+  - resources-patch.yaml
 
 patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      kind: Trigger
-      # name: default
+  - path: storage-patch.yaml
+  - target: 
+      kind: IngressRoute
+      name: erddap
     patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
-  # - target:
-  #     kind: PersistentVolumeClaim
-  #     name: erddap-content-storage
-  #   patch: |-
-  #     - op: remove 
-  #       path: /spec/volumeName
-  - target:
-      kind: PersistentVolumeClaim
-      name: erddap-data-storage
-    patch: |-
-      - op: remove 
-        path: /spec/volumeName
-  - target:
-      kind: PersistentVolumeClaim
-      name: erddap-datasetsd-storage
-    patch: |-
-      - op: remove 
-        path: /spec/volumeName
-
-
-# patches:
-#   - patch: |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: REPLACED_DURING_PATCH
-#       spec:
-#         template:
-#           spec:
-#             containers:
-#               - name: webhook
-#                 env:
-#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
-#                     value: "true"
-#     target:
-#       group: apps
-#       kind: Deployment
-#       name: ".*webhook.*"
+      - op: add
+        path: /spec/routes/0/middlewares/-
+        value:
+          name: erddap-upgrade
