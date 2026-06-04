@@ -5,7 +5,7 @@ metadata:
 namespace: pmel-dev-system
 
 resources:
-- ../../../base
+- ../../../base/app
 - erddap-secret-sealed.yaml
 - erddap-mw-upgrade.yaml
 # - erddap-configmap.yaml
