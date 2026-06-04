@@ -16,6 +16,8 @@ spec:
       labels:
         app: erddap
     spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
       containers:
       # 1. Official ERDDAP Backend
       - name: erddap
