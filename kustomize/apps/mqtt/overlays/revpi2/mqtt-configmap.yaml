@@ -35,7 +35,7 @@ data:
     remote_clientid revpi2_raz1_bridge
     topic envds/+/sensor/+/data/update out 1 "" ""
     topic envds/+/controller/+/controller/data/update out 1 "" ""
-    topic envds/+/+/registry/update out 1 "" ""
+    topic envds/+/+/registry/update out 0 "" ""
     topic envds/device/settings/request both 0 "" ""
     topic envds/sensor/settings/request both 0 "" ""
     topic envds/+/sensor/+/settings/request in 0 "" ""
