@@ -44,6 +44,8 @@ spec:
               key: ERDDAP_BASE_HTTPS_URL
         - name: ERDDAP_datasetsXmlUrl
           value: "file:///erddapData/datasets.xml"
+        - name: ERDDAP_flagKeyDirectory
+          value: "/erddapData/hardFlag/"
         resources:
           requests:
             cpu: 250m

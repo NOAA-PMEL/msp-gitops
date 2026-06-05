@@ -99,3 +99,118 @@ spec:
       kind: Service
       name: erddap
     uri: /registry/update/
+---
+# --------------------------
+# SAMPLING SYSTEM (VARMAPS & METADATA DEFINITIONS)
+# --------------------------
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-project-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.project-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-contact-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.contact-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-platform-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.platform-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-deployment-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.deployment-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-variablemap-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.variablemap-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-variableset-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.variableset-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: erddap-action-definition-registry-update
+spec:
+  broker: default
+  filters:
+    - exact:
+        type: envds.action-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: erddap
+    uri: /registry/update/
