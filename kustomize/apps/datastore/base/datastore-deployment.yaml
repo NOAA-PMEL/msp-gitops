@@ -87,6 +87,18 @@ spec:
                 configMapKeyRef:
                   name: datastore
                   key: knative_broker
+            - name: DATASTORE_ERDDAP_ENABLE
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: erddap_enable
+                  optional: true
+            - name: DATASTORE_ERDDAP_HTTP_CONNECTION
+              valueFrom:
+                configMapKeyRef:
+                  name: datastore
+                  key: erddap_http_connection
+                  optional: true
           resources:
             requests:
               cpu: "500m"

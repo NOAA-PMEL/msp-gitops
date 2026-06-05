@@ -56,4 +56,5 @@ data:
     envds/+/variableset/+/data/update,
     envds/+/operations/log
 
-  # old
+  erddap_enable: 'true'
+  erddap_http_connection: "http://erddap.pmel-dev-system:80/erddap"
