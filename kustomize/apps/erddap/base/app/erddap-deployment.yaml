@@ -73,6 +73,9 @@ spec:
       - name: erddap-sidecar
         image: ghcr.io/noaa-pmel/msp/erddap-sidecar:0.1.0 # Replace with your actual image/tag
         imagePullPolicy: Always
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
         envFrom:
         - configMapRef:
             name: erddap
