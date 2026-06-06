@@ -57,10 +57,10 @@ spec:
         # Mount A: Standard shared directory
         - name: erddap-data
           mountPath: /erddapData
-        # # Mount B: The direct Tomcat file injection
-        # - name: erddap-data
-        #   mountPath: /usr/local/tomcat/content/erddap/datasets.xml
-        #   subPath: datasets.xml
+        # Mount B: The direct Tomcat file injection
+        - name: erddap-data
+          mountPath: /usr/local/tomcat/content/erddap/datasets.xml
+          subPath: datasets.xml
           
       # 2. FastAPI Sidecar Proxy & Ingester
       - name: erddap-sidecar
