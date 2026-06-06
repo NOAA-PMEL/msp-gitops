@@ -5,8 +5,3 @@ kind: Kustomization
 resources:
   - dataset-generator-service.yaml
   - dataset-generator-triggers.yaml
-
-configMapGenerator:
-  - name: dataset-generator-config
-    envs:
-      - dataset-generator.env
