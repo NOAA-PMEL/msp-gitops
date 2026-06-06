@@ -1,0 +1,12 @@
+# datasets/dataset-generation/dataset-generator/base/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - dataset-generator-service.yaml
+  - dataset-generator-triggers.yaml
+
+configMapGenerator:
+  - name: dataset-generator-config
+    envs:
+      - dataset-generator.env

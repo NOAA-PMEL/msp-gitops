@@ -1,0 +1,9 @@
+# datasets/dataset-generation/dataset-generator/overlays/pmel-dev/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Target namespace for this specific overlay
+namespace: pmel-dev-system
+
+resources:
+  - ../../base

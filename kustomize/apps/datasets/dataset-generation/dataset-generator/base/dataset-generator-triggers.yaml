@@ -1,0 +1,34 @@
+# datasets/dataset-generation/dataset-generator/base/dataset-generator-triggers.yaml
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: dataset-generator-definition-trigger
+  namespace: envds
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.dataset-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: dataset-generator-generate-trigger
+  namespace: envds
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.dataset.generate.request
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/

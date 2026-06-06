@@ -1,0 +1,19 @@
+# datasets/dataset-generation/dataset-generator/base/dataset-generator-service.yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: dataset-generator
+  namespace: envds
+spec:
+  template:
+    metadata:
+      annotations:
+        # Keeping at 1 for dev/debugging so you can read logs immediately. 
+        # Change to "0" when you want true scale-to-zero in production.
+        autoscaling.knative.dev/min-scale: "1" 
+    spec:
+      containers:
+        - image: <YOUR_DOCKER_REGISTRY>/dataset-generator:latest # Update with your actual registry path
+          envFrom:
+            - configMapRef:
+                name: dataset-generator-config
