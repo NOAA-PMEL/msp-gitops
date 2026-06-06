@@ -24,6 +24,13 @@ spec:
         # Using the official image (you can pin a specific tag like 2.24-jdk17-openjdk if preferred)
         image: erddap/erddap:latest 
         imagePullPolicy: IfNotPresent
+        lifecycle:
+          postStart:
+            exec:
+              command: 
+                - /bin/sh
+                - -c
+                - "rm -rf /usr/local/tomcat/content/erddap/datasets.xml && ln -s /erddapData/datasets.xml /usr/local/tomcat/content/erddap/datasets.xml"
         ports:
         - containerPort: 8080
         env:
