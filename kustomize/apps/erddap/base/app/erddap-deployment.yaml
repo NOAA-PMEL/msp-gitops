@@ -18,19 +18,22 @@ spec:
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
+
+      # 1. ADD THIS INIT CONTAINER to guarantee the file exists for the subPath mount
+      initContainers:
+      - name: init-datasets-xml
+        image: busybox
+        command: ['sh', '-c', 'touch /erddapData/datasets.xml && chown 1000:1000 /erddapData/datasets.xml']
+        volumeMounts:
+        - name: erddap-data
+          mountPath: /erddapData
+
       containers:
       # 1. Official ERDDAP Backend
       - name: erddap
         # Using the official image (you can pin a specific tag like 2.24-jdk17-openjdk if preferred)
         image: erddap/erddap:latest 
         imagePullPolicy: IfNotPresent
-        lifecycle:
-          postStart:
-            exec:
-              command: 
-                - /bin/sh
-                - -c
-                - "rm -rf /usr/local/tomcat/content/erddap/datasets.xml && ln -s /erddapData/datasets.xml /usr/local/tomcat/content/erddap/datasets.xml"
         ports:
         - containerPort: 8080
         env:
@@ -64,10 +67,10 @@ spec:
         # Mount A: Standard shared directory
         - name: erddap-data
           mountPath: /erddapData
-        # # Mount B: The direct Tomcat file injection
-        # - name: erddap-data
-        #   mountPath: /usr/local/tomcat/content/erddap/datasets.xml
-        #   subPath: datasets.xml
+        # Mount B: The direct Tomcat file injection
+        - name: erddap-data
+          mountPath: /usr/local/tomcat/content/erddap/datasets.xml
+          subPath: datasets.xml
           
       # 2. FastAPI Sidecar Proxy & Ingester
       - name: erddap-sidecar
