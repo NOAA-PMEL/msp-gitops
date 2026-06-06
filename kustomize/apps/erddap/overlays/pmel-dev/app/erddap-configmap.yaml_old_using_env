@@ -10,4 +10,4 @@ data:
   ERDDAP_SIDECAR_MQTT_SUBSCRIPTIONS: "envds/+/+/+/data/#,envds/+/+/+/status/#,envds/+/operations/log"
   ERDDAP_SIDECAR_ERDDAP_INTERNAL_URL: "http://127.0.0.1:8080/erddap"
   ERDDAP_BASE_URL: "http://k8s.pmel-dev.oarcloud.noaa.gov/envds/data"
-  ERDDAP_BASE_HTTPS_URL: "http://k8s.pmel-dev.oarcloud.noaa.gov/envds/data"
+  ERDDAP_BASE_HTTPS_URL: "https://k8s.pmel-dev.oarcloud.noaa.gov/envds/data"
