@@ -30,7 +30,7 @@ spec:
                 name: dataset-storage-config
                 optional: true
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
               name: http
           resources:
             requests:
