@@ -18,6 +18,7 @@ spec:
       labels:
         app: dataset-storage
     spec:
+      enableServiceLinks: false
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
