@@ -4,4 +4,5 @@ metadata:
   name: dataset-generator-config
   namespace: envds
 data:
+  DATASET_GENERATOR_DAQ_ID: "pmel-dev"
   DATASET_GENERATOR_LOG_LEVEL: "DEBUG"
