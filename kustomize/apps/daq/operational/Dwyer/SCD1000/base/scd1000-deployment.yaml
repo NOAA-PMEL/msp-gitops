@@ -17,7 +17,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: dwyer-scd1000
-        image: ghcr.io/noaa-pmel/msp/dwyer-scd1000:0.1.0
+        image: ghcr.io/noaa-pmel/msp/dwyer-scd1000:0.3.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX

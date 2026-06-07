@@ -18,7 +18,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: phoenixcontact-ntp
-        image: ghcr.io/noaa-pmel/msp/phoenixcontact-ntp:0.1.0
+        image: ghcr.io/noaa-pmel/msp/phoenixcontact-ntp:0.3.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
