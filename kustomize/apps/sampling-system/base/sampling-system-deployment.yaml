@@ -97,6 +97,8 @@ spec:
         - name: sampling-system-contacts
           mountPath: /app/config/contacts.json
           subPath: contacts.json
+        - name: shared-calculations
+          mountPath: /app/calculations/
         # --------------------------------------
         
         resources:
@@ -144,5 +146,9 @@ spec:
       - name: sampling-system-contacts
         configMap:
           name: sampling-system-contacts
+          optional: true
+      - name: shared-calculations
+        configMap:
+          name: shared-calculations-config
           optional: true
       # ----------------------------------

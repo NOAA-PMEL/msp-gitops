@@ -19,3 +19,17 @@ spec:
           envFrom:
             - configMapRef:
                 name: dataset-generator-config
+          volumeMounts:
+            - name: shared-calculations
+              mountPath: /app/calculations/
+            - name: definitions-volume
+              mountPath: /app/config/definitions/
+      volumes:
+        - name: shared-calculations
+          configMap:
+            name: shared-calculations-config
+            optional: true
+        - name: definitions-volume
+          configMap:
+            name: dataset-definitions
+            optional: true

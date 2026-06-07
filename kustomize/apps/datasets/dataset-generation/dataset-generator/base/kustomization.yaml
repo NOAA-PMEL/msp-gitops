@@ -5,3 +5,10 @@ kind: Kustomization
 resources:
   - dataset-generator-service.yaml
   - dataset-generator-triggers.yaml
+
+configMapGenerator:
+  - name: shared-calculations-config
+    namespace: envds
+    files:
+      # Point UP and OVER to the shared folder
+      - ../../../shared-libs/calculations/default.py

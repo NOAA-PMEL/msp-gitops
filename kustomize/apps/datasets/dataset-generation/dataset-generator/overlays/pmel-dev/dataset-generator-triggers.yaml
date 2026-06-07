@@ -1,0 +1,18 @@
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-metnav-a1
+  # The namespace must match your overlay namespace
+  namespace: pmel-dev-system
+spec:
+  # Standard Cron Format: Minute 5 of every hour
+  schedule: "*/5 * * * *"
+  contentType: "application/json"
+  # The payload that gets POSTed to your Python app
+  data: '{ "dataset_id": "san_hnl.metnav.a1", "action": "generate", "time_window": "previous_hour" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      # Target our dataset generator service
+      name: dataset-generator-pmel-dev

@@ -8,3 +8,10 @@ resources:
 - sampling-system-service.yaml
 # Remove the knative reference:
 # - sampling-system-service_knative.yaml
+
+configMapGenerator:
+  - name: shared-calculations-config
+    namespace: envds
+    files:
+      # Point UP and OVER to the shared folder
+      - ../../shared-libs/calculations/default.py
