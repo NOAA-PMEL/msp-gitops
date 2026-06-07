@@ -43,6 +43,8 @@ data:
     topic envds/controller/settings/request both 0 "" ""
     topic envds/+/controller/settings/update out 0 "" ""
     topic envds/+/sensor/+/settings/update out 0 "" ""
+    topic envds/+/controller-definition/registry/update out 0 "" ""
+    topic envds/+/device-definition/registry/update out 0 "" ""
 
     # Bridge
     # connection revpi2_mspbase01_bridge
