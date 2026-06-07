@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dataset-storage-pvc
+spec:
+  # Inject the AWS EKS storage class
+  storageClassName: gp3-retain
+  resources:
+    requests:
+      storage: 50Gi

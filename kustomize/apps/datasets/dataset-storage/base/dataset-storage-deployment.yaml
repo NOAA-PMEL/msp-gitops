@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataset-storage
+  labels:
+    app: dataset-storage
+spec:
+  replicas: 1
+  # Prevent K8s from trying to start a 2nd pod before shutting down the 1st
+  # (Crucial for AWS EBS ReadWriteOnce drives)
+  strategy:
+    type: Recreate 
+  selector:
+    matchLabels:
+      app: dataset-storage
+  template:
+    metadata:
+      labels:
+        app: dataset-storage
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - name: dataset-storage
+          image: ghcr.io/noaa-pmel/msp/dataset-storage:0.1.0 # Update tag as needed
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+              name: http
+          resources:
+            requests:
+              cpu: 100m       
+              memory: 128Mi   
+            limits:
+              cpu: 500m       
+              memory: 512Mi   # A bit of extra RAM for handling NetCDF file uploads
+          volumeMounts:
+            - name: storage-volume
+              mountPath: /app/data/storage
+      volumes:
+        - name: storage-volume
+          persistentVolumeClaim:
+            claimName: dataset-storage-pvc
