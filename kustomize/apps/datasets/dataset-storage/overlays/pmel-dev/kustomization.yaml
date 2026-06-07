@@ -6,5 +6,10 @@ namespace: pmel-dev-system
 resources:
   - ../../base
 
+configMapGenerator:
+  - name: dataset-storage-config
+    envs:
+      - configmap.env
+      
 patches:
   - path: dataset-storage-pvc-patch.yaml
