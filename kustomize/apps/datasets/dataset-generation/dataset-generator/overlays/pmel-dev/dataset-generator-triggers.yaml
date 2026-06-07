@@ -16,3 +16,4 @@ spec:
       kind: Service
       # Target our dataset generator service
       name: dataset-generator
+    uri: /dataset/generate/request/
