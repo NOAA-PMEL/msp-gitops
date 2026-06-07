@@ -15,4 +15,4 @@ spec:
       apiVersion: serving.knative.dev/v1
       kind: Service
       # Target our dataset generator service
-      name: dataset-generator-pmel-dev
+      name: dataset-generator
