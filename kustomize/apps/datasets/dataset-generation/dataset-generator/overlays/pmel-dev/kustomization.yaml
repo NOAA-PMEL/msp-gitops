@@ -7,6 +7,10 @@ namespace: pmel-dev-system
 
 resources:
   - ../../base
-  - dataset-generator-configmap.yaml
   - dataset-generator-triggers.yaml
   - ../../../../definitions/base
+
+configMapGenerator:
+  - name: dataset-generator-config
+    envs:
+      - dataset-generator-configmap.env

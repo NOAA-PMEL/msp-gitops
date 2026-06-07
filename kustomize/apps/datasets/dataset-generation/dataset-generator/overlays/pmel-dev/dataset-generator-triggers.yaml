@@ -9,7 +9,7 @@ spec:
   schedule: "*/5 * * * *"
   contentType: "application/json"
   # The payload that gets POSTed to your Python app
-  data: '{ "dataset_id": "san_hnl.metnav.a1", "action": "generate", "time_window": "previous_hour" }'
+  data: '{ "dataset_id": "san_hnl.metnav.a1", "action": "generate", "time_window": "auto" }'
   sink:
     ref:
       apiVersion: serving.knative.dev/v1

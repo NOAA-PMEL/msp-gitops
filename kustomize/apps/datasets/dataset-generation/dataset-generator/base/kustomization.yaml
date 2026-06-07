@@ -7,3 +7,5 @@ resources:
   - dataset-generator-triggers.yaml
   - ../../../../shared-libs/calculations/base
 
+configurations:
+  - knative-kustomizeconfig.yaml

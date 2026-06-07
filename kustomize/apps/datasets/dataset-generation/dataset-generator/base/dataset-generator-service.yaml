@@ -32,4 +32,4 @@ spec:
         - name: definitions-volume
           configMap:
             name: dataset-definitions
-            optional: true
+            # optional: true
