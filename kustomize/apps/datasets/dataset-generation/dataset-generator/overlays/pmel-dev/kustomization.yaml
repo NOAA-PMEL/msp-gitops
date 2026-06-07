@@ -9,11 +9,4 @@ resources:
   - ../../base
   - dataset-generator-configmap.yaml
   - dataset-generator-triggers.yaml
-
-configMapGenerator:
-  - name: dataset-definitions
-    files:
-      # Step up 4 levels to the repo root, then down into definitions/
-      - ../../../../definitions/san_hnl.metnav.a1.json
-      # You can continue adding future definitions here!
-      # - ../../../../definitions/payload_03.aerosol.a1.json
+  - ../../../../definitions/base
