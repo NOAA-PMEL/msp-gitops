@@ -1,0 +1,16 @@
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-metnav-5min-a1
+  namespace: pmel-dev-system
+spec:
+  # Standard Cron: Fires exactly every 5 minutes (0, 5, 10, 15, etc.)
+  schedule: "*/5 * * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.metnav_5min.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/
