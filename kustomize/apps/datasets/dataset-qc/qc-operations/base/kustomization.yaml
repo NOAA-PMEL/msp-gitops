@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
   - qc-operations-ksvc.yaml
   - qc-operations-trigger.yaml
+
+# Teach Kustomize where to find ConfigMap refs in Knative CRDs
+configurations:
+  - knative-service-ref.yaml
