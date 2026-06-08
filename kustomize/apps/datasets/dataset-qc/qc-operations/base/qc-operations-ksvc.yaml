@@ -22,7 +22,8 @@ spec:
                 name: qc-operations-config
                 optional: true
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
+              name: http1
           # We mount a temporary emptyDir for the downloaded files to live in during processing
           volumeMounts:
             - name: work-volume
