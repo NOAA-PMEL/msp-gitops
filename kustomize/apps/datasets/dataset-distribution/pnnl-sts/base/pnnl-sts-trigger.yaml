@@ -1,0 +1,14 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: pnnl-sts-stored-trigger
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.dataset.stored
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: pnnl-sts

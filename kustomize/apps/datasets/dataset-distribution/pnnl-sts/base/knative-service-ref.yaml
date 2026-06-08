@@ -1,0 +1,15 @@
+# This teaches Kustomize which fields inside a Knative Service 
+# need to have ConfigMap hashes appended to them.
+nameReference:
+  - kind: ConfigMap
+    version: v1
+    fieldSpecs:
+      - path: spec/template/spec/containers/envFrom/configMapRef/name
+        kind: Service
+        group: serving.knative.dev
+      - path: spec/template/spec/containers/env/valueFrom/configMapKeyRef/name
+        kind: Service
+        group: serving.knative.dev
+      - path: spec/template/spec/volumes/configMap/name
+        kind: Service
+        group: serving.knative.dev

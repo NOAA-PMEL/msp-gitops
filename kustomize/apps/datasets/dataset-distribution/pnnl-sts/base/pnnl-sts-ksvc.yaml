@@ -1,0 +1,37 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: pnnl-sts
+  labels:
+    app: pnnl-sts
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "0"
+        autoscaling.knative.dev/max-scale: "2"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - image: ghcr.io/noaa-pmel/msp/pnnl-sts:0.1.0
+          imagePullPolicy: Always
+          
+          # Pull the config (DAQ_ID and Logging)
+          envFrom:
+            - configMapRef:
+                name: pnnl-sts-config
+                optional: true
+                
+          ports:
+            - containerPort: 8080
+              name: http1  # Knative expects 'http1' or 'h2c' for protocol hints
+            
+          volumeMounts:
+            - name: sts-outbox
+              # The specific path required by the PNNL binary
+              mountPath: /datasets/beacons/sts 
+              
+      volumes:
+        - name: sts-outbox
+          emptyDir: {}
