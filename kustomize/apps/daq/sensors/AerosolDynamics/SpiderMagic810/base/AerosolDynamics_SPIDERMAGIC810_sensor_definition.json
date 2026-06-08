@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "5.0.0"
+            "data": "6.0.0"
         },
         "variable_types": {
             "type": "string",
@@ -34,7 +34,7 @@
         },
         "change_log": {
             "type": "string",
-            "data": "5.0.0: had the diameter data in wrong place; 4.0.0: fix coordinate schema and add intN; 3.0.0: Switch diameter to coordinate variable; 2.2.0: Implemented MQTT settings health check interception; 2.1.0: Added local state persistence (Removed); 2.0.0: added top-level sampling_state and calibration_routine; 1.5.0: added raw_scan variable type, made scan_bins dynamic, set diameter to 60 bins; 1.4.0: changed some types; 1.3.0: changed diameter dimension to 127; 1.2.0: cleaned up long names"
+            "data": "6.0.0: changed shape of diameter coordinate to just diameter to make it consistent with other sizing; 5.0.0: had the diameter data in wrong place; 4.0.0: fix coordinate schema and add intN; 3.0.0: Switch diameter to coordinate variable; 2.2.0: Implemented MQTT settings health check interception; 2.1.0: Added local state persistence (Removed); 2.0.0: added top-level sampling_state and calibration_routine; 1.5.0: added raw_scan variable type, made scan_bins dynamic, set diameter to 60 bins; 1.4.0: changed some types; 1.3.0: changed diameter dimension to 127; 1.2.0: cleaned up long names"
         }
     },
     "dimensions": {
@@ -897,10 +897,7 @@
         },
         "diameter": {
             "type": "float",
-            "shape": [
-                "time",
-                "diameter"
-            ],
+            "shape": ["diameter"],
             "attributes": {
                 "variable_type": {
                     "type": "string",

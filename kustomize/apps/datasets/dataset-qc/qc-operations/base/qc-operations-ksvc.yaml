@@ -1,0 +1,32 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: qc-operations
+  labels:
+    app: qc-operations
+spec:
+  template:
+    metadata:
+      annotations:
+        # Scale to zero when idle, max 5 concurrent pods if a huge backlog hits
+        autoscaling.knative.dev/min-scale: "0"
+        autoscaling.knative.dev/max-scale: "5"
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - image: ghcr.io/noaa-pmel/msp/qc-operations:0.1.0
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: qc-operations-config
+                optional: true
+          ports:
+            - containerPort: 8000
+          # We mount a temporary emptyDir for the downloaded files to live in during processing
+          volumeMounts:
+            - name: work-volume
+              mountPath: /app/data/work
+      volumes:
+        - name: work-volume
+          emptyDir: {}
