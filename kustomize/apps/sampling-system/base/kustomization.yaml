@@ -14,4 +14,4 @@ configMapGenerator:
     namespace: envds
     files:
       # Point UP and OVER to the shared folder
-      - ../../shared-libs/calculations/default.py
+      - ../../shared-libs/calculations/base/default.py
