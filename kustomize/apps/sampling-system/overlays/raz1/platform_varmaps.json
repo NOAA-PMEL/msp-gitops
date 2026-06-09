@@ -6,8 +6,8 @@
       "name": "payload_03",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "platform.pmel.payload_03",
-      "valid_config_time": "2026-06-02T00:00:00Z",
-      "revision": 1
+      "valid_config_time": "2026-06-09T14:04:00Z",
+      "revision": 2
     },
     "data": {
       "attributes": {
@@ -15,8 +15,8 @@
         "platform_type": "MSP_Payload",
         "platform": "platform.pmel.payload_03",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-06-02T00:00:00Z",
-        "revision": 1
+        "valid_config_time": "2026-06-09T14:04:00Z",
+        "revision": 2
       },
       "variablesets": {
         "main": {
@@ -62,6 +62,9 @@
           "direct_value": { "source_variable": "ws" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "m/s" },
@@ -82,6 +85,9 @@
           "direct_value": { "source_variable": "wdir" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees" },
@@ -102,6 +108,9 @@
           "direct_value": { "source_variable": "temp" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees_C" } 
@@ -121,6 +130,9 @@
           "direct_value": { "source_variable": "rh" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "%" } 
@@ -140,6 +152,9 @@
           "direct_value": { "source_variable": "pres" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "hPa" } 
@@ -159,6 +174,9 @@
           "direct_value": { "source_variable": "rain" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "mm/h" } 
@@ -178,6 +196,9 @@
           "direct_value": { "source_variable": "irrad" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "W/m2" },
@@ -198,6 +219,9 @@
           "direct_value": { "source_variable": "NO2" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "ppm" } 
@@ -217,6 +241,9 @@
           "direct_value": { "source_variable": "CO" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "ppm" } 
@@ -236,6 +263,9 @@
           "direct_value": { "source_variable": "O3" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "ppm" } 
@@ -255,6 +285,9 @@
           "direct_value": { "source_variable": "NO" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "ppm" } 
@@ -274,6 +307,9 @@
           "direct_value": { "source_variable": "PM1" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "ug/m3" } 
@@ -293,6 +329,9 @@
           "direct_value": { "source_variable": "PM2_5" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "ug/m3" } 
@@ -312,6 +351,9 @@
           "direct_value": { "source_variable": "PM10" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "ug/m3" } 
@@ -331,6 +373,9 @@
           "direct_value": { "source_variable": "latitude" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees_north" } 
@@ -350,6 +395,9 @@
           "direct_value": { "source_variable": "longitude" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees_east" } 
@@ -369,6 +417,9 @@
           "direct_value": { "source_variable": "heading" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees" },
@@ -389,6 +440,9 @@
           "direct_value": { "source_variable": "speed" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "kilometers/hour" },
@@ -409,6 +463,9 @@
           "direct_value": { "source_variable": "yaw" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees" } 
@@ -428,6 +485,9 @@
           "direct_value": { "source_variable": "pitch" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees" } 
@@ -447,6 +507,9 @@
           "direct_value": { "source_variable": "roll" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "degrees" } 
@@ -466,6 +529,9 @@
           "direct_value": { "source_variable": "heave" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "meters" } 
@@ -559,6 +625,9 @@
           "direct_value": { "source_variable": "fan_speed" },
           "variableset": "operations",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { 
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "rpm" } 
@@ -579,6 +648,10 @@
           "direct_value": { "source_variable": "fan_speed_sp" },
           "variableset": "operations",
           "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
             "units": { "type": "string", "data": "%" },

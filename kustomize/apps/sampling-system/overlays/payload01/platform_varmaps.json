@@ -6,8 +6,8 @@
       "name": "payload_01",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "platform.pmel.payload_01",
-      "valid_config_time": "2026-06-02T00:00:00Z",
-      "revision": 2
+      "valid_config_time": "2026-06-09T14:07:00Z",
+      "revision": 3
     },
     "data": {
       "attributes": {
@@ -15,8 +15,8 @@
         "platform_type": "MSP_Payload",
         "platform": "platform.pmel.payload_01",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-06-02T00:00:00Z",
-        "revision": 2
+        "valid_config_time": "2026-06-09T14:07:00Z",
+        "revision": 3
       },
       "variablesets": {
         "main": {
@@ -56,6 +56,9 @@
           "direct_value": { "source_variable": "concentration" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "cn_flow": {
@@ -66,6 +69,9 @@
           "direct_value": { "source_variable": "flow" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm3 min-1" } }
         },
         "aps_diameter": {
@@ -76,6 +82,9 @@
           "direct_value": { "source_variable": "dp" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } }
         },
         "aps_particle_counts": {
@@ -86,6 +95,9 @@
           "direct_value": { "source_variable": "counts" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "count" } }
         },
         "aps_dN": {
@@ -96,6 +108,9 @@
           "direct_value": { "source_variable": "dn" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_dNdlogDp": {
@@ -106,6 +121,9 @@
           "direct_value": { "source_variable": "dndlogdp" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_intN": {
@@ -116,6 +134,9 @@
           "direct_value": { "source_variable": "intn" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_total_flow": {
@@ -126,6 +147,9 @@
           "direct_value": { "source_variable": "tflow" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "lpm" } }
         },
         "aps_sheath_flow": {
@@ -136,6 +160,9 @@
           "direct_value": { "source_variable": "sflow" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "lpm" } }
         },
         "aps_inlet_temperature": {
@@ -146,6 +173,9 @@
           "direct_value": { "source_variable": "itemp" },
           "variableset": "main",
           "index_method": ["round", "average"],
+          "fill_strategy": {
+            "method": "none"
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
         },
         "power_opc": {
@@ -156,6 +186,11 @@
           "direct_value": {"source_variable": "power_opc"},
           "source": { "power_opc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_0_power" } },
           "variableset": "power",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
           "attributes": { "long_name": {"type": "string", "data": "OPC Power"} }
         },
         "power_smps": {
@@ -166,6 +201,11 @@
           "direct_value": {"source_variable": "power_smps"},
           "source": { "power_smps": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_1_power" } },
           "variableset": "power",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
           "attributes": { "long_name": {"type": "string", "data": "SMPS Power"} }
         },
         "power_cpc": {
@@ -176,6 +216,11 @@
           "direct_value": {"source_variable": "power_cpc"},
           "source": { "power_cpc": { "source_type": "controller", "source_id": "Shelly::ShellyPro3::shel28", "source_variable": "channel_2_power" } },
           "variableset": "power",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
           "attributes": { "long_name": {"type": "string", "data": "CPC Power"} }
         },
         "power_aps": {
@@ -186,6 +231,11 @@
           "direct_value": {"source_variable": "power_aps"},
           "source": { "power_aps": { "source_type": "controller", "source_id": "Shelly::ShellyPro1::shel29", "source_variable": "channel_0_power" } },
           "variableset": "power",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
           "attributes": { "long_name": {"type": "string", "data": "APS Power"} }
         }
       }
