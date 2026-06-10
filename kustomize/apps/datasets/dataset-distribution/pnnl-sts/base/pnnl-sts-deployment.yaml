@@ -26,7 +26,13 @@ spec:
             - configMapRef:
                 name: pnnl-sts-config
                 optional: true
-                
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"  # Set this high enough so the app doesn't hit its own ceiling
+              cpu: "500m"
           ports:
             - containerPort: 8080
             
