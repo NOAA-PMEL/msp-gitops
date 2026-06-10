@@ -4,6 +4,22 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 
+async def calculate_relative_wind_direction_from_fixed(self, wind_direction):
+    """
+    Converts a 0-360° bow-relative angle to a -180° to 180° scale.
+    Vectorized to handle both streaming floats and batch arrays.
+    """
+    if wind_direction is None: return None
+    
+    # Vectorize to support dataset_generator arrays
+    wd = np.atleast_1d(wind_direction)
+    
+    rel_dir = ((wd + 180) % 360) - 180
+    
+    if len(rel_dir) == 1 and not isinstance(wind_direction, list):
+        return {"relative_wind_direction": float(rel_dir[0])}
+    return {"relative_wind_direction": rel_dir.tolist()}
+
 async def calculate_true_wind_speed(self, relative_wind_speed=None, relative_wind_direction=None, platform_speed=None, platform_heading=None):
     """
     Calculates true wind speed based on apparent (relative) wind and platform vectors.
@@ -18,12 +34,12 @@ async def calculate_true_wind_speed(self, relative_wind_speed=None, relative_win
         # np.atleast_1d ensures a single float 14.2 becomes array([14.2])
         rel_ws = np.atleast_1d(relative_wind_speed)
         rel_wd = np.atleast_1d(relative_wind_direction)
-        p_speed = np.atleast_1d(platform_speed)
+        p_speed_ms = np.atleast_1d(platform_speed)
         p_heading = np.atleast_1d(platform_heading)
 
         # Note: If your platform_speed (SOG) is in km/h, convert it to m/s here:
         # p_speed_ms = p_speed / 3.6
-        p_speed_ms = p_speed
+        # p_speed_ms = p_speed
 
         # 3. Convert apparent wind angle to radians 
         rel_wd_rad = np.radians(rel_wd)
@@ -67,12 +83,12 @@ async def calculate_true_wind_direction(self, relative_wind_speed=None, relative
         # Convert to numpy arrays
         rel_ws = np.atleast_1d(relative_wind_speed)
         rel_wd = np.atleast_1d(relative_wind_direction)
-        p_speed = np.atleast_1d(platform_speed)
+        p_speed_ms = np.atleast_1d(platform_speed)
         p_heading = np.atleast_1d(platform_heading)
         
         # 2. Unit Consistency: Convert Platform Speed (km/h) to m/s to match wind speed
         # Based on your platform_varmaps.json, platform_speed is in km/h.
-        p_speed_ms = p_speed / 3.6 
+        # p_speed_ms = p_speed / 3.6 
 
         # 3. Trigonometric conversion (Apparent Wind Angle relative to Bow)
         rel_wd_rad = np.radians(rel_wd)

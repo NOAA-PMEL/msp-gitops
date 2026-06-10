@@ -5,7 +5,7 @@
         "metadata": {
             "name": "cn_limit",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
+            "valid_config_time": "2026-06-09T00:00:00Z",
             "revision": 2
         },
         "sources": {
@@ -22,8 +22,8 @@
                     "sources": [
                         "cn"
                     ],
-                    "max_val": 1000,
-                    "min_val": 10,
+                    "max_val": 10000.0,
+                    "min_val": 10.0,
                     "true_if": "inside"
                 }
             ]
@@ -35,13 +35,13 @@
         "metadata": {
             "name": "sampling_wind_direction_limit",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
-            "revision": 2
+            "valid_config_time": "2026-06-09T00:00:00Z",
+            "revision": 3
         },
         "sources": {
             "relative_wind_direction": {
                 "variablemap_name": "raz1",
-                "variableset_name": "main",
+                "variableset_name": "operations",
                 "variable": "relative_wind_direction"
             }
         },
@@ -52,8 +52,8 @@
                     "sources": [
                         "relative_wind_direction"
                     ],
-                    "max_val": 100,
-                    "min_val": -100,
+                    "max_val": 180.0,
+                    "min_val": -180.0,
                     "true_if": "inside"
                 }
             ]
@@ -65,13 +65,13 @@
         "metadata": {
             "name": "sampling_wind_speed_limit",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
+            "valid_config_time": "2026-06-09T00:00:00Z",
             "revision": 2
         },
         "sources": {
             "relative_wind_speed": {
                 "variablemap_name": "raz1",
-                "variableset_name": "main",
+                "variableset_name": "operations",
                 "variable": "relative_wind_speed"
             }
         },
@@ -82,8 +82,8 @@
                     "sources": [
                         "relative_wind_speed"
                     ],
-                    "max_val": 100,
-                    "min_val": 1,
+                    "max_val": 100.0,
+                    "min_val": 1.0,
                     "true_if": "inside"
                 }
             ]
@@ -142,21 +142,21 @@
             "sampling_namespace": "pmel.noaa.gov", 
             "execution_node": "raz1", 
             "valid_config_time": "2026-05-30T00:00:00Z", 
-            "revision": 3 
+            "revision": 4 
         },
         "sources": {
             "gps_lat": { 
-                "variablemap_name": "payload_03", 
+                "variablemap_name": "raz1", 
                 "variableset_name": "main", 
                 "variable": "latitude" 
             },
             "air_temp": { 
-                "variablemap_name": "payload_03", 
+                "variablemap_name": "raz1", 
                 "variableset_name": "main", 
                 "variable": "air_temperature" 
             },
             "irrad": { 
-                "variablemap_name": "payload_03", 
+                "variablemap_name": "raz1", 
                 "variableset_name": "main", 
                 "variable": "irradiance" 
             }

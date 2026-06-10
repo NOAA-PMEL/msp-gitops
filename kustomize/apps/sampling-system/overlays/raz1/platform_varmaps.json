@@ -60,7 +60,7 @@
             }
           },
           "direct_value": { "source_variable": "ws" },
-          "variableset": "main",
+          "variableset": "operations",
           "index_method": ["round", "average"],
           "fill_strategy": {
             "method": "none"
@@ -71,7 +71,7 @@
             "long_name": { "type": "string", "data": "Relative Wind Speed" }
           }
         },
-        "relative_wind_direction": {
+        "measured_wind_direction": {
           "type": "float",
           "shape": ["time"],
           "map_type": "direct",
@@ -83,10 +83,31 @@
             }
           },
           "direct_value": { "source_variable": "wdir" },
-          "variableset": "main",
+          "variableset": "operations",
           "index_method": ["round", "average"],
           "fill_strategy": {
             "method": "none"
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
+            "units": { "type": "string", "data": "degrees" },
+            "long_name": { "type": "string", "data": "Relative Wind Direction" }
+          }
+        },
+        "relative_wind_direction": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "calculated",
+          "variableset": "operations",
+          "calculate_method": {
+            "action_module": "calculations.default",
+            "action_def": "calculate_relative_wind_direction_from_fixed",
+            "parameters": {
+              "wind_direction": { "source-variable": "meas_wd" }
+            }
+          },
+          "source": {
+            "meas_wd": { "source_variable": "measured_wind_direction", "variableset": "operations" }
           },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
@@ -445,7 +466,7 @@
           },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
-            "units": { "type": "string", "data": "kilometers/hour" },
+            "units": { "type": "string", "data": "m/s" },
             "long_name": { "type": "string", "data": "Platform Speed Over Ground" }
           }
         },
@@ -543,39 +564,19 @@
           "map_type": "calculated",
           "variableset": "derived",
           "source": {
-            "rel_ws": {
-              "source_variable": "relative_wind_speed",
-              "variableset": "main"
-            },
-            "rel_wd": {
-              "source_variable": "relative_wind_direction",
-              "variableset": "main"
-            },
-            "p_speed": {
-              "source_variable": "platform_speed",
-              "variableset": "main"
-            },
-            "p_heading": {
-              "source_variable": "platform_heading",
-              "variableset": "main"
-            }
+            "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "operations" },
+            "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "operations" },
+            "p_speed": { "source_variable": "platform_speed", "variableset": "main" },
+            "p_heading": { "source_variable": "platform_heading", "variableset": "main" }
           },
           "calculate_method": {
             "action_module": "calculations.default",
             "action_def": "calculate_true_wind_speed",
             "parameters": {
-              "relative_wind_speed": {
-                "source-variable": "rel_ws"
-              },
-              "relative_wind_direction": {
-                "source-variable": "rel_wd"
-              },
-              "platform_speed": {
-                "source-variable": "p_speed"
-              },
-              "platform_heading": {
-                "source-variable": "p_heading"
-              }
+              "relative_wind_speed": { "source-variable": "rel_ws" },
+              "relative_wind_direction": { "source-variable": "rel_wd" },
+              "platform_speed": { "source-variable": "p_speed" },
+              "platform_heading": { "source-variable": "p_heading" }
             }
           },
           "attributes": {
@@ -600,10 +601,10 @@
             }
           },
           "source": {
-            "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "main" },
+            "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "operations" },
             "p_heading": { "source_variable": "platform_heading", "variableset": "main" },
             "p_speed": { "source_variable": "platform_speed", "variableset": "main" },
-            "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "main" }
+            "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "operations" }
           },
           "attributes": {
             "evaluate_by": { "type": "string", "data": "data-server" },

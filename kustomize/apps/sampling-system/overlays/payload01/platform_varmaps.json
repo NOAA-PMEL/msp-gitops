@@ -56,9 +56,7 @@
           "direct_value": { "source_variable": "concentration" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
+          "fill_strategy": { "method": "none" },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "cn_flow": {
@@ -69,10 +67,96 @@
           "direct_value": { "source_variable": "flow" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm3 min-1" } }
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
+        },
+        "opc_diameter": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dp": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "diameter" } },
+          "direct_value": { "source_variable": "dp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } }
+        },
+        "opc_particle_counts": {
+          "type": "int",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "counts": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "bin_count" } },
+          "direct_value": { "source_variable": "counts" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "count" } }
+        },
+        "opc_dN": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dn": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "dN" } },
+          "direct_value": { "source_variable": "dn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "opc_dNdlogDp": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dndlogdp": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "dNdlogDp" } },
+          "direct_value": { "source_variable": "dndlogdp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "opc_intN": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "intn": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "intN" } },
+          "direct_value": { "source_variable": "intn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "opc_flow": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "flow": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "POPS_Flow" } },
+          "direct_value": { "source_variable": "flow" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
+        },
+        "opc_inlet_temperature": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "itemp": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "Temp" } },
+          "direct_value": { "source_variable": "itemp" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
+        },
+        "opc_pressure": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "press": { "source_type": "device", "source_id": "Handix::POPS1100::094", "source_variable": "P" } },
+          "direct_value": { "source_variable": "press" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "hPa" } }
         },
         "aps_diameter": {
           "type": "float",
@@ -82,9 +166,7 @@
           "direct_value": { "source_variable": "dp" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
+          "fill_strategy": { "method": "none" },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } }
         },
         "aps_particle_counts": {
@@ -95,9 +177,7 @@
           "direct_value": { "source_variable": "counts" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
+          "fill_strategy": { "method": "none" },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "count" } }
         },
         "aps_dN": {
@@ -108,9 +188,7 @@
           "direct_value": { "source_variable": "dn" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
+          "fill_strategy": { "method": "none" },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_dNdlogDp": {
@@ -121,9 +199,7 @@
           "direct_value": { "source_variable": "dndlogdp" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
+          "fill_strategy": { "method": "none" },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_intN": {
@@ -134,9 +210,7 @@
           "direct_value": { "source_variable": "intn" },
           "variableset": "sizing",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
+          "fill_strategy": { "method": "none" },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
         },
         "aps_total_flow": {
@@ -147,10 +221,8 @@
           "direct_value": { "source_variable": "tflow" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "lpm" } }
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
         },
         "aps_sheath_flow": {
           "type": "float",
@@ -160,10 +232,8 @@
           "direct_value": { "source_variable": "sflow" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "lpm" } }
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
         },
         "aps_inlet_temperature": {
           "type": "float",
@@ -173,10 +243,85 @@
           "direct_value": { "source_variable": "itemp" },
           "variableset": "main",
           "index_method": ["round", "average"],
-          "fill_strategy": {
-            "method": "none"
-          },
+          "fill_strategy": { "method": "none" },
           "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
+        },
+        "smps_diameter": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dp": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::018", "source_variable": "diameter" } },
+          "direct_value": { "source_variable": "dp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } }
+        },
+        "smps_dN": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dn": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::018", "source_variable": "dN" } },
+          "direct_value": { "source_variable": "dn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "smps_dNdlogDp": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dndlogdp": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::018", "source_variable": "dNdlogDp" } },
+          "direct_value": { "source_variable": "dndlogdp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "smps_intN": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "intn": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::018", "source_variable": "intN" } },
+          "direct_value": { "source_variable": "intn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "smps_flow": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "flow": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::018", "source_variable": "flow" } },
+          "direct_value": { "source_variable": "flow" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
+        },
+        "smps_inlet_temperature": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "itemp": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::018", "source_variable": "input_T" } },
+          "direct_value": { "source_variable": "itemp" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
+        },
+        "smps_pressure": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "press": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::018", "source_variable": "abs_pressure" } },
+          "direct_value": { "source_variable": "press" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "mbar" } }
         },
         "power_opc": {
           "type": "int",
