@@ -28,8 +28,8 @@ spec:
                 optional: true
           resources:
             requests:
-              memory: "256Mi"
-              cpu: "250m"
+              memory: "128Mi"
+              cpu: "125m"
             limits:
               memory: "512Mi"  # Set this high enough so the app doesn't hit its own ceiling
               cpu: "500m"
