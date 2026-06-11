@@ -6,9 +6,10 @@
             "name": "set_isokinetic_inlet_flow",
             "action_module": "actions.beacons_msp",
             "action_def": "set_isokinetic_inlet_flow",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
-            "revision": 2
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:26:00Z",
+            "revision": 3,
+            "execution_node": "raz1"
         },
         "source_max_age": 10,
         "sources": {
@@ -33,9 +34,10 @@
             "name": "set_reverse_inlet_flow",
             "action_module": "actions.beacons_msp",
             "action_def": "set_reverse_inlet_flow",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
-            "revision": 2
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:26:00Z",
+            "revision": 3,
+            "execution_node": "raz1"
         },
         "source_max_age": 10,
         "sources": {},

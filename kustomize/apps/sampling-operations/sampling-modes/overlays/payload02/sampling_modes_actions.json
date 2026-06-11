@@ -2,56 +2,56 @@
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_24v_bus", "action_module": "actions.payload02_actions", "action_def": "turn_on_24v_bus", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_24v_bus", "action_module": "actions.payload02_actions", "action_def": "turn_on_24v_bus", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_24v_bus": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_24v_bus" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_tec", "action_module": "actions.payload02_actions", "action_def": "turn_on_tec", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_tec", "action_module": "actions.payload02_actions", "action_def": "turn_on_tec", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_tec": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_tec" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_neph", "action_module": "actions.payload02_actions", "action_def": "turn_on_neph", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_neph", "action_module": "actions.payload02_actions", "action_def": "turn_on_neph", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_neph": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_neph" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_absorb", "action_module": "actions.payload02_actions", "action_def": "turn_on_absorb", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_absorb", "action_module": "actions.payload02_actions", "action_def": "turn_on_absorb", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_absorb": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_absorb" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_absorb", "action_module": "actions.payload02_actions", "action_def": "turn_off_absorb", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_absorb", "action_module": "actions.payload02_actions", "action_def": "turn_off_absorb", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_absorb": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_absorb" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_neph", "action_module": "actions.payload02_actions", "action_def": "turn_off_neph", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_neph", "action_module": "actions.payload02_actions", "action_def": "turn_off_neph", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_neph": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_neph" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_tec", "action_module": "actions.payload02_actions", "action_def": "turn_off_tec", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_tec", "action_module": "actions.payload02_actions", "action_def": "turn_off_tec", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_tec": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_tec" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_24v_bus", "action_module": "actions.payload02_actions", "action_def": "turn_off_24v_bus", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload02", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_24v_bus", "action_module": "actions.payload02_actions", "action_def": "turn_off_24v_bus", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_02_in_msp_01", "execution_node": "payload02", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_24v_bus": { "variablemap_name": "payload_02", "variableset_name": "power", "variable": "power_24v_bus" } }
     }

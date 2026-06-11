@@ -4,9 +4,9 @@
         "kind": "SystemMode",
         "metadata": {
             "name": "normal",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 4
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:19:00Z",
+            "revision": 5
         },
         "requirements": [
             {
@@ -21,9 +21,9 @@
         "kind": "SystemMode",
         "metadata": {
             "name": "startup",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 4
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:19:00Z",
+            "revision": 5
         },
         "requirements": [
             {
@@ -45,9 +45,9 @@
         "kind": "SystemMode",
         "metadata": {
             "name": "shutdown",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 2
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:19:00Z",
+            "revision": 3
         },
         "requirements": [],
         "transitions": {}
@@ -57,9 +57,9 @@
         "kind": "SystemMode",
         "metadata": {
             "name": "standby",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 2
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:19:00Z",
+            "revision": 3
         },
         "requirements": [],
         "transitions": {}
@@ -69,9 +69,9 @@
         "kind": "SystemMode",
         "metadata": {
             "name": "maintenance",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 1
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:19:00Z",
+            "revision": 2
         },
         "requirements": [
             {

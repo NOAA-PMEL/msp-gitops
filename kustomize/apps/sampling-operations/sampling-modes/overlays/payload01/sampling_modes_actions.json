@@ -2,56 +2,56 @@
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_opc", "action_module": "actions.payload01_actions", "action_def": "turn_on_opc", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_opc", "action_module": "actions.payload01_actions", "action_def": "turn_on_opc", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_opc": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_opc" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_smps", "action_module": "actions.payload01_actions", "action_def": "turn_on_smps", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_smps", "action_module": "actions.payload01_actions", "action_def": "turn_on_smps", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_smps": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_smps" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_cpc", "action_module": "actions.payload01_actions", "action_def": "turn_on_cpc", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_cpc", "action_module": "actions.payload01_actions", "action_def": "turn_on_cpc", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_cpc": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_cpc" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_on_aps", "action_module": "actions.payload01_actions", "action_def": "turn_on_aps", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_on_aps", "action_module": "actions.payload01_actions", "action_def": "turn_on_aps", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_aps": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_aps" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_aps", "action_module": "actions.payload01_actions", "action_def": "turn_off_aps", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_aps", "action_module": "actions.payload01_actions", "action_def": "turn_off_aps", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_aps": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_aps" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_cpc", "action_module": "actions.payload01_actions", "action_def": "turn_off_cpc", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_cpc", "action_module": "actions.payload01_actions", "action_def": "turn_off_cpc", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_cpc": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_cpc" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_smps", "action_module": "actions.payload01_actions", "action_def": "turn_off_smps", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_smps", "action_module": "actions.payload01_actions", "action_def": "turn_off_smps", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_smps": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_smps" } }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingAction",
-        "metadata": { "name": "turn_off_opc", "action_module": "actions.payload01_actions", "action_def": "turn_off_opc", "sampling_namespace": "pmel.noaa.gov", "execution_node": "payload01", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { "name": "turn_off_opc", "action_module": "actions.payload01_actions", "action_def": "turn_off_opc", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_01_in_msp_01", "execution_node": "payload01", "valid_config_time": "2026-06-11T19:26:00Z", "revision": 2 },
         "sources": {},
         "targets": { "power_opc": { "variablemap_name": "payload_01", "variableset_name": "power", "variable": "power_opc" } }
     }

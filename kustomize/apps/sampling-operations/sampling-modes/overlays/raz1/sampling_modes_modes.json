@@ -4,9 +4,9 @@
         "kind": "SamplingMode",
         "metadata": {
             "name": "system_startup",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 2
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:26:00Z",
+            "revision": 3
         },
         "requirements": [
             {
@@ -33,9 +33,9 @@
         "kind": "SamplingMode",
         "metadata": {
             "name": "nominal_sampling",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 2
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:26:00Z",
+            "revision": 3
         },
         "requirements": [
             {
@@ -71,10 +71,9 @@
         "kind": "SamplingMode",
         "metadata": { 
             "name": "startup_complete", 
-            "sampling_namespace": "pmel.noaa.gov", 
-            "execution_node": "raz1", 
-            "valid_config_time": "2026-06-10T20:27:00Z", 
-            "revision": 2 
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01", 
+            "valid_config_time": "2026-06-11T19:26:00Z", 
+            "revision": 3 
         },
         "requirements": [ 
             { "kind": "SamplingState", "name": "raz1_boot_buffer_complete" } 
@@ -86,9 +85,9 @@
         "kind": "SamplingMode",
         "metadata": {
             "name": "maintenance_override",
-            "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-06-10T20:27:00Z",
-            "revision": 1
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
+            "valid_config_time": "2026-06-11T19:26:00Z",
+            "revision": 2
         },
         "requirements": [],
         "actions": {
