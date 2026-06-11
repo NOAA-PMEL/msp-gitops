@@ -5,8 +5,8 @@
         "metadata": {
             "name": "normal",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
-            "revision": 3
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 4
         },
         "requirements": [
             {
@@ -22,8 +22,8 @@
         "metadata": {
             "name": "startup",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
-            "revision": 3
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 4
         },
         "requirements": [
             {
@@ -46,8 +46,8 @@
         "metadata": {
             "name": "shutdown",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
-            "revision": 1
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 2
         },
         "requirements": [],
         "transitions": {}
@@ -58,10 +58,27 @@
         "metadata": {
             "name": "standby",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-05-30T00:00:00Z",
-            "revision": 1
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 2
         },
         "requirements": [],
+        "transitions": {}
+    },
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "maintenance",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "maintenance_override"
+            }
+        ],
         "transitions": {}
     }
 ]

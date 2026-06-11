@@ -5,8 +5,8 @@
         "metadata": {
             "name": "system_startup",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-04-30T15:17:00Z",
-            "revision": 1
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 2
         },
         "requirements": [
             {
@@ -19,8 +19,7 @@
             }
         ],
         "actions": {
-            "true": [
-            ],
+            "true": [],
             "false": [
                 {
                     "kind": "SamplingAction",
@@ -35,8 +34,8 @@
         "metadata": {
             "name": "nominal_sampling",
             "sampling_namespace": "pmel.noaa.gov",
-            "valid_config_time": "2026-04-30T15:17:00Z",
-            "revision": 1
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 2
         },
         "requirements": [
             {
@@ -70,10 +69,36 @@
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingMode",
-        "metadata": { "name": "startup_complete", "sampling_namespace": "pmel.noaa.gov", "execution_node": "raz1", "valid_config_time": "2026-05-30T00:00:00Z", "revision": 1 },
+        "metadata": { 
+            "name": "startup_complete", 
+            "sampling_namespace": "pmel.noaa.gov", 
+            "execution_node": "raz1", 
+            "valid_config_time": "2026-06-10T20:27:00Z", 
+            "revision": 2 
+        },
         "requirements": [ 
             { "kind": "SamplingState", "name": "raz1_boot_buffer_complete" } 
         ],
         "actions": {}
+    },
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "maintenance_override",
+            "sampling_namespace": "pmel.noaa.gov",
+            "valid_config_time": "2026-06-10T20:27:00Z",
+            "revision": 1
+        },
+        "requirements": [],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_reverse_inlet_flow"
+                }
+            ],
+            "false": []
+        }
     }
 ]

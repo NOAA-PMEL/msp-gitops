@@ -6,8 +6,8 @@
       "name": "payload_02",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "platform.pmel.payload_02",
-      "valid_config_time": "2026-06-09T14:09:00Z",
-      "revision": 2
+      "valid_config_time": "2026-06-10T20:27:00Z",
+      "revision": 3
     },
     "data": {
       "attributes": {
@@ -15,8 +15,8 @@
         "platform_type": "MSP_Payload",
         "platform": "platform.pmel.payload_02",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-06-09T14:09:00Z",
-        "revision": 2
+        "valid_config_time": "2026-06-10T20:27:00Z",
+        "revision": 3
       },
       "variablesets": {
         "main": {
@@ -41,764 +41,249 @@
       "variables": {
         "scatter_red": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "scat_red": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "scat_coef_ch1_red"
-            }
-          },
-          "direct_value": {
-            "source_variable": "scat_red"
-          },
+          "source": { "scat_red": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "scat_coef_ch1_red" } },
+          "direct_value": { "source_variable": "scat_red" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "scatter_green": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "scat_green": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "scat_coef_ch2_green"
-            }
-          },
-          "direct_value": {
-            "source_variable": "scat_green"
-          },
+          "source": { "scat_green": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "scat_coef_ch2_green" } },
+          "direct_value": { "source_variable": "scat_green" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "scatter_blue": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "scat_blue": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "scat_coef_ch3_blue"
-            }
-          },
-          "direct_value": {
-            "source_variable": "scat_blue"
-          },
+          "source": { "scat_blue": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "scat_coef_ch3_blue" } },
+          "direct_value": { "source_variable": "scat_blue" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "backscatter_red": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "bscat_red": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "backscatter_coef_ch1_red"
-            }
-          },
-          "direct_value": {
-            "source_variable": "bscat_red"
-          },
+          "source": { "bscat_red": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "backscatter_coef_ch1_red" } },
+          "direct_value": { "source_variable": "bscat_red" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "backscatter_green": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "bscat_green": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "backscatter_coef_ch2_green"
-            }
-          },
-          "direct_value": {
-            "source_variable": "bscat_green"
-          },
+          "source": { "bscat_green": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "backscatter_coef_ch2_green" } },
+          "direct_value": { "source_variable": "bscat_green" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "backscatter_blue": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "bscat_blue": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "backscatter_coef_ch3_blue"
-            }
-          },
-          "direct_value": {
-            "source_variable": "bscat_blue"
-          },
+          "source": { "bscat_blue": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "backscatter_coef_ch3_blue" } },
+          "direct_value": { "source_variable": "bscat_blue" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "neph_sample_temperature": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "sample_T": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "sample_T"
-            }
-          },
-          "direct_value": {
-            "source_variable": "sample_T"
-          },
+          "source": { "sample_T": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "sample_T" } },
+          "direct_value": { "source_variable": "sample_T" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "degrees_C"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
         },
         "neph_sample_rh": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "rh": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "rh"
-            }
-          },
-          "direct_value": {
-            "source_variable": "rh"
-          },
+          "source": { "rh": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "rh" } },
+          "direct_value": { "source_variable": "rh" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "%"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "%" } }
         },
         "neph_pressure": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "pressure": {
-              "source_type": "device",
-              "source_id": "ACOEM::Aurora3000::493",
-              "source_variable": "pressure"
-            }
-          },
-          "direct_value": {
-            "source_variable": "pressure"
-          },
+          "source": { "pressure": { "source_type": "device", "source_id": "ACOEM::Aurora3000::493", "source_variable": "pressure" } },
+          "direct_value": { "source_variable": "pressure" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "mbar"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "mbar" } }
         },
         "absorption_red": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "abs_red": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "red_absorption"
-            }
-          },
-          "direct_value": {
-            "source_variable": "abs_red"
-          },
+          "source": { "abs_red": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "red_absorption" } },
+          "direct_value": { "source_variable": "abs_red" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "absorption_green": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "abs_green": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "green_absorption"
-            }
-          },
-          "direct_value": {
-            "source_variable": "abs_green"
-          },
+          "source": { "abs_green": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "green_absorption" } },
+          "direct_value": { "source_variable": "abs_green" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "absorption_blue": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "abs_blue": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "blue_absorption"
-            }
-          },
-          "direct_value": {
-            "source_variable": "abs_blue"
-          },
+          "source": { "abs_blue": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "blue_absorption" } },
+          "direct_value": { "source_variable": "abs_blue" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "Mm-1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } }
         },
         "transmission_red": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "trans_red": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "red_transmission"
-            }
-          },
-          "direct_value": {
-            "source_variable": "trans_red"
-          },
+          "source": { "trans_red": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "red_transmission" } },
+          "direct_value": { "source_variable": "trans_red" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "1" } }
         },
         "transmission_green": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "trans_green": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "green_transmission"
-            }
-          },
-          "direct_value": {
-            "source_variable": "trans_green"
-          },
+          "source": { "trans_green": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "green_transmission" } },
+          "direct_value": { "source_variable": "trans_green" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "1" } }
         },
         "transmission_blue": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "trans_blue": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "blue_transmission"
-            }
-          },
-          "direct_value": {
-            "source_variable": "trans_blue"
-          },
+          "source": { "trans_blue": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "blue_transmission" } },
+          "direct_value": { "source_variable": "trans_blue" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "1"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "1" } }
         },
         "tap_sample_temperature": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "sample_T": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "sample_T"
-            }
-          },
-          "direct_value": {
-            "source_variable": "sample_T"
-          },
+          "source": { "sample_T": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "sample_T" } },
+          "direct_value": { "source_variable": "sample_T" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "degrees_C"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
         },
         "tap_flow_rate": {
           "type": "float",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "flow_rate": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "flow_rate"
-            }
-          },
-          "direct_value": {
-            "source_variable": "flow_rate"
-          },
+          "source": { "flow_rate": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "flow_rate" } },
+          "direct_value": { "source_variable": "flow_rate" },
           "variableset": "main",
-          "index_method": [
-            "round",
-            "average"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "SLPM"
-            }
-          }
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "SLPM" } }
         },
         "tap_active_spot": {
           "type": "int",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "source": {
-            "active_spot": {
-              "source_type": "device",
-              "source_id": "Brechtel::TAP2901::052",
-              "source_variable": "active_spot"
-            }
-          },
-          "direct_value": {
-            "source_variable": "active_spot"
-          },
+          "source": { "active_spot": { "source_type": "device", "source_id": "Brechtel::TAP2901::052", "source_variable": "active_spot" } },
+          "direct_value": { "source_variable": "active_spot" },
           "variableset": "main",
-          "index_method": [
-            "last"
-          ],
-          "fill_strategy": {
-            "method": "none"
-          },
-          "attributes": {
-            "evaluate_by": {
-              "type": "string",
-              "data": "local-controller, data-server"
-            },
-            "units": {
-              "type": "string",
-              "data": "spot"
-            }
-          }
+          "index_method": ["last"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "spot" } }
         },
         "power_neph": {
           "type": "int",
           "variable_type": "setting",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "direct_value": {
-            "source_variable": "power_neph"
-          },
-          "source": {
-            "power_neph": {
-              "source_type": "controller",
-              "source_id": "Synaccess::NP05B::synaccess25",
-              "source_variable": "outlet_1_power"
-            }
-          },
+          "direct_value": { "source_variable": "power_neph" },
+          "source": { "power_neph": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_1_power" } },
           "variableset": "power",
-          "index_method": [
-            "last"
-          ],
-          "fill_strategy": {
-            "method": "forward_fill",
-            "max_age_seconds": 10
-          },
-          "attributes": {
-            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
-            "long_name": {
-              "type": "string",
-              "data": "Nephelometer Power"
-            }
-          }
+          "index_method": ["last"],
+          "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "Nephelometer Power" } }
         },
         "power_absorb": {
           "type": "int",
           "variable_type": "setting",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "direct_value": {
-            "source_variable": "power_absorb"
-          },
-          "source": {
-            "power_absorb": {
-              "source_type": "controller",
-              "source_id": "Synaccess::NP05B::synaccess25",
-              "source_variable": "outlet_2_power"
-            }
-          },
+          "direct_value": { "source_variable": "power_absorb" },
+          "source": { "power_absorb": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_2_power" } },
           "variableset": "power",
-          "index_method": [
-            "last"
-          ],
-          "fill_strategy": {
-            "method": "forward_fill",
-            "max_age_seconds": 10
-          },
-          "attributes": {
-            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
-            "long_name": {
-              "type": "string",
-              "data": "Brechel TAP Power"
-            }
-          }
+          "index_method": ["last"],
+          "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "Brechel TAP Power" } }
         },
         "power_24v_bus": {
           "type": "int",
           "variable_type": "setting",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "direct_value": {
-            "source_variable": "power_24v_bus"
-          },
-          "source": {
-            "power_24v_bus": {
-              "source_type": "controller",
-              "source_id": "Synaccess::NP05B::synaccess25",
-              "source_variable": "outlet_3_power"
-            }
-          },
+          "direct_value": { "source_variable": "power_24v_bus" },
+          "source": { "power_24v_bus": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_3_power" } },
           "variableset": "power",
-          "index_method": [
-            "last"
-          ],
-          "fill_strategy": {
-            "method": "forward_fill",
-            "max_age_seconds": 10
-          },
-          "attributes": {
-            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
-            "long_name": {
-              "type": "string",
-              "data": "24V Power Supply"
-            }
-          }
+          "index_method": ["last"],
+          "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "24V Power Supply" } }
         },
         "power_tec": {
           "type": "int",
           "variable_type": "setting",
-          "shape": [
-            "time"
-          ],
+          "shape": ["time"],
           "map_type": "direct",
-          "direct_value": {
-            "source_variable": "power_tec"
-          },
-          "source": {
-            "power_tec": {
-              "source_type": "controller",
-              "source_id": "Synaccess::NP05B::synaccess25",
-              "source_variable": "outlet_4_power"
-            }
-          },
+          "direct_value": { "source_variable": "power_tec" },
+          "source": { "power_tec": { "source_type": "controller", "source_id": "Synaccess::NP05B::synaccess25", "source_variable": "outlet_4_power" } },
           "variableset": "power",
-          "index_method": [
-            "last"
-          ],
-          "fill_strategy": {
-            "method": "forward_fill",
-            "max_age_seconds": 10
-          },
-          "attributes": {
-            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
-            "long_name": {
-              "type": "string",
-              "data": "Thermo Electric Cooler"
-            }
-          }
+          "index_method": ["last"],
+          "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "Thermo Electric Cooler" } }
         }
       }
     }

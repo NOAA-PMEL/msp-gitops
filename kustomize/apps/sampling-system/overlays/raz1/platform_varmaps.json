@@ -6,7 +6,7 @@
       "name": "payload_03",
       "sampling_namespace": "pmel.noaa.gov",
       "platform": "platform.pmel.payload_03",
-      "valid_config_time": "2026-06-09T14:04:00Z",
+      "valid_config_time": "2026-06-10T20:27:00Z",
       "revision": 2
     },
     "data": {
@@ -15,7 +15,7 @@
         "platform_type": "MSP_Payload",
         "platform": "platform.pmel.payload_03",
         "sampling_namespace": "pmel.noaa.gov",
-        "valid_config_time": "2026-06-09T14:04:00Z",
+        "valid_config_time": "2026-06-10T20:27:00Z",
         "revision": 2
       },
       "variablesets": {
