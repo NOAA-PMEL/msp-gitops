@@ -54,7 +54,7 @@ data:
     topic envds/+/variableset/+/data/update out 0 "" ""
     topic envds/controller/settings/request in 0 "" ""
     topic envds/sensor/settings/request in 0 "" ""
-
+    topic envds/+/system-modes/# in 0 "" ""
    
     # old payload01
     # topic envds/payload01/sensor/+/data/update out 0 "" ""

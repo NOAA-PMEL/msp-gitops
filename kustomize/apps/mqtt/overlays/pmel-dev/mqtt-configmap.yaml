@@ -75,6 +75,7 @@ data:
     topic envds/+/controller/+/status/update in 0 "" ""
     topic envds/controller/settings/request out 0 "" ""
     topic envds/sensor/settings/request out 0 "" ""
+    topic envds/+/system-modes/# in 0 "" ""
 
     # topic envds/+/sensor/+/settings/update in 0 "" ""
     # topic envds/+/sensor/+/settings/request out 0 "" ""
