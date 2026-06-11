@@ -9,6 +9,6 @@ spec:
       type: envds.dataset.stored
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: pnnl-sts
