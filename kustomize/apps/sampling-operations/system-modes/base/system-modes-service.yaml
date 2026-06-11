@@ -27,6 +27,11 @@ spec:
                 configMapKeyRef:
                   name: system-modes
                   key: daq_id
+            - name: SYSTEM_MODES_DEPLOYMENT_REF
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: deployment_ref
             - name: SYSTEM_MODES_MQTT_BROKER
               valueFrom:
                 configMapKeyRef:
