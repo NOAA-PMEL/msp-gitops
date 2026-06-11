@@ -13,7 +13,7 @@ data:
   knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker"
 
   system_init_control: "auto"
-  system_init_mode: "startup"
+  system_init_mode: "normal"
   is_primary_controller: "false"
 
   mqtt_broker: "mqtt.pmel-dev-system"
