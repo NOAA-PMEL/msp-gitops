@@ -10,7 +10,8 @@ data:
   
   port: "8080"
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default"
-  knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/kafka-broker"
+  knative_broker: "http://kafka-broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default"
+  
 
   system_init_control: "auto"
   system_init_mode: "normal"
