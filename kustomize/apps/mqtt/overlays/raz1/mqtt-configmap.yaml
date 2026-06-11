@@ -52,7 +52,6 @@ data:
     topic envds/+/variableset/+/data/update out 0 "" ""
     topic envds/+/system-modes/status/update out 0 "" ""
 
-
     #old
     # topic envds/+/sensor/+/settings/request in 0 "" ""
     # topic envds/+/sensor/+/status/update out 0 "" ""
