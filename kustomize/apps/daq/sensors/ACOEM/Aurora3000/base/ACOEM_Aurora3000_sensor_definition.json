@@ -58,6 +58,15 @@
                 "default_value": {"type": "string", "data": "none"}
             }
         },
+        "calibration_status": {
+            "type": "str", "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Calibration Sequencer Status"},
+                "allowed_values": {"type": "string", "data": "none, zeroing, spanning, success"},
+                "default_value": {"type": "string", "data": "none"}
+            }
+        },
         "ext_valve_state": {
             "type": "str", "shape": ["time"],
             "attributes": {
