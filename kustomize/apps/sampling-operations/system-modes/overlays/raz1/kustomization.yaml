@@ -18,7 +18,5 @@ generatorOptions:
 # Suffix used across the raz1 deployment
 nameSuffix: "-raz1"
 
-
-
 configurations:
   - config.yaml
