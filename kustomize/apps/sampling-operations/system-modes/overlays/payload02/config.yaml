@@ -1,34 +1,13 @@
 nameReference:
-  # ---------------------------------------------------------------------
-  # Rule 1: Auto-propagate ConfigMap names into Knative Volumes
-  # ---------------------------------------------------------------------
-  - kind: ConfigMap
-    version: v1
-    fieldSpecs:
-      - group: serving.knative.dev
-        version: v1
-        kind: Service
-        path: spec/template/spec/volumes/configMap/name
-
-  # ---------------------------------------------------------------------
-  # Rule 2: Auto-propagate ConfigMap names into Knative Env Variables
-  # ---------------------------------------------------------------------
-  - kind: ConfigMap
-    version: v1
-    fieldSpecs:
-      - group: serving.knative.dev
-        version: v1
-        kind: Service
-        path: spec/template/spec/containers/env/valueFrom/configMapKeyRef/name
-
-  # ---------------------------------------------------------------------
-  # Rule 3: Auto-propagate Service names into Knative Triggers
-  # ---------------------------------------------------------------------
-  - kind: Service
+- kind: ConfigMap
+  version: v1
+  fieldSpecs:
+  - path: spec/template/spec/containers/envFrom/configMapRef/name
+    kind: Service
     group: serving.knative.dev
-    version: v1
-    fieldSpecs:
-      - group: eventing.knative.dev
-        version: v1
-        kind: Trigger
-        path: spec/subscriber/ref/name
+  - path: spec/template/spec/containers/env/valueFrom/configMapKeyRef/name
+    kind: Service
+    group: serving.knative.dev
+  - path: spec/template/spec/volumes/configMap/name
+    kind: Service
+    group: serving.knative.dev
