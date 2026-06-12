@@ -8,7 +8,7 @@ namespace: pmel-dev-system
 resources:
   - ../../base
   - dataset-generator-triggers.yaml
-  # - dataset-generator-triggers-5min.yaml
+  - dataset-generator-triggers-5min.yaml
   - ../../../../definitions/base
 
 configMapGenerator:
