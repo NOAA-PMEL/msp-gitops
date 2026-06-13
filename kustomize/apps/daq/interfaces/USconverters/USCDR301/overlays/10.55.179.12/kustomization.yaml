@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: usconverters-uscdr301
 
-namespace: payload01-hardware
+namespace: revpi1-hardware
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
 # commonLabels:
