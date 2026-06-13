@@ -25,8 +25,8 @@
           }
         },
         {
-          "hostname": "revpi1",
-          "hardware": "Revolution Pi (RevPi)",
+          "hostname": "raz1",
+          "hardware": "OnLogic Factor 201",
           "node_role": "Hardware DAQ Controller",
           "identifiers": {
             "mac_address": "AA:BB:CC:DD:EE:02"

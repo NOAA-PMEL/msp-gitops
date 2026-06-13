@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: system-modes
+
+namespace: revpi1-system
+
+resources:
+- ../../base
+- system-modes-configmap.yaml
+
+# Generate the ConfigMap from your provided JSON file
+configMapGenerator:
+  - name: system-modes-modes
+    files:
+      - system_modes_modes.json
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+# Suffix used across the revpi1 deployment
+nameSuffix: "-revpi1"
+
+configurations:
+  - config.yaml

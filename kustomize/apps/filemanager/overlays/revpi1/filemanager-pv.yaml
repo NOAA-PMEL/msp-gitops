@@ -14,5 +14,5 @@ spec:
   hostPath:
     # This is the path inside the k3d node container, 
     # which your k3d config maps to /home/acg/data/msp/data on your host!
-    path: /data/msp/data/filemanager/raz1
+    path: /data/msp/data/filemanager/revpi1
     type: DirectoryOrCreate

@@ -56,5 +56,22 @@
         "imo_number": "9614000"
       }
     }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": {
+      "name": "platform.pmel.alvan",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "revision-time": "2026-06-12T00:00:00Z",
+    "data": {
+      "display_name": "ALVAN 20' Container",
+      "platform_type": "Container",
+      "description": "20' container/van used to house payloads of instruments.",
+      "identifiers": {
+        "serial_number": "ACG-ALVAN"
+      }
+    }
   }
 ]

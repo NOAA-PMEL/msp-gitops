@@ -1,0 +1,30 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": {
+      "name": "platform.pmel.payload_alvan_01",
+      "platform_type": "MSP_Payload",
+      "owner": "Local",
+      "description": "Aerosol physics payload housed in ALVAN for intercomparison.",
+      "contacts": [
+        ""
+      ]
+    },
+    "revision-time": "2026-06-12T00:00:00Z",
+    "interface": {
+      "power-input": [
+        "input-24v-ups",
+        "input-24v",
+        "input-110v"
+      ],
+      "network": [
+        "internal",
+        "external"
+      ],
+      "sample-input": [
+        "sample-line-01"
+      ]
+    }
+  }
+]

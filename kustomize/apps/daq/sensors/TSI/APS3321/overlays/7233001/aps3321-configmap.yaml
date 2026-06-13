@@ -13,7 +13,7 @@ data:
   # namespace_prefix: mspbase01 
   # envds_env_id: mspbase01
   sensor.conf: |
-    serial_number: "273"
+    serial_number: "723001"
     daq_id: payload01
     sampling_frequency_sec: 30
 
@@ -23,7 +23,7 @@ data:
       default:
         interface_env_id: payload01-hardware # if omitted, defaults to envds_id of sensor
         # interface_env_id: mspbase01-hardware
-        interface_id: USconverters::USCDR301::usc12
+        interface_id: USconverters::USCDR301::usc13
         path: port-1
       #   connection-properties:
       #     baudrate: 115200

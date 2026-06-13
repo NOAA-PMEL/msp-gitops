@@ -1,29 +1,27 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tsi-aps3321-config
+  name: aerosoldynamics-magic250-config
   # namespace: msp
   labels:
-    app: tsi-aps3321
-    # app-group: envds-sensor-payload03
-    app-group: envds-sensor-crk8s
+    app: aerosoldynamics-magic250
+    app-group: envds-sensor-payload01
+    # app-group: envds-sensor-crk8s
 data:
-  namespace_prefix: payload01 
+  namespace_prefix: payload01
   envds_env_id: payload01
-  # namespace_prefix: mspbase01 
-  # envds_env_id: mspbase01
+  # namespace_prefix: crk8s
+  # envds_env_id: crk8s
   sensor.conf: |
-    serial_number: "273"
+    serial_number: "181"
     daq_id: payload01
-    sampling_frequency_sec: 30
-
-    # daq_id: mspbase01
+    # daq_id: crk8s
     interfaces:
       # default: serial
       default:
         interface_env_id: payload01-hardware # if omitted, defaults to envds_id of sensor
-        # interface_env_id: mspbase01-hardware
-        interface_id: USconverters::USCDR301::usc12
+        # interface_id: USconverters::USCDR301::usc13
+        interface_id: Lantronix::XPort::magic250-181
         path: port-1
       #   connection-properties:
       #     baudrate: 115200

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filemanager-config
+data:
+  # Instructs the system to rely on MQTT for ingestion
+  FILEMANAGER_MQTT_BROKER: "mqtt.revpi1-system.svc.cluster.local"
+  FILEMANAGER_MQTT_PORT: "1883"
+  FILEMANAGER_MQTT_TOPIC_SUBSCRIPTIONS: >
+    envds/+/+/+/data/update,
+    envds/+/+/+/controller/data/update,
+    envds/+/variableset/+/data/update,
+    envds/+/+/+/status/update,
+    envds/+/+/+/controller/status/update,
+    envds/+/sampling-conditions/status/update,
+    envds/+/sampling-states/status/update,
+    envds/+/sampling-modes/status/update,
+    envds/+/system-modes/status/update,
+    envds/+/operations/log
+  FILEMANAGER_SAVE_INTERVAL: "60"
+  FILEMANAGER_FILE_INTERVAL: "day"
+  FILEMANAGER_BASE_PATH: "/data"
+
+## optional
+# mqtt_topic_subscriptions: >
+#     envds/+/+/+/data/#,
+#     envds/+/+/+/status/#,
+#     envds/+/sampling-#/status/#,
+#     envds/+/system-#/status/#

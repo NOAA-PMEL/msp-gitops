@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sampling-system
+data:
+  daq_id: revpi1
+
+  # --- ROLE-BASED COMPUTE DELEGATION ---
+  node_id: "revpi1"
+  node_roles: "local-controller" 
+  # -------------------------------------
+
+  port: "8080"
+  knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/revpi1-system/default"
+
+  mqtt_broker: "mqtt.revpi1-system"
+  mqtt_topic_subscriptions: >
+    envds/+/+/+/data/update,   
+    envds/+/+/+/controller/data/update,
+    envds/+/+/+/settings/update,
+    envds/+/controller/settings/update   
+  
+  mqtt_port: "1883"
+
+  log_level: "INFO"
+  tick_delay_direct: "0.3"
+  tick_delay_calc: "1.0"
