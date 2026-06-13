@@ -1,11 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: aerosoldynamics-magic250
-
+  name: aerosoldynamics-spidermagic810
 
 namespace: revpi1-hardware
-# namespace: crk8s-hardware
+
 
 # Example configuration for the webserver
 # at https://github.com/monopole/hello
@@ -22,22 +21,22 @@ namespace: revpi1-hardware
 
 resources:
 - ../../base
-- magic250-configmap.yaml
+- spidermagic810-configmap.yaml
 
-nameSuffix: "-181"
+nameSuffix: "-017"
 
 # patchesStrategicMerge:
 #   - deployment.yaml
 
 patches:
-  # change configmap names to account for s/n suffix
+#   # change configmap names to account for s/n suffix
   - target:
       kind: Deployment
-      name: aerosoldynamics-magic250
+      name: aerosoldynamics-spidermagic810
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: aerosoldynamics-magic250-config-181
+        value: aerosoldynamics-spidermagic810-config-017
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-181
+        value: sensor-definition-017
