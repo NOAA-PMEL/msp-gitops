@@ -8,8 +8,8 @@ metadata:
     # app-group: envds-sensor-payload03
     app-group: envds-sensor-crk8s
 data:
-  namespace_prefix: payload01 
-  envds_env_id: payload01
+  namespace_prefix: revpi1 
+  envds_env_id: revpi1
   # namespace_prefix: mspbase01 
   # envds_env_id: mspbase01
   sensor.conf: |
@@ -21,7 +21,7 @@ data:
     interfaces:
       # default: serial
       default:
-        interface_env_id: payload01-hardware # if omitted, defaults to envds_id of sensor
+        interface_env_id: revpi1-hardware # if omitted, defaults to envds_id of sensor
         # interface_env_id: mspbase01-hardware
         interface_id: USconverters::USCDR301::usc12
         path: port-1
