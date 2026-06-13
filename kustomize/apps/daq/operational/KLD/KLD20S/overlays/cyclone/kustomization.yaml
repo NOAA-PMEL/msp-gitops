@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: kld-kld20s
+
+namespace: payload02-hardware
+
+resources:
+- ../../base
+- kld20s-configmap.yaml
+
+nameSuffix: "-cyclone"
+
+patches:
+  - target:
+      kind: Deployment
+      name: kld-kld20s
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: kld-kld20s-config-cyclone
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: operational-definition-cyclone

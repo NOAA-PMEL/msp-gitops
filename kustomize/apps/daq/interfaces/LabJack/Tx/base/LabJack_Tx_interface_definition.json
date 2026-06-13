@@ -95,7 +95,7 @@
                 },
                 "channel": {
                     "type": "string",
-                    "data": "FIO0"
+                    "data": "DAC0"
                 }
             }
         },

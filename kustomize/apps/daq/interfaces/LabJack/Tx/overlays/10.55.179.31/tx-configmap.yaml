@@ -47,11 +47,9 @@ data:
         clock_divisor: 1
         clock_desired_frequency: 15000
         counter_mode: "interrupt"
-      # voltage_in-0:
-      #   path_type: ADC
-      #   channel: 0
-      #   input_voltage_range: 1.0
-      #   input_type: "single"
+      dac-0:
+        path_type: DAC
+        channel: 0
 
 # tmp
       # voltage_in-1:

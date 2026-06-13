@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kld-kld20s
+  labels:
+    app: kld-kld20s
+spec:
+  selector:
+    matchLabels:
+      app: kld-kld20s
+  template:
+    metadata:
+      labels:
+        app: kld-kld20s
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: kld-kld20s
+        image: ghcr.io/noaa-pmel/msp/kld-kld20s:0.1.0
+        imagePullPolicy: "Always"
+        env:
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
+            valueFrom:
+              configMapKeyRef:
+                name: kld-kld20s-config
+                key: namespace_prefix
+          - name: ENVDS_ENV_ID
+            valueFrom:
+              configMapKeyRef:
+                name: kld-kld20s-config
+                key: envds_env_id
+          - name: REDIS_OM_URL
+            value: redis://redis.default
+          - name: LOG_LEVEL
+            value: DEBUG
+        resources:
+          requests:
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 9080
+          protocol: TCP
+        volumeMounts:
+            - name: kld-kld20s-config
+              mountPath: /app/config/operational.conf
+              subPath: operational.conf
+            - name: operational-definition
+              mountPath: /app/KLD_KLD20S_operational_definition.json
+              subPath: KLD_KLD20S_operational_definition.json
+      volumes:
+        - name: kld-kld20s-config
+          configMap:
+            name: kld-kld20s-config
+        - name: operational-definition
+          configMap:
+            name: operational-definition
