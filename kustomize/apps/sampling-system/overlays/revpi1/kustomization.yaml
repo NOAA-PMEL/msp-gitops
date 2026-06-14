@@ -16,7 +16,7 @@ configMapGenerator:
       - platform_defs.json
   - name: sampling-system-variablemaps
     files:
-      - platform_varmaps.json
+      - platform_variablemaps.json=platform_varmaps.json
   - name: sampling-system-deployments
     files:
       - deployments.json
