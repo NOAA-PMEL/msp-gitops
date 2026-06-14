@@ -17,7 +17,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: kld-kld20s
-        image: ghcr.io/noaa-pmel/msp/kld-kld20s:0.1.0
+        image: ghcr.io/noaa-pmel/msp/kld20s:0.1.0
         imagePullPolicy: "Always"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
