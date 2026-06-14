@@ -5,7 +5,7 @@ metadata:
   # namespace: msp
   labels:
     app: handix-pops1100
-    app-group: envds-sensor-crk8s
+    app-group: envds-sensor-payload01
 data:
   namespace_prefix: payload01
   envds_env_id: payload01

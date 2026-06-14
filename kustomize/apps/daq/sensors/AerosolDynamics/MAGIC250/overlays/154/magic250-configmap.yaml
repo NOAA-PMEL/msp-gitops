@@ -10,14 +10,10 @@ metadata:
 data:
   namespace_prefix: payload01
   envds_env_id: payload01
-  # namespace_prefix: crk8s
-  # envds_env_id: crk8s
   sensor.conf: |
     serial_number: "154"
     daq_id: payload01
-    # daq_id: crk8s
     interfaces:
-      # default: serial
       default:
         interface_env_id: payload01-hardware # if omitted, defaults to envds_id of sensor
         # interface_id: USconverters::USCDR301::usc13
