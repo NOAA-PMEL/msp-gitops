@@ -5,29 +5,16 @@ metadata:
 
 namespace: payload02-hardware
 
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
-# resources:
-# # Example configuration for the webserver
-# # at https://github.com/monopole/hello
-#   nameSuffix: -usc206
-#   commonLabels:
-#     app: usconverters-uscdr301
-#     variant: test
-
 resources:
 - ../../base
 - tap2901-configmap.yaml
+# ADD THE NEW PV HERE
+- tap2901-pv.yaml
 
 nameSuffix: "-052"
-# patchesStrategicMerge:
-#   - deployment.yaml
 
 patches:
-  # change configmap names to account for s/n suffix
+  # (Your existing deployment patch for the configmaps remains)
   - target:
       kind: Deployment
       name: brechtel-tap2901
@@ -39,3 +26,14 @@ patches:
         path: /spec/template/spec/volumes/1/configMap/name
         value: sensor-definition-052
         
+  # NEW PATCH: Bind the generic base PVC to the specific 052 PV
+  - target:
+      kind: PersistentVolumeClaim
+      name: tap2901-state-pvc
+    patch: |-
+      - op: add
+        path: /spec/storageClassName
+        value: local-host-mapped
+      - op: add
+        path: /spec/volumeName
+        value: tap2901-state-pv-052

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  # We name this explicitly to avoid cluster-scope collisions
+  name: tap2901-state-pv-052
+  labels:
+    app: brechtel-tap2901
+spec:
+  capacity:
+    storage: 50Mi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-host-mapped
+  hostPath:
+    # UNIQUE PATH PER SENSOR
+    path: /data/msp/data/tap2901/052/state
+    type: DirectoryOrCreate
