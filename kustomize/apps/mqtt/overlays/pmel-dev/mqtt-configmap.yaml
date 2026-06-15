@@ -18,9 +18,9 @@ data:
     log_timestamp_format %Y-%m-%d_%H:%M:%S
     connection_messages true
     # data
-    persistence true
-    persistence_location /mosquitto/data
-    persistence_file mosquitto.db
+    persistence false
+    # persistence_location /mosquitto/data
+    # persistence_file mosquitto.db
     per_listener_settings true
 
     # Non-TLS

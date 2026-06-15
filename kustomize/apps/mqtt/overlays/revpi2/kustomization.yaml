@@ -22,7 +22,7 @@ namespace: revpi2-system
 resources:
 - ../../base
 # - revpi2-server-iot-sealed.yaml
-- mqtt-pv.yaml
+# - mqtt-pv.yaml
 - mqtt-configmap.yaml
 
 # patches:

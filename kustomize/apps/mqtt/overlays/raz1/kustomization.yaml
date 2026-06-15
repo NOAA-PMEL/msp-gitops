@@ -22,7 +22,7 @@ namespace: raz1-system
 resources:
 - ../../base
 - raz1-server-iot-sealed.yaml
-- mqtt-pv.yaml
+# - mqtt-pv.yaml
 - mqtt-configmap.yaml
 
 patches:
