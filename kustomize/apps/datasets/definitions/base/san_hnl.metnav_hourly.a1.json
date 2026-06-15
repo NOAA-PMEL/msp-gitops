@@ -1,5 +1,5 @@
 {
-  "id": "san_hnl.metnav.a1",
+  "id": "san_hnl.metnav_hourly.a1",
   "type": "dataset-definition",
   "format": {
     "filetype": "nc",
@@ -7,7 +7,7 @@
   },
   "timebase": {
     "record_frequency_sec": 1,
-    "file_frequency": "daily"
+    "file_frequency": "hourly"
   },
   "conventions": {
     "name": "CF-1.8",

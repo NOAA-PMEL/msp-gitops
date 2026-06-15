@@ -1,7 +1,7 @@
 apiVersion: sources.knative.dev/v1
 kind: PingSource
 metadata:
-  name: trigger-metnav-a1
+  name: trigger-metnav-hourly-a1
   # The namespace must match your overlay namespace
   namespace: pmel-dev-system
 spec:
@@ -9,7 +9,7 @@ spec:
   schedule: "5 * * * *"
   contentType: "application/json"
   # The payload that gets POSTed to your Python app
-  data: '{ "dataset_id": "san_hnl.metnav.a1", "action": "generate", "time_window": "auto" }'
+  data: '{ "dataset_id": "san_hnl.metnav_hourly.a1", "action": "generate", "time_window": "auto" }'
   sink:
     ref:
       apiVersion: serving.knative.dev/v1

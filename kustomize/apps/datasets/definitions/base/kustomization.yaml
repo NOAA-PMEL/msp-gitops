@@ -5,4 +5,5 @@ configMapGenerator:
   - name: dataset-definitions
     files:
       - san_hnl.metnav.a1.json
+      - san_hnl.metnav_hourly.a1.json
       - san_hnl.metnav_5min.a1.json
