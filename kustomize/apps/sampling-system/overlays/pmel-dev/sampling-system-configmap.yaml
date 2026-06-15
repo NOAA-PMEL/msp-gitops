@@ -22,4 +22,5 @@ data:
     envds/+/+/+/settings/update,
     envds/+/controller/settings/update   
   
+  log_level: "DEBUG"
   mqtt_port: "1883"
