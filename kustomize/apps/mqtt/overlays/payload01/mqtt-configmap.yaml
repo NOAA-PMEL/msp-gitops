@@ -37,8 +37,8 @@ data:
     connection payload01_raz1_bridge
     address 10.55.169.210:1883
     remote_clientid payload01_raz1_bridge
-    topic envds/payload01/sensor/+/data/update out 1 "" ""
-    topic envds/payload01/controller/+/controller/data/update out 1 "" ""
+    topic envds/payload01/sensor/+/data/update out 0 "" ""
+    topic envds/payload01/controller/+/controller/data/update out 0 "" ""
     topic payload/envds/+/registry/sync-bcast out 0 "" ""
     topic payload/envds/+/registry/sync-update out 0 "" ""
     topic payload/envds/+/registry/sync-request out 0 "" ""
