@@ -23,7 +23,7 @@ spec:
         # image: uasbase2.pmel.noaa.gov:448/test/sampling-operations@sha256:1efee0c698b3037b822d00237114e25aacad59942c9dd9199168cc2631143d8d
         # image: registry-msp:5000/msp/sampling-operations:v1.0.3
         - image: ghcr.io/noaa-pmel/msp/sampling-operations:0.1.0
-          imagePullPolicy: "Always"
+          imagePullPolicy: "IfNotPresent"
           env:
             - name: SAMPLING_OPERATIONS_PORT
               valueFrom:

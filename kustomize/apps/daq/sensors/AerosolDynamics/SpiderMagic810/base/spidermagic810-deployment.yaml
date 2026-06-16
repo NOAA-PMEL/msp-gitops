@@ -20,7 +20,7 @@ spec:
       - name: aerosoldynamics-spidermagic810
         image: ghcr.io/noaa-pmel/msp/aerosoldynamics-spidermagic810:0.3.0
         # image: registry-msp:5000/msp/sensor/aerosoldynamics-spidermagic810:0.1.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:

@@ -19,7 +19,7 @@ spec:
       containers:
       - name: sampling-system
         image: ghcr.io/noaa-pmel/msp/sampling-system:0.2.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
         - name: SAMPLING_SYSTEM_PORT
           valueFrom:

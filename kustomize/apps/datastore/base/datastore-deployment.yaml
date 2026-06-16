@@ -19,7 +19,7 @@ spec:
       containers:
         - name: datastore
           image: ghcr.io/noaa-pmel/msp/datastore:2.0.0
-          imagePullPolicy: "Always"
+          imagePullPolicy: "IfNotPresent"
           env:
             - name: DATASTORE_PORT
               valueFrom:

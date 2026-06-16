@@ -20,7 +20,7 @@ spec:
       - name: handix-pops1100
         # image: registry-msp:5000/msp/sensor/handix-pops1100:0.1.0
         image: ghcr.io/noaa-pmel/msp/handix-pops1100:0.3.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:

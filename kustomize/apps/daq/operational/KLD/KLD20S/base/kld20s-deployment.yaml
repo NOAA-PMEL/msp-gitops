@@ -18,7 +18,7 @@ spec:
       containers:
       - name: kld-kld20s
         image: ghcr.io/noaa-pmel/msp/kld20s:0.1.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:

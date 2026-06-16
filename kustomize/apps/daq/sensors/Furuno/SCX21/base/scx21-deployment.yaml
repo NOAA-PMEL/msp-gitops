@@ -20,7 +20,7 @@ spec:
       - name: furuno-scx21
         # image: registry-msp:5000/msp/sensor/furuno-scx21:0.1.0
         image: ghcr.io/noaa-pmel/msp/furuno-scx21:0.3.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:

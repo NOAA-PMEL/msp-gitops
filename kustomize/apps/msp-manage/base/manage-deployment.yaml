@@ -20,7 +20,7 @@ spec:
       - name: msp-manage
         # image: envds-registry:5000/core/envds-manage:0.1.0
         image: ghcr.io/noaa-pmel/msp/msp-manage:0.1.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: ENVDS_ID
             value: mspbase01
