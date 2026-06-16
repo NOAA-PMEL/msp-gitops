@@ -20,7 +20,7 @@ helmCharts:
   repo: https://charts.bitnami.com/bitnami
   # version: 1.2.3
   releaseName: redis
-  namespace: crk8s-system
+  namespace: pmel-dev-system
   valuesFile: redis-values.yaml # Use a file for overrides
   # Alternatively, use inline values:
   # values:
