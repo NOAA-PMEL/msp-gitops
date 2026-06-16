@@ -5,7 +5,7 @@
         "metadata": {
             "name": "cn_limit",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
-            "valid_config_time": "2026-06-15T08:13:00Z",
+            "valid_config_time": "2026-06-16T03:43:00Z",
             "revision": 3
         },
         "sources": { "cn": { "variablemap_name": "payload_01", "variableset_name": "main", "variable": "cn" } },
@@ -17,10 +17,10 @@
         "metadata": {
             "name": "sampling_wind_direction_limit",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
-            "valid_config_time": "2026-06-11T19:35:00Z",
+            "valid_config_time": "2026-06-16T03:43:00Z",
             "revision": 4
         },
-        "sources": { "relative_wind_direction": { "variablemap_name": "raz1", "variableset_name": "operations", "variable": "relative_wind_direction" } },
+        "sources": { "relative_wind_direction": { "variablemap_name": "payload_03", "variableset_name": "operations", "variable": "relative_wind_direction" } },
         "criteria": { "all": [ { "criterion_class": "LimitMinMax", "sources": ["relative_wind_direction"], "max_val": 180.0, "min_val": -180.0, "true_if": "inside" } ] }
     },
     {
@@ -29,10 +29,10 @@
         "metadata": {
             "name": "sampling_wind_speed_limit",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
-            "valid_config_time": "2026-06-11T19:35:00Z",
+            "valid_config_time": "2026-06-16T03:43:00Z",
             "revision": 3
         },
-        "sources": { "relative_wind_speed": { "variablemap_name": "raz1", "variableset_name": "operations", "variable": "relative_wind_speed" } },
+        "sources": { "relative_wind_speed": { "variablemap_name": "payload_03", "variableset_name": "operations", "variable": "relative_wind_speed" } },
         "criteria": { "all": [ { "criterion_class": "LimitMinMax", "sources": ["relative_wind_speed"], "max_val": 100.0, "min_val": 1.0, "true_if": "inside" } ] }
     },
     {
@@ -41,12 +41,12 @@
         "metadata": {
             "name": "at_pmel",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
-            "valid_config_time": "2026-06-11T19:35:00Z",
+            "valid_config_time": "2026-06-16T03:43:00Z",
             "revision": 5
         },
         "sources": {
-            "gps_latitude": { "variablemap_name": "raz1", "variableset_name": "main", "variable": "latitude" },
-            "gps_longitude": { "variablemap_name": "raz1", "variableset_name": "main", "variable": "longitude" }
+            "gps_latitude": { "variablemap_name": "payload_03", "variableset_name": "main", "variable": "latitude" },
+            "gps_longitude": { "variablemap_name": "payload_03", "variableset_name": "main", "variable": "longitude" }
         },
         "criteria": {
             "all": [
@@ -72,13 +72,13 @@
         "metadata": { 
             "name": "raz1_telemetry_active", 
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01", 
-            "valid_config_time": "2026-06-11T19:35:00Z", 
+            "valid_config_time": "2026-06-16T03:43:00Z", 
             "revision": 5 
         },
         "sources": {
-            "gps_lat": { "variablemap_name": "raz1", "variableset_name": "main", "variable": "latitude" },
-            "air_temp": { "variablemap_name": "raz1", "variableset_name": "main", "variable": "air_temperature" },
-            "irrad": { "variablemap_name": "raz1", "variableset_name": "main", "variable": "irradiance" }
+            "gps_lat": { "variablemap_name": "payload_03", "variableset_name": "main", "variable": "latitude" },
+            "air_temp": { "variablemap_name": "payload_03", "variableset_name": "main", "variable": "air_temperature" },
+            "irrad": { "variablemap_name": "payload_03", "variableset_name": "main", "variable": "irradiance" }
         },
         "criteria": {
             "any": [
@@ -91,15 +91,15 @@
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingCondition",
-        "metadata": { "name": "cascade_ready", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01", "valid_config_time": "2026-06-11T19:35:00Z", "revision": 1 },
-        "sources": { "cascade_status": { "variablemap_name": "raz1", "variableset_name": "operations", "variable": "cascade_status" } },
+        "metadata": { "name": "cascade_ready", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01", "valid_config_time": "2026-06-16T03:43:00Z", "revision": 1 },
+        "sources": { "cascade_status": { "variablemap_name": "payload_03", "variableset_name": "operations", "variable": "cascade_status" } },
         "criteria": { "all": [ { "criterion_class": "LimitMinMax", "sources": ["cascade_status"], "min_val": 1, "max_val": 1, "true_if": "inside" } ] }
     },
     {
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingCondition",
-        "metadata": { "name": "maintenance_switch_on", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01", "valid_config_time": "2026-06-11T19:35:00Z", "revision": 1 },
-        "sources": { "maint_switch": { "variablemap_name": "raz1", "variableset_name": "operations", "variable": "maintenance_switch" } },
+        "metadata": { "name": "maintenance_switch_on", "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01", "valid_config_time": "2026-06-16T03:43:00Z", "revision": 1 },
+        "sources": { "maint_switch": { "variablemap_name": "payload_03", "variableset_name": "operations", "variable": "maintenance_switch" } },
         "criteria": { "all": [ { "criterion_class": "LimitMinMax", "sources": ["maint_switch"], "min_val": 1, "max_val": 1, "true_if": "inside" } ] }
     }
 ]
