@@ -14,7 +14,7 @@ spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-        - image: ghcr.io/noaa-pmel/msp/system-modes:0.1.0
+        - image: ghcr.io/noaa-pmel/msp/system-modes:0.2.0
           imagePullPolicy: "IfNotPresent"
           env:
             - name: SYSTEM_MODES_PORT
