@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: phoenixcontact-ntp-63d-TEST
+  name: phoenixcontact-ntp-63d-test
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
