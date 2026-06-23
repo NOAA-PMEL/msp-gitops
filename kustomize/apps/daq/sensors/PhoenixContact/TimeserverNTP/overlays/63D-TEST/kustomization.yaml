@@ -1,0 +1,40 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: phoenixcontact-ntp
+
+namespace: revpi1-hardware
+
+# Example configuration for the webserver
+# at https://github.com/monopole/hello
+# commonLabels:
+#   app: nginx
+
+# resources:
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+#   nameSuffix: -usc206
+#   commonLabels:
+#     app: usconverters-uscdr301
+#     variant: test
+
+resources:
+- ../../base
+- ntp-configmap.yaml
+
+nameSuffix: "-63d"
+# patchesStrategicMerge:
+#   - deployment.yaml
+
+patches:
+#   # change configmap names to account for s/n suffix
+  - target:
+      kind: Deployment
+      name: phoenixcontact-ntp
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: phoenixcontact-ntp-config-63d
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: sensor-definition-63d
