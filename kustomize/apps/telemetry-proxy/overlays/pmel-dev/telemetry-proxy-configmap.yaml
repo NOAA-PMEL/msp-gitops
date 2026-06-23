@@ -15,11 +15,7 @@ data:
     envds/+/controller/settings/request,
     envds/+/sensor/+/settings/request,
     envds/controller/settings/request,
-    envds/sensor/settings/request
-
-    # envds/+/controller/settings/request,
-    # envds/+/sensor/+/settings/request,
-    
+    envds/sensor/settings/request   
   
   # Server: Send compressed commands OUT to this topic
   bridge_topic_out: "envds/transport/compressed/cloud-to-edge"
