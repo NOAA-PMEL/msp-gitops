@@ -1,0 +1,25 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingAction",
+        "metadata": {
+            "name": "disable_cpc_power",
+            "action_module": "actions.beacons_msp",
+            "action_def": "set_power_state",
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_alvan_01_in_acg_alvan",
+            "valid_config_time": "2026-06-23T21:00:00Z",
+            "revision": 1,
+            "execution_node": "revpi1"
+        },
+        "source_max_age": 10,
+        "sources": {},
+        "targets": {
+            "power_cpc": {
+                "variablemap_name": "payload_alvan_01",
+                "variableset_name": "power",
+                "variable": "power_cpc",
+                "value": 0
+            }
+        }
+    }
+]

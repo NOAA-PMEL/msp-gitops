@@ -1,0 +1,54 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "nominal_location",
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_alvan_01_in_acg_alvan",
+            "valid_config_time": "2026-06-23T21:00:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingCondition", "name": "at_pmel", "required_time_to_transition": { "to_become_false": 300, "to_become_true": 600 } }
+        ]
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "nominal_concentrations",
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_alvan_01_in_acg_alvan",
+            "valid_config_time": "2026-06-23T21:00:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingCondition", "name": "cn_limit", "required_time_to_transition": { "to_become_false": 2, "to_become_true": 3 } }
+        ]
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "cpc_hardware_ready",
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_alvan_01_in_acg_alvan",
+            "valid_config_time": "2026-06-23T21:00:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingCondition", "name": "cpc_power_on", "required_time_to_transition": { "to_become_false": 5, "to_become_true": 10 } }
+        ]
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "revpi1_telemetry_verified",
+            "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_alvan_01_in_acg_alvan",
+            "valid_config_time": "2026-06-23T21:00:00Z",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingCondition", "name": "revpi1_telemetry_active", "required_time_to_transition": { "to_become_true": 20, "to_become_false": 0 } }
+        ]
+    }
+]
