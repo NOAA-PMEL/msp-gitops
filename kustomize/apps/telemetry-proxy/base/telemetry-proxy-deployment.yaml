@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telemetry-proxy
+  labels:
+    app: telemetry-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telemetry-proxy
+  template:
+    metadata:
+      labels:
+        app: telemetry-proxy
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - name: telemetry-proxy
+          image: ghcr.io/noaa-pmel/msp/telemetry-proxy:0.1.0
+          imagePullPolicy: "IfNotPresent"
+          env:
+            - name: PROXY_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: telemetry-proxy
+                  key: mqtt_broker
+            - name: PROXY_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: telemetry-proxy
+                  key: mqtt_port
+            - name: PROXY_LOCAL_INTERCEPT_TOPICS
+              valueFrom:
+                configMapKeyRef:
+                  name: telemetry-proxy
+                  key: local_intercept_topics
+            - name: PROXY_BRIDGE_TOPIC_OUT
+              valueFrom:
+                configMapKeyRef:
+                  name: telemetry-proxy
+                  key: bridge_topic_out
+            - name: PROXY_BRIDGE_TOPIC_IN
+              valueFrom:
+                configMapKeyRef:
+                  name: telemetry-proxy
+                  key: bridge_topic_in
+            - name: PROXY_LOG_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: telemetry-proxy
+                  key: log_level
+            # Injected securely from the SealedSecret
+            - name: PROXY_AES_ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: telemetry-proxy-secret
+                  key: encryption_key
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8081

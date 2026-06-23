@@ -79,6 +79,7 @@ data:
     connection alvan_aws-iot-core_bridge
     address iot.pmel-dev.oarcloud.noaa.gov:443
     remote_clientid alvan_aws-iot-core_bridge
+    bridge_protocol_version mqttv50
     cleansession true
     start_type automatic
     notifications false
@@ -92,23 +93,27 @@ data:
     # TLS ALPN
     bridge_alpn x-amzn-mqtt-ca
 
-    topic envds/+/sensor/+/data/update out 0 "" ""
-    topic envds/+/controller/+/controller/data/update out 0 "" ""
-    topic main/envds/+/registry/sync-bcast out 0 "" ""
-    topic main/envds/+/registry/sync-update out 0 "" ""
-    topic main/envds/+/registry/sync-request out 0 "" ""
-    topic server/envds/+/registry/sync-bcast in 0 "" ""
-    topic server/envds/+/registry/sync-update in 0 "" ""
-    topic server/envds/+/registry/sync-request in 0 "" ""
-    topic envds/+/device-instance/registry/update out 0 "" ""
-    topic envds/+/controller-instance/registry/update out 0 "" ""
-    topic envds/+/controller/settings/update out 0 "" ""
-    # topic envds/+/controller/settings/request in 0 "" ""
-    topic envds/controller/settings/request in 0 "" ""
-    topic envds/+/sensor/+/settings/update out 0 "" ""
-    # topic envds/+/sensor/+/settings/request in 0 "" ""
-    topic envds/sensor/settings/request in 0 "" ""
-    topic envds/+/system-modes/status/update out 0 "" ""
+    # The ONLY topics traveling over Starlink
+    topic envds/transport/compressed/edge-to-cloud out 0 "" ""
+    topic envds/transport/compressed/cloud-to-edge in 0 "" ""
+
+    # topic envds/+/sensor/+/data/update out 0 "" ""
+    # topic envds/+/controller/+/controller/data/update out 0 "" ""
+    # topic main/envds/+/registry/sync-bcast out 0 "" ""
+    # topic main/envds/+/registry/sync-update out 0 "" ""
+    # topic main/envds/+/registry/sync-request out 0 "" ""
+    # topic server/envds/+/registry/sync-bcast in 0 "" ""
+    # topic server/envds/+/registry/sync-update in 0 "" ""
+    # topic server/envds/+/registry/sync-request in 0 "" ""
+    # topic envds/+/device-instance/registry/update out 0 "" ""
+    # topic envds/+/controller-instance/registry/update out 0 "" ""
+    # topic envds/+/controller/settings/update out 0 "" ""
+    # # topic envds/+/controller/settings/request in 0 "" ""
+    # topic envds/controller/settings/request in 0 "" ""
+    # topic envds/+/sensor/+/settings/update out 0 "" ""
+    # # topic envds/+/sensor/+/settings/request in 0 "" ""
+    # topic envds/sensor/settings/request in 0 "" ""
+    # topic envds/+/system-modes/status/update out 0 "" ""
 
 
     # old stuff

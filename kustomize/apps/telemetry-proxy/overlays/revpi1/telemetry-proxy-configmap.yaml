@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: telemetry-proxy
+data:
+  mqtt_broker: "mqtt.revpi1-system"
+  mqtt_port: "1883"
+  log_level: "DEBUG"  # Shows your compression % reduction!
+  
+  # Edge: Capture these local topics to compress
+  local_intercept_topics: >
+    envds/+/+/+/data/update,
+    envds/+/+/+/status/update,
+    envds/+/+/+/settings/update
+  
+  # Edge: Send compressed payloads OUT to this topic
+  bridge_topic_out: "envds/transport/compressed/edge-to-cloud"
+  
+  # Edge: Listen for compressed payloads coming IN from the cloud
+  bridge_topic_in: "envds/transport/compressed/cloud-to-edge"

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: telemetry-proxy
+data:
+  mqtt_broker: "mqtt.pmel-dev-system"
+  mqtt_port: "1883"
+  log_level: "INFO" 
+  
+  # Server: Capture cloud commands trying to reach the edge
+  local_intercept_topics: >
+    envds/+/controller/settings/request,
+    envds/+/sensor/+/settings/request
+  
+  # Server: Send compressed commands OUT to this topic
+  bridge_topic_out: "envds/transport/compressed/cloud-to-edge"
+  
+  # Server: Listen for compressed telemetry coming IN from the edge
+  bridge_topic_in: "envds/transport/compressed/edge-to-cloud"
