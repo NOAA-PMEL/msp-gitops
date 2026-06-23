@@ -1,3 +1,15 @@
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: telemetry-proxy
+
+# namespace: pmel-dev-system
+
+# resources:
+# - ../../base
+# - telemetry-proxy-configmap.yaml
+# - telemetry-proxy-sealedsecret.yaml  # MUST be the exact same key as raz1!
+
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
@@ -7,5 +19,24 @@ namespace: pmel-dev-system
 
 resources:
 - ../../base
-- telemetry-proxy-configmap.yaml
-- telemetry-proxy-sealedsecret.yaml  # MUST be the exact same key as raz1!
+- telemetry-proxy-sealedsecret.yaml 
+
+# Generate the ConfigMap dynamically to trigger pod restarts on change
+configMapGenerator:
+- name: telemetry-proxy
+  literals:
+    - mqtt_broker=mqtt.pmel-dev-system
+    - mqtt_port=1883
+    - log_level=DEBUG
+    - bridge_topic_out=envds/transport/compressed/edge-to-cloud
+    - bridge_topic_in=envds/transport/compressed/cloud-to-edge
+    
+    # Use ">-" to fold these multiple lines into a single, clean comma-separated string
+    - >-
+      local_intercept_topics=server/envds/+/registry/sync-bcast,
+      server/envds/+/registry/sync-update,
+      server/envds/+/registry/sync-request,
+      envds/+/controller/settings/request,
+      envds/+/sensor/+/settings/request,
+      envds/controller/settings/request,
+      envds/sensor/settings/request
