@@ -9,9 +9,16 @@ data:
   
   # Edge: Capture these local topics to compress
   local_intercept_topics: >
-    envds/+/+/+/data/update,
-    envds/+/+/+/status/update,
-    envds/+/+/+/settings/update
+    envds/+/sensor/+/data/update,
+    envds/+/controller/+/controller/data/update,
+    main/envds/+/registry/sync-bcast,
+    main/envds/+/registry/sync-update,
+    main/envds/+/registry/sync-request,
+    envds/+/device-instance/registry/update,
+    envds/+/controller-instance/registry/update,
+    envds/+/controller/settings/update,
+    envds/+/sensor/+/settings/update,
+    envds/+/system-modes/status/update
   
   # Edge: Send compressed payloads OUT to this topic
   bridge_topic_out: "envds/transport/compressed/edge-to-cloud"
