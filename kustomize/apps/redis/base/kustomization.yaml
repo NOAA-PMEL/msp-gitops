@@ -10,7 +10,7 @@ metadata:
 
 resources:
 # - redis-ns.yaml
-- redis-configmap.yaml
+# - redis-configmap.yaml
 - redis-pvc.yaml
 - redis-deployment.yaml
 - redis-service.yaml
