@@ -61,7 +61,7 @@
     "version": "envds.apps.sampling-system/v1",
     "kind": "Platform",
     "metadata": {
-      "name": "platform.pmel.alvan",
+      "name": "platform.pmel.acg_alvan",  
       "sampling_namespace": "pmel.noaa.gov"
     },
     "revision-time": "2026-06-12T00:00:00Z",

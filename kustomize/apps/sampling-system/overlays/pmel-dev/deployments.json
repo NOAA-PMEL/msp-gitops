@@ -42,32 +42,21 @@
       "name": "deploy.pmel.acg_alvan_at_marina",
       "sampling_namespace": "pmel.noaa.gov"
     },
-    "revision-time": "2026-06-12T00:00:00Z",
+    "revision-time": "2026-06-24T14:00:00Z",
     "data": {
-      "display_name": "ALVAN Marina Deployment",
-      "description": "Pre-deployment development and instrument intercomparison at the PMEL Rooftop / Test Stand to validate the MSP sensors against reference instruments.",
+      "display_name": "ACG ALVAN Marina Deployment",
+      "description": "Pre-deployment development and instrument intercomparison at the PMEL Marina.",
       
       "project_ref": "project.pmel.beacons",
-      "platform_ref": "platform.pmel.alvan",
+      "platform_ref": "platform.pmel.acg_alvan",
       "host_platform_ref": "platform.pmel.wrc_marina",
       
+      "deployment_type": "Station",
+      "deployment_subtype": "Continuous",
+      "trajectory_partition": "monthly",
+      
       "planned_start_time": "2026-05-01T00:00:00Z",
-      "planned_end_time": "2026-07-15T23:59:59Z",
-      
-      "planned_spatial_coverage": "NOAA PMEL Campus, Seattle, WA",
-      "planned_geospatial_lat_min": 47.68,
-      "planned_geospatial_lat_max": 47.69,
-      "planned_geospatial_lon_min": -122.26,
-      "planned_geospatial_lon_max": -122.25,
-
-      "deployment_type": "Land-based Intercomparison",
-      
-      "contacts": [
-        {
-          "contact_ref": "contact.pmel.hardware_lead",
-          "deployment_role": "Site Technician"
-        }
-      ]
+      "planned_end_time": "2026-07-15T23:59:59Z"
     }
   }
 ]
