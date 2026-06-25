@@ -10,7 +10,7 @@ data:
 
   system_init_control: "auto"
   system_init_mode: "normal"
-  is_primary_controller: "false"
+  is_primary_controller: "true"
 
   deployment_ref: "deploy.pmel.payload_alvan_01_in_acg_alvan"
   
