@@ -5,11 +5,11 @@
         "metadata": {
             "name": "nominal_location",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_alvan_01_in_acg_alvan",
-            "valid_config_time": "2026-06-23T21:00:00Z",
+            "valid_config_time": "2026-06-24T11:00:00Z",
             "revision": 1
         },
         "requirements": [
-            { "kind": "SamplingCondition", "name": "at_pmel", "required_time_to_transition": { "to_become_false": 300, "to_become_true": 600 } }
+            { "kind": "SamplingCondition", "name": "at_pmel", "required_time_to_transition": { "to_become_false": 30, "to_become_true": 60 } }
         ]
     },
     {
