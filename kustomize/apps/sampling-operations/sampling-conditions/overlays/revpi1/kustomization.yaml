@@ -2,19 +2,20 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: sampling-conditions
-
 namespace: revpi1-system
 
 resources:
 - ../../base
 - sampling-conditions-configmap.yaml
 
-# Pull dynamic templates from the shared GitOps library
 configMapGenerator:
   - name: sampling-conditions-conditions
     files:
-      - ../shared_configs/templates/conditions/cn_limit_condition.json
-      - ../shared_configs/templates/conditions/geofence_condition.json
+      # Reusing the shared modular templates!
+      - ../shared_configs/templates/conditions/pmel_geofence.json
+      - ../shared_configs/templates/conditions/cn_limit.json
+      - ../shared_configs/templates/conditions/revpi1_telemetry_active.json
+      - ../shared_configs/templates/conditions/revpi1_power_states.json
 
 nameSuffix: "-revpi1"
 

@@ -1,0 +1,31 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "cn_limit",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "cn": {
+                "variablemap_name": "${EXT_CPC_VARMAP}",
+                "variableset_name": "${EXT_CPC_VARSET}",
+                "variable": "${EXT_CPC_VAR}"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "cn"
+                    ],
+                    "max_val": 10000.0,
+                    "min_val": 10.0,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,118 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "opc_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_opc": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_opc"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_opc"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "smps_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_smps": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_smps"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_smps"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "cpc_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_cpc": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_cpc"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_cpc"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "aps_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_aps": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_aps"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_aps"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]

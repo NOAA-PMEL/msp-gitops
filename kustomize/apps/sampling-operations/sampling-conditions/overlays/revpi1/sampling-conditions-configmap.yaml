@@ -2,42 +2,30 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sampling-conditions
-  # namespace: msp-system
 data:
   daq_id: revpi1
 
   # --- 1. GITOPS IDENTITY INJECTION ---
   SAMPLING_NAMESPACE: "pmel.noaa.gov"
   ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_alvan_01_in_acg_alvan"
+  CONDITIONS_REVISION_TIME: "2026-06-25T14:00:00Z"
   
-  # --- 2. GRANULAR REVISION TIMES ---
-  CN_LIMIT_REVISION_TIME: "2026-06-25T15:15:00Z"
-  GEOFENCE_REVISION_TIME: "2026-06-25T15:15:00Z"
+  # --- 2. SENSOR-AGNOSTIC WIRING FOR CONDITIONS ---
+  # Reusing the modular geofence and cn_limit
+  NAV_VARMAP: "varmap_primary_nav"
+  EXT_CPC_VARMAP: "varmap_primary_cpc"
+  EXT_CPC_VARSET: "main"
+  EXT_CPC_VAR: "cn"
+  POWER_VARMAP: "revpi1_power"
   
-  # --- 3. SENSOR-AGNOSTIC WIRING ---
-  # Wire the CN Condition to the MAGIC250
-  CN_VARIABLEMAP: "varmap_magic250"
-  CN_VARIABLESET: "main"
-  CN_VARIABLE: "cn"
-  CN_MAX_LIMIT: "10000.0"   
-  CN_MIN_LIMIT: "10.0"
-  
-  # Wire the Geofence Condition to the NTP GPS
-  NAV_VARIABLEMAP: "varmap_ntp_nav"
-  NAV_VARIABLESET: "main"
-  NAV_LAT_VARIABLE: "latitude"
-  NAV_LON_VARIABLE: "longitude"
-  # ---------------------------------
+  # Note: If migrating revpi1_telemetry_active.json to modular, wire these:
+  SMPS_VARMAP: "varmap_primary_smps"
+  APS_VARMAP: "varmap_primary_aps"
 
+  # --- 3. DAQ CONFIGS ---
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/revpi1-system/default"
-
   mqtt_broker: "mqtt.revpi1-system"
   mqtt_topic_subscriptions: >
     envds/+/variableset/+/data/#
-
   mqtt_port: "1883"
-
-# off
-    # envds/+/+/+/data/update,   
-    # envds/+/+/+/controller/data/update   

@@ -1,0 +1,118 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "24v_bus_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_24v_bus": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_24v_bus"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_24v_bus"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "tec_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_tec": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_tec"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_tec"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "neph_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_neph": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_neph"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_neph"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "absorb_is_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "power_absorb": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_absorb"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "power_absorb"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]
