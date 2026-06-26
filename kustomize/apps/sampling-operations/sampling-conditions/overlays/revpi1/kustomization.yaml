@@ -12,10 +12,10 @@ configMapGenerator:
   - name: sampling-conditions-conditions
     files:
       # Reusing the shared modular templates!
-      - ../shared_configs/templates/conditions/pmel_geofence.json
-      - ../shared_configs/templates/conditions/cn_limit.json
-      - ../shared_configs/templates/conditions/revpi1_telemetry_active.json
-      - ../shared_configs/templates/conditions/revpi1_power_states.json
+      - ../../shared_configs/templates/conditions/pmel_geofence.json
+      - ../../shared_configs/templates/conditions/cn_limit.json
+      - ../../shared_configs/templates/conditions/revpi1_telemetry_active.json
+      - ../../shared_configs/templates/conditions/revpi1_power_states.json
 
 nameSuffix: "-revpi1"
 

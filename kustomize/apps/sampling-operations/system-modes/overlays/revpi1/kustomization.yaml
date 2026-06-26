@@ -13,7 +13,7 @@ resources:
 configMapGenerator:
   - name: system-modes-modes
     files:
-      - ../shared_configs/templates/system_modes/pmel_normal_system_mode.json
+      - ../../shared_configs/templates/system_modes/pmel_normal_system_mode.json
 
 generatorOptions:
   disableNameSuffixHash: true

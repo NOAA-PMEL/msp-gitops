@@ -17,17 +17,17 @@ nameSuffix: -pmel-dev
 configMapGenerator:
   - name: sampling-system-platforms
     files: 
-      - ../shared_configs/fleet/platforms/fleet_host_platforms.json
+      - ../../shared_configs/fleet/platforms/fleet_host_platforms.json
   - name: sampling-system-deployments
     files: 
-      - ../shared_configs/fleet/deployments/active/fleet_host_deployments.json
+      - ../../shared_configs/fleet/deployments/active/fleet_host_deployments.json
   - name: sampling-system-projects
     files: 
-      - ../shared_configs/fleet/projects/active/beacons_project.json
+      - ../../shared_configs/fleet/projects/active/beacons_project.json
   - name: sampling-system-contacts
     files: 
-      - ../shared_configs/fleet/contacts/pmel_contacts.json
-      - ../shared_configs/fleet/contacts/pnnl_contacts.json
+      - ../../shared_configs/fleet/contacts/pmel_contacts.json
+      - ../../shared_configs/fleet/contacts/pnnl_contacts.json
   - name: sampling-system-variablemaps
     files: 
       - platform_varmaps.json

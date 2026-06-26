@@ -11,7 +11,7 @@ resources:
 configMapGenerator:
   - name: sampling-conditions-conditions
     files:
-      - ../shared_configs/templates/conditions/payload01_power_states.json
+      - ../../shared_configs/templates/conditions/payload01_power_states.json
 
 nameSuffix: "-payload01"
 

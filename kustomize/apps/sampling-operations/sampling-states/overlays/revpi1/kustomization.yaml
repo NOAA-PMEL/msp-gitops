@@ -12,10 +12,10 @@ resources:
 configMapGenerator:
   - name: sampling-states-states
     files:
-      - ../shared_configs/templates/states/pmel_nominal_location_state.json
-      - ../shared_configs/templates/states/nominal_concentrations_state.json
-      - ../shared_configs/templates/states/cpc_hardware_ready_state.json
-      - ../shared_configs/templates/states/telemetry_verified_state.json
+      - ../../shared_configs/templates/states/pmel_nominal_location_state.json
+      - ../../shared_configs/templates/states/nominal_concentrations_state.json
+      - ../../shared_configs/templates/states/cpc_hardware_ready_state.json
+      - ../../shared_configs/templates/states/telemetry_verified_state.json
 
 nameSuffix: "-revpi1"
 

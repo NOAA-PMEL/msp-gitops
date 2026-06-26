@@ -9,12 +9,12 @@ resources:
 configMapGenerator:
   - name: sampling-modes-modes
     files:
-      - ../shared_configs/templates/modes/pmel_startup_complete_mode.json
-      - ../shared_configs/templates/modes/pmel_nominal_sampling_mode.json
+      - ../../shared_configs/templates/modes/pmel_startup_complete_mode.json
+      - ../../shared_configs/templates/modes/pmel_nominal_sampling_mode.json
   - name: sampling-modes-actions
     files:
       # ---> Point to the newly scoped action file <---
-      - ../shared_configs/templates/actions/pmel_disable_cpc_power_action.json
+      - ../../shared_configs/templates/actions/pmel_disable_cpc_power_action.json
 
 generatorOptions:
   disableNameSuffixHash: true
