@@ -1,0 +1,31 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "startup_step4_absorb",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SystemMode",
+                "name": "startup"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "neph_power_stabilized"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_on_absorb"
+                }
+            ],
+            "false": []
+        }
+    }
+]

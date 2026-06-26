@@ -1,0 +1,27 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "beacons_maintenance_override",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingState",
+                "name": "maintenance_active"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_reverse_inlet_flow"
+                }
+            ],
+            "false": []
+        }
+    }
+]

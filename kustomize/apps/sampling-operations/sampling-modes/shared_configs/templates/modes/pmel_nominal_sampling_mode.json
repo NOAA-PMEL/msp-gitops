@@ -5,21 +5,35 @@
         "metadata": {
             "name": "pmel_nominal_sampling",
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
-            "valid_config_time": "${PMEL_NOMINAL_MODE_REV_TIME}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
             "revision": 1
         },
         "requirements": [
-            { "kind": "SamplingState", "name": "pmel_nominal_location" },
-            { "kind": "SamplingState", "name": "nominal_concentrations" },
-            { "kind": "SamplingState", "name": "cpc_hardware_ready" }
+            {
+                "kind": "SamplingState",
+                "name": "in_sector"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "nominal_concentrations"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "nominal_location"
+            }
         ],
         "actions": {
-            "true": [],
-            "false": [ 
-                { 
-                    "kind": "SamplingAction", 
-                    "name": "pmel_disable_cpc_power" 
-                } 
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_isokinetic_inlet_flow"
+                }
+            ],
+            "false": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_reverse_inlet_flow"
+                }
             ]
         }
     }

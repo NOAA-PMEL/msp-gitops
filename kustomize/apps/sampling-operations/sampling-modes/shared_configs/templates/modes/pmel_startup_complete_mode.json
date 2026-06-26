@@ -5,12 +5,18 @@
         "metadata": {
             "name": "pmel_startup_complete",
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
-            "valid_config_time": "${PMEL_STARTUP_MODE_REV_TIME}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
             "revision": 1
         },
         "requirements": [
-            { "kind": "SamplingState", "name": "revpi1_telemetry_verified" }
+            {
+                "kind": "SamplingState",
+                "name": "raz1_boot_buffer_complete"
+            }
         ],
-        "actions": {}
+        "actions": {
+            "true": [],
+            "false": []
+        }
     }
 ]

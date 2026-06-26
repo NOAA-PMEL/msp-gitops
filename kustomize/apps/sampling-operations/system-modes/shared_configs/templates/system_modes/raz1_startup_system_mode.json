@@ -1,0 +1,25 @@
+[
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "startup",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${SYSTEM_MODES_REVISION_TIME}"
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "startup_complete"
+            }
+        ],
+        "transitions": {
+            "true": [
+                {
+                    "kind": "SystemMode",
+                    "name": "normal"
+                }
+            ]
+        }
+    }
+]

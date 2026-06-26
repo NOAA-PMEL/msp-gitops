@@ -1,0 +1,14 @@
+[
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "normal",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${SYSTEM_MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [],
+        "transitions": {}
+    }
+]

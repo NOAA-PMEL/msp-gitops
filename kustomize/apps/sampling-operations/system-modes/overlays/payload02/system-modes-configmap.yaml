@@ -2,24 +2,45 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: system-modes
-  # namespace: msp-system
 data:
   daq_id: payload02
-
-  deployment_ref: "deploy.pmel.payload_02_in_msp_01"
-  
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload02-system/default"
+
+  SAMPLING_NAMESPACE: "pmel.noaa.gov"
+  ENVOPS_DEPLOYMENT_REF: "deploy.beacons.payload_02_in_marjorie_c"
+  SYSTEM_MODES_REVISION_TIME: "2026-06-11T19:19:00Z"
+  deployment_ref: "deploy.beacons.payload_02_in_marjorie_c"
 
   system_init_control: "auto"
   system_init_mode: "normal"
   is_primary_controller: "false"
-
   mqtt_broker: "mqtt.payload02-system"
-  mqtt_topic_subscriptions: >
-    envds/+/+/+/data/#,
-    envds/+/system-modes/#,
-    envds/+/sampling-modes/#
-
-
+  mqtt_topic_subscriptions: "envds/+/+/+/data/#, envds/+/system-modes/#, envds/+/sampling-modes/#"
   mqtt_port: "1883"
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: system-modes
+#   # namespace: msp-system
+# data:
+#   daq_id: payload02
+
+#   deployment_ref: "deploy.pmel.payload_02_in_msp_01"
+  
+#   port: "8080"
+#   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload02-system/default"
+
+#   system_init_control: "auto"
+#   system_init_mode: "normal"
+#   is_primary_controller: "false"
+
+#   mqtt_broker: "mqtt.payload02-system"
+#   mqtt_topic_subscriptions: >
+#     envds/+/+/+/data/#,
+#     envds/+/system-modes/#,
+#     envds/+/sampling-modes/#
+
+
+#   mqtt_port: "1883"

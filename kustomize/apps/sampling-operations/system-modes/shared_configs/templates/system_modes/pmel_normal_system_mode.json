@@ -3,15 +3,15 @@
         "version": "envds.system.modes/v1",
         "kind": "SystemMode",
         "metadata": {
-            "name": "pmel_normal",
+            "name": "normal",
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
-            "valid_config_time": "${PMEL_NORMAL_SYS_REV_TIME}",
-            "revision": 2
+            "valid_config_time": "${SYSTEM_MODES_REVISION_TIME}",
+            "revision": 1
         },
         "requirements": [
             {
                 "kind": "SamplingMode",
-                "name": "pmel_nominal_sampling"
+                "name": "nominal_sampling"
             }
         ],
         "transitions": {}

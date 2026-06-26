@@ -1,8 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: sampling-states
-
 namespace: revpi1-system
 
 resources:
@@ -17,6 +14,9 @@ configMapGenerator:
       - ../../shared_configs/templates/states/cpc_hardware_ready_state.json
       - ../../shared_configs/templates/states/telemetry_verified_state.json
 
+generatorOptions:
+  disableNameSuffixHash: true
+
 nameSuffix: "-revpi1"
 
 patches:
@@ -27,9 +27,12 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
         value: sampling-states-states-revpi1
-
-configurations:
-  - config.yaml
+  - target:
+      kind: Trigger
+    patch: |-
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: sampling-states-revpi1
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization

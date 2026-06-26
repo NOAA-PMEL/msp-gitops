@@ -1,0 +1,18 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "nominal_location",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${STATES_REVISION_TIME}"
+        },
+        "requirements": [
+            { 
+                "kind": "SamplingCondition", 
+                "name": "beacons_at_sea", 
+                "required_time_to_transition": { "to_become_false": 300, "to_become_true": 600 } 
+            }
+        ]
+    }
+]

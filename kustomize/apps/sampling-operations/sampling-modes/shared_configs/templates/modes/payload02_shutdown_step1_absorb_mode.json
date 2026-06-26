@@ -1,0 +1,27 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "shutdown_step1_absorb",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SystemMode",
+                "name": "shutdown"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_off_absorb"
+                }
+            ],
+            "false": []
+        }
+    }
+]

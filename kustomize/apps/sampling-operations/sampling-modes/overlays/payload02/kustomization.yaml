@@ -9,12 +9,21 @@ resources:
 configMapGenerator:
   - name: sampling-modes-modes
     files:
-      - ../../shared_configs/templates/modes/payload02_startup_modes.json
-      - ../../shared_configs/templates/modes/payload02_shutdown_modes.json
-      - ../../shared_configs/templates/modes/payload02_standby_modes.json
-      - ../../shared_configs/templates/modes/pmel_maintenance_override_mode.json
+      # Individual Decoupled Mode Files
+      - ../../shared_configs/templates/modes/payload02_startup_step1_24v_mode.json
+      - ../../shared_configs/templates/modes/payload02_startup_step2_tec_mode.json
+      - ../../shared_configs/templates/modes/payload02_startup_step3_neph_mode.json
+      - ../../shared_configs/templates/modes/payload02_startup_step4_absorb_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step1_absorb_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step2_neph_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step3_tec_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step4_24v_mode.json
+      - ../../shared_configs/templates/modes/payload02_standby_step1_absorb_mode.json
+      - ../../shared_configs/templates/modes/payload02_standby_step2_neph_mode.json
+      - ../../shared_configs/templates/modes/payload02_maintenance_override_mode.json
   - name: sampling-modes-actions
     files:
+      # Individual Decoupled Action Files
       - ../../shared_configs/templates/actions/turn_on_24v_bus_action.json
       - ../../shared_configs/templates/actions/turn_off_24v_bus_action.json
       - ../../shared_configs/templates/actions/turn_on_tec_action.json

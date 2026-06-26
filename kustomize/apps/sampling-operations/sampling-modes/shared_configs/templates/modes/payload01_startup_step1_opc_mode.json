@@ -1,0 +1,27 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "startup_step1_opc",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SystemMode",
+                "name": "startup"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_on_opc"
+                }
+            ],
+            "false": []
+        }
+    }
+]

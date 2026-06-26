@@ -1,0 +1,40 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "beacons_nominal_sampling",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingState",
+                "name": "in_sector"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "nominal_concentrations"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "nominal_location"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_isokinetic_inlet_flow"
+                }
+            ],
+            "false": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_reverse_inlet_flow"
+                }
+            ]
+        }
+    }
+]

@@ -1,25 +1,56 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: system-modes
-
 namespace: payload02-system
-
 resources:
 - ../../base
 - system-modes-configmap.yaml
-
-# Generate the ConfigMap from your provided JSON file
 configMapGenerator:
   - name: system-modes-modes
     files:
-      - system_modes_modes.json
-
+      - ../../shared_configs/templates/system_modes/payload_normal_system_mode.json
+      - ../../shared_configs/templates/system_modes/payload02_startup_system_mode.json
+      - ../../shared_configs/templates/system_modes/payload02_shutdown_system_mode.json
+      - ../../shared_configs/templates/system_modes/payload02_standby_system_mode.json
+      - ../../shared_configs/templates/system_modes/beacons_maintenance_system_mode.json
 generatorOptions:
   disableNameSuffixHash: true
-
-# Suffix used across the payload02 deployment
 nameSuffix: "-payload02"
-
 configurations:
   - config.yaml
+patches:
+  - target: { kind: Service, name: system-modes }
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: system-modes-modes-payload02
+  - target: { kind: Trigger }
+    patch: |-
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: system-modes-payload02
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: system-modes
+
+# namespace: payload02-system
+
+# resources:
+# - ../../base
+# - system-modes-configmap.yaml
+
+# # Generate the ConfigMap from your provided JSON file
+# configMapGenerator:
+#   - name: system-modes-modes
+#     files:
+#       - system_modes_modes.json
+
+# generatorOptions:
+#   disableNameSuffixHash: true
+
+# # Suffix used across the payload02 deployment
+# nameSuffix: "-payload02"
+
+# configurations:
+#   - config.yaml

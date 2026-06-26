@@ -6,3 +6,6 @@ metadata:
 resources:
 - system-modes-service.yaml
 - system-modes-triggers.yaml
+
+configurations:
+  - config.yaml

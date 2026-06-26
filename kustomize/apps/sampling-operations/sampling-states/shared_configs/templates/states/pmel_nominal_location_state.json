@@ -5,11 +5,18 @@
         "metadata": {
             "name": "pmel_nominal_location",
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
-            "valid_config_time": "${PMEL_NOMINAL_LOC_REV_TIME}",
+            "valid_config_time": "${STATES_REVISION_TIME}",
             "revision": 1
         },
         "requirements": [
-            { "kind": "SamplingCondition", "name": "at_pmel", "required_time_to_transition": { "to_become_false": 30, "to_become_true": 60 } }
+            {
+                "kind": "SamplingCondition",
+                "name": "at_pmel",
+                "required_time_to_transition": {
+                    "to_become_false": 300,
+                    "to_become_true": 600
+                }
+            }
         ]
     }
 ]

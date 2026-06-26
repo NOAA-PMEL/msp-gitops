@@ -1,0 +1,31 @@
+[
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "startup",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${SYSTEM_MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "startup_step1_opc"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "startup_step2_smps"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "startup_step3_cpc"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "startup_step4_aps"
+            }
+        ],
+        "transitions": {}
+    }
+]
