@@ -13,25 +13,25 @@ configMapGenerator:
     files:
       - ../../shared_configs/templates/conditions/payload01_power_states.json
 
-nameSuffix: "-payload01"
+# nameSuffix: "-payload01"
 
-patches:
-  - target:
-      kind: Service
-      name: sampling-conditions
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-conditions-conditions-payload01
-  - target:
-      kind: Trigger
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-conditions-payload01
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-conditions
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-conditions-conditions-payload01
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-conditions-payload01
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 
 # apiVersion: kustomize.config.k8s.io/v1beta1

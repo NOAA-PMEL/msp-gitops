@@ -33,32 +33,32 @@ configMapGenerator:
     files:
       - sampling_conditions.json
 
-nameSuffix: "-mspbase01"
+# nameSuffix: "-mspbase01"
 
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      # version: serving.knative.dev/v1
-      kind: Service
-      name: sampling-conditions
-    patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-conditions-mspbase01
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-conditions-conditions-mspbase01
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-conditions-mspbase01
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       # version: serving.knative.dev/v1
+#       kind: Service
+#       name: sampling-conditions
+#     patch: |-
+#       # - op: replace 
+#       #   path: /spec/template/spec/volumes/0/configMap/name
+#       #   value: sampling-conditions-mspbase01
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-conditions-conditions-mspbase01
+#   - target:
+#       kind: Trigger
+#       # name: default
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-conditions-mspbase01
 
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 # patches:
 #   - patch: |-

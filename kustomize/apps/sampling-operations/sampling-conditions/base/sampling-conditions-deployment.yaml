@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampling-conditions
+  labels:
+    app: sampling-conditions
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sampling-conditions
+  template:
+    metadata:
+      labels:
+        app: sampling-conditions
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - name: sampling-conditions
+          image: ghcr.io/noaa-pmel/msp/sampling-conditions:0.4.0
+          imagePullPolicy: "IfNotPresent"
+          
+          # This line natively injects SAMPLING_NAMESPACE and ENVOPS_DEPLOYMENT_REF into the pod!
+          envFrom:
+            - configMapRef:
+                name: sampling-conditions
+                
+          # Explicit mappings required by your pydantic BaseSettings
+          env:
+            - name: SAMPLING_CONDITIONS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: port
+            - name: SAMPLING_CONDITIONS_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: daq_id
+            - name: SAMPLING_CONDITIONS_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: mqtt_broker
+            - name: SAMPLING_CONDITIONS_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: mqtt_port
+            - name: SAMPLING_CONDITIONS_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: mqtt_topic_subscriptions
+            - name: SAMPLING_CONDITIONS_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-conditions
+                  key: knative_broker
+          
+          volumeMounts:
+            - name: sampling-conditions-conditions
+              mountPath: /app/config/conditions
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              memory: "2Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          
+          # ---> THE FIX: Added port: 8080 to the probes <---
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            timeoutSeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            timeoutSeconds: 10
+            periodSeconds: 10
+            
+      volumes:
+        - name: sampling-conditions-conditions
+          configMap:
+            name: sampling-conditions-conditions

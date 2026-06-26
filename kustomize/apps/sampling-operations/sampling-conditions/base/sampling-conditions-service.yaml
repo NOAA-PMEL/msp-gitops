@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sampling-conditions
+  labels:
+    app: sampling-conditions
+spec:
+  selector:
+    app: sampling-conditions
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

@@ -15,22 +15,22 @@ configMapGenerator:
     files:
       - sampling_conditions.json
 
-nameSuffix: "-pmel-dev"
+# nameSuffix: "-pmel-dev"
 
-patches:
-  - target:
-      kind: Service
-      name: sampling-conditions
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-conditions-conditions-pmel-dev
-  - target:
-      kind: Trigger
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-conditions-pmel-dev
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-conditions
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-conditions-conditions-pmel-dev
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-conditions-pmel-dev
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
