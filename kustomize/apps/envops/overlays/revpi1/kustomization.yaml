@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: envops
-namespace: pmel-dev-system
+namespace: revpi1-system
 
 resources:
 - ../../base

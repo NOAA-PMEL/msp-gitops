@@ -27,7 +27,7 @@ spec:
       volumes:
         - name: shared-calculations
           configMap:
-            name: shared-calculations-config
+            name: dataset-generator-calculations
             optional: true
         - name: definitions-volume
           configMap:

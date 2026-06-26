@@ -9,3 +9,8 @@ resources:
 
 configurations:
   - knative-kustomizeconfig.yaml
+
+configMapGenerator:
+- name: dataset-generator-calculations
+  files:
+    - ../../shared-libs/calculations/base/default.py

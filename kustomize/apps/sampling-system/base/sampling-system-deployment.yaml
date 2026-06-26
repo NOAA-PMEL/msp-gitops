@@ -167,6 +167,6 @@ spec:
           optional: true
       - name: shared-calculations
         configMap:
-          name: shared-calculations-config
+          name: sampling-system-calculations
           optional: true
       # ----------------------------------

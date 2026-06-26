@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: envops-pmel-dev
+  name: envops-revpi1
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/envops/overlays/pmel-dev
+    path: kustomize/apps/envops/overlays/revpi1
     # kustomize:
     #   patches:
     #     - patch: |-

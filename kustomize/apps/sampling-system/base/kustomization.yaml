@@ -9,3 +9,8 @@ resources:
 - ../../shared-libs/calculations/base
 # Remove the knative reference:
 # - sampling-system-service_knative.yaml
+
+configMapGenerator:
+  - name: sampling-system-calculations
+    files:
+      - ../../shared-libs/calculations/base/default.py
