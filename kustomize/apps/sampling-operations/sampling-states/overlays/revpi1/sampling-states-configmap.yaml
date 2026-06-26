@@ -40,8 +40,8 @@ data:
 #   mqtt_topic_subscriptions: >
 #     envds/+/sampling-conditions/status/update
 
-  mqtt_port: "1883"
+#   mqtt_port: "1883"
 
-# off
-    # envds/+/+/+/data/update,   
-    # envds/+/+/+/controller/data/update   
+# # off
+#     # envds/+/+/+/data/update,   
+#     # envds/+/+/+/controller/data/update   
