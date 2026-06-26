@@ -27,6 +27,9 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
         value: sampling-conditions-conditions-revpi1
+      - op: replace
+        path: /spec/template/spec/containers/0/envFrom/0/configMapRef/name
+        value: sampling-conditions-revpi1
   - target:
       kind: Trigger
     patch: |-

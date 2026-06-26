@@ -19,6 +19,9 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
         value: system-modes-modes-revpi1
+      - op: replace
+        path: /spec/template/spec/containers/0/envFrom/0/configMapRef/name
+        value: system-modes-revpi1
   - target: { kind: Trigger }
     patch: |-
       - op: replace 
