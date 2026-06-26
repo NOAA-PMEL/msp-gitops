@@ -1,0 +1,25 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingAction",
+        "metadata": {
+            "name": "pmel_disable_cpc_power",
+            "action_module": "actions.beacons_msp",
+            "action_def": "set_power_state",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${DISABLE_CPC_REV_TIME}",
+            "revision": 1,
+            "execution_node": "${DAQ_ID}"
+        },
+        "source_max_age": 10,
+        "sources": {},
+        "targets": {
+            "power_cpc": {
+                "variablemap_name": "${CPC_POWER_VARMAP}",
+                "variableset_name": "${CPC_POWER_VARSET}",
+                "variable": "${CPC_POWER_VAR}",
+                "value": 0
+            }
+        }
+    }
+]

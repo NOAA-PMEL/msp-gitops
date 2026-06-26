@@ -1,0 +1,16 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "pmel_startup_complete",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${PMEL_STARTUP_MODE_REV_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingState", "name": "revpi1_telemetry_verified" }
+        ],
+        "actions": {}
+    }
+]

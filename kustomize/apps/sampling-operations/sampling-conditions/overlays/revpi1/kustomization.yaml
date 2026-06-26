@@ -3,78 +3,35 @@ kind: Kustomization
 metadata:
   name: sampling-conditions
 
-# set namespace
 namespace: revpi1-system
-
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
-# resources:
-# # Example configuration for the webserver
-# # at https://github.com/monopole/hello
-#   nameSuffix: -usc206
-#   commonLabels:
-#     app: usconverters-uscdr301
-#     variant: test
 
 resources:
 - ../../base
 - sampling-conditions-configmap.yaml
-# - platform_defs_configmap.yaml
-# - platform_varmaps_configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
-# uncomment this if using knative for data updates
-# - sampling-conditions-triggers.yaml
 
+# Pull dynamic templates from the shared GitOps library
 configMapGenerator:
   - name: sampling-conditions-conditions
     files:
-      - sampling_conditions.json
+      - ../shared_configs/templates/conditions/cn_limit_condition.json
+      - ../shared_configs/templates/conditions/geofence_condition.json
 
 nameSuffix: "-revpi1"
 
 patches:
-  # change configmap names to account for s/n suffix
   - target:
-      # version: serving.knative.dev/v1
       kind: Service
       name: sampling-conditions
     patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-conditions-revpi1
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
         value: sampling-conditions-conditions-revpi1
   - target:
       kind: Trigger
-      # name: default
     patch: |-
       - op: replace 
         path: /spec/subscriber/ref/name
         value: sampling-conditions-revpi1
 
-
 configurations:
   - config.yaml
-
-# patches:
-#   - patch: |-
-#       apiVersion: apps/v1
-#       kind: Deployment
-#       metadata:
-#         name: REPLACED_DURING_PATCH
-#       spec:
-#         template:
-#           spec:
-#             containers:
-#               - name: webhook
-#                 env:
-#                   - name: WEBHOOK_DISABLE_NAMESPACE_OWNERSHIP
-#                     value: "true"
-#     target:
-#       group: apps
-#       kind: Deployment
-#       name: ".*webhook.*"

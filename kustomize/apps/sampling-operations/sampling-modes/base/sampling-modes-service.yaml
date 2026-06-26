@@ -14,7 +14,7 @@ spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-        - image: ghcr.io/noaa-pmel/msp/sampling-modes:0.4.2
+        - image: ghcr.io/noaa-pmel/msp/sampling-modes:0.5.0
           imagePullPolicy: "IfNotPresent"
           env:
             - name: SAMPLING_MODES_PORT
@@ -55,14 +55,19 @@ spec:
                   optional: true
           
           # Mount the ConfigMaps into the container filesystem
+          # volumeMounts:
+          #   - name: sampling-modes-modes-vol
+          #     mountPath: /app/config/sampling_modes_modes.json
+          #     subPath: sampling_modes_modes.json
+          #   - name: sampling-modes-actions-vol
+          #     mountPath: /app/config/sampling_modes_actions.json
+          #     subPath: sampling_modes_actions.json
           volumeMounts:
             - name: sampling-modes-modes-vol
-              mountPath: /app/config/sampling_modes_modes.json
-              subPath: sampling_modes_modes.json
+              mountPath: /app/config/modes
             - name: sampling-modes-actions-vol
-              mountPath: /app/config/sampling_modes_actions.json
-              subPath: sampling_modes_actions.json
-              
+              mountPath: /app/config/actions
+
           resources:
             requests:
               cpu: "250m"
