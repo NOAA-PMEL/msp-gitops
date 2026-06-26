@@ -33,35 +33,35 @@ configMapGenerator:
     files:
       - sampling_conditions.json
 
-nameSuffix: "-crk8s"
+# nameSuffix: "-crk8s"
 
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      # version: serving.knative.dev/v1
-      kind: Service
-      name: sampling-conditions
-    patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-conditions-crk8s
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-conditions-conditions-crk8s
-  - target:
-      kind: Trigger
-      # name: default
-    patch: |-
-      - op: replace 
-        path: /spec/broker
-        value: kafka-broker
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-conditions-crk8s
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       # version: serving.knative.dev/v1
+#       kind: Service
+#       name: sampling-conditions
+#     patch: |-
+#       # - op: replace 
+#       #   path: /spec/template/spec/volumes/0/configMap/name
+#       #   value: sampling-conditions-crk8s
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-conditions-conditions-crk8s
+#   - target:
+#       kind: Trigger
+#       # name: default
+#     patch: |-
+#       - op: replace 
+#         path: /spec/broker
+#         value: kafka-broker
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-conditions-crk8s
 
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 # patches:
 #   - patch: |-

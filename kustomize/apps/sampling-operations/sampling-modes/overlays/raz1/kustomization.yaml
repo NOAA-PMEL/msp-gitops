@@ -21,28 +21,28 @@ configMapGenerator:
 generatorOptions:
   disableNameSuffixHash: true
 
-nameSuffix: "-raz1"
+# nameSuffix: "-raz1"
 
-patches:
-  - target:
-      kind: Service
-      name: sampling-modes
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-modes-modes-raz1
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-modes-actions-raz1
-  - target:
-      kind: Trigger
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-modes-raz1
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-modes
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-modes-modes-raz1
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-modes-actions-raz1
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-modes-raz1
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
