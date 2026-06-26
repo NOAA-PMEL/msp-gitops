@@ -14,7 +14,7 @@ configMapGenerator:
   - name: sampling-modes-actions
     files:
       # ---> Point to the newly scoped action file <---
-      - ../../shared_configs/templates/actions/pmel_disable_cpc_power_action.json
+      - ../../shared_configs/templates/actions/turn_off_cpc_action.json
 
 generatorOptions:
   disableNameSuffixHash: true

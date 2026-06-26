@@ -9,10 +9,14 @@ resources:
 configMapGenerator:
   - name: sampling-modes-modes
     files:
-      - sampling_modes_modes.json
+      - ../../shared_configs/templates/modes/pmel_system_startup_mode.json
+      - ../../shared_configs/templates/modes/pmel_nominal_sampling_mode.json
+      - ../../shared_configs/templates/modes/pmel_startup_complete_mode.json
+      - ../../shared_configs/templates/modes/pmel_maintenance_override_mode.json
   - name: sampling-modes-actions
     files:
-      - sampling_modes_actions.json
+      - ../../shared_configs/templates/actions/set_isokinetic_inlet_flow_action.json
+      - ../../shared_configs/templates/actions/set_reverse_inlet_flow_action.json
 
 generatorOptions:
   disableNameSuffixHash: true
@@ -20,7 +24,6 @@ generatorOptions:
 nameSuffix: "-raz1"
 
 patches:
-  # change configmap names in the Volumes list to account for the -raz1 suffix
   - target:
       kind: Service
       name: sampling-modes
@@ -31,7 +34,6 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
         value: sampling-modes-actions-raz1
-  # change the subscriber ref in the Knative Triggers to point to the suffixed service
   - target:
       kind: Trigger
     patch: |-
@@ -41,3 +43,47 @@ patches:
 
 configurations:
   - config.yaml
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: raz1-system
+
+# resources:
+# - ../../base
+# - sampling-modes-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-modes-modes
+#     files:
+#       - sampling_modes_modes.json
+#   - name: sampling-modes-actions
+#     files:
+#       - sampling_modes_actions.json
+
+# generatorOptions:
+#   disableNameSuffixHash: true
+
+# nameSuffix: "-raz1"
+
+# patches:
+#   # change configmap names in the Volumes list to account for the -raz1 suffix
+#   - target:
+#       kind: Service
+#       name: sampling-modes
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-modes-modes-raz1
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-modes-actions-raz1
+#   # change the subscriber ref in the Knative Triggers to point to the suffixed service
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-modes-raz1
+
+# configurations:
+#   - config.yaml

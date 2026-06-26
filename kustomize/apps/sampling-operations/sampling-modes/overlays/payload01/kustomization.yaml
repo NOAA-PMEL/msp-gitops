@@ -9,10 +9,19 @@ resources:
 configMapGenerator:
   - name: sampling-modes-modes
     files:
-      - sampling_modes_modes.json
+      - ../../shared_configs/templates/modes/payload01_startup_modes.json
+      - ../../shared_configs/templates/modes/payload01_shutdown_modes.json
+      - ../../shared_configs/templates/modes/pmel_maintenance_override_mode.json
   - name: sampling-modes-actions
     files:
-      - sampling_modes_actions.json
+      - ../../shared_configs/templates/actions/turn_on_opc_action.json
+      - ../../shared_configs/templates/actions/turn_off_opc_action.json
+      - ../../shared_configs/templates/actions/turn_on_smps_action.json
+      - ../../shared_configs/templates/actions/turn_off_smps_action.json
+      - ../../shared_configs/templates/actions/turn_on_cpc_action.json
+      - ../../shared_configs/templates/actions/turn_off_cpc_action.json
+      - ../../shared_configs/templates/actions/turn_on_aps_action.json
+      - ../../shared_configs/templates/actions/turn_off_aps_action.json
 
 generatorOptions:
   disableNameSuffixHash: true
@@ -20,7 +29,6 @@ generatorOptions:
 nameSuffix: "-payload01"
 
 patches:
-  # change configmap names in the Volumes list to account for the -payload01 suffix
   - target:
       kind: Service
       name: sampling-modes
@@ -31,7 +39,6 @@ patches:
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
         value: sampling-modes-actions-payload01
-  # change the subscriber ref in the Knative Triggers to point to the suffixed service
   - target:
       kind: Trigger
     patch: |-
@@ -41,3 +48,47 @@ patches:
 
 configurations:
   - config.yaml
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: payload01-system
+
+# resources:
+# - ../../base
+# - sampling-modes-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-modes-modes
+#     files:
+#       - sampling_modes_modes.json
+#   - name: sampling-modes-actions
+#     files:
+#       - sampling_modes_actions.json
+
+# generatorOptions:
+#   disableNameSuffixHash: true
+
+# nameSuffix: "-payload01"
+
+# patches:
+#   # change configmap names in the Volumes list to account for the -payload01 suffix
+#   - target:
+#       kind: Service
+#       name: sampling-modes
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-modes-modes-payload01
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-modes-actions-payload01
+#   # change the subscriber ref in the Knative Triggers to point to the suffixed service
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-modes-payload01
+
+# configurations:
+#   - config.yaml

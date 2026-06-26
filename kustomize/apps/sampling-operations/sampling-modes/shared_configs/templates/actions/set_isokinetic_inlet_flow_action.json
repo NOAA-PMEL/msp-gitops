@@ -1,0 +1,30 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingAction",
+        "metadata": {
+            "name": "set_isokinetic_inlet_flow",
+            "action_module": "actions.${ACTIONS_MODULE}",
+            "action_def": "set_isokinetic_inlet_flow",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${ACTIONS_REVISION_TIME}",
+            "revision": 1,
+            "execution_node": "${DAQ_ID}"
+        },
+        "source_max_age": 10,
+        "sources": {
+            "relative_wind_speed": {
+                "variablemap_name": "${NAV_VARMAP}",
+                "variableset_name": "main",
+                "variable": "relative_wind_speed"
+            }
+        },
+        "targets": {
+            "inlet_fan_speed_sp": {
+                "variablemap_name": "${OPERATIONS_VARMAP}",
+                "variableset_name": "operations",
+                "variable": "inlet_fan_speed_sp"
+            }
+        }
+    }
+]
