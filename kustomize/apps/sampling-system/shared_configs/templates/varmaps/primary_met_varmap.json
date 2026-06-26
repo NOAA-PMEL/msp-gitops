@@ -1,0 +1,22 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": { "name": "varmap_primary_met", "sampling_namespace": "${SAMPLING_NAMESPACE}", "platform": "${ENVOPS_PLATFORM_REF}", "valid_config_time": "${MET_REVISION_TIME}", "revision": 1 },
+    "data": {
+      "attributes": { "variablemap_type": "Sensor", "valid_config_time": "${MET_REVISION_TIME}" },
+      "variablesets": {
+        "main": { "index": { "index_type": "time", "index_value": ${MAIN_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" } } },
+        "operations": { "index": { "index_type": "time", "index_value": ${OPERATIONS_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" } } }
+      },
+      "variables": {
+        "relative_wind_speed": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "ws": { "source_type": "device", "source_id": "${MET_DRIVER}::${MET_SN}", "source_variable": "${MET_WS_VAR}" } }, "direct_value": { "source_variable": "ws" }, "variableset": "operations", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "m/s" } } },
+        "measured_wind_direction": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "wdir": { "source_type": "device", "source_id": "${MET_DRIVER}::${MET_SN}", "source_variable": "${MET_WD_VAR}" } }, "direct_value": { "source_variable": "wdir" }, "variableset": "operations", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "degrees" } } },
+        "air_temperature": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "temp": { "source_type": "device", "source_id": "${MET_DRIVER}::${MET_SN}", "source_variable": "${MET_TEMP_VAR}" } }, "direct_value": { "source_variable": "temp" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } } },
+        "relative_humidity": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "rh": { "source_type": "device", "source_id": "${MET_DRIVER}::${MET_SN}", "source_variable": "${MET_RH_VAR}" } }, "direct_value": { "source_variable": "rh" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "%" } } },
+        "pressure": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "pres": { "source_type": "device", "source_id": "${MET_DRIVER}::${MET_SN}", "source_variable": "${MET_PRES_VAR}" } }, "direct_value": { "source_variable": "pres" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "hPa" } } },
+        "rain_intensity": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "rain": { "source_type": "device", "source_id": "${MET_DRIVER}::${MET_SN}", "source_variable": "${MET_RAIN_VAR}" } }, "direct_value": { "source_variable": "rain" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "mm/h" } } }
+      }
+    }
+  }
+]

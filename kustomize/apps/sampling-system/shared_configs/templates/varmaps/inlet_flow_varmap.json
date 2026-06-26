@@ -1,0 +1,15 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": { "name": "varmap_inlet_flow", "sampling_namespace": "${SAMPLING_NAMESPACE}", "platform": "${ENVOPS_PLATFORM_REF}", "valid_config_time": "${FLOW_REVISION_TIME}", "revision": 1 },
+    "data": {
+      "attributes": { "variablemap_type": "Sensor", "valid_config_time": "${FLOW_REVISION_TIME}" },
+      "variablesets": { "operations": { "index": { "index_type": "time", "index_value": ${OPERATIONS_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" } } } },
+      "variables": {
+        "inlet_fan_speed": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "fan_speed": { "source_type": "device", "source_id": "${FLOW_DRIVER}::${FLOW_SN}", "source_variable": "${FLOW_SPEED_VAR}" } }, "direct_value": { "source_variable": "fan_speed" }, "variableset": "operations", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "rpm" } } },
+        "inlet_fan_speed_sp": { "type": "float", "variable_type": "setting", "shape": ["time"], "map_type": "direct", "source": { "fan_speed_sp": { "source_type": "device", "source_id": "${FLOW_DRIVER}::${FLOW_SN}", "source_variable": "${FLOW_SP_VAR}" } }, "direct_value": { "source_variable": "fan_speed_sp" }, "variableset": "operations", "index_method": ["last"], "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "%" } } }
+      }
+    }
+  }
+]

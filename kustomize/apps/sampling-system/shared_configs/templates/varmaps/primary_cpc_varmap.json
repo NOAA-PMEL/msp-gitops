@@ -1,0 +1,15 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": { "name": "varmap_primary_cpc", "sampling_namespace": "${SAMPLING_NAMESPACE}", "platform": "${ENVOPS_PLATFORM_REF}", "valid_config_time": "${CPC_REVISION_TIME}", "revision": 1 },
+    "data": {
+      "attributes": { "variablemap_type": "Sensor", "valid_config_time": "${CPC_REVISION_TIME}" },
+      "variablesets": { "main": { "index": { "index_type": "time", "index_value": ${MAIN_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } } },
+      "variables": {
+        "cn": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "concentration": { "source_type": "device", "source_id": "${CPC_DRIVER}::${CPC_SN}", "source_variable": "${CPC_CONC_VAR}" } }, "direct_value": { "source_variable": "concentration" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } } },
+        "cn_flow": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "flow": { "source_type": "device", "source_id": "${CPC_DRIVER}::${CPC_SN}", "source_variable": "${CPC_FLOW_VAR}" } }, "direct_value": { "source_variable": "flow" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } } }
+      }
+    }
+  }
+]

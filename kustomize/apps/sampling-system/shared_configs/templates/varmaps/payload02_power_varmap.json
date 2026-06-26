@@ -1,0 +1,17 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": { "name": "payload02_power", "sampling_namespace": "${SAMPLING_NAMESPACE}", "platform": "${ENVOPS_PLATFORM_REF}", "valid_config_time": "${POWER_REVISION_TIME}", "revision": 1 },
+    "data": {
+      "attributes": { "variablemap_type": "Sensor", "valid_config_time": "${POWER_REVISION_TIME}" },
+      "variablesets": { "power": { "index": { "index_type": "time", "index_value": ${POWER_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } } },
+      "variables": {
+        "power_neph": { "type": "int", "variable_type": "setting", "shape": ["time"], "map_type": "direct", "direct_value": { "source_variable": "power_neph" }, "source": { "power_neph": { "source_type": "controller", "source_id": "${POWER_DRIVER}::${POWER_SN}", "source_variable": "outlet_1_power" } }, "variableset": "power", "index_method": ["last"], "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "Nephelometer Power" } } },
+        "power_absorb": { "type": "int", "variable_type": "setting", "shape": ["time"], "map_type": "direct", "direct_value": { "source_variable": "power_absorb" }, "source": { "power_absorb": { "source_type": "controller", "source_id": "${POWER_DRIVER}::${POWER_SN}", "source_variable": "outlet_2_power" } }, "variableset": "power", "index_method": ["last"], "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "Brechel TAP Power" } } },
+        "power_24v_bus": { "type": "int", "variable_type": "setting", "shape": ["time"], "map_type": "direct", "direct_value": { "source_variable": "power_24v_bus" }, "source": { "power_24v_bus": { "source_type": "controller", "source_id": "${POWER_DRIVER}::${POWER_SN}", "source_variable": "outlet_3_power" } }, "variableset": "power", "index_method": ["last"], "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "24V Power Supply" } } },
+        "power_tec": { "type": "int", "variable_type": "setting", "shape": ["time"], "map_type": "direct", "direct_value": { "source_variable": "power_tec" }, "source": { "power_tec": { "source_type": "controller", "source_id": "${POWER_DRIVER}::${POWER_SN}", "source_variable": "outlet_4_power" } }, "variableset": "power", "index_method": ["last"], "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "long_name": { "type": "string", "data": "Thermo Electric Cooler" } } }
+      }
+    }
+  }
+]

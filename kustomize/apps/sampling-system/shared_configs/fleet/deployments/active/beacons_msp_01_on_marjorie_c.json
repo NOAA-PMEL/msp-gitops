@@ -1,0 +1,30 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "deploy.pmel.msp_enclosure_01_on_marjorie_c",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "revision-time": "2026-07-01T00:00:00Z",
+    "data": {
+      "display_name": "BEACONS MSP-01 Marjorie C",
+      "description": "Autonomous deployment of the MSP-01 Enclosure on the Pasha M/V Marjorie C.",
+      "project_ref": "project.pmel.beacons",
+      
+      "platform_ref": "platform.pmel.msp_enclosure_01",
+      "host_platform_ref": "platform.pasha.marjorie_c",
+      
+      "planned_start_time": "2026-06-29T18:00:00Z",
+      "planned_end_time": "2028-05-31T23:59:59Z",
+      
+      "deployment_type": "Ship",
+      "deployment_subtype": "Continuous",
+      "trajectory_partition": "monthly",
+      
+      "contacts": [
+        { "contact_ref": "contact.pmel.hardware_lead", "deployment_role": "Field Engineer" }
+      ]
+    }
+  }
+]

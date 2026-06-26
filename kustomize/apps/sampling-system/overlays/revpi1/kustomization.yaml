@@ -1,29 +1,3 @@
-# apiVersion: kustomize.config.k8s.io/v1beta1
-# kind: Kustomization
-# metadata:
-#   name: sampling-system
-
-# # set namespace
-# namespace: revpi1-system
-
-# resources:
-# - ../../base
-# - sampling-system-configmap.yaml
-
-# configMapGenerator:
-#   - name: sampling-system-platforms
-#     files:
-#       - platform_defs.json
-#   - name: sampling-system-variablemaps
-#     files:
-#       - platform_varmaps.json
-#   - name: sampling-system-deployments
-#     files:
-#       - deployments.json
-
-# nameSuffix: "-revpi1"
-
-
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
@@ -36,20 +10,36 @@ resources:
 - sampling-system-configmap.yaml
 
 configMapGenerator:
-  # PULL PLATFORMS FROM SHARED LIBRARY
   - name: sampling-system-platforms
     files:
       - ../shared_configs/templates/platforms/msp_payload_def.json
-  
   - name: sampling-system-deployments
     files:
       - ../shared_configs/templates/deployments/internal_edge_deployment.json
-
   - name: sampling-system-variablemaps
     files:
-      - ../shared_configs/templates/varmaps/ntp_nav_varmap.json
-      - ../shared_configs/templates/varmaps/magic250_varmap.json
-      - ../shared_configs/templates/varmaps/aps3321_varmap.json
-      - ../shared_configs/templates/varmaps/spider810_varmap.json 
+      - ../shared_configs/templates/varmaps/primary_nav_varmap.json
+      - ../shared_configs/templates/varmaps/primary_cpc_varmap.json
+      - ../shared_configs/templates/varmaps/primary_aps_varmap.json
+      - ../shared_configs/templates/varmaps/primary_smps_varmap.json 
+      - ../shared_configs/templates/varmaps/revpi1_power_varmap.json
 
 nameSuffix: "-revpi1"
+
+patches:
+  - target:
+      kind: Service
+      name: sampling-system
+    patch: |-
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: sampling-system-platforms-revpi1
+      - op: replace 
+        path: /spec/template/spec/volumes/1/configMap/name
+        value: sampling-system-variablemaps-revpi1
+      - op: replace 
+        path: /spec/template/spec/volumes/2/configMap/name
+        value: sampling-system-deployments-revpi1
+
+configurations:
+  - config.yaml

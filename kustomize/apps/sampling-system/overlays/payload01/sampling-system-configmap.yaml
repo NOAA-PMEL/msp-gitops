@@ -2,28 +2,124 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sampling-system
-  # namespace: msp-system
 data:
   daq_id: payload01
-
-  # --- ROLE-BASED COMPUTE DELEGATION ---
   node_id: "payload01"
-  node_roles: "local-controller" # Ready for future TEC/Temp control
-  # -------------------------------------
+  node_roles: "local-controller"
 
+  # --- 1. GITOPS IDENTITY ---
+  SAMPLING_NAMESPACE: "pmel.noaa.gov"
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_01_in_msp_01"
+  ENVOPS_DEPLOYMENT_DISPLAY_NAME: "Payload 01 in Enclosure 01"
+  ENVOPS_PLATFORM_REF: "platform.pmel.payload_01"
+  ENVOPS_PLATFORM_DISPLAY_NAME: "MSP Payload 01"
+  ENVOPS_HOST_PLATFORM_REF: "platform.pmel.msp_enclosure_01"
+  ENVOPS_SAMPLE_LINE: "sample-line-01"
+  DEPLOYMENT_START_TIME: "2026-05-01T00:00:00Z"
+  DEPLOYMENT_END_TIME: "2027-12-31T23:59:59Z"
+  
+  # --- 2. SCHEMA TUNING (Data Table Timebases) ---
+  MAIN_VARSET_TIMEBASE: "1"
+  SIZING_VARSET_TIMEBASE: "60"
+  POWER_VARSET_TIMEBASE: "1"
+
+  # --- 3. REVISION TIMES ---
+  DEPLOYMENT_REVISION_TIME: "2026-05-31T00:00:00Z"
+  PLATFORM_REVISION_TIME: "2026-05-24T00:00:00Z"
+  CPC_REVISION_TIME: "2026-06-12T00:00:00Z"
+  OPC_REVISION_TIME: "2026-06-12T00:00:00Z"
+  APS_REVISION_TIME: "2026-06-12T00:00:00Z"
+  SMPS_REVISION_TIME: "2026-06-12T00:00:00Z"
+  POWER_REVISION_TIME: "2026-06-12T00:00:00Z"
+
+  # --- 4. SENSOR-AGNOSTIC HARDWARE WIRING ---
+  # Primary CPC
+  CPC_DRIVER: "AerosolDynamics::MAGIC250"
+  CPC_SN: "154"
+  CPC_CONC_VAR: "concentration"
+  CPC_FLOW_VAR: "flow"
+  
+  # Primary OPC
+  OPC_DRIVER: "Handix::POPS1100"
+  OPC_SN: "094"
+  OPC_DIA_VAR: "diameter"
+  OPC_COUNTS_VAR: "bin_count"
+  OPC_DN_VAR: "dN"
+  OPC_DNDLOGDP_VAR: "dNdlogDp"
+  OPC_INTN_VAR: "intN"
+  OPC_FLOW_VAR: "POPS_Flow"
+  OPC_TEMP_VAR: "Temp"
+  OPC_PRES_VAR: "P"
+
+  # Primary APS
+  APS_DRIVER: "TSI::APS3321"
+  APS_SN: "7233001"
+  APS_DIA_VAR: "diameter"
+  APS_COUNTS_VAR: "particle_counts"
+  APS_DN_VAR: "dN"
+  APS_DNDLOGDP_VAR: "dNdlogDp"
+  APS_INTN_VAR: "intN"
+  APS_TFLOW_VAR: "tflow"
+  APS_SFLOW_VAR: "sflow"
+  APS_TEMP_VAR: "itemp"
+
+  # Primary SMPS
+  SMPS_DRIVER: "AerosolDynamics::Spider-MAGIC810"
+  SMPS_SN: "018"
+  SMPS_DIA_VAR: "diameter"
+  SMPS_DN_VAR: "dN"
+  SMPS_DNDLOGDP_VAR: "dNdlogDp"
+  SMPS_INTN_VAR: "intN"
+  SMPS_FLOW_VAR: "flow"
+  SMPS_TEMP_VAR: "input_T"
+  SMPS_PRES_VAR: "abs_pressure"
+
+  # Power Relays
+  POWER_PRO3_DRIVER: "Shelly::ShellyPro3"
+  POWER_PRO3_SN: "shel28"
+  POWER_PRO1_DRIVER: "Shelly::ShellyPro1"
+  POWER_PRO1_SN: "shel29"
+
+  # --- 5. DAQ CONFIGS ---
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload01-system/default"
-
   mqtt_broker: "mqtt.payload01-system"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/update,   
     envds/+/+/+/controller/data/update,
     envds/+/+/+/settings/update,
     envds/+/controller/settings/update   
-  
   mqtt_port: "1883"
-
   log_level: "INFO"
   tick_delay_direct: "0.3"
   tick_delay_calc: "1.0"
+
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: sampling-system
+#   # namespace: msp-system
+# data:
+#   daq_id: payload01
+
+#   # --- ROLE-BASED COMPUTE DELEGATION ---
+#   node_id: "payload01"
+#   node_roles: "local-controller" # Ready for future TEC/Temp control
+#   # -------------------------------------
+
+#   port: "8080"
+#   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload01-system/default"
+
+#   mqtt_broker: "mqtt.payload01-system"
+#   mqtt_topic_subscriptions: >
+#     envds/+/+/+/data/update,   
+#     envds/+/+/+/controller/data/update,
+#     envds/+/+/+/settings/update,
+#     envds/+/controller/settings/update   
+  
+#   mqtt_port: "1883"
+
+#   log_level: "INFO"
+#   tick_delay_direct: "0.3"
+#   tick_delay_calc: "1.0"
 
