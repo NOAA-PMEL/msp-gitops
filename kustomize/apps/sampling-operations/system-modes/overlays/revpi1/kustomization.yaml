@@ -9,35 +9,76 @@ resources:
 - ../../base
 - system-modes-configmap.yaml
 
-# Generate the ConfigMap from your provided JSON file
+# Point to the generic template
 configMapGenerator:
   - name: system-modes-modes
     files:
-      - system_modes_modes.json
+      - ../shared_configs/templates/system_modes/pmel_normal_system_mode.json
 
 generatorOptions:
   disableNameSuffixHash: true
 
-# Suffix used across the revpi1 deployment
 nameSuffix: "-revpi1"
 
 configurations:
   - config.yaml
 
+# FIX: Correct Knative patches (targeting Service, not Deployment)
 patches:
   - target:
-      kind: Deployment
-      name: system-modes  # Replace with the actual base name of your deployment
+      kind: Service
+      name: system-modes
     patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: system-modes
-      spec:
-        template:
-          spec:
-            containers:
-              - name: system-modes  # Replace with the actual container name
-                env:
-                  - name: SYSTEM_MODES_SYSTEM_INIT_MODE
-                    value: "normal"
+      - op: replace 
+        path: /spec/template/spec/volumes/0/configMap/name
+        value: system-modes-modes-revpi1
+  - target:
+      kind: Trigger
+    patch: |-
+      - op: replace 
+        path: /spec/subscriber/ref/name
+        value: system-modes-revpi1
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: system-modes
+
+# namespace: revpi1-system
+
+# resources:
+# - ../../base
+# - system-modes-configmap.yaml
+
+# # Generate the ConfigMap from your provided JSON file
+# configMapGenerator:
+#   - name: system-modes-modes
+#     files:
+#       - system_modes_modes.json
+
+# generatorOptions:
+#   disableNameSuffixHash: true
+
+# # Suffix used across the revpi1 deployment
+# nameSuffix: "-revpi1"
+
+# configurations:
+#   - config.yaml
+
+# patches:
+#   - target:
+#       kind: Deployment
+#       name: system-modes  # Replace with the actual base name of your deployment
+#     patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: system-modes
+#       spec:
+#         template:
+#           spec:
+#             containers:
+#               - name: system-modes  # Replace with the actual container name
+#                 env:
+#                   - name: SYSTEM_MODES_SYSTEM_INIT_MODE
+#                     value: "normal"

@@ -8,11 +8,22 @@ data:
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/revpi1-system/default"
 
+  # --- 1. GITOPS IDENTITY INJECTION ---
+  SAMPLING_NAMESPACE: "pmel.noaa.gov"
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_alvan_01_in_acg_alvan"
+  
+  # Ensure the native Config parameter receives the deployment ref too
+  deployment_ref: "deploy.pmel.payload_alvan_01_in_acg_alvan"
+
+  # --- 2. GRANULAR REVISION TIMES ---
+  PMEL_NORMAL_SYS_REV_TIME: "2026-06-23T21:00:00Z"
+  # ----------------------------------
+
   system_init_control: "auto"
   system_init_mode: "normal"
   is_primary_controller: "true"
 
-  deployment_ref: "deploy.pmel.payload_alvan_01_in_acg_alvan"
+  # deployment_ref: "deploy.pmel.payload_alvan_01_in_acg_alvan"
   
   mqtt_broker: "mqtt.revpi1-system"
   mqtt_topic_subscriptions: >
