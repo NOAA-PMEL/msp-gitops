@@ -24,7 +24,7 @@ configMapGenerator:
       - ../../shared_configs/templates/varmaps/primary_smps_varmap.json
       - ../../shared_configs/templates/varmaps/payload01_power_varmap.json
 
-nameSuffix: "-payload01"
+# nameSuffix: "-payload01"
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization

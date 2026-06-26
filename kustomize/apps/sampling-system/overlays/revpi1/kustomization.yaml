@@ -24,7 +24,7 @@ configMapGenerator:
       - ../../shared_configs/templates/varmaps/primary_smps_varmap.json 
       - ../../shared_configs/templates/varmaps/revpi1_power_varmap.json
 
-nameSuffix: "-revpi1"
+# nameSuffix: "-revpi1"
 
 # patches:
 #   - target:

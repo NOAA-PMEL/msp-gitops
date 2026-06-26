@@ -11,7 +11,7 @@ resources:
   - ../../base
   - sampling-system-configmap.yaml
 
-nameSuffix: -pmel-dev
+# nameSuffix: -pmel-dev
 
 # 1. GENERATE THE CONFIGMAPS FROM YOUR JSON FILES
 configMapGenerator:

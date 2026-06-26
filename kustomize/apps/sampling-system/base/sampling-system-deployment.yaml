@@ -23,9 +23,6 @@ spec:
         envFrom:
         - configMapRef:
             name: sampling-system
-        envFrom:
-            - configMapRef:
-                name: sampling-system
         env:
         - name: SAMPLING_SYSTEM_PORT
           valueFrom:
