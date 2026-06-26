@@ -9,11 +9,11 @@ metadata:
 #   app: nginx
 
 resources:
-# - sampling-states-deployment.yaml
-# - sampling-states-service.yaml
-- sampling-states-service_knative.yaml
+- sampling-states-deployment.yaml
+- sampling-states-service.yaml
+# - sampling-states-service_knative.yaml
 # - sampling-states-ingress.yaml
 # - sampling-states-triggers.yaml
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml

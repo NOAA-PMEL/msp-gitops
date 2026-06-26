@@ -33,21 +33,21 @@ configMapGenerator:
     files:
       - sampling_states.json
 
-nameSuffix: "-pmel-dev"
+# nameSuffix: "-pmel-dev"
 
-# patches:
-#   # change configmap names to account for s/n suffix
-#   - target:
-#       # version: serving.knative.dev/v1
-#       kind: Service
-#       name: sampling-states
-#     patch: |-
-#       # - op: replace 
-#       #   path: /spec/template/spec/volumes/0/configMap/name
-#       #   value: sampling-states-pmel-dev
-#       - op: replace 
-#         path: /spec/template/spec/volumes/0/configMap/name
-#         value: sampling-states-states-pmel-dev
+# # patches:
+# #   # change configmap names to account for s/n suffix
+# #   - target:
+# #       # version: serving.knative.dev/v1
+# #       kind: Service
+# #       name: sampling-states
+# #     patch: |-
+# #       # - op: replace 
+# #       #   path: /spec/template/spec/volumes/0/configMap/name
+# #       #   value: sampling-states-pmel-dev
+# #       - op: replace 
+# #         path: /spec/template/spec/volumes/0/configMap/name
+# #         value: sampling-states-states-pmel-dev
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml

@@ -8,25 +8,25 @@ configMapGenerator:
   - name: system-modes-modes
     files:
       - ../../shared_configs/templates/system_modes/pmel_normal_system_mode.json
-generatorOptions:
-  disableNameSuffixHash: true
-nameSuffix: "-revpi1"
-configurations:
-  - config.yaml
-patches:
-  - target: { kind: Service, name: system-modes }
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: system-modes-modes-revpi1
-      - op: replace
-        path: /spec/template/spec/containers/0/envFrom/0/configMapRef/name
-        value: system-modes-revpi1
-  - target: { kind: Trigger }
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: system-modes-revpi1
+# generatorOptions:
+#  disableNameSuffixHash: true
+# nameSuffix: "-revpi1"
+# configurations:
+#   - config.yaml
+# patches:
+#   - target: { kind: Service, name: system-modes }
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: system-modes-modes-revpi1
+#       - op: replace
+#         path: /spec/template/spec/containers/0/envFrom/0/configMapRef/name
+#         value: system-modes-revpi1
+#   - target: { kind: Trigger }
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: system-modes-revpi1
 
 
 # apiVersion: kustomize.config.k8s.io/v1beta1

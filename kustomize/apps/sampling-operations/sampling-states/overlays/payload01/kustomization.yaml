@@ -18,26 +18,26 @@ configMapGenerator:
       - ../../shared_configs/templates/states/smps_power_off_stabilized_state.json
       - ../../shared_configs/templates/states/maintenance_active_state.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#   disableNameSuffixHash: true
 
-nameSuffix: "-payload01"
+# nameSuffix: "-payload01"
 
-patches:
-  - target:
-      kind: Service
-      name: sampling-states
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-states-states-payload01
-  - target:
-      kind: Trigger
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-states-payload01
-        
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-states
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-states-states-payload01
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-states-payload01
+
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
 # metadata:

@@ -14,28 +14,28 @@ configMapGenerator:
       - ../../shared_configs/templates/states/cpc_hardware_ready_state.json
       - ../../shared_configs/templates/states/telemetry_verified_state.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#   disableNameSuffixHash: true
 
-nameSuffix: "-revpi1"
+# nameSuffix: "-revpi1"
 
-patches:
-  - target:
-      kind: Service
-      name: sampling-states
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-states-states-revpi1
-      - op: replace
-        path: /spec/template/spec/containers/0/envFrom/0/configMapRef/name
-        value: sampling-states-revpi1
-  - target:
-      kind: Trigger
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-states-revpi1
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-states
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-states-states-revpi1
+#       - op: replace
+#         path: /spec/template/spec/containers/0/envFrom/0/configMapRef/name
+#         value: sampling-states-revpi1
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-states-revpi1
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization

@@ -4,8 +4,6 @@ metadata:
   name: system-modes
 
 resources:
+- system-modes-deployment.yaml
 - system-modes-service.yaml
 - system-modes-triggers.yaml
-
-configurations:
-  - config.yaml

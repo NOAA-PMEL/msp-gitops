@@ -43,7 +43,7 @@ spec:
       type: envds.system-modes.transition.request
   subscriber:
     ref:
-      apiVersion: serving.knative.dev/v1
+      apiVersion: v1
       kind: Service
       name: system-modes
     uri: /system/transition/event/

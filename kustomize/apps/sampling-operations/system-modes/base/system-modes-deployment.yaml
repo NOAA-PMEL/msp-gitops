@@ -1,0 +1,110 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: system-modes
+  labels:
+    app: system-modes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: system-modes
+  template:
+    metadata:
+      labels:
+        app: system-modes
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - name: system-modes
+          image: ghcr.io/noaa-pmel/msp/system-modes:0.4.0
+          imagePullPolicy: "IfNotPresent"
+          
+          # Natively injects SAMPLING_NAMESPACE, ENVOPS_DEPLOYMENT_REF, etc.
+          envFrom:
+            - configMapRef:
+                name: system-modes
+                
+          # Explicit mappings required by your pydantic BaseSettings
+          env:
+            - name: SYSTEM_MODES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: port
+            - name: SYSTEM_MODES_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: daq_id
+            - name: SYSTEM_MODES_DEPLOYMENT_REF
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: deployment_ref
+            - name: SYSTEM_MODES_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: mqtt_broker
+            - name: SYSTEM_MODES_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: mqtt_port
+            - name: SYSTEM_MODES_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: mqtt_topic_subscriptions
+            - name: SYSTEM_MODES_SYSTEM_INIT_CONTROL
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: system_init_control
+            - name: SYSTEM_MODES_SYSTEM_INIT_MODE
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: system_init_mode
+            - name: SYSTEM_MODES_IS_PRIMARY_CONTROLLER
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: is_primary_controller
+            - name: SYSTEM_MODES_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: system-modes
+                  key: knative_broker
+          
+          volumeMounts:
+            - name: system-modes-modes-vol
+              mountPath: /app/config/modes
+
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            timeoutSeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            timeoutSeconds: 10
+            periodSeconds: 10
+            
+      volumes:
+        - name: system-modes-modes-vol
+          configMap:
+            name: system-modes-modes

@@ -15,11 +15,11 @@ configMapGenerator:
     files:
       - system_modes_modes.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#  disableNameSuffixHash: true
 
 # Suffix used across the pmel-dev deployment
-nameSuffix: "-pmel-dev"
+# nameSuffix: "-pmel-dev"
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml

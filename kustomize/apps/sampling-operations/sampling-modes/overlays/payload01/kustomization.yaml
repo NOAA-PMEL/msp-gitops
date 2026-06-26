@@ -31,8 +31,8 @@ configMapGenerator:
       - ../../shared_configs/templates/actions/turn_on_aps_action.json
       - ../../shared_configs/templates/actions/turn_off_aps_action.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#  disableNameSuffixHash: true
 
 # nameSuffix: "-payload01"
 

@@ -12,22 +12,22 @@ configMapGenerator:
       - ../../shared_configs/templates/system_modes/payload02_shutdown_system_mode.json
       - ../../shared_configs/templates/system_modes/payload02_standby_system_mode.json
       - ../../shared_configs/templates/system_modes/beacons_maintenance_system_mode.json
-generatorOptions:
-  disableNameSuffixHash: true
-nameSuffix: "-payload02"
-configurations:
-  - config.yaml
-patches:
-  - target: { kind: Service, name: system-modes }
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: system-modes-modes-payload02
-  - target: { kind: Trigger }
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: system-modes-payload02
+# generatorOptions:
+#  disableNameSuffixHash: true
+# nameSuffix: "-payload02"
+# configurations:
+#   - config.yaml
+# patches:
+#   - target: { kind: Service, name: system-modes }
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: system-modes-modes-payload02
+#   - target: { kind: Trigger }
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: system-modes-payload02
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization

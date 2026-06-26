@@ -16,8 +16,8 @@ configMapGenerator:
       # ---> Point to the newly scoped action file <---
       - ../../shared_configs/templates/actions/turn_off_cpc_action.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#  disableNameSuffixHash: true
 
 # nameSuffix: "-revpi1"
 

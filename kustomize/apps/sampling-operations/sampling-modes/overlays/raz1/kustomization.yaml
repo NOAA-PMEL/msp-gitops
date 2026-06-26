@@ -18,8 +18,8 @@ configMapGenerator:
       - ../../shared_configs/templates/actions/set_isokinetic_inlet_flow_action.json
       - ../../shared_configs/templates/actions/set_reverse_inlet_flow_action.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#  disableNameSuffixHash: true
 
 # nameSuffix: "-raz1"
 

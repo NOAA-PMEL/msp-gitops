@@ -12,22 +12,22 @@ configMapGenerator:
       - ../../shared_configs/templates/system_modes/beacons_shutdown_system_mode.json
       - ../../shared_configs/templates/system_modes/beacons_standby_system_mode.json
       - ../../shared_configs/templates/system_modes/beacons_maintenance_system_mode.json
-generatorOptions:
-  disableNameSuffixHash: true
-nameSuffix: "-raz1"
-configurations:
-  - config.yaml
-patches:
-  - target: { kind: Service, name: system-modes }
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: system-modes-modes-raz1
-  - target: { kind: Trigger }
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: system-modes-raz1
+# generatorOptions:
+#  disableNameSuffixHash: true
+# nameSuffix: "-raz1"
+# configurations:
+#   - config.yaml
+# patches:
+#   - target: { kind: Service, name: system-modes }
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: system-modes-modes-raz1
+#   - target: { kind: Trigger }
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: system-modes-raz1
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
