@@ -1,0 +1,15 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "revpi1_telemetry_verified",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${TELEMETRY_VERIFIED_REV_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingCondition", "name": "revpi1_telemetry_active", "required_time_to_transition": { "to_become_true": 20, "to_become_false": 0 } }
+        ]
+    }
+]

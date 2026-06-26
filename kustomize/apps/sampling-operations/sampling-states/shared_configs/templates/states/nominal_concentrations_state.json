@@ -1,0 +1,15 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "nominal_concentrations",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${NOMINAL_CONC_REV_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingCondition", "name": "cn_limit", "required_time_to_transition": { "to_become_false": 2, "to_become_true": 3 } }
+        ]
+    }
+]

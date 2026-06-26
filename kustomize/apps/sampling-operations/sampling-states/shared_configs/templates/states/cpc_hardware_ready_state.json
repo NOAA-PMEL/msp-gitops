@@ -1,0 +1,15 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "cpc_hardware_ready",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CPC_HARDWARE_REV_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            { "kind": "SamplingCondition", "name": "cpc_power_on", "required_time_to_transition": { "to_become_false": 5, "to_become_true": 10 } }
+        ]
+    }
+]

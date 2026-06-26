@@ -6,7 +6,16 @@ metadata:
 data:
   daq_id: revpi1
 
+  # --- 1. GITOPS IDENTITY INJECTION ---
+  SAMPLING_NAMESPACE: "pmel.noaa.gov"
   ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_alvan_01_in_acg_alvan"
+
+  # --- 2. GRANULAR REVISION TIMES ---
+  PMEL_NOMINAL_LOC_REV_TIME: "2026-06-24T11:00:00Z"
+  NOMINAL_CONC_REV_TIME: "2026-06-23T21:00:00Z"
+  CPC_HARDWARE_REV_TIME: "2026-06-23T21:00:00Z"
+  TELEMETRY_VERIFIED_REV_TIME: "2026-06-23T21:00:00Z"
+  # ----------------------------------
 
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/revpi1-system/default"
