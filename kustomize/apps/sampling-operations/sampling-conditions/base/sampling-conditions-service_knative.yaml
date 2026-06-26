@@ -16,6 +16,9 @@ spec:
       containers:
         - image: ghcr.io/noaa-pmel/msp/sampling-conditions:0.4.0
           imagePullPolicy: "IfNotPresent"
+          envFrom:
+            - configMapRef:
+                name: sampling-conditions
           env:
             - name: SAMPLING_CONDITIONS_PORT
               valueFrom:

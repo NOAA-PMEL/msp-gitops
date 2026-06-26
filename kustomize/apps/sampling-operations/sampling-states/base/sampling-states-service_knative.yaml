@@ -24,6 +24,9 @@ spec:
         # image: registry-msp:5000/msp/sampling-states:v1.0.3
         - image: ghcr.io/noaa-pmel/msp/sampling-states:0.3.0
           imagePullPolicy: "IfNotPresent"
+          envFrom:
+            - configMapRef:
+                name: sampling-states
           env:
             - name: SAMPLING_STATES_PORT
               valueFrom:
