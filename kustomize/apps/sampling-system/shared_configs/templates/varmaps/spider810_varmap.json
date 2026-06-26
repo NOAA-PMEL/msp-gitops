@@ -1,0 +1,101 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "varmap_spider810",
+      "sampling_namespace": "pmel.noaa.gov",
+      "platform": "${ENVOPS_PLATFORM_REF}",
+      "valid_config_time": "${SPIDER810_REVISION_TIME}"
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Platform",
+        "platform": "${ENVOPS_PLATFORM_REF}"
+      },
+      "variablesets": {
+        "main": { "index": { "index_type": "time", "index_value": 1 } },
+        "sizing": { "index": { "index_type": "time", "index_value": 60 } }
+      },
+      "variables": {
+        "smps_diameter": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dp": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::${SPIDER810_SN}", "source_variable": "diameter" } },
+          "direct_value": { "source_variable": "dp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } }
+        },
+        "smps_dN": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dn": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::${SPIDER810_SN}", "source_variable": "dN" } },
+          "direct_value": { "source_variable": "dn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "smps_dNdlogDp": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dndlogdp": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::${SPIDER810_SN}", "source_variable": "dNdlogDp" } },
+          "direct_value": { "source_variable": "dndlogdp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "smps_intN": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "intn": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::${SPIDER810_SN}", "source_variable": "intN" } },
+          "direct_value": { "source_variable": "intn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "smps_flow": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "flow": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::${SPIDER810_SN}", "source_variable": "flow" } },
+          "direct_value": { "source_variable": "flow" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
+        },
+        "smps_inlet_temperature": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "itemp": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::${SPIDER810_SN}", "source_variable": "input_T" } },
+          "direct_value": { "source_variable": "itemp" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
+        },
+        "smps_pressure": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "press": { "source_type": "device", "source_id": "AerosolDynamics::Spider-MAGIC810::${SPIDER810_SN}", "source_variable": "abs_pressure" } },
+          "direct_value": { "source_variable": "press" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "mbar" } }
+        }
+      }
+    }
+  }
+]

@@ -10,6 +10,36 @@ data:
   node_roles: "local-controller" 
   # -------------------------------------
 
+  # --- 1. GRANULAR REVISION TIMES ---
+  # Only bump these when the specific component physically changes!
+  PLATFORM_REVISION_TIME: "2026-06-25T14:00:00Z"
+  
+  DEPLOYMENT_REVISION_TIME: "2026-06-25T14:00:00Z"
+  DEPLOYMENT_START_TIME: "2026-05-01T00:00:00Z"
+  DEPLOYMENT_END_TIME: "2027-12-31T23:59:59Z"
+  
+  MAGIC250_REVISION_TIME: "2026-06-25T14:00:00Z"    # e.g., We swapped this today!
+  
+  APS3321_REVISION_TIME: "2026-06-25T14:00:00Z"
+  
+  SPIDER810_REVISION_TIME: "2026-06-25T14:00:00Z"
+  
+  NTP_REVISION_TIME: "2026-06-25T14:00:00Z"
+
+  # --- 2. HARDWARE & STATE IDENTITY ---
+  ENVOPS_PLATFORM_REF: "platform.pmel.payload_alvan_01"
+  ENVOPS_PLATFORM_DISPLAY_NAME: "Payload ALVAN 01"
+  
+  ENVOPS_HOST_PLATFORM_REF: "platform.pmel.acg_alvan"
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_alvan_01_in_acg_alvan"
+  ENVOPS_DEPLOYMENT_DISPLAY_NAME: "Payload ALVAN 01 in ACG ALVAN"
+  
+  MAGIC250_SN: "181"
+  APS3321_SN: "273"
+  SPIDER810_SN: "017"
+  NTP_SN: "63d"
+  # ---------------------------------
+
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/revpi1-system/default"
 

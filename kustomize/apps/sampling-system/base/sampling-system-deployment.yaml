@@ -18,8 +18,11 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: sampling-system
-        image: ghcr.io/noaa-pmel/msp/sampling-system:0.3.0
+        image: ghcr.io/noaa-pmel/msp/sampling-system:0.4.0
         imagePullPolicy: "IfNotPresent"
+        envFrom:
+        - configMapRef:
+            name: sampling-system
         env:
         - name: SAMPLING_SYSTEM_PORT
           valueFrom:
@@ -80,27 +83,42 @@ spec:
               key: tick_delay_calc
               optional: true  
         
-        # --- UNIVERSAL GITOPS VOLUME MOUNTS ---
+        # # --- UNIVERSAL GITOPS VOLUME MOUNTS ---
+        # volumeMounts:
+        # - name: sampling-system-platforms
+        #   mountPath: /app/config/platform_defs.json
+        #   subPath: platform_defs.json
+        # - name: sampling-system-variablemaps
+        #   mountPath: /app/config/platform_variablemaps.json
+        #   subPath: platform_varmaps.json
+        # - name: sampling-system-deployments
+        #   mountPath: /app/config/deployments.json
+        #   subPath: deployments.json
+        # - name: sampling-system-projects
+        #   mountPath: /app/config/projects.json
+        #   subPath: projects.json
+        # - name: sampling-system-contacts
+        #   mountPath: /app/config/contacts.json
+        #   subPath: contacts.json
+        # - name: shared-calculations
+        #   mountPath: /app/calculations/
+        # # --------------------------------------
+        
+        # 2. DIRECTORY-BASED MOUNTS (No subPaths!)
         volumeMounts:
         - name: sampling-system-platforms
-          mountPath: /app/config/platform_defs.json
-          subPath: platform_defs.json
+          mountPath: /app/config/platforms
         - name: sampling-system-variablemaps
-          mountPath: /app/config/platform_variablemaps.json
-          subPath: platform_varmaps.json
+          mountPath: /app/config/varmaps
         - name: sampling-system-deployments
-          mountPath: /app/config/deployments.json
-          subPath: deployments.json
+          mountPath: /app/config/deployments
         - name: sampling-system-projects
-          mountPath: /app/config/projects.json
-          subPath: projects.json
+          mountPath: /app/config/projects
         - name: sampling-system-contacts
-          mountPath: /app/config/contacts.json
-          subPath: contacts.json
+          mountPath: /app/config/contacts
         - name: shared-calculations
           mountPath: /app/calculations/
-        # --------------------------------------
-        
+
         resources:
           requests:
             cpu: "300m"
