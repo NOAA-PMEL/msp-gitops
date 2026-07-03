@@ -20,7 +20,8 @@ configMapGenerator:
       - ../../shared_configs/fleet/platforms/fleet_host_platforms.json
   - name: sampling-system-deployments
     files: 
-      - ../../shared_configs/fleet/deployments/active/fleet_host_deployments.json
+      - ../../shared_configs/fleet/deployments/active/beacons_msp_01_on_marjorie_c.json
+      # - ../../shared_configs/fleet/deployments/active/fleet_host_deployments.json
   - name: sampling-system-projects
     files: 
       - ../../shared_configs/fleet/projects/active/beacons_project.json
