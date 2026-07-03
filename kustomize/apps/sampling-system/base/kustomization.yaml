@@ -6,7 +6,7 @@ metadata:
 resources:
 - sampling-system-deployment.yaml
 - sampling-system-service.yaml
-- shared-libs/calculations/base
+# - shared-libs/calculations/base
 # Remove the knative reference:
 # - sampling-system-service_knative.yaml
 
