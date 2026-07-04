@@ -18,7 +18,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: sampling-system
-        image: ghcr.io/noaa-pmel/msp/sampling-system:0.5.2
+        image: ghcr.io/noaa-pmel/msp/sampling-system:0.5.4
         imagePullPolicy: "IfNotPresent"
         envFrom:
         - configMapRef:
