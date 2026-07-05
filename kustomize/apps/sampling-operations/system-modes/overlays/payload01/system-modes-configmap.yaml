@@ -8,9 +8,9 @@ data:
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/payload01-system/default"
 
   SAMPLING_NAMESPACE: "pmel.noaa.gov"
-  ENVOPS_DEPLOYMENT_REF: "deploy.beacons.payload_01_in_marjorie_c"
-  SYSTEM_MODES_REVISION_TIME: "2026-06-11T19:19:00Z"
-  deployment_ref: "deploy.beacons.payload_01_in_marjorie_c"
+  ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_01_in_msp_01"
+  SYSTEM_MODES_REVISION_TIME: "2026-06-29T00:00:00Z"
+  deployment_ref: "deploy.pmel.payload_01_in_msp_01"
 
   system_init_control: "auto"
   system_init_mode: "normal"

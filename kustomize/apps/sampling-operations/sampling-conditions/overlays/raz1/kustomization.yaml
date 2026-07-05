@@ -14,10 +14,10 @@ configMapGenerator:
       - ../../shared_configs/templates/conditions/cn_limit.json
       - ../../shared_configs/templates/conditions/wind_speed_limit.json
       - ../../shared_configs/templates/conditions/wind_direction_limit.json
-      - ../../shared_configs/templates/conditions/pmel_geofence.json
+      - ../../shared_configs/templates/conditions/marjorie_c_at_sea_geofence.json
       - ../../shared_configs/templates/conditions/telemetry_active.json
       - ../../shared_configs/templates/conditions/maintenance_switch.json
-
+      
 # nameSuffix: "-raz1"
 
 # patches:
