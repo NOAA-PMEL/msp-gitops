@@ -6,7 +6,7 @@
       "name": "deploy.pmel.msp_enclosure_01_on_marjorie_c",
       "sampling_namespace": "pmel.noaa.gov"
     },
-    "revision-time": "2026-07-01T00:00:00Z",
+    "revision-time": "2026-07-05T10:23:00Z",
     "data": {
       "display_name": "BEACONS MSP-01 Marjorie C",
       "description": "Autonomous deployment of the MSP-01 Enclosure on the Pasha M/V Marjorie C.",
