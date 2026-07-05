@@ -1,37 +1,52 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: sampling-states
-
-# set namespace
 namespace: pmel-dev-system
 
-# Example configuration for the webserver
-# at https://github.com/monopole/hello
-# commonLabels:
-#   app: nginx
-
-# resources:
-# # Example configuration for the webserver
-# # at https://github.com/monopole/hello
-#   nameSuffix: -usc206
-#   commonLabels:
-#     app: usconverters-uscdr301
-#     variant: test
-
 resources:
-- ../../base
-- sampling-states-configmap.yaml
-# - platform_defs_configmap.yaml
-# - platform_varmaps_configmap.yaml
-# - ghcr-secret-msp-system-sealed.yaml
-# uncomment this if using knative for data updates
-# - sampling-states-triggers.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-states
+    envs:
+      - sampling-states.env
   - name: sampling-states-states
     files:
       - sampling_states.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: sampling-states
+
+# # set namespace
+# namespace: pmel-dev-system
+
+# # Example configuration for the webserver
+# # at https://github.com/monopole/hello
+# # commonLabels:
+# #   app: nginx
+
+# # resources:
+# # # Example configuration for the webserver
+# # # at https://github.com/monopole/hello
+# #   nameSuffix: -usc206
+# #   commonLabels:
+# #     app: usconverters-uscdr301
+# #     variant: test
+
+# resources:
+# - ../../base
+# - sampling-states-configmap.yaml
+# # - platform_defs_configmap.yaml
+# # - platform_varmaps_configmap.yaml
+# # - ghcr-secret-msp-system-sealed.yaml
+# # uncomment this if using knative for data updates
+# # - sampling-states-triggers.yaml
+
+# configMapGenerator:
+#   - name: sampling-states-states
+#     files:
+#       - sampling_states.json
 
 # nameSuffix: "-pmel-dev"
 

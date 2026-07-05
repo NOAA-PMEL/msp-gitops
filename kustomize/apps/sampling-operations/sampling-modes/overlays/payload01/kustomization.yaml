@@ -3,13 +3,14 @@ kind: Kustomization
 namespace: payload01-system
 
 resources:
-- ../../base
-- sampling-modes-configmap.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-modes
+    envs:
+      - sampling-modes.env
   - name: sampling-modes-modes
     files:
-      # Individual Decoupled Mode Files
       - ../../shared_configs/templates/modes/payload01_startup_step1_opc_mode.json
       - ../../shared_configs/templates/modes/payload01_startup_step2_smps_mode.json
       - ../../shared_configs/templates/modes/payload01_startup_step3_cpc_mode.json
@@ -21,7 +22,6 @@ configMapGenerator:
       - ../../shared_configs/templates/modes/payload01_maintenance_override_mode.json
   - name: sampling-modes-actions
     files:
-      # Individual Decoupled Action Files
       - ../../shared_configs/templates/actions/turn_on_opc_action.json
       - ../../shared_configs/templates/actions/turn_off_opc_action.json
       - ../../shared_configs/templates/actions/turn_on_smps_action.json
@@ -30,6 +30,39 @@ configMapGenerator:
       - ../../shared_configs/templates/actions/turn_off_cpc_action.json
       - ../../shared_configs/templates/actions/turn_on_aps_action.json
       - ../../shared_configs/templates/actions/turn_off_aps_action.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: payload01-system
+
+# resources:
+# - ../../base
+# - sampling-modes-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-modes-modes
+#     files:
+#       # Individual Decoupled Mode Files
+#       - ../../shared_configs/templates/modes/payload01_startup_step1_opc_mode.json
+#       - ../../shared_configs/templates/modes/payload01_startup_step2_smps_mode.json
+#       - ../../shared_configs/templates/modes/payload01_startup_step3_cpc_mode.json
+#       - ../../shared_configs/templates/modes/payload01_startup_step4_aps_mode.json
+#       - ../../shared_configs/templates/modes/payload01_shutdown_step1_aps_mode.json
+#       - ../../shared_configs/templates/modes/payload01_shutdown_step2_cpc_mode.json
+#       - ../../shared_configs/templates/modes/payload01_shutdown_step3_smps_mode.json
+#       - ../../shared_configs/templates/modes/payload01_shutdown_step4_opc_mode.json
+#       - ../../shared_configs/templates/modes/payload01_maintenance_override_mode.json
+#   - name: sampling-modes-actions
+#     files:
+#       # Individual Decoupled Action Files
+#       - ../../shared_configs/templates/actions/turn_on_opc_action.json
+#       - ../../shared_configs/templates/actions/turn_off_opc_action.json
+#       - ../../shared_configs/templates/actions/turn_on_smps_action.json
+#       - ../../shared_configs/templates/actions/turn_off_smps_action.json
+#       - ../../shared_configs/templates/actions/turn_on_cpc_action.json
+#       - ../../shared_configs/templates/actions/turn_off_cpc_action.json
+#       - ../../shared_configs/templates/actions/turn_on_aps_action.json
+#       - ../../shared_configs/templates/actions/turn_off_aps_action.json
 
 # generatorOptions:
 #  disableNameSuffixHash: true

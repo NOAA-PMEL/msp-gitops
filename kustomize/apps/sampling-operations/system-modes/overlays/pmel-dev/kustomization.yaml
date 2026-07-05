@@ -1,19 +1,34 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: system-modes
-
 namespace: pmel-dev-system
 
 resources:
-- ../../base
-- system-modes-configmap.yaml
+  - ../../base
 
-# Generate the ConfigMap from your provided JSON file
 configMapGenerator:
+  - name: system-modes
+    envs:
+      - system-modes.env
   - name: system-modes-modes
     files:
       - system_modes_modes.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: system-modes
+
+# namespace: pmel-dev-system
+
+# resources:
+# - ../../base
+# - system-modes-configmap.yaml
+
+# # Generate the ConfigMap from your provided JSON file
+# configMapGenerator:
+#   - name: system-modes-modes
+#     files:
+#       - system_modes_modes.json
 
 # generatorOptions:
 #  disableNameSuffixHash: true

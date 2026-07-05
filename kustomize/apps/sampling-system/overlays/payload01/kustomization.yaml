@@ -7,9 +7,11 @@ namespace: payload01-system
 
 resources:
   - ../../base
-  - sampling-system-configmap.yaml
 
 configMapGenerator:
+  - name: sampling-system
+    envs:
+      - sampling-system.env
   - name: sampling-system-platforms
     files:
       - ../../shared_configs/templates/platforms/msp_payload_def.json
@@ -23,6 +25,32 @@ configMapGenerator:
       - ../../shared_configs/templates/varmaps/primary_aps_varmap.json
       - ../../shared_configs/templates/varmaps/primary_smps_varmap.json
       - ../../shared_configs/templates/varmaps/payload01_power_varmap.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: sampling-system
+
+# namespace: payload01-system
+
+# resources:
+#   - ../../base
+#   - sampling-system-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-system-platforms
+#     files:
+#       - ../../shared_configs/templates/platforms/msp_payload_def.json
+#   - name: sampling-system-deployments
+#     files:
+#       - ../../shared_configs/templates/deployments/internal_edge_deployment.json
+#   - name: sampling-system-variablemaps
+#     files:
+#       - ../../shared_configs/templates/varmaps/primary_cpc_varmap.json
+#       - ../../shared_configs/templates/varmaps/primary_opc_varmap.json
+#       - ../../shared_configs/templates/varmaps/primary_aps_varmap.json
+#       - ../../shared_configs/templates/varmaps/primary_smps_varmap.json
+#       - ../../shared_configs/templates/varmaps/payload01_power_varmap.json
 
 # nameSuffix: "-payload01"
 

@@ -1,18 +1,35 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: sampling-conditions
 namespace: payload02-system
 
 resources:
-- ../../base
-- sampling-conditions-configmap.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-conditions
+    envs:
+      - sampling-conditions.env
   - name: sampling-conditions-conditions
     files:
       - ../../shared_configs/templates/conditions/payload02_power_states.json
       - ../../shared_configs/templates/conditions/size_cut_valve_states.json
+
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: sampling-conditions
+# namespace: payload02-system
+
+# resources:
+# - ../../base
+# - sampling-conditions-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-conditions-conditions
+#     files:
+#       - ../../shared_configs/templates/conditions/payload02_power_states.json
+#       - ../../shared_configs/templates/conditions/size_cut_valve_states.json
 
 # nameSuffix: "-payload02"
 

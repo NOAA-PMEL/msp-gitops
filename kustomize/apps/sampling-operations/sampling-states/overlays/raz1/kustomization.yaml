@@ -3,10 +3,12 @@ kind: Kustomization
 namespace: raz1-system
 
 resources:
-- ../../base
-- sampling-states-configmap.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-states
+    envs:
+      - sampling-states.env
   - name: sampling-states-states
     files:
       - ../../shared_configs/templates/states/in_sector_state.json
@@ -15,6 +17,24 @@ configMapGenerator:
       - ../../shared_configs/templates/states/telemetry_verified_state.json
       - ../../shared_configs/templates/states/cascade_ready_state.json
       - ../../shared_configs/templates/states/maintenance_active_state.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: raz1-system
+
+# resources:
+# - ../../base
+# - sampling-states-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-states-states
+#     files:
+#       - ../../shared_configs/templates/states/in_sector_state.json
+#       - ../../shared_configs/templates/states/nominal_concentrations_state.json
+#       - ../../shared_configs/templates/states/marjorie_c_nominal_location_state.json
+#       - ../../shared_configs/templates/states/telemetry_verified_state.json
+#       - ../../shared_configs/templates/states/cascade_ready_state.json
+#       - ../../shared_configs/templates/states/maintenance_active_state.json
 
 # generatorOptions:
 #   disableNameSuffixHash: true

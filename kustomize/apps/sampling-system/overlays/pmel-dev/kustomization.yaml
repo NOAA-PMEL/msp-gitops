@@ -1,27 +1,24 @@
+
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: sampling-system
 
-# Optional: Set a common namespace or labels for the pmel-dev deployment
 namespace: pmel-dev-system
 
-# Point this to wherever your base sampling-system Knative service lives
 resources:
   - ../../base
-  - sampling-system-configmap.yaml
 
-# nameSuffix: -pmel-dev
-
-# 1. GENERATE THE CONFIGMAPS FROM YOUR JSON FILES
 configMapGenerator:
+  - name: sampling-system
+    envs:
+      - sampling-system.env
   - name: sampling-system-platforms
     files: 
       - ../../shared_configs/fleet/platforms/fleet_host_platforms.json
   - name: sampling-system-deployments
     files: 
       - ../../shared_configs/fleet/deployments/active/beacons_msp_01_on_marjorie_c.json
-      # - ../../shared_configs/fleet/deployments/active/fleet_host_deployments.json
   - name: sampling-system-projects
     files: 
       - ../../shared_configs/fleet/projects/active/beacons_project.json
@@ -32,6 +29,41 @@ configMapGenerator:
   - name: sampling-system-variablemaps
     files: 
       - platform_varmaps.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: sampling-system
+
+# # Optional: Set a common namespace or labels for the pmel-dev deployment
+# namespace: pmel-dev-system
+
+# # Point this to wherever your base sampling-system Knative service lives
+# resources:
+#   - ../../base
+#   - sampling-system-configmap.yaml
+
+# # nameSuffix: -pmel-dev
+
+# # 1. GENERATE THE CONFIGMAPS FROM YOUR JSON FILES
+# configMapGenerator:
+#   - name: sampling-system-platforms
+#     files: 
+#       - ../../shared_configs/fleet/platforms/fleet_host_platforms.json
+#   - name: sampling-system-deployments
+#     files: 
+#       - ../../shared_configs/fleet/deployments/active/beacons_msp_01_on_marjorie_c.json
+#       # - ../../shared_configs/fleet/deployments/active/fleet_host_deployments.json
+#   - name: sampling-system-projects
+#     files: 
+#       - ../../shared_configs/fleet/projects/active/beacons_project.json
+#   - name: sampling-system-contacts
+#     files: 
+#       - ../../shared_configs/fleet/contacts/pmel_contacts.json
+#       - ../../shared_configs/fleet/contacts/pnnl_contacts.json
+#   - name: sampling-system-variablemaps
+#     files: 
+#       - platform_varmaps.json
 
 # 2. INJECT THEM INTO THE KNATIVE SERVICE VOLUMES
 # patches:

@@ -3,13 +3,14 @@ kind: Kustomization
 namespace: payload02-system
 
 resources:
-- ../../base
-- sampling-modes-configmap.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-modes
+    envs:
+      - sampling-modes.env
   - name: sampling-modes-modes
     files:
-      # Individual Decoupled Mode Files
       - ../../shared_configs/templates/modes/payload02_startup_step1_24v_mode.json
       - ../../shared_configs/templates/modes/payload02_startup_step2_tec_mode.json
       - ../../shared_configs/templates/modes/payload02_startup_step3_neph_mode.json
@@ -23,7 +24,6 @@ configMapGenerator:
       - ../../shared_configs/templates/modes/payload02_maintenance_override_mode.json
   - name: sampling-modes-actions
     files:
-      # Individual Decoupled Action Files
       - ../../shared_configs/templates/actions/turn_on_24v_bus_action.json
       - ../../shared_configs/templates/actions/turn_off_24v_bus_action.json
       - ../../shared_configs/templates/actions/turn_on_tec_action.json
@@ -32,6 +32,41 @@ configMapGenerator:
       - ../../shared_configs/templates/actions/turn_off_neph_action.json
       - ../../shared_configs/templates/actions/turn_on_absorb_action.json
       - ../../shared_configs/templates/actions/turn_off_absorb_action.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: payload02-system
+
+# resources:
+# - ../../base
+# - sampling-modes-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-modes-modes
+#     files:
+#       # Individual Decoupled Mode Files
+#       - ../../shared_configs/templates/modes/payload02_startup_step1_24v_mode.json
+#       - ../../shared_configs/templates/modes/payload02_startup_step2_tec_mode.json
+#       - ../../shared_configs/templates/modes/payload02_startup_step3_neph_mode.json
+#       - ../../shared_configs/templates/modes/payload02_startup_step4_absorb_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step1_absorb_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step2_neph_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step3_tec_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step4_24v_mode.json
+#       - ../../shared_configs/templates/modes/payload02_standby_step1_absorb_mode.json
+#       - ../../shared_configs/templates/modes/payload02_standby_step2_neph_mode.json
+#       - ../../shared_configs/templates/modes/payload02_maintenance_override_mode.json
+#   - name: sampling-modes-actions
+#     files:
+#       # Individual Decoupled Action Files
+#       - ../../shared_configs/templates/actions/turn_on_24v_bus_action.json
+#       - ../../shared_configs/templates/actions/turn_off_24v_bus_action.json
+#       - ../../shared_configs/templates/actions/turn_on_tec_action.json
+#       - ../../shared_configs/templates/actions/turn_off_tec_action.json
+#       - ../../shared_configs/templates/actions/turn_on_neph_action.json
+#       - ../../shared_configs/templates/actions/turn_off_neph_action.json
+#       - ../../shared_configs/templates/actions/turn_on_absorb_action.json
+#       - ../../shared_configs/templates/actions/turn_off_absorb_action.json
 
 # generatorOptions:
 #  disableNameSuffixHash: true

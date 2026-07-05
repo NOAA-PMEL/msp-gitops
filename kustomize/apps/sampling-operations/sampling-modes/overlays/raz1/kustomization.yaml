@@ -3,10 +3,12 @@ kind: Kustomization
 namespace: raz1-system
 
 resources:
-- ../../base
-- sampling-modes-configmap.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-modes
+    envs:
+      - sampling-modes.env
   - name: sampling-modes-modes
     files:
       - ../../shared_configs/templates/modes/beacons_system_startup_mode.json
@@ -17,6 +19,26 @@ configMapGenerator:
     files:
       - ../../shared_configs/templates/actions/set_isokinetic_inlet_flow_action.json
       - ../../shared_configs/templates/actions/set_reverse_inlet_flow_action.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: raz1-system
+
+# resources:
+# - ../../base
+# - sampling-modes-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-modes-modes
+#     files:
+#       - ../../shared_configs/templates/modes/beacons_system_startup_mode.json
+#       - ../../shared_configs/templates/modes/beacons_nominal_sampling_mode.json
+#       - ../../shared_configs/templates/modes/beacons_startup_complete_mode.json
+#       - ../../shared_configs/templates/modes/beacons_maintenance_override_mode.json
+#   - name: sampling-modes-actions
+#     files:
+#       - ../../shared_configs/templates/actions/set_isokinetic_inlet_flow_action.json
+#       - ../../shared_configs/templates/actions/set_reverse_inlet_flow_action.json
 
 # generatorOptions:
 #  disableNameSuffixHash: true

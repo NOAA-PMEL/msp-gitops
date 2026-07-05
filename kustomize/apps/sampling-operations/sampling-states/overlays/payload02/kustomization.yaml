@@ -3,13 +3,14 @@ kind: Kustomization
 namespace: payload02-system
 
 resources:
-- ../../base
-- sampling-states-configmap.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-states
+    envs:
+      - sampling-states.env
   - name: sampling-states-states
     files:
-      # Use the fully decoupled state definitions
       - ../../shared_configs/templates/states/24v_bus_power_stabilized_state.json
       - ../../shared_configs/templates/states/tec_power_stabilized_state.json
       - ../../shared_configs/templates/states/neph_power_stabilized_state.json
@@ -17,6 +18,26 @@ configMapGenerator:
       - ../../shared_configs/templates/states/neph_power_off_stabilized_state.json
       - ../../shared_configs/templates/states/tec_power_off_stabilized_state.json
       - ../../shared_configs/templates/states/maintenance_active_state.json
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: payload02-system
+
+# resources:
+# - ../../base
+# - sampling-states-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-states-states
+#     files:
+#       # Use the fully decoupled state definitions
+#       - ../../shared_configs/templates/states/24v_bus_power_stabilized_state.json
+#       - ../../shared_configs/templates/states/tec_power_stabilized_state.json
+#       - ../../shared_configs/templates/states/neph_power_stabilized_state.json
+#       - ../../shared_configs/templates/states/absorb_power_off_stabilized_state.json
+#       - ../../shared_configs/templates/states/neph_power_off_stabilized_state.json
+#       - ../../shared_configs/templates/states/tec_power_off_stabilized_state.json
+#       - ../../shared_configs/templates/states/maintenance_active_state.json
 
 # generatorOptions:
 #   disableNameSuffixHash: true
