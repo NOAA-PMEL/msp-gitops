@@ -1,0 +1,13 @@
+{
+  "kind": "ProjectAllocation",
+  "metadata": {
+    "name": "allocation.pmel.beacons.msp01",
+    "valid_config_time": "2026-07-06T00:00:00Z"
+  },
+  "data": {
+    "project_ref": "project.pmel.beacons",
+    "host_platform_ref": "platform.pmel.msp_enclosure_01",
+    "start_time": "2026-06-01T00:00:00Z",
+    "end_time": "2027-12-31T23:59:59Z"
+  }
+}

@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Ensure this injects into your central EKS namespace
+namespace: pmel-dev-system
+
+resources:
+  - ../base
+
+configMapGenerator:
+  - name: envops-core-config
+    envs:
+      - envops-core.env
+
+  # The Organizational Directories
+  - name: envops-core-projects
+    files: 
+      - ../../shared_configs/fleet/projects/active/beacons_project.json
+  - name: envops-core-contacts
+    files: 
+      - ../../shared_configs/fleet/contacts/pmel_contacts.json
+      - ../../shared_configs/fleet/contacts/pnnl_contacts.json
+  - name: envops-core-allocations
+    files:
+      - ../../shared_configs/fleet/allocations/beacons_msp01_allocation.json

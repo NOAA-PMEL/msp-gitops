@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envops-core
+  labels:
+    app: envops-core
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: envops-core
+  template:
+    metadata:
+      labels:
+        app: envops-core
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+      - name: envops-core
+        image: ghcr.io/noaa-pmel/msp/envops-core:0.1.0
+        imagePullPolicy: "IfNotPresent"
+        env:
+        - name: ENVOPS_DAQ_ID
+          valueFrom:
+            configMapKeyRef:
+              name: envops-core-config
+              key: daq_id
+        - name: ENVOPS_KNATIVE_BROKER
+          valueFrom:
+            configMapKeyRef:
+              name: envops-core-config
+              key: knative_broker
+        - name: ENVOPS_SYNC_INTERVAL
+          valueFrom:
+            configMapKeyRef:
+              name: envops-core-config
+              key: sync_interval
+              optional: true
+        
+        # --- GITOPS VOLUME MOUNTS ---
+        volumeMounts:
+        - name: envops-projects
+          mountPath: /app/config/projects
+        - name: envops-contacts
+          mountPath: /app/config/contacts
+        - name: envops-allocations
+          mountPath: /app/config/allocations
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+
+      # --- CONFIGMAP VOLUMES ---
+      volumes:
+      - name: envops-projects
+        configMap:
+          name: envops-core-projects
+          optional: true
+      - name: envops-contacts
+        configMap:
+          name: envops-core-contacts
+          optional: true
+      - name: envops-allocations
+        configMap:
+          name: envops-core-allocations
+          optional: true

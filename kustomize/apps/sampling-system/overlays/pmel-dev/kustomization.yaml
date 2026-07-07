@@ -19,13 +19,13 @@ configMapGenerator:
   - name: sampling-system-deployments
     files: 
       - ../../shared_configs/fleet/deployments/active/beacons_msp_01_on_marjorie_c.json
-  - name: sampling-system-projects
-    files: 
-      - ../../shared_configs/fleet/projects/active/beacons_project.json
-  - name: sampling-system-contacts
-    files: 
-      - ../../shared_configs/fleet/contacts/pmel_contacts.json
-      - ../../shared_configs/fleet/contacts/pnnl_contacts.json
+  # - name: sampling-system-projects
+  #   files: 
+  #     - ../../shared_configs/fleet/projects/active/beacons_project.json
+  # - name: sampling-system-contacts
+  #   files: 
+  #     - ../../shared_configs/fleet/contacts/pmel_contacts.json
+  #     - ../../shared_configs/fleet/contacts/pnnl_contacts.json
   - name: sampling-system-variablemaps
     files: 
       - platform_varmaps.json

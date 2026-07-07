@@ -18,7 +18,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: sampling-system
-        image: ghcr.io/noaa-pmel/msp/sampling-system:0.6.0
+        image: ghcr.io/noaa-pmel/msp/sampling-system:0.7.0
         imagePullPolicy: "IfNotPresent"
         envFrom:
         - configMapRef:
@@ -112,10 +112,10 @@ spec:
           mountPath: /app/config/varmaps
         - name: sampling-system-deployments
           mountPath: /app/config/deployments
-        - name: sampling-system-projects
-          mountPath: /app/config/projects
-        - name: sampling-system-contacts
-          mountPath: /app/config/contacts
+        # - name: sampling-system-projects
+        #   mountPath: /app/config/projects
+        # - name: sampling-system-contacts
+        #   mountPath: /app/config/contacts
         - name: shared-calculations
           mountPath: /app/calculations/
 
@@ -157,14 +157,14 @@ spec:
         configMap:
           name: sampling-system-deployments
           optional: true
-      - name: sampling-system-projects
-        configMap:
-          name: sampling-system-projects
-          optional: true
-      - name: sampling-system-contacts
-        configMap:
-          name: sampling-system-contacts
-          optional: true
+      # - name: sampling-system-projects
+      #   configMap:
+      #     name: sampling-system-projects
+      #     optional: true
+      # - name: sampling-system-contacts
+      #   configMap:
+      #     name: sampling-system-contacts
+      #     optional: true
       - name: shared-calculations
         configMap:
           name: sampling-system-calculations
