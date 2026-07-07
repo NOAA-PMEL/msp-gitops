@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  template:
+    spec:
+      containers:
+      - name: redis
+        # Mount the password as an environment variable securely
+        env:
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: redis-db-password
+                key: db_password
+                
+        # Override the base command to use the shell so it can read the env var
+        command: ["/bin/sh", "-c"]
+        args:
+          - >
+            redis-server 
+            --requirepass "$REDIS_PASSWORD" 
+            --appendonly yes 
+            --protected-mode no 
+            --loadmodule /opt/redis-stack/lib/rejson.so 
+            --loadmodule /opt/redis-stack/lib/redisearch.so

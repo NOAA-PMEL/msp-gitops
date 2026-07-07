@@ -3,27 +3,52 @@ kind: Kustomization
 metadata:
   name: redis
 
-# setup namespace
 namespace: pmel-dev-system
 
-# configMapGenerator:
-#   - behavior: merge
-#     name: argocd-cm
-#     namespace: argocd
-#     literals:
-#       - kustomize.buildOptions=--enable-helm
 resources:
-- redis_db_password_sealed.yaml
+  - ../../base
+  - redis_db_password_sealed.yaml
 
-helmCharts:
-- name: redis
-  repo: https://charts.bitnami.com/bitnami
-  # version: 1.2.3
-  releaseName: redis
-  namespace: pmel-dev-system
-  valuesFile: redis-values.yaml # Use a file for overrides
-  # Alternatively, use inline values:
-  # values:
-  #  somekey: "somevalue"
-  #  anotherkey:
-  #    nested: "value"
+patches:
+  # 1. Apply auth to the deployment
+  - path: deployment-patch.yaml
+  
+  # 2. Patch the PVC for EKS dynamic provisioning
+  - target:
+      kind: PersistentVolumeClaim
+      name: redis-pvc
+    patch: |-
+      - op: remove 
+        path: /spec/volumeName
+      - op: remove
+        path: /spec/storageClassName
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# metadata:
+#   name: redis
+
+# # setup namespace
+# namespace: pmel-dev-system
+
+# # configMapGenerator:
+# #   - behavior: merge
+# #     name: argocd-cm
+# #     namespace: argocd
+# #     literals:
+# #       - kustomize.buildOptions=--enable-helm
+# resources:
+# - redis_db_password_sealed.yaml
+
+# helmCharts:
+# - name: redis
+#   repo: https://charts.bitnami.com/bitnami
+#   # version: 1.2.3
+#   releaseName: redis
+#   namespace: pmel-dev-system
+#   valuesFile: redis-values.yaml # Use a file for overrides
+#   # Alternatively, use inline values:
+#   # values:
+#   #  somekey: "somevalue"
+#   #  anotherkey:
+#   #    nested: "value"
