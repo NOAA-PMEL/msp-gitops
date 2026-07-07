@@ -7,11 +7,11 @@ namespace: pmel-dev-system
 
 resources:
   - ../../base
-  - redis_db_password_sealed.yaml
+  # - redis_db_password_sealed.yaml
 
 patches:
-  # 1. Apply auth to the deployment
-  - path: deployment-patch.yaml
+  # # 1. Apply auth to the deployment
+  # - path: deployment-patch.yaml
   
   # 2. Patch the PVC for EKS dynamic provisioning
   - target:
@@ -20,8 +20,6 @@ patches:
     patch: |-
       - op: remove 
         path: /spec/volumeName
-      # - op: remove
-      #   path: /spec/storageClassName
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
