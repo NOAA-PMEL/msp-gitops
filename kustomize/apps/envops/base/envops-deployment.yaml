@@ -17,7 +17,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
       - name: envops
-        image: ghcr.io/noaa-pmel/msp/envops:0.3.0
+        image: ghcr.io/noaa-pmel/msp/envops:0.4.0
         imagePullPolicy: "Always"
         envFrom:
         - configMapRef:
