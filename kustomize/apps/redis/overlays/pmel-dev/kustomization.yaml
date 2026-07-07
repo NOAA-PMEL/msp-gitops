@@ -20,8 +20,8 @@ patches:
     patch: |-
       - op: remove 
         path: /spec/volumeName
-      - op: remove
-        path: /spec/storageClassName
+      # - op: remove
+      #   path: /spec/storageClassName
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
