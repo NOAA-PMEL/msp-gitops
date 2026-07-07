@@ -19,7 +19,8 @@ spec:
       containers:
       - name: envops-core
         image: ghcr.io/noaa-pmel/msp/envops-core:0.1.0
-        imagePullPolicy: "IfNotPresent"
+        # imagePullPolicy: "IfNotPresent"
+        imagePullPolicy: "Always"
         env:
         - name: ENVOPS_DAQ_ID
           valueFrom:
