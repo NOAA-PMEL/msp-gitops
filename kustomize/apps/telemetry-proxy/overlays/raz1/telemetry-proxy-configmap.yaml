@@ -5,7 +5,7 @@ metadata:
 data:
   mqtt_broker: "mqtt.raz1-system"
   mqtt_port: "1883"
-  log_level: "DEBUG"  # Shows your compression % reduction!
+  log_level: "INFO"  # Shows your compression % reduction!
   
   # Edge: Capture these local topics to compress
   local_intercept_topics: >
