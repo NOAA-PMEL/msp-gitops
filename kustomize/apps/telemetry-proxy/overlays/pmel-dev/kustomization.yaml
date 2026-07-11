@@ -28,6 +28,7 @@ configMapGenerator:
     - mqtt_broker=mqtt.pmel-dev-system
     - mqtt_port=1883
     - log_level=DEBUG
+    - transmission_rate_hz=5.0
     - bridge_topic_out=envds/transport/compressed/cloud-to-edge
     - bridge_topic_in=envds/transport/compressed/edge-to-cloud
     
