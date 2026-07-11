@@ -10,22 +10,26 @@
         "operations": { "index": { "index_type": "time", "index_value": ${OPERATIONS_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" } } }
       },
       "variables": {
-        "relative_wind_direction": {
-          "type": "float", "shape": ["time"], "map_type": "calculated", "variableset": "operations",
-          "calculate_method": { "action_module": "calculations.default", "action_def": "calculate_relative_wind_direction_from_fixed", "parameters": { "wind_direction": { "source-variable": "meas_wd" } } },
-          "source": { "meas_wd": { "source_variable": "measured_wind_direction", "variableset": "operations" } },
-          "attributes": { "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }, "units": { "type": "string", "data": "degrees" } }
-        },
         "true_wind_speed": {
           "type": "float", "shape": ["time"], "map_type": "calculated", "variableset": "derived",
           "calculate_method": { "action_module": "calculations.default", "action_def": "calculate_true_wind_speed", "parameters": { "relative_wind_speed": { "source-variable": "rel_ws" }, "relative_wind_direction": { "source-variable": "rel_wd" }, "platform_speed": { "source-variable": "p_speed" }, "platform_heading": { "source-variable": "p_heading" } } },
-          "source": { "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "operations" }, "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "operations" }, "p_speed": { "source_variable": "platform_speed", "variableset": "main" }, "p_heading": { "source_variable": "platform_heading", "variableset": "main" } },
+          "source": { 
+            "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "varmap_primary_met::operations" }, 
+            "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "varmap_primary_met::operations" }, 
+            "p_speed": { "source_variable": "platform_speed", "variableset": "varmap_primary_nav::main" }, 
+            "p_heading": { "source_variable": "platform_heading", "variableset": "varmap_primary_nav::main" } 
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "m/s" } }
         },
         "true_wind_direction": {
           "type": "float", "shape": ["time"], "map_type": "calculated", "variableset": "derived",
           "calculate_method": { "action_module": "calculations.default", "action_def": "calculate_true_wind_direction", "parameters": { "relative_wind_direction": { "source-variable": "rel_wd" }, "platform_heading": { "source-variable": "p_heading" }, "platform_speed": { "source-variable": "p_speed" }, "relative_wind_speed": { "source-variable": "rel_ws" } } },
-          "source": { "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "operations" }, "p_heading": { "source_variable": "platform_heading", "variableset": "main" }, "p_speed": { "source_variable": "platform_speed", "variableset": "main" }, "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "operations" } },
+          "source": { 
+            "rel_wd": { "source_variable": "relative_wind_direction", "variableset": "varmap_primary_met::operations" }, 
+            "p_heading": { "source_variable": "platform_heading", "variableset": "varmap_primary_nav::main" }, 
+            "p_speed": { "source_variable": "platform_speed", "variableset": "varmap_primary_nav::main" }, 
+            "rel_ws": { "source_variable": "relative_wind_speed", "variableset": "varmap_primary_met::operations" } 
+          },
           "attributes": { "evaluate_by": { "type": "string", "data": "data-server" }, "units": { "type": "string", "data": "degrees" } }
         }
       }
