@@ -28,6 +28,7 @@ configMapGenerator:
     - mqtt_broker=mqtt.raz1-system
     - mqtt_port=1883
     - log_level=INFO
+    - transmission_rate_hz=5.0
     - bridge_topic_out=envds/transport/compressed/edge-to-cloud
     - bridge_topic_in=envds/transport/compressed/cloud-to-edge
     

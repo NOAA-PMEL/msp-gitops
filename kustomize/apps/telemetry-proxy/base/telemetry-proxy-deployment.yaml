@@ -18,7 +18,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
         - name: telemetry-proxy
-          image: ghcr.io/noaa-pmel/msp/telemetry-proxy:0.3.0
+          image: ghcr.io/noaa-pmel/msp/telemetry-proxy:0.4.0
           imagePullPolicy: "IfNotPresent"
           env:
             - name: PROXY_MQTT_BROKER
@@ -51,6 +51,11 @@ spec:
                 configMapKeyRef:
                   name: telemetry-proxy
                   key: log_level
+            - name: PROXY_TRANSMISSION_RATE_HZ
+              valueFrom:
+                configMapKeyRef:
+                  name: telemetry-proxy
+                  key: transmission_rate_hz
             # Injected securely from the SealedSecret
             - name: PROXY_AES_ENCRYPTION_KEY
               valueFrom:
