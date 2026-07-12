@@ -6,8 +6,8 @@ metadata:
   labels:
     app: labjack-tx
 data:
-  namespace_prefix: raz1
-  envds_env_id: raz1
+  namespace_prefix: revpi2
+  envds_env_id: revpi2
   interface.conf: |
     uid: ljtx226
     attributes:

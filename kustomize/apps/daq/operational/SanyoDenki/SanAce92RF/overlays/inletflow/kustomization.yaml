@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: sanyodenki-sanace92rf
 
-namespace: raz1-hardware
+namespace: revpi2-hardware
 
 resources:
 - ../../base
@@ -14,8 +14,8 @@ nameSuffix: "-inletflow"
 configMapGenerator:
   - name: sanyodenki-sanace92rf-config
     literals:
-      - namespace_prefix=raz1
-      - envds_env_id=raz1
+      - namespace_prefix=revpi2
+      - envds_env_id=revpi2
     files:
       - operational.conf
 
@@ -26,7 +26,7 @@ configMapGenerator:
 #   name: sanyodenki-sanace92rf
 
 
-# namespace: raz1-hardware
+# namespace: revpi2-hardware
 # # namespace: crk8s-hardware
 
 # # Example configuration for the webserver
