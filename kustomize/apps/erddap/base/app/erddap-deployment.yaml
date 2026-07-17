@@ -5,7 +5,7 @@ metadata:
   labels:
     app: erddap
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: erddap
