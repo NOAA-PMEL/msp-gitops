@@ -74,7 +74,7 @@ spec:
           
       # 2. FastAPI Sidecar Proxy & Ingester
       - name: erddap-sidecar
-        image: ghcr.io/noaa-pmel/msp/erddap-sidecar:0.15.0 # Replace with your actual image/tag
+        image: ghcr.io/noaa-pmel/msp/erddap-sidecar:0.16.0 # Replace with your actual image/tag
         imagePullPolicy: Always
         securityContext:
           runAsUser: 1000
