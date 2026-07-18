@@ -9,6 +9,7 @@ resources:
 - erddap-secret-sealed.yaml
 - erddap-mw-upgrade.yaml
 # - erddap-configmap.yaml
+- erddap-tomcat-configmap.yaml
 
 configMapGenerator:
   - name: erddap
