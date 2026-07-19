@@ -3,7 +3,7 @@ kind: PingSource
 metadata:
   name: trigger-metnav-hourly-a1
   # The namespace must match your overlay namespace
-  namespace: pmel-dev-system
+  # namespace: pmel-dev-system
 spec:
   # Standard Cron Format: Minute 5 of every hour
   schedule: "5 * * * *"

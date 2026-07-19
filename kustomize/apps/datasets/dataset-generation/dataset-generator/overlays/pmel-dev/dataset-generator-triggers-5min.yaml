@@ -2,7 +2,7 @@ apiVersion: sources.knative.dev/v1
 kind: PingSource
 metadata:
   name: trigger-metnav-5min-a1
-  namespace: pmel-dev-system
+  # namespace: pmel-dev-system
 spec:
   # Standard Cron: Fires exactly every 5 minutes (0, 5, 10, 15, etc.)
   schedule: "*/5 * * * *"
