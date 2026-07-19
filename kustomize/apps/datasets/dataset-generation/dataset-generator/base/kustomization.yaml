@@ -13,4 +13,4 @@ configurations:
 configMapGenerator:
 - name: dataset-generator-calculations
   files:
-    - ../../shared-libs/calculations/base/default.py
+    - ../../../../shared-libs/calculations/base/default.py
