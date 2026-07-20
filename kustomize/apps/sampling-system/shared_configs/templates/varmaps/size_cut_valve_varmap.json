@@ -1,0 +1,56 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "varmap_size_cut_valve",
+      "sampling_namespace": "${SAMPLING_NAMESPACE}",
+      "platform": "${ENVOPS_PLATFORM_REF}",
+      "valid_config_time": "${VALVE_REVISION_TIME}",
+      "revision": 1
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Sensor",
+        "valid_config_time": "${VALVE_REVISION_TIME}"
+      },
+      "variablesets": {
+        "operations": {
+          "index": {
+            "index_type": "time",
+            "index_value": ${OPERATIONS_VARSET_TIMEBASE}
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
+        }
+      },
+      "variables": {
+        "size_cut_valve_state": {
+          "type": "int",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "valve": {
+              "source_type": "device",
+              "source_id": "${VALVE_DRIVER}::${VALVE_SN}",
+              "source_variable": "${VALVE_STATE_VAR}"
+            }
+          },
+          "direct_value": { "source_variable": "valve" },
+          "variableset": "operations",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+            "units": { "type": "string", "data": "bool" }
+          }
+        }
+      }
+    }
+  }
+]

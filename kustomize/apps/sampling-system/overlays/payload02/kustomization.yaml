@@ -23,6 +23,8 @@ configMapGenerator:
       - ../../shared_configs/templates/varmaps/primary_neph_varmap.json
       - ../../shared_configs/templates/varmaps/primary_abs_varmap.json
       - ../../shared_configs/templates/varmaps/payload02_power_varmap.json
+      - ../../shared_configs/templates/varmaps/sample_line_varmap.json
+      - ../../shared_configs/templates/varmaps/size_cut_valve_varmap.json
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization

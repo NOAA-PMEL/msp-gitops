@@ -25,6 +25,7 @@ configMapGenerator:
       - ../../shared_configs/templates/varmaps/primary_nav_varmap.json
       - ../../shared_configs/templates/varmaps/inlet_flow_varmap.json
       - ../../shared_configs/templates/varmaps/derived_wind_varmap.json
+      - ../../shared_configs/templates/varmaps/pyranometer_varmap.json
 
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
