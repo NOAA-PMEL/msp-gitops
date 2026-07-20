@@ -2,12 +2,12 @@
   {
     "version": "envds.sampling.system/v1",
     "kind": "PlatformVariableMap",
-    "metadata": { "name": "varmap_primary_opc", "sampling_namespace": "${SAMPLING_NAMESPACE}", "platform": "${ENVOPS_PLATFORM_REF}", "valid_config_time": "${OPC_REVISION_TIME}", "revision": 1 },
+    "metadata": { "name": "varmap_primary_opc", "sampling_namespace": "${SAMPLING_NAMESPACE}", "platform": "${ENVOPS_PLATFORM_REF}", "valid_config_time": "${OPC_REVISION_TIME}", "revision": 2 },
     "data": {
       "attributes": { "variablemap_type": "Sensor", "valid_config_time": "${OPC_REVISION_TIME}" },
       "variablesets": { 
         "sizing": { "index": { "index_type": "time", "index_value": ${SIZING_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } },
-        "main": { "index": { "index_type": "time", "index_value": ${MAIN_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } } 
+        "main": { "index": { "index_type": "time", "index_value": ${OPC_MAIN_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } } 
       },
       "variables": {
         "opc_diameter": { "type": "float", "shape": ["time", "diameter"], "map_type": "direct", "source": { "dp": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_DIA_VAR}" } }, "direct_value": { "source_variable": "dp" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } } },
