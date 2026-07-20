@@ -1,154 +1,19 @@
-{
-  "id": "san_hnl.metnav_hourly.a1",
-  "type": "dataset-definition",
-  "format": {
-    "filetype": "nc",
-    "standard": "DOE/ARM a1"
-  },
-  "timebase": {
-    "record_frequency_sec": 1,
-    "file_frequency": "hourly"
-  },
-  "conventions": {
-    "name": "CF-1.8",
-    "featureType": "trajectory"
-  },
-  "variables": [
-    {
-      "name": "latitude",
-      "source": {
-        "variableset_id": "varmap_primary_nav::main",
-        "variable_name": "latitude"
-      },
-      "attributes": {
-        "standard_name": "latitude",
-        "units": "degrees_north"
-      }
-    },
-    {
-      "name": "longitude",
-      "source": {
-        "variableset_id": "varmap_primary_nav::main",
-        "variable_name": "longitude"
-      },
-      "attributes": {
-        "standard_name": "longitude",
-        "units": "degrees_east"
-      }
-    },
-    {
-      "name": "altitude",
-      "static_value": 10.0,
-      "attributes": {
-        "standard_name": "altitude",
-        "units": "meters",
-        "positive": "up",
-        "description": "Static sensor height. TODO: Switch to dynamic platform variableset when available."
-      }
-    },
-    {
-      "name": "heading",
-      "source": {
-        "variableset_id": "varmap_primary_nav::main",
-        "variable_name": "platform_heading"
-      },
-      "attributes": {
-        "standard_name": "platform_orientation",
-        "units": "degrees",
-        "long_name": "Platform Heading"
-      }
-    },
-    {
-      "name": "speed",
-      "source": {
-        "variableset_id": "varmap_primary_nav::main",
-        "variable_name": "platform_speed"
-      },
-      "attributes": {
-        "standard_name": "platform_speed_wrt_ground",
-        "units": "kilometers/hour",
-        "long_name": "Platform Speed Over Ground"
-      }
-    },
-    {
-      "name": "pitch",
-      "source": {
-        "variableset_id": "varmap_primary_nav::main",
-        "variable_name": "platform_pitch"
-      },
-      "attributes": {
-        "standard_name": "platform_pitch_angle",
-        "units": "degrees",
-        "long_name": "Platform Pitch"
-      }
-    },
-    {
-      "name": "roll",
-      "source": {
-        "variableset_id": "varmap_primary_nav::main",
-        "variable_name": "platform_roll"
-      },
-      "attributes": {
-        "standard_name": "platform_roll_angle",
-        "units": "degrees",
-        "long_name": "Platform Roll"
-      }
-    },
-    {
-      "name": "heave",
-      "source": {
-        "variableset_id": "varmap_primary_nav::main",
-        "variable_name": "platform_heave"
-      },
-      "attributes": {
-        "standard_name": "platform_heave",
-        "units": "meters",
-        "long_name": "Platform Heave"
-      }
-    },
-    {
-      "name": "air_temperature",
-      "source": {
-        "variableset_id": "varmap_primary_met::main",
-        "variable_name": "air_temperature"
-      },
-      "attributes": {
-        "standard_name": "air_temperature",
-        "units": "degC"
-      }
-    },
-    {
-      "name": "relative_humidity",
-      "source": {
-        "variableset_id": "varmap_primary_met::main",
-        "variable_name": "relative_humidity"
-      },
-      "attributes": {
-        "standard_name": "relative_humidity",
-        "units": "%"
-      }
-    },
-    {
-      "name": "pressure",
-      "source": {
-        "variableset_id": "varmap_primary_met::main",
-        "variable_name": "pressure"
-      },
-      "attributes": {
-        "standard_name": "air_pressure",
-        "units": "hPa"
-      }
-    },
-    {
-      "name": "rain_intensity",
-      "source": {
-        "variableset_id": "varmap_primary_met::main",
-        "variable_name": "rain_intensity"
-      },
-      "attributes": {
-        "standard_name": "rainfall_rate",
-        "units": "mm/h"
-      }
-    }
-  ]
-}
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-metnav-hourly-a1
+  # The namespace must match your overlay namespace
+  # namespace: pmel-dev-system
+spec:
+  # Standard Cron Format: Minute 5 of every hour
+  schedule: "5 * * * *"
+  contentType: "application/json"
+  # The payload that gets POSTed to your Python app
+  data: '{ "dataset_id": "san_hnl.metnav_hourly.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      # Target our dataset generator service
+      name: dataset-generator
+    uri: /dataset/generate/request/
