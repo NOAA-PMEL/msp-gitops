@@ -10,7 +10,22 @@
         "main": { "index": { "index_type": "time", "index_value": ${OPC_MAIN_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } } 
       },
       "variables": {
-        "opc_diameter": { "type": "float", "shape": ["time", "diameter"], "map_type": "direct", "source": { "dp": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_DIA_VAR}" } }, "direct_value": { "source_variable": "dp" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } } },
+        "opc_diameter": {
+          "type": "float",
+          "shape": ["diameter"],
+          "map_type": "direct",
+          "source": { "dp": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_DIA_VAR}" } },
+          "direct_value": { "source_variable": "dp" },
+          "variableset": "sizing",
+          "index_method": ["last"],
+          "fill_strategy": { "method": "none" },
+          "attributes": {
+            "variable_type": { "type": "string", "data": "coordinate" },
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+            "units": { "type": "string", "data": "um" },
+            "native_units": { "type": "string", "data": "nm" }
+          }
+        },
         "opc_particle_counts": { "type": "int", "shape": ["time", "diameter"], "map_type": "direct", "source": { "counts": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_COUNTS_VAR}" } }, "direct_value": { "source_variable": "counts" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "count" } } },
         "opc_dN": { "type": "float", "shape": ["time", "diameter"], "map_type": "direct", "source": { "dn": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_DN_VAR}" } }, "direct_value": { "source_variable": "dn" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } } },
         "opc_dNdlogDp": { "type": "float", "shape": ["time", "diameter"], "map_type": "direct", "source": { "dndlogdp": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_DNDLOGDP_VAR}" } }, "direct_value": { "source_variable": "dndlogdp" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } } },

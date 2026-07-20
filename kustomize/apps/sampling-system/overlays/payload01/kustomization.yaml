@@ -25,6 +25,7 @@ configMapGenerator:
       - ../../shared_configs/templates/varmaps/primary_aps_varmap.json
       - ../../shared_configs/templates/varmaps/primary_smps_varmap.json
       - ../../shared_configs/templates/varmaps/payload01_power_varmap.json
+      - ../../shared_configs/templates/varmaps/sample_line_varmap.json
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization
