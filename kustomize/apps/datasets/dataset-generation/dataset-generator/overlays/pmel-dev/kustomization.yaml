@@ -9,7 +9,7 @@ resources:
   - ../../base
   - dataset-generator-triggers-daily.yaml
   - dataset-generator-triggers-hourly.yaml
-  - dataset-generator-triggers-5min.yaml
+  # - dataset-generator-triggers-5min.yaml
   - ../../../../definitions/base
 
 configMapGenerator:
