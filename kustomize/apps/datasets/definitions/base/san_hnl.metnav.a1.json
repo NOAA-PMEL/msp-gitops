@@ -161,6 +161,54 @@
         "units": "W m-2",
         "long_name": "Solar Irradiance"
       }
+    },
+    {
+      "name": "relative_wind_speed",
+      "source": {
+        "variableset_id": "varmap_primary_met::operations",
+        "variable_name": "relative_wind_speed"
+      },
+      "attributes": {
+        "standard_name": "wind_speed",
+        "units": "m/s",
+        "long_name": "Relative Wind Speed"
+      }
+    },
+    {
+      "name": "relative_wind_direction",
+      "source": {
+        "variableset_id": "varmap_primary_met::operations",
+        "variable_name": "relative_wind_direction"
+      },
+      "attributes": {
+        "standard_name": "wind_from_direction",
+        "units": "degrees",
+        "long_name": "Relative Wind Direction"
+      }
+    },
+    {
+      "name": "true_wind_speed",
+      "source": {
+        "variableset_id": "varmap_derived_wind::derived",
+        "variable_name": "true_wind_speed"
+      },
+      "attributes": {
+        "standard_name": "wind_speed",
+        "units": "m/s",
+        "long_name": "True Wind Speed"
+      }
+    },
+    {
+      "name": "true_wind_direction",
+      "source": {
+        "variableset_id": "varmap_derived_wind::derived",
+        "variable_name": "true_wind_direction"
+      },
+      "attributes": {
+        "standard_name": "wind_from_direction",
+        "units": "degrees",
+        "long_name": "True Wind Direction"
+      }
     }
   ]
 }
