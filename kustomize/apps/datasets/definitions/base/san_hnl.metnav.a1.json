@@ -13,6 +13,9 @@
     "name": "CF-1.8",
     "featureType": "trajectory"
   },
+  "attributes": {
+    "comment": "High-resolution meteorology and navigation dataset containing ship state and atmospheric conditions."
+  },
   "variables": [
     {
       "name": "latitude",
@@ -38,7 +41,7 @@
     },
     {
       "name": "altitude",
-      "static_value": 10.0,
+      "static_value": 31.6,
       "attributes": {
         "standard_name": "altitude",
         "units": "meters",

@@ -13,7 +13,42 @@
     "name": "CF-1.8",
     "featureType": "timeSeries"
   },
+  "attributes": {
+    "comment": "Aerosol physics dataset. Contains condensation nuclei concentration and flow metrics."
+  },
   "variables": [
+    {
+      "name": "latitude",
+      "source": {
+        "variableset_id": "varmap_primary_nav::main",
+        "variable_name": "latitude"
+      },
+      "attributes": {
+        "standard_name": "latitude",
+        "units": "degrees_north"
+      }
+    },
+    {
+      "name": "longitude",
+      "source": {
+        "variableset_id": "varmap_primary_nav::main",
+        "variable_name": "longitude"
+      },
+      "attributes": {
+        "standard_name": "longitude",
+        "units": "degrees_east"
+      }
+    },
+    {
+      "name": "altitude",
+      "static_value": 31.6,
+      "attributes": {
+        "standard_name": "altitude",
+        "units": "meters",
+        "positive": "up",
+        "description": "Static sensor height. TODO: Switch to dynamic platform variableset when available."
+      }
+    },
     {
       "name": "cn",
       "source": {

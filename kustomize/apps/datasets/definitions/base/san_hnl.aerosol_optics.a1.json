@@ -13,7 +13,43 @@
     "name": "CF-1.8",
     "featureType": "timeSeries"
   },
+  "attributes": {
+    "comment": "Aerosol optics dataset containing scattering and absorption coefficients.",
+    "instrument_configuration": "Brechtel TAP 2901, ACOEM Aurora 3000"
+  },
   "variables": [
+    {
+      "name": "latitude",
+      "source": {
+        "variableset_id": "varmap_primary_nav::main",
+        "variable_name": "latitude"
+      },
+      "attributes": {
+        "standard_name": "latitude",
+        "units": "degrees_north"
+      }
+    },
+    {
+      "name": "longitude",
+      "source": {
+        "variableset_id": "varmap_primary_nav::main",
+        "variable_name": "longitude"
+      },
+      "attributes": {
+        "standard_name": "longitude",
+        "units": "degrees_east"
+      }
+    },
+    {
+      "name": "altitude",
+      "static_value": 31.6,
+      "attributes": {
+        "standard_name": "altitude",
+        "units": "meters",
+        "positive": "up",
+        "description": "Static sensor height. TODO: Switch to dynamic platform variableset when available."
+      }
+    },
     {
       "name": "scatter_red",
       "source": {

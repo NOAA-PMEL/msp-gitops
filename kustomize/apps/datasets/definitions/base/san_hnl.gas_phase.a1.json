@@ -13,7 +13,42 @@
     "name": "CF-1.8",
     "featureType": "timeSeries"
   },
+  "attributes": {
+    "comment": "Gas phase dataset tracking trace atmospheric gases and general particulate matter concentrations."
+  },
   "variables": [
+    {
+      "name": "latitude",
+      "source": {
+        "variableset_id": "varmap_primary_nav::main",
+        "variable_name": "latitude"
+      },
+      "attributes": {
+        "standard_name": "latitude",
+        "units": "degrees_north"
+      }
+    },
+    {
+      "name": "longitude",
+      "source": {
+        "variableset_id": "varmap_primary_nav::main",
+        "variable_name": "longitude"
+      },
+      "attributes": {
+        "standard_name": "longitude",
+        "units": "degrees_east"
+      }
+    },
+    {
+      "name": "altitude",
+      "static_value": 31.6,
+      "attributes": {
+        "standard_name": "altitude",
+        "units": "meters",
+        "positive": "up",
+        "description": "Static sensor height. TODO: Switch to dynamic platform variableset when available."
+      }
+    },
     {
       "name": "NO2",
       "source": {
@@ -60,6 +95,42 @@
         "standard_name": "mole_fraction_of_nitrogen_monoxide_in_air",
         "units": "ppm",
         "long_name": "Nitric Oxide Concentration"
+      }
+    },
+    {
+      "name": "PM1",
+      "source": {
+        "variableset_id": "varmap_primary_gas::main",
+        "variable_name": "PM1"
+      },
+      "attributes": {
+        "standard_name": "mass_concentration_of_pm1_ambient_aerosol_particles_in_air",
+        "units": "ug/m3",
+        "long_name": "PM1 Mass Concentration"
+      }
+    },
+    {
+      "name": "PM2_5",
+      "source": {
+        "variableset_id": "varmap_primary_gas::main",
+        "variable_name": "PM2_5"
+      },
+      "attributes": {
+        "standard_name": "mass_concentration_of_pm2p5_ambient_aerosol_particles_in_air",
+        "units": "ug/m3",
+        "long_name": "PM2.5 Mass Concentration"
+      }
+    },
+    {
+      "name": "PM10",
+      "source": {
+        "variableset_id": "varmap_primary_gas::main",
+        "variable_name": "PM10"
+      },
+      "attributes": {
+        "standard_name": "mass_concentration_of_pm10_ambient_aerosol_particles_in_air",
+        "units": "ug/m3",
+        "long_name": "PM10 Mass Concentration"
       }
     }
   ]

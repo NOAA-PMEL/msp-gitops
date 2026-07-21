@@ -1,72 +1,68 @@
-[
-  {
-    "version": "envds.sampling.system/v1",
-    "kind": "PlatformVariableMap",
-    "metadata": {
-      "name": "varmap_sample_line",
-      "sampling_namespace": "${SAMPLING_NAMESPACE}",
-      "platform": "${ENVOPS_PLATFORM_REF}",
-      "valid_config_time": "${SAMPLE_LINE_REVISION_TIME}",
-      "revision": 1
+{
+  "version": "envds.sampling.system/v1",
+  "kind": "PlatformVariableMap",
+  "metadata": {
+    "name": "varmap_sample_line",
+    "sampling_namespace": "${SAMPLING_NAMESPACE}",
+    "platform": "${ENVOPS_PLATFORM_REF}",
+    "valid_config_time": "${SAMPLE_LINE_REVISION_TIME}",
+    "revision": 1
+  },
+  "data": {
+    "attributes": {
+      "variablemap_type": "Sensor",
+      "valid_config_time": "${SAMPLE_LINE_REVISION_TIME}"
     },
-    "data": {
-      "attributes": {
-        "variablemap_type": "Sensor",
-        "valid_config_time": "${SAMPLE_LINE_REVISION_TIME}"
-      },
-      "variablesets": {
-        "main": {
-          "index": {
-            "index_type": "time",
-            "index_value": ${MAIN_VARSET_TIMEBASE}
-          },
-          "attributes": {
-            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
-          }
+    "variablesets": {
+      "main": {
+        "index": {
+          "index_type": "time",
+          "index_value": ${MAIN_VARSET_TIMEBASE}
+        },
+        "attributes": {
+          "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
         }
-      },
-      "variables": {
-        "sample_line_temperature": {
-          "type": "float",
-          "shape": ["time"],
-          "map_type": "direct",
-          "source": {
-            "temp": {
-              "source_type": "device",
-              "source_id": "${SAMPLE_LINE_DRIVER}::${SAMPLE_LINE_SN}",
-              "source_variable": "${SAMPLE_LINE_TEMP_VAR}"
-            }
-          },
-          "direct_value": { "source_variable": "temp" },
-          "variableset": "main",
-          "index_method": ["round", "average"],
-          "fill_strategy": { "method": "none" },
-          "attributes": {
-            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
-            "units": { "type": "string", "data": "degrees_C" }
+      }
+    },
+    "variables": {
+      "sample_line_temperature": {
+        "type": "float",
+        "shape": ["time"],
+        "map_type": "direct",
+        "source": {
+          "temp": {
+            "source_type": "device",
+            "source_id": "${SAMPLE_LINE_DRIVER}::${SAMPLE_LINE_SN}",
+            "source_variable": "${SAMPLE_LINE_TEMP_VAR}"
           }
         },
-        "sample_line_rh": {
-          "type": "float",
-          "shape": ["time"],
-          "map_type": "direct",
-          "source": {
-            "rh": {
-              "source_type": "device",
-              "source_id": "${SAMPLE_LINE_DRIVER}::${SAMPLE_LINE_SN}",
-              "source_variable": "${SAMPLE_LINE_RH_VAR}"
-            }
-          },
-          "direct_value": { "source_variable": "rh" },
-          "variableset": "main",
-          "index_method": ["round", "average"],
-          "fill_strategy": { "method": "none" },
-          "attributes": {
-            "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
-            "units": { "type": "string", "data": "%" }
+        "variableset": "main",
+        "index_method": ["round", "average"],
+        "fill_strategy": { "method": "none" },
+        "attributes": {
+          "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+          "units": { "type": "string", "data": "degrees_C" }
+        }
+      },
+      "sample_line_rh": {
+        "type": "float",
+        "shape": ["time"],
+        "map_type": "direct",
+        "source": {
+          "rh": {
+            "source_type": "device",
+            "source_id": "${SAMPLE_LINE_DRIVER}::${SAMPLE_LINE_SN}",
+            "source_variable": "${SAMPLE_LINE_RH_VAR}"
           }
+        },
+        "variableset": "main",
+        "index_method": ["round", "average"],
+        "fill_strategy": { "method": "none" },
+        "attributes": {
+          "evaluate_by": { "type": "string", "data": "local-controller, data-server" },
+          "units": { "type": "string", "data": "%" }
         }
       }
     }
   }
-]
+}
