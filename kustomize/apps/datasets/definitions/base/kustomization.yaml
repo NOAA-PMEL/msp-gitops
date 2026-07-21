@@ -4,9 +4,9 @@ kind: Kustomization
 configMapGenerator:
   - name: dataset-definitions
     files:
-      - san_hnl.metnav.a1.json
-      - san_hnl.metnav_hourly.a1.json
-      - san_hnl.metnav_5min.a1.json
+      - san_hnl.met_nav.a1.json
+      # - san_hnl.metnav_hourly.a1.json
+      # - san_hnl.metnav_5min.a1.json
       - san_hnl.gas_phase.a1.json
       - san_hnl.aerosol_physics.a1.json
       - san_hnl.aerosol_optics.a1.json
