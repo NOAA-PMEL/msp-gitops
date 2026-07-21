@@ -3,7 +3,7 @@ kind: PingSource
 metadata:
   name: trigger-aerosol-physics-daily-a1
 spec:
-  schedule: "15 1 * * *"
+  schedule: "29 1 * * *"
   contentType: "application/json"
   data: '{ "dataset_id": "san_hnl.aerosol_physics.a1", "action": "generate", "time_window": "auto" }'
   sink:
@@ -18,7 +18,7 @@ kind: PingSource
 metadata:
   name: trigger-aerosol-optics-daily-a1
 spec:
-  schedule: "16 1 * * *"
+  schedule: "30 1 * * *"
   contentType: "application/json"
   data: '{ "dataset_id": "san_hnl.aerosol_optics.a1", "action": "generate", "time_window": "auto" }'
   sink:
@@ -33,7 +33,7 @@ kind: PingSource
 metadata:
   name: trigger-aerosol-sizing-daily-a1
 spec:
-  schedule: "17 1 * * *"
+  schedule: "31 1 * * *"
   contentType: "application/json"
   data: '{ "dataset_id": "san_hnl.aerosol_sizing.a1", "action": "generate", "time_window": "auto" }'
   sink:
