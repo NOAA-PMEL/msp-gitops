@@ -1,0 +1,159 @@
+{
+  "id": "san_hnl.aerosol_sizing.a1",
+  "type": "dataset-definition",
+  "format": {
+    "filetype": "nc",
+    "standard": "DOE/ARM a1"
+  },
+  "timebase": {
+    "record_frequency_sec": 300,
+    "file_frequency": "daily"
+  },
+  "conventions": {
+    "name": "CF-1.8",
+    "featureType": "timeSeries"
+  },
+  "variables": [
+    {
+      "name": "opc_diameter",
+      "source": {
+        "variableset_id": "varmap_primary_opc::sizing",
+        "variable_name": "opc_diameter"
+      },
+      "attributes": {
+        "standard_name": "particle_diameter",
+        "units": "um",
+        "long_name": "OPC Bin Diameter"
+      }
+    },
+    {
+      "name": "opc_dN",
+      "source": {
+        "variableset_id": "varmap_primary_opc::sizing",
+        "variable_name": "opc_dN"
+      },
+      "attributes": {
+        "standard_name": "number_concentration_of_ambient_aerosol_particles_in_air",
+        "units": "cm-3",
+        "long_name": "OPC Number Concentration (dN)"
+      }
+    },
+    {
+      "name": "opc_dNdlogDp",
+      "source": {
+        "variableset_id": "varmap_primary_opc::sizing",
+        "variable_name": "opc_dNdlogDp"
+      },
+      "attributes": {
+        "units": "cm-3",
+        "long_name": "OPC Log-normal Number Size Distribution (dN/dlogDp)"
+      }
+    },
+    {
+      "name": "smps_diameter",
+      "source": {
+        "variableset_id": "varmap_primary_smps::sizing",
+        "variable_name": "smps_diameter"
+      },
+      "attributes": {
+        "standard_name": "particle_diameter",
+        "units": "um",
+        "long_name": "SMPS Bin Diameter"
+      }
+    },
+    {
+      "name": "smps_dN",
+      "source": {
+        "variableset_id": "varmap_primary_smps::sizing",
+        "variable_name": "smps_dN"
+      },
+      "attributes": {
+        "standard_name": "number_concentration_of_ambient_aerosol_particles_in_air",
+        "units": "cm-3",
+        "long_name": "SMPS Number Concentration (dN)"
+      }
+    },
+    {
+      "name": "smps_dNdlogDp",
+      "source": {
+        "variableset_id": "varmap_primary_smps::sizing",
+        "variable_name": "smps_dNdlogDp"
+      },
+      "attributes": {
+        "units": "cm-3",
+        "long_name": "SMPS Log-normal Number Size Distribution (dN/dlogDp)"
+      }
+    },
+    {
+      "name": "aps_diameter",
+      "source": {
+        "variableset_id": "varmap_primary_aps::sizing",
+        "variable_name": "aps_diameter"
+      },
+      "attributes": {
+        "standard_name": "particle_diameter",
+        "units": "um",
+        "long_name": "APS Bin Diameter"
+      }
+    },
+    {
+      "name": "aps_dN",
+      "source": {
+        "variableset_id": "varmap_primary_aps::sizing",
+        "variable_name": "aps_dN"
+      },
+      "attributes": {
+        "standard_name": "number_concentration_of_ambient_aerosol_particles_in_air",
+        "units": "cm-3",
+        "long_name": "APS Number Concentration (dN)"
+      }
+    },
+    {
+      "name": "aps_dNdlogDp",
+      "source": {
+        "variableset_id": "varmap_primary_aps::sizing",
+        "variable_name": "aps_dNdlogDp"
+      },
+      "attributes": {
+        "units": "cm-3",
+        "long_name": "APS Log-normal Number Size Distribution (dN/dlogDp)"
+      }
+    },
+    {
+      "name": "opc_total_concentration",
+      "source": {
+        "variableset_id": "varmap_primary_opc::sizing",
+        "variable_name": "opc_intN"
+      },
+      "attributes": {
+        "standard_name": "number_concentration_of_ambient_aerosol_particles_in_air",
+        "units": "cm-3",
+        "long_name": "OPC Integrated Total Concentration"
+      }
+    },
+    {
+      "name": "smps_total_concentration",
+      "source": {
+        "variableset_id": "varmap_primary_smps::sizing",
+        "variable_name": "smps_intN"
+      },
+      "attributes": {
+        "standard_name": "number_concentration_of_ambient_aerosol_particles_in_air",
+        "units": "cm-3",
+        "long_name": "SMPS Integrated Total Concentration"
+      }
+    },
+    {
+      "name": "aps_total_concentration",
+      "source": {
+        "variableset_id": "varmap_primary_aps::sizing",
+        "variable_name": "aps_intN"
+      },
+      "attributes": {
+        "standard_name": "number_concentration_of_ambient_aerosol_particles_in_air",
+        "units": "cm-3",
+        "long_name": "APS Integrated Total Concentration"
+      }
+    }
+  ]
+}
