@@ -15,7 +15,7 @@ spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-        - image: ghcr.io/noaa-pmel/msp/dataset-generator:0.26.0 # Update with your actual registry path
+        - image: ghcr.io/noaa-pmel/msp/dataset-generator:0.27.0 # Update with your actual registry path
           envFrom:
             - configMapRef:
                 name: dataset-generator-config
