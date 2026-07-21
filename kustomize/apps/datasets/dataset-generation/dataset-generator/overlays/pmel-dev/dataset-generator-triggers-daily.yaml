@@ -1,7 +1,7 @@
 apiVersion: sources.knative.dev/v1
 kind: PingSource
 metadata:
-  name: trigger-metnav-daily-a1
+  name: trigger-met-nav-daily-a1
   # The namespace must match your overlay namespace
   # namespace: pmel-dev-system
 spec:
