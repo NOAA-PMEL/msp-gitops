@@ -1,0 +1,66 @@
+{
+  "id": "san_hnl.aerosol_physics.a1",
+  "type": "dataset-definition",
+  "format": {
+    "filetype": "nc",
+    "standard": "DOE/ARM a1"
+  },
+  "timebase": {
+    "record_frequency_sec": 1,
+    "file_frequency": "daily"
+  },
+  "conventions": {
+    "name": "CF-1.8",
+    "featureType": "timeSeries"
+  },
+  "variables": [
+    {
+      "name": "cn",
+      "source": {
+        "variableset_id": "varmap_primary_cpc::main",
+        "variable_name": "cn"
+      },
+      "attributes": {
+        "standard_name": "number_concentration_of_ambient_aerosol_particles_in_air",
+        "units": "cm-3",
+        "long_name": "Condensation Nuclei Concentration"
+      }
+    },
+    {
+      "name": "cn_flow",
+      "source": {
+        "variableset_id": "varmap_primary_cpc::main",
+        "variable_name": "cn_flow"
+      },
+      "attributes": {
+        "standard_name": "fluid_volume_transport",
+        "units": "l min-1",
+        "long_name": "CPC Sample Flow Rate"
+      }
+    },
+    {
+      "name": "sample_line_temperature",
+      "source": {
+        "variableset_id": "varmap_sample_line::main",
+        "variable_name": "sample_line_temperature"
+      },
+      "attributes": {
+        "standard_name": "air_temperature",
+        "units": "degrees_C",
+        "long_name": "Sample Line Temperature"
+      }
+    },
+    {
+      "name": "sample_line_rh",
+      "source": {
+        "variableset_id": "varmap_sample_line::main",
+        "variable_name": "sample_line_rh"
+      },
+      "attributes": {
+        "standard_name": "relative_humidity",
+        "units": "%",
+        "long_name": "Sample Line Relative Humidity"
+      }
+    }
+  ]
+}

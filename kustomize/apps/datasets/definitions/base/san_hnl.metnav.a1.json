@@ -149,6 +149,18 @@
         "standard_name": "rainfall_rate",
         "units": "mm/h"
       }
+    },
+    {
+      "name": "irradiance",
+      "source": {
+        "variableset_id": "varmap_pyranometer::main",
+        "variable_name": "irradiance"
+      },
+      "attributes": {
+        "standard_name": "surface_downwelling_shortwave_flux_in_air",
+        "units": "W m-2",
+        "long_name": "Solar Irradiance"
+      }
     }
   ]
 }

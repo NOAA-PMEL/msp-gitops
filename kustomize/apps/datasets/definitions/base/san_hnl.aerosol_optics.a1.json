@@ -1,0 +1,186 @@
+{
+  "id": "san_hnl.aerosol_optics.a1",
+  "type": "dataset-definition",
+  "format": {
+    "filetype": "nc",
+    "standard": "DOE/ARM a1"
+  },
+  "timebase": {
+    "record_frequency_sec": 1,
+    "file_frequency": "daily"
+  },
+  "conventions": {
+    "name": "CF-1.8",
+    "featureType": "timeSeries"
+  },
+  "variables": [
+    {
+      "name": "scatter_red",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "scatter_red"
+      },
+      "attributes": {
+        "standard_name": "volume_scattering_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Scattering Coefficient (Red)"
+      }
+    },
+    {
+      "name": "scatter_green",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "scatter_green"
+      },
+      "attributes": {
+        "standard_name": "volume_scattering_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Scattering Coefficient (Green)"
+      }
+    },
+    {
+      "name": "scatter_blue",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "scatter_blue"
+      },
+      "attributes": {
+        "standard_name": "volume_scattering_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Scattering Coefficient (Blue)"
+      }
+    },
+    {
+      "name": "backscatter_red",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "backscatter_red"
+      },
+      "attributes": {
+        "standard_name": "volume_backscattering_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Backscattering Coefficient (Red)"
+      }
+    },
+    {
+      "name": "backscatter_green",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "backscatter_green"
+      },
+      "attributes": {
+        "standard_name": "volume_backscattering_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Backscattering Coefficient (Green)"
+      }
+    },
+    {
+      "name": "backscatter_blue",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "backscatter_blue"
+      },
+      "attributes": {
+        "standard_name": "volume_backscattering_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Backscattering Coefficient (Blue)"
+      }
+    },
+    {
+      "name": "neph_sample_temperature",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "neph_sample_temperature"
+      },
+      "attributes": {
+        "standard_name": "air_temperature",
+        "units": "degrees_C",
+        "long_name": "Nephelometer Sample Temperature"
+      }
+    },
+    {
+      "name": "neph_sample_rh",
+      "source": {
+        "variableset_id": "varmap_primary_neph::main",
+        "variable_name": "neph_sample_rh"
+      },
+      "attributes": {
+        "standard_name": "relative_humidity",
+        "units": "%",
+        "long_name": "Nephelometer Sample Relative Humidity"
+      }
+    },
+    {
+      "name": "absorption_red",
+      "source": {
+        "variableset_id": "varmap_primary_abs::main",
+        "variable_name": "absorption_red"
+      },
+      "attributes": {
+        "standard_name": "volume_absorption_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Absorption Coefficient (Red)"
+      }
+    },
+    {
+      "name": "absorption_green",
+      "source": {
+        "variableset_id": "varmap_primary_abs::main",
+        "variable_name": "absorption_green"
+      },
+      "attributes": {
+        "standard_name": "volume_absorption_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Absorption Coefficient (Green)"
+      }
+    },
+    {
+      "name": "absorption_blue",
+      "source": {
+        "variableset_id": "varmap_primary_abs::main",
+        "variable_name": "absorption_blue"
+      },
+      "attributes": {
+        "standard_name": "volume_absorption_coefficient_in_air_due_to_ambient_aerosol_particles",
+        "units": "Mm-1",
+        "long_name": "Aerosol Absorption Coefficient (Blue)"
+      }
+    },
+    {
+      "name": "abs_sample_temperature",
+      "source": {
+        "variableset_id": "varmap_primary_abs::main",
+        "variable_name": "tap_sample_temperature"
+      },
+      "attributes": {
+        "standard_name": "air_temperature",
+        "units": "degrees_C",
+        "long_name": "TAP Sample Temperature"
+      }
+    },
+    {
+      "name": "sample_line_temperature",
+      "source": {
+        "variableset_id": "varmap_sample_line::main",
+        "variable_name": "sample_line_temperature"
+      },
+      "attributes": {
+        "standard_name": "air_temperature",
+        "units": "degrees_C",
+        "long_name": "Sample Line Temperature"
+      }
+    },
+    {
+      "name": "sample_line_rh",
+      "source": {
+        "variableset_id": "varmap_sample_line::main",
+        "variable_name": "sample_line_rh"
+      },
+      "attributes": {
+        "standard_name": "relative_humidity",
+        "units": "%",
+        "long_name": "Sample Line Relative Humidity"
+      }
+    }
+  ]
+}

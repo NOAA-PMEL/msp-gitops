@@ -1,0 +1,66 @@
+{
+  "id": "san_hnl.gas_phase.a1",
+  "type": "dataset-definition",
+  "format": {
+    "filetype": "nc",
+    "standard": "DOE/ARM a1"
+  },
+  "timebase": {
+    "record_frequency_sec": 1,
+    "file_frequency": "daily"
+  },
+  "conventions": {
+    "name": "CF-1.8",
+    "featureType": "timeSeries"
+  },
+  "variables": [
+    {
+      "name": "NO2",
+      "source": {
+        "variableset_id": "varmap_primary_gas::main",
+        "variable_name": "NO2"
+      },
+      "attributes": {
+        "standard_name": "mole_fraction_of_nitrogen_dioxide_in_air",
+        "units": "ppm",
+        "long_name": "Nitrogen Dioxide Concentration"
+      }
+    },
+    {
+      "name": "CO",
+      "source": {
+        "variableset_id": "varmap_primary_gas::main",
+        "variable_name": "CO"
+      },
+      "attributes": {
+        "standard_name": "mole_fraction_of_carbon_monoxide_in_air",
+        "units": "ppm",
+        "long_name": "Carbon Monoxide Concentration"
+      }
+    },
+    {
+      "name": "O3",
+      "source": {
+        "variableset_id": "varmap_primary_gas::main",
+        "variable_name": "O3"
+      },
+      "attributes": {
+        "standard_name": "mole_fraction_of_ozone_in_air",
+        "units": "ppm",
+        "long_name": "Ozone Concentration"
+      }
+    },
+    {
+      "name": "NO",
+      "source": {
+        "variableset_id": "varmap_primary_gas::main",
+        "variable_name": "NO"
+      },
+      "attributes": {
+        "standard_name": "mole_fraction_of_nitrogen_monoxide_in_air",
+        "units": "ppm",
+        "long_name": "Nitric Oxide Concentration"
+      }
+    }
+  ]
+}
