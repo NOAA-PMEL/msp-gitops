@@ -17,3 +17,48 @@ spec:
       # Target our dataset generator service
       name: dataset-generator
     uri: /dataset/generate/request/
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-aerosol-physics-daily-a1
+spec:
+  schedule: "16 0 * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.aerosol_physics.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-aerosol-optics-daily-a1
+spec:
+  schedule: "17 0 * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.aerosol_optics.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-aerosol-sizing-daily-a1
+spec:
+  schedule: "18 0 * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.aerosol_sizing.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/
