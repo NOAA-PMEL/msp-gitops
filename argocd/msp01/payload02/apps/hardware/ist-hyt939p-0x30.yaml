@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ist-hyt939p-0x34
+  name: ist-hyt939p-0x30
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
-    path: kustomize/apps/daq/sensors/IST/HYT939P/overlays/0x34
+    path: kustomize/apps/daq/sensors/IST/HYT939P/overlays/0x30
     # kustomize:
     #   patches:
     #     - patch: |-

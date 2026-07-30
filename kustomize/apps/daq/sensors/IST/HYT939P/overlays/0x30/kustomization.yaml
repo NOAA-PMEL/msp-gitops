@@ -24,7 +24,7 @@ resources:
 - ../../base
 - hyt939p-configmap.yaml
 
-nameSuffix: "-0x34"
+nameSuffix: "-0x30"
 
 # patchesStrategicMerge:
 #   - deployment.yaml
@@ -37,7 +37,7 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: ist-hyt939p-config-0x34
+        value: ist-hyt939p-config-0x30
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-0x34
+        value: sensor-definition-0x30
