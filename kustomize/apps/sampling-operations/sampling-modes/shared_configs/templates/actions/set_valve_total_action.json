@@ -1,0 +1,23 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingAction",
+        "metadata": {
+            "name": "set_valve_total_aerosol",
+            "action_module": "actions.${ACTIONS_MODULE}",
+            "action_def": "set_valve_total_aerosol",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "execution_node": "${DAQ_ID}",
+            "valid_config_time": "${ACTIONS_REVISION_TIME}",
+            "revision": 1
+        },
+        "sources": {},
+        "targets": {
+            "size_cut_valve_state_sp": {
+                "variablemap_name": "${VALVE_VARMAP}",
+                "variableset_name": "operations",
+                "variable": "size_cut_valve_state_sp"
+            }
+        }
+    }
+]
