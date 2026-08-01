@@ -6,7 +6,7 @@
             "name": "startup",
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
             "valid_config_time": "${SYSTEM_MODES_REVISION_TIME}",
-            "revision": 1
+            "revision": 2
         },
         "requirements": [
             {
@@ -26,6 +26,14 @@
                 "name": "startup_step4_absorb"
             }
         ],
-        "transitions": {}
+        "transitions": {
+            "true": [
+                {
+                    "kind": "SystemMode",
+                    "name": "normal"
+                }
+            ],
+            "false": []
+        }
     }
 ]

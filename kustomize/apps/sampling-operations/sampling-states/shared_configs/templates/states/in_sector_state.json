@@ -13,16 +13,16 @@
                 "kind": "SamplingCondition",
                 "name": "sampling_wind_direction_limit",
                 "required_time_to_transition": {
-                    "to_become_false": 5,
-                    "to_become_true": 10
+                    "to_become_false": 10,
+                    "to_become_true": 60
                 }
             },
             {
                 "kind": "SamplingCondition",
                 "name": "sampling_wind_speed_limit",
                 "required_time_to_transition": {
-                    "to_become_false": 5,
-                    "to_become_true": 10
+                    "to_become_false": 10,
+                    "to_become_true": 60
                 }
             }
         ]

@@ -21,8 +21,8 @@
                     "sources": [
                         "relative_wind_direction"
                     ],
-                    "max_val": 180.0,
-                    "min_val": -180.0,
+                    "max_val": 95.0,
+                    "min_val": -120.0,
                     "true_if": "inside"
                 }
             ]

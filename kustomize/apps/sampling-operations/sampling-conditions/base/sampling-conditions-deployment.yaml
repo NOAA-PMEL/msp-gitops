@@ -18,7 +18,7 @@ spec:
       - name: ghcr-ro-secret
       containers:
         - name: sampling-conditions
-          image: ghcr.io/noaa-pmel/msp/sampling-conditions:0.4.0
+          image: ghcr.io/noaa-pmel/msp/sampling-conditions:0.5.0
           imagePullPolicy: "IfNotPresent"
           
           # This line natively injects SAMPLING_NAMESPACE and ENVOPS_DEPLOYMENT_REF into the pod!

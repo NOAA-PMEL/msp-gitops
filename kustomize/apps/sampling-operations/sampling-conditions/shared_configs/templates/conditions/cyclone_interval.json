@@ -1,0 +1,21 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "cyclone_interval_active",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {},
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "TimeModulo",
+                    "interval_minutes": 30,
+                    "active_minutes": 15
+                }
+            ]
+        }
+    }
+]

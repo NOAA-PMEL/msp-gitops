@@ -13,6 +13,7 @@ configMapGenerator:
     files:
       - ../../shared_configs/templates/states/in_sector_state.json
       - ../../shared_configs/templates/states/nominal_concentrations_state.json
+      - ../../shared_configs/templates/states/nominal_location_state.json
       - ../../shared_configs/templates/states/marjorie_c_nominal_location_state.json
       - ../../shared_configs/templates/states/telemetry_verified_state.json
       - ../../shared_configs/templates/states/cascade_ready_state.json

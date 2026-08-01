@@ -3,7 +3,7 @@
         "version": "envds.sampling.operations/v1",
         "kind": "SamplingState",
         "metadata": {
-            "name": "nominal_concentrations",
+            "name": "cyclone_interval_active",
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
             "valid_config_time": "${STATES_REVISION_TIME}",
             "revision": 1
@@ -11,10 +11,10 @@
         "requirements": [
             {
                 "kind": "SamplingCondition",
-                "name": "cn_limit",
+                "name": "cyclone_interval_active",
                 "required_time_to_transition": {
-                    "to_become_false": 10,
-                    "to_become_true": 60
+                    "to_become_true": 0,
+                    "to_become_false": 0
                 }
             }
         ]
