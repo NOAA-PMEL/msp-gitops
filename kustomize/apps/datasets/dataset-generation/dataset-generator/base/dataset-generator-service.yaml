@@ -10,12 +10,12 @@ spec:
       annotations:
         # Keeping at 1 for dev/debugging so you can read logs immediately. 
         # Change to "0" when you want true scale-to-zero in production.
-        autoscaling.knative.dev/min-scale: "1" 
+        autoscaling.knative.dev/min-scale: "0" 
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-        - image: ghcr.io/noaa-pmel/msp/dataset-generator:0.29.0 # Update with your actual registry path
+        - image: ghcr.io/noaa-pmel/msp/dataset-generator:0.30.0 # Update with your actual registry path
           envFrom:
             - configMapRef:
                 name: dataset-generator-config
