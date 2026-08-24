@@ -1,0 +1,86 @@
+{
+    "attributes": {
+        "make": {
+            "type": "string",
+            "data": "Sensirion"
+        },
+        "model": {
+            "type": "string",
+            "data": "SDP810"
+        },
+        "description": {
+            "type": "string",
+            "data": "Differential Pressure Sensor"
+        },
+        "tags": {
+            "type": "char",
+            "data": "pressure, temperature, flow, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, setting, calibration"
+        },
+        "serial_number": {
+            "type": "string",
+            "data": ""
+        },
+        "change_log": {
+            "type": "string",
+            "data": ""
+        }
+    },
+    "dimensions": {
+        "time": 0
+    },
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "string", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "string", "data": "idle, sampling, maintenance, error"},
+                "default_value": {"type": "string", "data": "sampling"}
+            }
+        },
+        "temperature": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Temperature"},
+                "units": {"type": "char", "data": "degree_C"}
+            }
+        },
+        "pressure": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Pressure Difference"},
+                "units": {"type": "char", "data": "Pa"}
+            }
+        },
+        "flow": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "char", "data": "Relative Humidity"},
+                "units": {"type": "char", "data": "LPM"}
+            }
+        }
+    }
+}
