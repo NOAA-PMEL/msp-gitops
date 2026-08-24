@@ -21,7 +21,7 @@ namespace: payload02-system
 
 resources:
 - ../../base
-- mqtt-pv.yaml
+# - mqtt-pv.yaml
 - mqtt-configmap.yaml
 
 # patchesStrategicMerge:

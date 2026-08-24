@@ -12,29 +12,29 @@ configMapGenerator:
     files:
       - system_modes_modes.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# generatorOptions:
+#  disableNameSuffixHash: true
 
 # Suffix used across the mspbase01 deployment
-nameSuffix: "-mspbase01"
+# nameSuffix: "-mspbase01"
 
-patches:
-  # Ensure the Service volume (index 0) points to the suffixed ConfigMap
-  - target:
-      kind: Service
-      name: system-modes
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: system-modes-modes-mspbase01
+# patches:
+#   # Ensure the Service volume (index 0) points to the suffixed ConfigMap
+#   - target:
+#       kind: Service
+#       name: system-modes
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: system-modes-modes-mspbase01
   
-  # Ensure the Triggers route traffic to the suffixed Service
-  - target:
-      kind: Trigger
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: system-modes-mspbase01
+#   # Ensure the Triggers route traffic to the suffixed Service
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: system-modes-mspbase01
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml

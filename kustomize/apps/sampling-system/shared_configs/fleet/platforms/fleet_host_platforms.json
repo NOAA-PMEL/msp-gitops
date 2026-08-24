@@ -1,0 +1,30 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": { "name": "platform.pmel.msp_enclosure_01", "sampling_namespace": "pmel.noaa.gov" },
+    "revision-time": "2026-05-20T00:00:00Z",
+    "data": { "display_name": "MSP Enclosure 01", "platform_type": "MSP_Enclosure", "identifiers": { "serial_number": "MSP-01" } }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": { "name": "platform.pmel.wrc_marina", "sampling_namespace": "pmel.noaa.gov" },
+    "revision-time": "2026-05-21T00:00:00Z",
+    "data": { "display_name": "NOAA WRC Marina", "platform_type": "Fixed Station", "location": { "lat": 47.686, "lon": -122.256 } }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": { "name": "platform.pasha.marjorie_c", "sampling_namespace": "pmel.noaa.gov" },
+    "revision-time": "2026-05-21T00:00:00Z",
+    "data": { "display_name": "M/V Marjorie C", "platform_type": "Vessel", "identifiers": { "imo_number": "9614000" } }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": { "name": "platform.pmel.acg_alvan", "sampling_namespace": "pmel.noaa.gov" },
+    "revision-time": "2026-06-12T00:00:00Z",
+    "data": { "display_name": "ALVAN 20' Container", "platform_type": "Container", "identifiers": { "serial_number": "ACG-ALVAN" } }
+  }
+]

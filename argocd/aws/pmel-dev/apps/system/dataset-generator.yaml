@@ -11,6 +11,9 @@ spec:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
     path: kustomize/apps/datasets/dataset-generation/dataset-generator/overlays/pmel-dev
+    kustomize:
+      # ---> THIS FORCES THE FLAG ON NEWER ARGOCD VERSIONS <---
+      buildOptions: "--load-restrictor LoadRestrictionsNone"
     # kustomize:
     #   patches:
     #     - patch: |-

@@ -1,0 +1,45 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "telemetry_active",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "gps_lat": {
+                "variablemap_name": "${NAV_VARMAP}",
+                "variableset_name": "main",
+                "variable": "latitude"
+            },
+            "air_temp": {
+                "variablemap_name": "${MET_VARMAP}",
+                "variableset_name": "main",
+                "variable": "air_temperature"
+            }
+        },
+        "criteria": {
+            "any": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "gps_lat"
+                    ],
+                    "min_val": -90.0,
+                    "max_val": 90.0,
+                    "true_if": "inside"
+                },
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "air_temp"
+                    ],
+                    "min_val": -80.0,
+                    "max_val": 80.0,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]

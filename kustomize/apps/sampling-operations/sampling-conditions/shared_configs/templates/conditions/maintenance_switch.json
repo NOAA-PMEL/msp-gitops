@@ -1,0 +1,31 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "maintenance_switch_on",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "maint_switch": {
+                "variablemap_name": "${MAINT_VARMAP}",
+                "variableset_name": "operations",
+                "variable": "maintenance_switch"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "maint_switch"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]

@@ -19,7 +19,7 @@ spec:
       containers:
       - name: kippzonen-splite2
         image: ghcr.io/noaa-pmel/msp/kippzonen-splite2:0.3.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:

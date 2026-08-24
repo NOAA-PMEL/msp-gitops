@@ -1,0 +1,63 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": { 
+      "name": "revpi1_power", 
+      "sampling_namespace": "${SAMPLING_NAMESPACE}", 
+      "platform": "${ENVOPS_PLATFORM_REF}", 
+      "valid_config_time": "${POWER_REVISION_TIME}", 
+      "revision": 1 
+    },
+    "data": {
+      "attributes": { 
+        "variablemap_type": "Sensor", 
+        "valid_config_time": "${POWER_REVISION_TIME}" 
+      },
+      "variablesets": { 
+        "power": { 
+          "index": { "index_type": "time", "index_value": ${POWER_VARSET_TIMEBASE} }, 
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } 
+        } 
+      },
+      "variables": {
+        "power_smps": { 
+          "type": "int", 
+          "variable_type": "setting", 
+          "shape": ["time"], 
+          "map_type": "direct", 
+          "direct_value": {"source_variable": "power_smps"}, 
+          "source": { "power_smps": { "source_type": "controller", "source_id": "${POWER_PRO3_DRIVER}::${POWER_PRO3_SN}", "source_variable": "channel_1_power" } }, 
+          "variableset": "power", 
+          "index_method": ["last"], 
+          "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, 
+          "attributes": { "long_name": {"type": "string", "data": "SMPS Power"} } 
+        },
+        "power_cpc": { 
+          "type": "int", 
+          "variable_type": "setting", 
+          "shape": ["time"], 
+          "map_type": "direct", 
+          "direct_value": {"source_variable": "power_cpc"}, 
+          "source": { "power_cpc": { "source_type": "controller", "source_id": "${POWER_PRO3_DRIVER}::${POWER_PRO3_SN}", "source_variable": "channel_2_power" } }, 
+          "variableset": "power", 
+          "index_method": ["last"], 
+          "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, 
+          "attributes": { "long_name": {"type": "string", "data": "CPC Power"} } 
+        },
+        "power_aps": { 
+          "type": "int", 
+          "variable_type": "setting", 
+          "shape": ["time"], 
+          "map_type": "direct", 
+          "direct_value": {"source_variable": "power_aps"}, 
+          "source": { "power_aps": { "source_type": "controller", "source_id": "${POWER_PRO1_DRIVER}::${POWER_PRO1_SN}", "source_variable": "channel_0_power" } }, 
+          "variableset": "power", 
+          "index_method": ["last"], 
+          "fill_strategy": { "method": "forward_fill", "max_age_seconds": 10 }, 
+          "attributes": { "long_name": {"type": "string", "data": "APS Power"} } 
+        }
+      }
+    }
+  }
+]

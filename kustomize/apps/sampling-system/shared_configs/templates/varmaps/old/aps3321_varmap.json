@@ -1,0 +1,112 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "varmap_aps3321",
+      "sampling_namespace": "pmel.noaa.gov",
+      "platform": "${ENVOPS_PLATFORM_REF}",
+      "valid_config_time": "${APS3321_REVISION_TIME}"
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Platform",
+        "platform": "${ENVOPS_PLATFORM_REF}"
+      },
+      "variablesets": {
+        "main": { "index": { "index_type": "time", "index_value": 1 } },
+        "sizing": { "index": { "index_type": "time", "index_value": 60 } }
+      },
+      "variables": {
+        "aps_diameter": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dp": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "diameter" } },
+          "direct_value": { "source_variable": "dp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "um" } }
+        },
+        "aps_particle_counts": {
+          "type": "int",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "counts": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "particle_counts" } },
+          "direct_value": { "source_variable": "counts" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "count" } }
+        },
+        "aps_dN": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dn": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "dN" } },
+          "direct_value": { "source_variable": "dn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "aps_dNdlogDp": {
+          "type": "float",
+          "shape": ["time", "diameter"],
+          "map_type": "direct",
+          "source": { "dndlogdp": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "dNdlogDp" } },
+          "direct_value": { "source_variable": "dndlogdp" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "aps_intN": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "intn": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "intN" } },
+          "direct_value": { "source_variable": "intn" },
+          "variableset": "sizing",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } }
+        },
+        "aps_total_flow": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "tflow": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "total_flow" } },
+          "direct_value": { "source_variable": "total_flow" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
+        },
+        "aps_sheath_flow": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "sflow": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "sheath_flow" } },
+          "direct_value": { "source_variable": "sheath_flow" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } }
+        },
+        "aps_inlet_temperature": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "itemp": { "source_type": "device", "source_id": "TSI::APS3321::${APS3321_SN}", "source_variable": "inlet_temperature" } },
+          "direct_value": { "source_variable": "inlet_temperature" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } }
+        }
+      }
+    }
+  }
+]

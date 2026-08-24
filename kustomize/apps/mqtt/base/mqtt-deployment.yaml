@@ -24,7 +24,8 @@ spec:
         # image: envds-registry:5000/core/eclipse-mosquitto:2.0.14
         # image: envds-registry:5000/core/eclipse-mosquitto:2.0.15
         # image: registry-msp:5000/msp/eclipse-mosquitto:2.0.21
-        image: eclipse-mosquitto:2.0.21
+        # image: eclipse-mosquitto:2.0.21
+        image: eclipse-mosquitto:openssl
         resources:
           requests:
             cpu: "350m"
@@ -43,8 +44,8 @@ spec:
             - name: mqtt-config
               mountPath: /mosquitto/config/mosquitto.conf
               subPath: mosquitto.conf
-            - name: mosquitto-storage
-              mountPath: /mosquitto/data
+            # - name: mosquitto-storage
+            #   mountPath: /mosquitto/data
             # - name: mosquitto-certs
             #   mountPath: /certs/ca.crt
             #   subPath: ca.crt
@@ -58,9 +59,9 @@ spec:
         - name: mqtt-config
           configMap:
             name: mqtt-config
-        - name: mosquitto-storage
-          persistentVolumeClaim:
-            claimName: mqtt-pvc
+        # - name: mosquitto-storage
+        #   persistentVolumeClaim:
+        #     claimName: mqtt-pvc
         # - name: mosquitto-certs
         #   configMap:
         #     name: mosquitto-certs

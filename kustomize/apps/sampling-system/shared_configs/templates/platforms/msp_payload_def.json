@@ -1,0 +1,23 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Platform",
+    "metadata": {
+      "name": "${ENVOPS_PLATFORM_REF}",
+      "sampling_namespace": "pmel.noaa.gov"
+    },
+    "revision-time": "${PLATFORM_REVISION_TIME}",
+    "data": {
+      "display_name": "${ENVOPS_PLATFORM_DISPLAY_NAME}",
+      "platform_type": "MSP_Payload",
+      "owner": "Local",
+      "description": "Aerosol physics payload housed in a container/enclosure.",
+      "contacts": [""],
+      "interface": {
+        "power-input": ["input-24v-ups", "input-24v", "input-110v"],
+        "network": ["internal", "external"],
+        "sample-input": ["sample-line-01"]
+      }
+    }
+  }
+]

@@ -2,21 +2,52 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sampling-conditions
-  # namespace: msp-system
 data:
   daq_id: raz1
 
+  # --- 1. GITOPS IDENTITY INJECTION ---
+  SAMPLING_NAMESPACE: "pmel.noaa.gov"
   ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_03_in_msp_01"
-
+  CONDITIONS_REVISION_TIME: "2026-06-16T07:58:00Z"
+  
+  # --- 2. SENSOR-AGNOSTIC WIRING FOR CONDITIONS ---
+  # Wire external/internal feeds to the conditions
+  EXT_CPC_VARMAP: "varmap_primary_cpc"
+  EXT_CPC_VARSET: "main"
+  EXT_CPC_VAR: "cn"
+  
+  NAV_VARMAP: "varmap_primary_nav"
+  MET_VARMAP: "varmap_primary_met"
+  DERIVED_WIND_VARMAP: "varmap_derived_wind"
+  MAINT_VARMAP: "varmap_inlet_flow"
+  
+  # --- 3. DAQ CONFIGS ---
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/raz1-system/default"
-
   mqtt_broker: "mqtt.raz1-system"
   mqtt_topic_subscriptions: >
     envds/+/variableset/+/data/#
-
   mqtt_port: "1883"
 
-# off
-    # envds/+/+/+/data/update,   
-    # envds/+/+/+/controller/data/update   
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: sampling-conditions
+#   # namespace: msp-system
+# data:
+#   daq_id: raz1
+
+#   ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_03_in_msp_01"
+
+#   port: "8080"
+#   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/raz1-system/default"
+
+#   mqtt_broker: "mqtt.raz1-system"
+#   mqtt_topic_subscriptions: >
+#     envds/+/variableset/+/data/#
+
+#   mqtt_port: "1883"
+
+# # off
+#     # envds/+/+/+/data/update,   
+#     # envds/+/+/+/controller/data/update   

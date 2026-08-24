@@ -1,0 +1,22 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Contact",
+    "metadata": { "name": "contact.pmel.jane_smith", "sampling_namespace": "pmel.noaa.gov" },
+    "data": {
+      "name": "Dr. Jane Smith",
+      "email": "jane.smith@noaa.gov",
+      "institution": "NOAA PMEL"
+    }
+  },
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Contact",
+    "metadata": { "name": "contact.pmel.hardware_lead", "sampling_namespace": "pmel.noaa.gov" },
+    "data": {
+      "name": "Hardware Engineering Team",
+      "email": "hardware.team@noaa.gov",
+      "institution": "NOAA PMEL"
+    }
+  }
+]

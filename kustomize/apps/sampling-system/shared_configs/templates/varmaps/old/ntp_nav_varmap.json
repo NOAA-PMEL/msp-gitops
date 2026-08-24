@@ -1,0 +1,45 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "varmap_ntp_nav",
+      "sampling_namespace": "pmel.noaa.gov",
+      "platform": "${ENVOPS_PLATFORM_REF}",
+      "valid_config_time": "${NTP_REVISION_TIME}"
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Platform",
+        "platform": "${ENVOPS_PLATFORM_REF}"
+      },
+      "variablesets": {
+        "main": { "index": { "index_type": "time", "index_value": 1 } }
+      },
+      "variables": {
+        "latitude": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "latitude": { "source_type": "device", "source_id": "PhoenixContact::NTP::${NTP_SN}", "source_variable": "lat" } },
+          "direct_value": { "source_variable": "latitude" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_north" } }
+        },
+        "longitude": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": { "longitude": { "source_type": "device", "source_id": "PhoenixContact::NTP::${NTP_SN}", "source_variable": "lon" } },
+          "direct_value": { "source_variable": "longitude" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_east" } }
+        }
+      }
+    }
+  }
+]

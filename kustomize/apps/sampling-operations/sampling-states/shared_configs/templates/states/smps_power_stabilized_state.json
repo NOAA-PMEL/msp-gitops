@@ -1,0 +1,22 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "smps_power_stabilized",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${STATES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingCondition",
+                "name": "smps_is_on",
+                "required_time_to_transition": {
+                    "to_become_true": 2,
+                    "to_become_false": 0
+                }
+            }
+        ]
+    }
+]

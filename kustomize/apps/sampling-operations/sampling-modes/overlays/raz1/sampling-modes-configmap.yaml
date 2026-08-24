@@ -2,22 +2,51 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sampling-modes
-  # namespace: msp-system
 data:
   daq_id: raz1
+  DAQ_ID: raz1
 
+  # --- GITOPS IDENTITY INJECTION ---
+  SAMPLING_NAMESPACE: "pmel.noaa.gov"
   ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_03_in_msp_01"
+  ACTIONS_REVISION_TIME: "2026-06-16T08:36:30Z"
+  
+  # --- SENSOR-AGNOSTIC WIRING ---
+  ACTIONS_MODULE: "beacons_msp"
+  NAV_VARMAP: "payload_03"
+  OPERATIONS_VARMAP: "payload_03"
   
   port: "8080"
   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/raz1-system/default"
-
-  is_primary_controller: "true" # ADD THIS LINE
+  is_primary_controller: "true"
 
   mqtt_broker: "mqtt.raz1-system"
   mqtt_topic_subscriptions: >
     envds/+/+/+/data/#,
     envds/+/sampling-states/#,
     envds/raz1/sampling-modes/#
-
-
   mqtt_port: "1883"
+  
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: sampling-modes
+#   # namespace: msp-system
+# data:
+#   daq_id: raz1
+
+#   ENVOPS_DEPLOYMENT_REF: "deploy.pmel.payload_03_in_msp_01"
+  
+#   port: "8080"
+#   knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/raz1-system/default"
+
+#   is_primary_controller: "true" # ADD THIS LINE
+
+#   mqtt_broker: "mqtt.raz1-system"
+#   mqtt_topic_subscriptions: >
+#     envds/+/+/+/data/#,
+#     envds/+/sampling-states/#,
+#     envds/raz1/sampling-modes/#
+
+
+#   mqtt_port: "1883"

@@ -31,12 +31,12 @@ patches:
     target: 
       kind: Deployment
       name: mqtt
-  - target:
-      kind: PersistentVolumeClaim
-      name: mqtt-pvc
-    patch: |-
-      - op: remove 
-        path: /spec/volumeName
+  # - target:
+  #     kind: PersistentVolumeClaim
+  #     name: mqtt-pvc
+  #   patch: |-
+  #     - op: remove 
+  #       path: /spec/volumeName
   - target:
       kind: Service
       name: mqtt

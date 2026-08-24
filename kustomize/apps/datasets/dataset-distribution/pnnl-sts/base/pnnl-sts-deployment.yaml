@@ -19,7 +19,7 @@ spec:
         - name: ghcr-ro-secret
       containers:
         - name: pnnl-sts
-          image: ghcr.io/noaa-pmel/msp/pnnl-sts:0.1.0
+          image: ghcr.io/noaa-pmel/msp/pnnl-sts:0.2.0
           imagePullPolicy: Always 
           
           envFrom:

@@ -6,7 +6,7 @@ metadata:
 data:
   daq_id: pmel-dev
 
-  deployment_ref: "deploy.pmel.msp_enclosure_01_at_marina"
+  deployment_ref: "deploy.pmel.msp_enclosure_01_on_marjorie_c"
   
   port: "8080"
   # knative_broker: "http://broker-ingress.knative-eventing.svc.cluster.local/pmel-dev-system/default"

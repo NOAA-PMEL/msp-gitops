@@ -17,7 +17,7 @@
     {
       "name": "latitude",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_nav::main",
         "variable_name": "latitude"
       },
       "attributes": {
@@ -28,7 +28,7 @@
     {
       "name": "longitude",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_nav::main",
         "variable_name": "longitude"
       },
       "attributes": {
@@ -49,7 +49,7 @@
     {
       "name": "heading",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_nav::main",
         "variable_name": "platform_heading"
       },
       "attributes": {
@@ -61,7 +61,7 @@
     {
       "name": "speed",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_nav::main",
         "variable_name": "platform_speed"
       },
       "attributes": {
@@ -73,7 +73,7 @@
     {
       "name": "pitch",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_nav::main",
         "variable_name": "platform_pitch"
       },
       "attributes": {
@@ -85,7 +85,7 @@
     {
       "name": "roll",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_nav::main",
         "variable_name": "platform_roll"
       },
       "attributes": {
@@ -97,7 +97,7 @@
     {
       "name": "heave",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_nav::main",
         "variable_name": "platform_heave"
       },
       "attributes": {
@@ -109,7 +109,7 @@
     {
       "name": "air_temperature",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_met::main",
         "variable_name": "air_temperature"
       },
       "attributes": {
@@ -120,7 +120,7 @@
     {
       "name": "relative_humidity",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_met::main",
         "variable_name": "relative_humidity"
       },
       "attributes": {
@@ -131,7 +131,7 @@
     {
       "name": "pressure",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_met::main",
         "variable_name": "pressure"
       },
       "attributes": {
@@ -142,7 +142,7 @@
     {
       "name": "rain_intensity",
       "source": {
-        "variableset_id": "payload_03::main",
+        "variableset_id": "varmap_primary_met::main",
         "variable_name": "rain_intensity"
       },
       "attributes": {

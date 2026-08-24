@@ -19,7 +19,7 @@ spec:
       containers:
       # - name: mqtt-bridge
       - image: ghcr.io/noaa-pmel/msp/mqtt-bridge:0.1.0
-        imagePullPolicy: "Always"
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: MQTT_BRIDGE_LOCAL_MQTT_BROKER
             valueFrom:

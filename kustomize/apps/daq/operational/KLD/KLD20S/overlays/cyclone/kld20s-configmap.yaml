@@ -17,4 +17,4 @@ data:
         path: dac-0 
 
     settings:
-      valve_state: 0 # initialize valve off (e.g., total aerosol line)
+      valve_state_sp: 0 # initialize valve off (e.g., total aerosol line)

@@ -4,5 +4,5 @@ metadata:
   name: sampling-modes
 
 resources:
-- sampling-modes-service.yaml
-# - sampling-modes-triggers.yaml
+  - sampling-modes-deployment.yaml
+  - sampling-modes-service.yaml

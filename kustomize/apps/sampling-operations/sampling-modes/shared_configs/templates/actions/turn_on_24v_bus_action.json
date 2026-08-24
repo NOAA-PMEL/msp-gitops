@@ -1,0 +1,23 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingAction",
+        "metadata": {
+            "name": "turn_on_24v_bus",
+            "action_module": "actions.${ACTIONS_MODULE}",
+            "action_def": "turn_on_24v_bus",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "execution_node": "${DAQ_ID}",
+            "valid_config_time": "${ACTIONS_REVISION_TIME}",
+            "revision": 1
+        },
+        "sources": {},
+        "targets": {
+            "power_24v_bus": {
+                "variablemap_name": "${POWER_VARMAP}",
+                "variableset_name": "power",
+                "variable": "power_24v_bus"
+            }
+        }
+    }
+]

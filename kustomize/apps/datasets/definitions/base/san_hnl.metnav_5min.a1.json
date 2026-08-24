@@ -16,12 +16,12 @@
   "variables": [
     {
       "name": "latitude",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "latitude" },
+      "source": { "variableset_id": "varmap_primary_nav::main", "variable_name": "latitude" },
       "attributes": { "standard_name": "latitude", "units": "degrees_north" }
     },
     {
       "name": "longitude",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "longitude" },
+      "source": { "variableset_id": "varmap_primary_nav::main", "variable_name": "longitude" },
       "attributes": { "standard_name": "longitude", "units": "degrees_east" }
     },
     {
@@ -31,47 +31,47 @@
     },
     {
       "name": "heading",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "platform_heading" },
+      "source": { "variableset_id": "varmap_primary_nav::main", "variable_name": "platform_heading" },
       "attributes": { "standard_name": "platform_orientation", "units": "degrees" }
     },
     {
       "name": "speed",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "platform_speed" },
+      "source": { "variableset_id": "varmap_primary_nav::main", "variable_name": "platform_speed" },
       "attributes": { "standard_name": "platform_speed_wrt_ground", "units": "kilometers/hour" }
     },
     {
       "name": "pitch",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "platform_pitch" },
+      "source": { "variableset_id": "varmap_primary_nav::main", "variable_name": "platform_pitch" },
       "attributes": { "standard_name": "platform_pitch_angle", "units": "degrees" }
     },
     {
       "name": "roll",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "platform_roll" },
+      "source": { "variableset_id": "varmap_primary_nav::main", "variable_name": "platform_roll" },
       "attributes": { "standard_name": "platform_roll_angle", "units": "degrees" }
     },
     {
       "name": "heave",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "platform_heave" },
+      "source": { "variableset_id": "varmap_primary_nav::main", "variable_name": "platform_heave" },
       "attributes": { "standard_name": "platform_heave", "units": "meters" }
     },
     {
       "name": "air_temperature",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "air_temperature" },
+      "source": { "variableset_id": "varmap_primary_met::main", "variable_name": "air_temperature" },
       "attributes": { "standard_name": "air_temperature", "units": "degC" }
     },
     {
       "name": "relative_humidity",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "relative_humidity" },
+      "source": { "variableset_id": "varmap_primary_met::main", "variable_name": "relative_humidity" },
       "attributes": { "standard_name": "relative_humidity", "units": "%" }
     },
     {
       "name": "pressure",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "pressure" },
+      "source": { "variableset_id": "varmap_primary_met::main", "variable_name": "pressure" },
       "attributes": { "standard_name": "air_pressure", "units": "hPa" }
     },
     {
       "name": "rain_intensity",
-      "source": { "variableset_id": "payload_03::main", "variable_name": "rain_intensity" },
+      "source": { "variableset_id": "varmap_primary_met::main", "variable_name": "rain_intensity" },
       "attributes": { "standard_name": "rainfall_rate", "units": "mm/h" }
     }
   ]

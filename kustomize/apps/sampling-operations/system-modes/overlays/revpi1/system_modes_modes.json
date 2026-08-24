@@ -1,13 +1,19 @@
 [
     {
-        "version": "envds.system.operations/v1",
+        "version": "envds.system.modes/v1",
         "kind": "SystemMode",
         "metadata": {
             "name": "normal",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_alvan_01_in_acg_alvan",
-            "valid_config_time": "2026-06-12T00:00:00Z"
+            "valid_config_time": "2026-06-23T21:00:00Z",
+            "revision": 2
         },
-        "requirements": [],
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "nominal_sampling"
+            }
+        ],
         "transitions": {}
     }
 ]

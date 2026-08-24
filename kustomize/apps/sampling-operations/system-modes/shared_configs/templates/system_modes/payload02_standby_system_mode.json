@@ -1,0 +1,23 @@
+[
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "standby",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${SYSTEM_MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "standby_step1_absorb"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "standby_step2_neph"
+            }
+        ],
+        "transitions": {}
+    }
+]

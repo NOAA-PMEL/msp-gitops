@@ -1,0 +1,157 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "beacons_at_sea",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "gps_latitude": {
+                "variablemap_name": "${NAV_VARMAP}",
+                "variableset_name": "main",
+                "variable": "latitude"
+            },
+            "gps_longitude": {
+                "variablemap_name": "${NAV_VARMAP}",
+                "variableset_name": "main",
+                "variable": "longitude"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "label": "Valid_Latitude_Check",
+                    "true_if": "inside",
+                    "sources": ["gps_latitude"],
+                    "min_val": -90.0,
+                    "max_val": 90.0
+                },
+                {
+                    "criterion_class": "LimitMinMax",
+                    "label": "Valid_Longitude_Check",
+                    "true_if": "inside",
+                    "sources": ["gps_longitude"],
+                    "min_val": -180.0,
+                    "max_val": 180.0
+                },
+                {
+                    "criterion_class": "LatLonRegionLocation",
+                    "label": "San_Diego_Pasha_Wharf_and_Harbor_Entrance_Buffer",
+                    "true_if": "outside",
+                    "sources": [
+                        "gps_latitude",
+                        "gps_longitude"
+                    ],
+                    "coordinates": {
+                        "latitude": "gps_latitude",
+                        "longitude": "gps_longitude"
+                    },
+                    "region": [
+                        { "latitude": 32.750, "longitude": -117.270 },
+                        { "latitude": 32.750, "longitude": -117.100 },
+                        { "latitude": 32.580, "longitude": -117.100 },
+                        { "latitude": 32.580, "longitude": -117.270 }
+                    ]
+                },
+                {
+                    "criterion_class": "LatLonRegionLocation",
+                    "label": "Port_of_Long_Beach_and_Breakwater_Approach_Buffer",
+                    "true_if": "outside",
+                    "sources": [
+                        "gps_latitude",
+                        "gps_longitude"
+                    ],
+                    "coordinates": {
+                        "latitude": "gps_latitude",
+                        "longitude": "gps_longitude"
+                    },
+                    "region": [
+                        { "latitude": 33.800, "longitude": -118.300 },
+                        { "latitude": 33.800, "longitude": -118.110 },
+                        { "latitude": 33.680, "longitude": -118.110 },
+                        { "latitude": 33.680, "longitude": -118.300 }
+                    ]
+                },
+                {
+                    "criterion_class": "LatLonRegionLocation",
+                    "label": "Oahu_Island_and_Honolulu_Harbor_Buffer",
+                    "true_if": "outside",
+                    "sources": [
+                        "gps_latitude",
+                        "gps_longitude"
+                    ],
+                    "coordinates": {
+                        "latitude": "gps_latitude",
+                        "longitude": "gps_longitude"
+                    },
+                    "region": [
+                        { "latitude": 21.740, "longitude": -158.320 },
+                        { "latitude": 21.740, "longitude": -157.610 },
+                        { "latitude": 21.230, "longitude": -157.610 },
+                        { "latitude": 21.230, "longitude": -158.320 }
+                    ]
+                },
+                {
+                    "criterion_class": "LatLonRegionLocation",
+                    "label": "Hawaii_Big_Island_Buffer_Hilo_and_Kawaihae",
+                    "true_if": "outside",
+                    "sources": [
+                        "gps_latitude",
+                        "gps_longitude"
+                    ],
+                    "coordinates": {
+                        "latitude": "gps_latitude",
+                        "longitude": "gps_longitude"
+                    },
+                    "region": [
+                        { "latitude": 20.320, "longitude": -156.120 },
+                        { "latitude": 20.320, "longitude": -154.680 },
+                        { "latitude": 18.880, "longitude": -154.680 },
+                        { "latitude": 18.880, "longitude": -156.120 }
+                    ]
+                },
+                {
+                    "criterion_class": "LatLonRegionLocation",
+                    "label": "Maui_Molokai_and_Lanai_Islands_Buffer",
+                    "true_if": "outside",
+                    "sources": [
+                        "gps_latitude",
+                        "gps_longitude"
+                    ],
+                    "coordinates": {
+                        "latitude": "gps_latitude",
+                        "longitude": "gps_longitude"
+                    },
+                    "region": [
+                        { "latitude": 21.270, "longitude": -157.520 },
+                        { "latitude": 21.270, "longitude": -155.880 },
+                        { "latitude": 20.480, "longitude": -155.880 },
+                        { "latitude": 20.480, "longitude": -157.520 }
+                    ]
+                },
+                {
+                    "criterion_class": "LatLonRegionLocation",
+                    "label": "Kauai_and_Niihau_Islands_Buffer",
+                    "true_if": "outside",
+                    "sources": [
+                        "gps_latitude",
+                        "gps_longitude"
+                    ],
+                    "coordinates": {
+                        "latitude": "gps_latitude",
+                        "longitude": "gps_longitude"
+                    },
+                    "region": [
+                        { "latitude": 22.270, "longitude": -160.320 },
+                        { "latitude": 22.270, "longitude": -159.230 },
+                        { "latitude": 21.730, "longitude": -159.230 },
+                        { "latitude": 21.730, "longitude": -160.320 }
+                    ]
+                }
+            ]
+        }
+    }
+]

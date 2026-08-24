@@ -3,7 +3,7 @@ apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
   name: dataset-generator-definition-trigger
-  namespace: envds
+  # namespace: envds
 spec:
   broker: default
   filter:
@@ -20,7 +20,7 @@ apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
   name: dataset-generator-generate-trigger
-  namespace: envds
+  # namespace: envds
 spec:
   broker: default
   filter:

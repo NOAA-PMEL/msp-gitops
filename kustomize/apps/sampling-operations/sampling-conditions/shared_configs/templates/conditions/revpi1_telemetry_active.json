@@ -1,0 +1,23 @@
+[
+  {
+    "version": "envds.sampling.operations/v1",
+    "kind": "SamplingCondition",
+    "metadata": { 
+      "name": "revpi1_telemetry_active", 
+      "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}", 
+      "valid_config_time": "${CONDITIONS_REVISION_TIME}" 
+    },
+    "sources": {
+      "gps_lat": { "variablemap_name": "${NAV_VARMAP}", "variableset_name": "main", "variable": "latitude" },
+      "smps_temp": { "variablemap_name": "${SMPS_VARMAP}", "variableset_name": "main", "variable": "smps_inlet_temperature" },
+      "aps_flow": { "variablemap_name": "${APS_VARMAP}", "variableset_name": "main", "variable": "aps_total_flow" }
+    },
+    "criteria": {
+      "any": [
+        { "criterion_class": "LimitMinMax", "sources": ["gps_lat"], "min_val": -90.0, "max_val": 90.0, "true_if": "inside" },
+        { "criterion_class": "LimitMinMax", "sources": ["smps_temp"], "min_val": -50.0, "max_val": 60.0, "true_if": "inside" },
+        { "criterion_class": "LimitMinMax", "sources": ["aps_flow"], "min_val": 0.1, "max_val": 10.0, "true_if": "inside" }
+      ]
+    }
+  }
+]

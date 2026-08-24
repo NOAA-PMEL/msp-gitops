@@ -4,9 +4,14 @@
         "model": { "type": "string", "data": "KLD20S" },
         "description": { "type": "string", "data": "3-way Motorized Ball Valve (Total Aerosol / 1um Cyclone)" },
         "tags": { "type": "char", "data": "valve, control" },
-        "format_version": { "type": "char", "data": "1.0.0" },
+        "format_version": { "type": "char", "data": "2.0.0" },
         "variable_types": { "type": "string", "data": "main, setting" },
-        "serial_number": { "type": "string", "data": "" }
+        "serial_number": { "type": "string", "data": "" },
+        "change_log": {
+            "type": "string",
+            "data": "2.0.0: Added valve_state as a data variable and valve_state_sp as the setting."
+        }
+
     },
     "dimensions": {
         "time": 0
@@ -31,8 +36,16 @@
         "valve_state": {
             "type": "int", "shape": ["time"],
             "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Valve State"},
+                "units": {"type": "string", "data": "bool"}
+            }
+        },
+        "valve_state_sp": {
+            "type": "int", "shape": ["time"],
+            "attributes": {
                 "variable_type": {"type": "string", "data": "setting"},
-                "long_name": {"type": "string", "data": "Valve Actuation State"},
+                "long_name": {"type": "string", "data": "Valve Actuation Setpoint"},
                 "units": {"type": "string", "data": "bool"},
                 "allowed_values": {"type": "string", "data": "0, 1"},
                 "default_value": {"type": "int", "data": 0}

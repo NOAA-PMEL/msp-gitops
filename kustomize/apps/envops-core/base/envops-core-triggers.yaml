@@ -1,0 +1,15 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-projectallocation-definition-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: envds.projectallocation-definition.registry.update
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: datastore
+    uri: /projectallocation-definition/registry/update/

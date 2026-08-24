@@ -1,0 +1,12 @@
+[
+  {
+    "version": "envds.apps.sampling-system/v1",
+    "kind": "Contact",
+    "metadata": { "name": "contact.pnnl.john_doe", "sampling_namespace": "pmel.noaa.gov" },
+    "data": {
+      "name": "Dr. John Doe",
+      "email": "john.doe@pnnl.gov",
+      "institution": "Pacific Northwest National Laboratory (PNNL)"
+    }
+  }
+]

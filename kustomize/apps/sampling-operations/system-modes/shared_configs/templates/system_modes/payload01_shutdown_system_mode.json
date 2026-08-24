@@ -1,0 +1,31 @@
+[
+    {
+        "version": "envds.system.modes/v1",
+        "kind": "SystemMode",
+        "metadata": {
+            "name": "shutdown",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${SYSTEM_MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingMode",
+                "name": "shutdown_step1_aps"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "shutdown_step2_cpc"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "shutdown_step3_smps"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "shutdown_step4_opc"
+            }
+        ],
+        "transitions": {}
+    }
+]

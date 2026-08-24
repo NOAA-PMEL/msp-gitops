@@ -1,0 +1,53 @@
+[
+  {
+    "version": "envds.sampling.system/v1",
+    "kind": "PlatformVariableMap",
+    "metadata": {
+      "name": "varmap_pyranometer",
+      "sampling_namespace": "${SAMPLING_NAMESPACE}",
+      "platform": "${ENVOPS_PLATFORM_REF}",
+      "valid_config_time": "${RAD_REVISION_TIME}",
+      "revision": 1
+    },
+    "data": {
+      "attributes": {
+        "variablemap_type": "Sensor",
+        "valid_config_time": "${RAD_REVISION_TIME}"
+      },
+      "variablesets": {
+        "main": {
+          "index": {
+            "index_type": "time",
+            "index_value": ${MAIN_VARSET_TIMEBASE}
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" }
+          }
+        }
+      },
+      "variables": {
+        "irradiance": {
+          "type": "float",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "irrad": {
+              "source_type": "device",
+              "source_id": "${RAD_DRIVER}::${RAD_SN}",
+              "source_variable": "${RAD_IRRAD_VAR}"
+            }
+          },
+          "direct_value": { "source_variable": "irrad" },
+          "variableset": "main",
+          "index_method": ["round", "average"],
+          "fill_strategy": { "method": "none" },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "operations-controller, data-server" },
+            "units": { "type": "string", "data": "W m-2" },
+            "long_name": { "type": "string", "data": "Solar Irradiance" }
+          }
+        }
+      }
+    }
+  }
+]

@@ -33,21 +33,21 @@ configMapGenerator:
     files:
       - sampling_states.json
 
-nameSuffix: "-mspbase01"
+# nameSuffix: "-mspbase01"
 
-patches:
-  # change configmap names to account for s/n suffix
-  - target:
-      # version: serving.knative.dev/v1
-      kind: Service
-      name: sampling-states
-    patch: |-
-      # - op: replace 
-      #   path: /spec/template/spec/volumes/0/configMap/name
-      #   value: sampling-states-mspbase01
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-states-states-mspbase01
+# patches:
+#   # change configmap names to account for s/n suffix
+#   - target:
+#       # version: serving.knative.dev/v1
+#       kind: Service
+#       name: sampling-states
+#     patch: |-
+#       # - op: replace 
+#       #   path: /spec/template/spec/volumes/0/configMap/name
+#       #   value: sampling-states-mspbase01
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-states-states-mspbase01
 
-configurations:
-  - config.yaml
+# configurations:
+#   - config.yaml

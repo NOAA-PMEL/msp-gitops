@@ -248,3 +248,21 @@ spec:
       kind: Service
       name: datastore
     uri: /systemmode-definition/registry/update/
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: datastore-projectallocation-def-update
+spec:
+  broker: default
+  filter:
+    attributes:
+      # Match this to whatever CloudEvent type envops-core emits
+      type: envds.projectallocation-definition.registry.update 
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: datastore
+    # Routes it perfectly to the dynamic FastAPI endpoint we added to Datastore's main.py
+    uri: /projectallocation-definition/registry/update/

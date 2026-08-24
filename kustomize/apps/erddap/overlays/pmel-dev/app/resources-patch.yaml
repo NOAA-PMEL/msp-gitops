@@ -17,8 +17,12 @@ spec:
             cpu: 250m     # Reduced from 1000m
             memory: 2.5Gi # Reduced from 5Gi
           limits:
-            cpu: 2000m    
-            memory: 5Gi   
+            cpu: 2000m        
+            memory: 5Gi 
+        volumeMounts:
+        - name: tomcat-server-xml
+          mountPath: /usr/local/tomcat/conf/server.xml
+          subPath: server.xml
       - name: erddap-sidecar
         resources:
           requests:
@@ -27,3 +31,7 @@ spec:
           limits:
             cpu: 500m
             memory: 512Mi
+      volumes:
+      - name: tomcat-server-xml
+        configMap:
+          name: erddap-tomcat-config

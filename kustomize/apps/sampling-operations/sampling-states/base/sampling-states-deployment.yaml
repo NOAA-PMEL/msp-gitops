@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampling-states
+  labels:
+    app: sampling-states
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sampling-states
+  template:
+    metadata:
+      labels:
+        app: sampling-states
+    spec:
+      imagePullSecrets:
+      - name: ghcr-ro-secret
+      containers:
+        - name: sampling-states
+          image: ghcr.io/noaa-pmel/msp/sampling-states:0.3.0
+          imagePullPolicy: "IfNotPresent"
+          
+          # Natively injects SAMPLING_NAMESPACE, ENVOPS_DEPLOYMENT_REF, etc.
+          envFrom:
+            - configMapRef:
+                name: sampling-states
+                
+          # Explicit mappings required by your pydantic BaseSettings
+          env:
+            - name: SAMPLING_STATES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: port
+            - name: SAMPLING_STATES_DAQ_ID
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: daq_id
+            - name: SAMPLING_STATES_MQTT_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: mqtt_broker
+            - name: SAMPLING_STATES_MQTT_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: mqtt_port
+            - name: SAMPLING_STATES_MQTT_TOPIC_SUBSCRIPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: mqtt_topic_subscriptions
+            - name: SAMPLING_STATES_KNATIVE_BROKER
+              valueFrom:
+                configMapKeyRef:
+                  name: sampling-states
+                  key: knative_broker
+          
+          volumeMounts:
+            - name: sampling-states-states
+              mountPath: /app/config/states
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              memory: "2Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+            
+          # Included port: 8080 mapping to pass VSCode/K8s Linter
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            timeoutSeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            timeoutSeconds: 10
+            periodSeconds: 10
+            
+      volumes:
+        - name: sampling-states-states
+          configMap:
+            name: sampling-states-states

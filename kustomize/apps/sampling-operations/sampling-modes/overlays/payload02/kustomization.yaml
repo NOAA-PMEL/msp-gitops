@@ -3,41 +3,140 @@ kind: Kustomization
 namespace: payload02-system
 
 resources:
-- ../../base
-- sampling-modes-configmap.yaml
+  - ../../base
 
 configMapGenerator:
+  - name: sampling-modes
+    envs:
+      - sampling-modes.env
   - name: sampling-modes-modes
     files:
-      - sampling_modes_modes.json
+      - ../../shared_configs/templates/modes/payload02_startup_step1_24v_mode.json
+      - ../../shared_configs/templates/modes/payload02_startup_step2_tec_mode.json
+      - ../../shared_configs/templates/modes/payload02_startup_step3_neph_mode.json
+      - ../../shared_configs/templates/modes/payload02_startup_step4_absorb_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step1_absorb_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step2_neph_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step3_tec_mode.json
+      - ../../shared_configs/templates/modes/payload02_shutdown_step4_24v_mode.json
+      - ../../shared_configs/templates/modes/payload02_standby_step1_absorb_mode.json
+      - ../../shared_configs/templates/modes/payload02_standby_step2_neph_mode.json
+      - ../../shared_configs/templates/modes/payload02_maintenance_override_mode.json
+      - ../../shared_configs/templates/modes/payload02_nominal_sampling_mode.json
   - name: sampling-modes-actions
     files:
-      - sampling_modes_actions.json
+      - ../../shared_configs/templates/actions/turn_on_24v_bus_action.json
+      - ../../shared_configs/templates/actions/turn_off_24v_bus_action.json
+      - ../../shared_configs/templates/actions/turn_on_tec_action.json
+      - ../../shared_configs/templates/actions/turn_off_tec_action.json
+      - ../../shared_configs/templates/actions/turn_on_neph_action.json
+      - ../../shared_configs/templates/actions/turn_off_neph_action.json
+      - ../../shared_configs/templates/actions/turn_on_absorb_action.json
+      - ../../shared_configs/templates/actions/turn_off_absorb_action.json
+      - ../../shared_configs/templates/actions/set_valve_total_action.json
+      - ../../shared_configs/templates/actions/set_valve_cyclone_action.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: payload02-system
 
-nameSuffix: "-payload02"
+# resources:
+# - ../../base
+# - sampling-modes-configmap.yaml
 
-patches:
-  # change configmap names in the Volumes list to account for the -payload02 suffix
-  - target:
-      kind: Service
-      name: sampling-modes
-    patch: |-
-      - op: replace 
-        path: /spec/template/spec/volumes/0/configMap/name
-        value: sampling-modes-modes-payload02
-      - op: replace 
-        path: /spec/template/spec/volumes/1/configMap/name
-        value: sampling-modes-actions-payload02
-  # change the subscriber ref in the Knative Triggers to point to the suffixed service
-  - target:
-      kind: Trigger
-    patch: |-
-      - op: replace 
-        path: /spec/subscriber/ref/name
-        value: sampling-modes-payload02
+# configMapGenerator:
+#   - name: sampling-modes-modes
+#     files:
+#       # Individual Decoupled Mode Files
+#       - ../../shared_configs/templates/modes/payload02_startup_step1_24v_mode.json
+#       - ../../shared_configs/templates/modes/payload02_startup_step2_tec_mode.json
+#       - ../../shared_configs/templates/modes/payload02_startup_step3_neph_mode.json
+#       - ../../shared_configs/templates/modes/payload02_startup_step4_absorb_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step1_absorb_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step2_neph_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step3_tec_mode.json
+#       - ../../shared_configs/templates/modes/payload02_shutdown_step4_24v_mode.json
+#       - ../../shared_configs/templates/modes/payload02_standby_step1_absorb_mode.json
+#       - ../../shared_configs/templates/modes/payload02_standby_step2_neph_mode.json
+#       - ../../shared_configs/templates/modes/payload02_maintenance_override_mode.json
+#   - name: sampling-modes-actions
+#     files:
+#       # Individual Decoupled Action Files
+#       - ../../shared_configs/templates/actions/turn_on_24v_bus_action.json
+#       - ../../shared_configs/templates/actions/turn_off_24v_bus_action.json
+#       - ../../shared_configs/templates/actions/turn_on_tec_action.json
+#       - ../../shared_configs/templates/actions/turn_off_tec_action.json
+#       - ../../shared_configs/templates/actions/turn_on_neph_action.json
+#       - ../../shared_configs/templates/actions/turn_off_neph_action.json
+#       - ../../shared_configs/templates/actions/turn_on_absorb_action.json
+#       - ../../shared_configs/templates/actions/turn_off_absorb_action.json
 
-configurations:
-  - config.yaml
+# generatorOptions:
+#  disableNameSuffixHash: true
+
+# nameSuffix: "-payload02"
+
+# patches:
+#   - target:
+#       kind: Service
+#       name: sampling-modes
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-modes-modes-payload02
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-modes-actions-payload02
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-modes-payload02
+
+# configurations:
+#   - config.yaml
+
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# namespace: payload02-system
+
+# resources:
+# - ../../base
+# - sampling-modes-configmap.yaml
+
+# configMapGenerator:
+#   - name: sampling-modes-modes
+#     files:
+#       - sampling_modes_modes.json
+#   - name: sampling-modes-actions
+#     files:
+#       - sampling_modes_actions.json
+
+# generatorOptions:
+#   disableNameSuffixHash: true
+
+# nameSuffix: "-payload02"
+
+# patches:
+#   # change configmap names in the Volumes list to account for the -payload02 suffix
+#   - target:
+#       kind: Service
+#       name: sampling-modes
+#     patch: |-
+#       - op: replace 
+#         path: /spec/template/spec/volumes/0/configMap/name
+#         value: sampling-modes-modes-payload02
+#       - op: replace 
+#         path: /spec/template/spec/volumes/1/configMap/name
+#         value: sampling-modes-actions-payload02
+#   # change the subscriber ref in the Knative Triggers to point to the suffixed service
+#   - target:
+#       kind: Trigger
+#     patch: |-
+#       - op: replace 
+#         path: /spec/subscriber/ref/name
+#         value: sampling-modes-payload02
+
+# configurations:
+#   - config.yaml

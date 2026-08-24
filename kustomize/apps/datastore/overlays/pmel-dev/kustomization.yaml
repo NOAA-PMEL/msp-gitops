@@ -22,41 +22,41 @@ namespace: pmel-dev-system
 resources:
 - ../../base
 - datastore-configmap.yaml
-- datastore_db_password_sealed.yaml
+# - datastore_db_password_sealed.yaml
 # - ghcr-secret-msp-system-sealed.yaml
 - datastore-triggers.yaml
 
 # patchesStrategicMerge:
 # - patch-service_knative.yaml
-patches:
-  - target: 
-      kind: Deployment # <-- Fixed from Service
-      name: datastore    
-    patch: |-
-      - op: add
-        path: /spec/template/spec/containers/0/env/-
-        value:
-          name: DATASTORE_DB_CLIENT_USERNAME
-          valueFrom:
-            configMapKeyRef:
-              name: datastore
-              key: db_client_username
-      - op: add
-        path: /spec/template/spec/containers/0/env/-
-        value:
-          name: DATASTORE_DB_CLIENT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: datastore-db-password
-              key: db_password
-      - op: add
-        path: /spec/template/spec/containers/0/env/-
-        value:
-          name: DATASTORE_DB_CLEAR_DB
-          valueFrom:
-            configMapKeyRef:
-              name: datastore
-              key: db_clear_db
+# patches:
+#   - target: 
+#       kind: Deployment # <-- Fixed from Service
+#       name: datastore    
+#     patch: |-
+#       - op: add
+#         path: /spec/template/spec/containers/0/env/-
+#         value:
+#           name: DATASTORE_DB_CLIENT_USERNAME
+#           valueFrom:
+#             configMapKeyRef:
+#               name: datastore
+#               key: db_client_username
+#       - op: add
+#         path: /spec/template/spec/containers/0/env/-
+#         value:
+#           name: DATASTORE_DB_CLIENT_PASSWORD
+#           valueFrom:
+#             secretKeyRef:
+#               name: datastore-db-password
+#               key: db_password
+#       - op: add
+#         path: /spec/template/spec/containers/0/env/-
+#         value:
+#           name: DATASTORE_DB_CLEAR_DB
+#           valueFrom:
+#             configMapKeyRef:
+#               name: datastore
+#               key: db_clear_db
 
 # patchesStrategicMerge:
 # - patch-service_knative.yaml

@@ -1,0 +1,22 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "cascade_ready",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${STATES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingCondition",
+                "name": "cascade_ready",
+                "required_time_to_transition": {
+                    "to_become_false": 1,
+                    "to_become_true": 1
+                }
+            }
+        ]
+    }
+]

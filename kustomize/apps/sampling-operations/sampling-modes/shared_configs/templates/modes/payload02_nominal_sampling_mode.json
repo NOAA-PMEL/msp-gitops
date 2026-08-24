@@ -1,0 +1,36 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "payload02_nominal_sampling",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${ACTIONS_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SystemMode",
+                "name": "normal"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "cyclone_interval_active"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_valve_cyclone"
+                }
+            ],
+            "false": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_valve_total"
+                }
+            ]
+        }
+    }
+]

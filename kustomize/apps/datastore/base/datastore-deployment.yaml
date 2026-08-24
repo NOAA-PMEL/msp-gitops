@@ -18,8 +18,8 @@ spec:
       - name: ghcr-ro-secret
       containers:
         - name: datastore
-          image: ghcr.io/noaa-pmel/msp/datastore:2.0.0
-          imagePullPolicy: "Always"
+          image: ghcr.io/noaa-pmel/msp/datastore:2.18.0
+          imagePullPolicy: "IfNotPresent"
           env:
             - name: DATASTORE_PORT
               valueFrom:

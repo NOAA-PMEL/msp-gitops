@@ -1,4 +1,5 @@
 # Enable Redis Sentinel
+architecture: replication
 sentinel:
   enabled: true
   replicaCount: 3 # Number of Sentinel instances
@@ -22,3 +23,49 @@ replica:
     size: 8Gi # Size of the PersistentVolumeClaim
     accessModes:
       - ReadWriteOnce # Access mode for the PersistentVolumeClaim
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1Gi"
+    limits:
+      cpu: "1"
+      memory: "2Gi"
+
+
+# # 1. Swap the vanilla Bitnami image for Redis Stack Server
+# image:
+#   repository: redis/redis-stack-server
+#   tag: latest
+
+# # 2. Configure the Active High Availability Architecture
+# architecture: replication
+# sentinel:
+#   enabled: true
+
+# # 3. Configure Authentication to map your existing Secret
+# auth:
+#   enabled: true
+#   sentinel: true
+#   existingSecret: "redis-db-password"
+#   existingSecretPasswordKey: "db_password"
+
+# # 4. Safely allocate resources for Master and Replica Data containers
+# master:
+#   count: 1
+#   resources:
+#     requests:
+#       cpu: "500m"
+#       memory: "1Gi"
+#     limits:
+#       cpu: "1"
+#       memory: "2Gi"
+
+# replica:
+#   replicaCount: 3
+#   resources:
+#     requests:
+#       cpu: "500m"
+#       memory: "1Gi"
+#     limits:
+#       cpu: "1"
+#       memory: "2Gi"

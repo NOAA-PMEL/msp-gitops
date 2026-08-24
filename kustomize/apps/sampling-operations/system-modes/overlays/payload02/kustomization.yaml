@@ -1,25 +1,16 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: system-modes
-
 namespace: payload02-system
-
 resources:
-- ../../base
-- system-modes-configmap.yaml
-
-# Generate the ConfigMap from your provided JSON file
+  - ../../base
 configMapGenerator:
+  - name: system-modes
+    envs:
+      - system-modes.env
   - name: system-modes-modes
     files:
-      - system_modes_modes.json
-
-generatorOptions:
-  disableNameSuffixHash: true
-
-# Suffix used across the payload02 deployment
-nameSuffix: "-payload02"
-
-configurations:
-  - config.yaml
+      - ../../shared_configs/templates/system_modes/payload_normal_system_mode.json
+      - ../../shared_configs/templates/system_modes/payload02_startup_system_mode.json
+      - ../../shared_configs/templates/system_modes/payload02_shutdown_system_mode.json
+      - ../../shared_configs/templates/system_modes/payload02_standby_system_mode.json
+      - ../../shared_configs/templates/system_modes/pmel_maintenance_system_mode.json

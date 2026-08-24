@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - envops-core-deployment.yaml
+  # - envops-core-triggers.yaml
+  # - envops-core-service.yaml
+  # Add envops-core-triggers.yaml here if your core service subscribes to Knative events

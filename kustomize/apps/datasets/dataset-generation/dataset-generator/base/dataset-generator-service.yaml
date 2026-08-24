@@ -3,19 +3,22 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: dataset-generator
-  namespace: envds
+  # namespace: envds
 spec:
   template:
     metadata:
       annotations:
         # Keeping at 1 for dev/debugging so you can read logs immediately. 
         # Change to "0" when you want true scale-to-zero in production.
-        autoscaling.knative.dev/min-scale: "1" 
+        autoscaling.knative.dev/min-scale: "0"     
     spec:
+      containerConcurrency: 1
+      timeoutSeconds: 600
+      responseStartTimeoutSeconds: 600
       imagePullSecrets:
       - name: ghcr-ro-secret
       containers:
-        - image: ghcr.io/noaa-pmel/msp/dataset-generator:0.1.0 # Update with your actual registry path
+        - image: ghcr.io/noaa-pmel/msp/dataset-generator:0.33.0 # Update with your actual registry path
           envFrom:
             - configMapRef:
                 name: dataset-generator-config
@@ -27,7 +30,7 @@ spec:
       volumes:
         - name: shared-calculations
           configMap:
-            name: shared-calculations-config
+            name: dataset-generator-calculations
             optional: true
         - name: definitions-volume
           configMap:

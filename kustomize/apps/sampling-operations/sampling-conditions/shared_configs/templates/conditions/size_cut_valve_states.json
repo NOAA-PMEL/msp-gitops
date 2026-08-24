@@ -1,0 +1,60 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "size_cut_valve_is_0",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "valve_state": {
+                "variablemap_name": "${VALVE_VARMAP}",
+                "variableset_name": "operations",
+                "variable": "size_cut_valve_state"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "valve_state"
+                    ],
+                    "min_val": 0,
+                    "max_val": 0,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    },
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "size_cut_valve_is_1",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "valve_state": {
+                "variablemap_name": "${VALVE_VARMAP}",
+                "variableset_name": "operations",
+                "variable": "size_cut_valve_state"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "valve_state"
+                    ],
+                    "min_val": 1,
+                    "max_val": 1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]

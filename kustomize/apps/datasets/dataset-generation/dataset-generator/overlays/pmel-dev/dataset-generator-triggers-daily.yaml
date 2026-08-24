@@ -1,19 +1,79 @@
 apiVersion: sources.knative.dev/v1
 kind: PingSource
 metadata:
-  name: trigger-metnav-daily-a1
+  name: trigger-met-nav-daily-a1
   # The namespace must match your overlay namespace
-  namespace: pmel-dev-system
+  # namespace: pmel-dev-system
 spec:
   # Standard Cron Format: Minute 5 of every hour
   schedule: "15 0 * * *"
   contentType: "application/json"
   # The payload that gets POSTed to your Python app
-  data: '{ "dataset_id": "san_hnl.metnav.a1", "action": "generate", "time_window": "auto" }'
+  data: '{ "dataset_id": "san_hnl.met_nav.a1", "action": "generate", "time_window": "auto" }'
   sink:
     ref:
       apiVersion: serving.knative.dev/v1
       kind: Service
       # Target our dataset generator service
+      name: dataset-generator
+    uri: /dataset/generate/request/
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-aerosol-physics-daily-a1
+spec:
+  schedule: "16 0 * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.aerosol_physics.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-aerosol-optics-daily-a1
+spec:
+  schedule: "17 0 * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.aerosol_optics.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-aerosol-sizing-daily-a1
+spec:
+  schedule: "18 0 * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.aerosol_sizing.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: dataset-generator
+    uri: /dataset/generate/request/
+---
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: trigger-gas-phase-daily-a1
+spec:
+  schedule: "18 0 * * *"
+  contentType: "application/json"
+  data: '{ "dataset_id": "san_hnl.gas_phase.a1", "action": "generate", "time_window": "auto" }'
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
       name: dataset-generator
     uri: /dataset/generate/request/

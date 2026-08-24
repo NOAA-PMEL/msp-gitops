@@ -19,8 +19,8 @@ spec:
       containers:
       - name: lantronix-xport
         # image: registry-msp:5000/msp/interface/lantronix-xport:0.1.0
-        image: ghcr.io/noaa-pmel/msp/lantronix-xport:0.2.0
-        imagePullPolicy: "Always"
+        image: ghcr.io/noaa-pmel/msp/lantronix-xport:0.3.0
+        imagePullPolicy: "IfNotPresent"
         env:
           - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:

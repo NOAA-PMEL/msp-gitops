@@ -7,14 +7,14 @@
             "action_module": "actions.beacons_msp",
             "action_def": "set_isokinetic_inlet_flow",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
-            "valid_config_time": "2026-06-11T19:26:00Z",
+            "valid_config_time": "2026-06-16T08:36:30Z",
             "revision": 3,
             "execution_node": "raz1"
         },
         "source_max_age": 10,
         "sources": {
             "relative_wind_speed": {
-                "variablemap_name": "raz1",
+                "variablemap_name": "payload_03",
                 "variableset_name": "main",
                 "variable": "relative_wind_speed"
             }
@@ -35,7 +35,7 @@
             "action_module": "actions.beacons_msp",
             "action_def": "set_reverse_inlet_flow",
             "sampling_namespace": "pmel.noaa.gov/deploy.pmel.payload_03_in_msp_01",
-            "valid_config_time": "2026-06-11T19:26:00Z",
+            "valid_config_time": "2026-06-16T08:36:30Z",
             "revision": 3,
             "execution_node": "raz1"
         },

@@ -1,0 +1,31 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "beacons_system_startup",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingState",
+                "name": "in_sector"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "sampling_limits"
+            }
+        ],
+        "actions": {
+            "true": [],
+            "false": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_reverse_inlet_flow"
+                }
+            ]
+        }
+    }
+]
