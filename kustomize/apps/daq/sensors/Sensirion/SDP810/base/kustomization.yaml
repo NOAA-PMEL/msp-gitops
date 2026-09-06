@@ -11,3 +11,8 @@ metadata:
 resources:
 - sdp810-deployment.yaml
 - sdp810-service.yaml
+
+configMapGenerator:
+  - name: sensor-definition
+    files:
+      - Sensirion_SDP810_sensor_definition.json
