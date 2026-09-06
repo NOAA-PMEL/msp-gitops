@@ -52,6 +52,9 @@ spec:
             - name: sensirion-sdp810-config
               mountPath: /app/config/sensor.conf
               subPath: sensor.conf
+            - name: sensor-definition
+              mountPath: /app/Sensirion_SDP810_sensor_definition.json
+              subPath: Sensirion_SDP810_sensor_definition.json
             # - name: mosquitto-certs
             #   mountPath: /certs/ca.crt
             #   subPath: ca.crt
@@ -65,6 +68,9 @@ spec:
         - name: sensirion-sdp810-config
           configMap:
             name: sensirion-sdp810-config
+        - name: sensor-definition
+          configMap:
+            name: sensor-definition        
         # - name: mosquitto-certs
         #   configMap:
         #     name: mosquitto-certs
