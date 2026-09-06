@@ -21,7 +21,7 @@ data:
         interface_env_id: revpi2-hardware # if omitted, defaults to envds_id of sensor
         interface_id: LabJack::Tx::ljtx226
         path: i2c
-    i2c_address: "28"
+    i2c_address: "25"
 
     
     
