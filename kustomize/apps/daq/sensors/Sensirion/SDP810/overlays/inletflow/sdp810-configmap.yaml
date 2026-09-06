@@ -6,7 +6,7 @@ metadata:
   labels:
     app: sensirion-sdp810
     # app-group: envds-sensor-payload03
-    app-group: envds-sensor-crk8s
+    app-group: envds-sensor-revpi2
 data:
   namespace_prefix: revpi2 
   envds_env_id: revpi2
