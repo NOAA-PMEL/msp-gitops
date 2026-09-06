@@ -21,7 +21,7 @@ spec:
         image: ghcr.io/noaa-pmel/msp/sensirion-sdp810:0.1.0
         imagePullPolicy: "Always"
         env:
-          - name: ENVDS_CORE_NAMESPACE_PREFEIX
+          - name: ENVDS_CORE_NAMESPACE_PREFIX
             valueFrom:
               configMapKeyRef:
                 name: sensirion-sdp810-config
