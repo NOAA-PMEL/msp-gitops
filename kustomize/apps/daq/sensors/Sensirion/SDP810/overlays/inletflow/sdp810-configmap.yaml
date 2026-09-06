@@ -13,7 +13,7 @@ data:
   # namespace_prefix: mspbase01 
   # envds_env_id: mspbase01
   sensor.conf: |
-    serial_number: "inlet_flow"
+    serial_number: "inletflow"
     daq_id: revpi2
     interfaces:
       # default: serial

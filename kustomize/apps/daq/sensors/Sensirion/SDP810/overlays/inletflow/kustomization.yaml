@@ -23,7 +23,7 @@ resources:
 - ../../base
 - sdp810-configmap.yaml
 
-nameSuffix: "-inlet_flow"
+nameSuffix: "-inletflow"
 # patchesStrategicMerge:
 #   - deployment.yaml
 
@@ -35,8 +35,8 @@ patches:
     patch: |-
       - op: replace 
         path: /spec/template/spec/volumes/0/configMap/name
-        value: sensirion-sdp810-config-inlet_flow
+        value: sensirion-sdp810-config-inletflow
       - op: replace 
         path: /spec/template/spec/volumes/1/configMap/name
-        value: sensor-definition-inlet_flow
+        value: sensor-definition-inletflow
 
