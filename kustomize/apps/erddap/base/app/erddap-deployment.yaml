@@ -18,16 +18,22 @@ spec:
     spec:
       imagePullSecrets:
       - name: ghcr-ro-secret
-
-      # 1. ADD THIS INIT CONTAINER to guarantee the file exists for the subPath mount
+      # 1. ADD THIS INIT CONTAINER to guarantee the file exists for the subPath mount and copy the read-only server.xml
       initContainers:
       - name: init-datasets-xml
         image: busybox
-        command: ['sh', '-c', 'touch /erddapData/datasets.xml && chown 1000:1000 /erddapData/datasets.xml']
+        command: 
+        - sh
+        - -c
+        - |
+          touch /erddapData/datasets.xml && chown 1000:1000 /erddapData/datasets.xml
+          cp /tmp/tomcat-conf/server.xml /erddapData/server.xml
+          chown 1000:1000 /erddapData/server.xml
         volumeMounts:
         - name: erddap-data
           mountPath: /erddapData
-
+        - name: tomcat-server-xml
+          mountPath: /tmp/tomcat-conf
       containers:
       # 1. Official ERDDAP Backend
       - name: erddap
@@ -59,19 +65,22 @@ spec:
         resources:
           requests:
             cpu: 250m
-            memory: 1.5Gi # Keep k8s request slightly above JVM min
+            memory: 2.5Gi # Keep k8s request slightly above JVM min
           limits:
-            cpu: 1000m
-            memory: 2.5Gi # Keep k8s limit slightly above JVM max
+            cpu: 2000m
+            memory: 5Gi # Keep k8s limit slightly above JVM max
         volumeMounts:
         # Mount A: Standard shared directory
         - name: erddap-data
           mountPath: /erddapData
-        # Mount B: The direct Tomcat file injection
+        # Mount B: The direct Tomcat file injection (now using the mutable copy)
+        - name: erddap-data
+          mountPath: /usr/local/tomcat/conf/server.xml
+          subPath: server.xml
         - name: erddap-data
           mountPath: /usr/local/tomcat/content/erddap/datasets.xml
           subPath: datasets.xml
-          
+        
       # 2. FastAPI Sidecar Proxy & Ingester
       - name: erddap-sidecar
         image: ghcr.io/noaa-pmel/msp/erddap-sidecar:0.19.0 # Replace with your actual image/tag
@@ -94,7 +103,7 @@ spec:
             memory: 128Mi
           limits:
             cpu: 500m
-            memory: 256Mi
+            memory: 512Mi
         ports:
         - name: http
           containerPort: 8000
@@ -102,8 +111,11 @@ spec:
         volumeMounts:
         - name: erddap-data
           mountPath: /erddapData
-          
+        
       volumes:
       - name: erddap-data
         persistentVolumeClaim:
           claimName: erddap-pvc
+      - name: tomcat-server-xml
+        configMap:
+          name: erddap-tomcat-config
