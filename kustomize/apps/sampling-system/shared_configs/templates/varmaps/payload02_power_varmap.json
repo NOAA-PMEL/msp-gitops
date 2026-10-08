@@ -18,8 +18,7 @@
         "power": {
           "index": {
             "index_type": "time",
-            "index_value": ${POWER_VARSET_TIMEBASE
-            }
+            "index_value": ${POWER_VARSET_TIMEBASE}
           },
           "attributes": {
             "evaluate_by": {
