@@ -18,7 +18,7 @@
         },
         "format_version": {
             "type": "char",
-            "data": "1.1.0"
+            "data": "1.2.0"
         },
         "variable_types": {
             "type": "string",
@@ -26,7 +26,7 @@
         },
         "serial_number": {
             "type": "string",
-            "data": ""
+            "data": "1.2.0: change long name of flow to Flow Rate"
         },
         "change_log": {
             "type": "string",
@@ -78,7 +78,7 @@
             "shape": ["time"],
             "attributes": {
                 "variable_type": {"type": "string", "data": "main"},
-                "long_name": {"type": "char", "data": "Relative Humidity"},
+                "long_name": {"type": "char", "data": "Flow Rate"},
                 "units": {"type": "char", "data": "LPM"}
             }
         }
