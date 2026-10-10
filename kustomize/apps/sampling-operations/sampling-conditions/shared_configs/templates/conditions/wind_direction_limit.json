@@ -10,7 +10,7 @@
         "sources": {
             "relative_wind_direction": {
                 "variablemap_name": "${DERIVED_WIND_VARMAP}",
-                "variableset_name": "operations",
+                "variableset_name": "derived",
                 "variable": "relative_wind_direction"
             }
         },
