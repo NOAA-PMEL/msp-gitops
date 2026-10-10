@@ -110,7 +110,7 @@
                         "flow": {
                             "source_type": "device",
                             "source_id": "${FLOW_SENSOR_DRIVER}::${FLOW_SENSOR_SN}",
-                            "source_variable": "flow"
+                            "source_variable": "${FLOW_SENSOR_FLOW_VAR}"
                         }
                     },
                     "direct_value": {
