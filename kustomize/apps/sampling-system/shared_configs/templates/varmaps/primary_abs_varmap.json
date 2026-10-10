@@ -14,7 +14,32 @@
       "transmission_blue": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "trans_blue": { "source_type": "device", "source_id": "${ABS_DRIVER}::${ABS_SN}", "source_variable": "${ABS_TRANS_B_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "1" } } },
       "tap_sample_temperature": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "sample_T": { "source_type": "device", "source_id": "${ABS_DRIVER}::${ABS_SN}", "source_variable": "${ABS_TEMP_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } } },
       "tap_flow_rate": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "flow_rate": { "source_type": "device", "source_id": "${ABS_DRIVER}::${ABS_SN}", "source_variable": "${ABS_FLOW_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "SLPM" } } },
-      "tap_active_spot": { "type": "int", "shape": ["time"], "map_type": "direct", "source": { "active_spot": { "source_type": "device", "source_id": "${ABS_DRIVER}::${ABS_SN}", "source_variable": "${ABS_SPOT_VAR}" } }, "variableset": "main", "index_method": ["last"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "spot" } } }
+      "tap_active_spot": { "type": "int", "shape": ["time"], "map_type": "direct", "source": { "active_spot": { "source_type": "device", "source_id": "${ABS_DRIVER}::${ABS_SN}", "source_variable": "${ABS_SPOT_VAR}" } }, "variableset": "main", "index_method": ["last"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "spot" } } },
+      "absorb_sampling_state": {
+          "type": "string",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "state": {
+              "source_type": "device",
+              "source_id": "${ABS_DRIVER}::${ABS_SN}",
+              "source_variable": "sampling_state"
+            }
+          },
+          "direct_value": {
+            "source_variable": "state"
+          },
+          "variableset": "main",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
+        }
     }
   }
 }

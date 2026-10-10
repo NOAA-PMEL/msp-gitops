@@ -31,7 +31,32 @@
         "smps_intN": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "intn": { "source_type": "device", "source_id": "${SMPS_DRIVER}::${SMPS_SN}", "source_variable": "${SMPS_INTN_VAR}" } }, "direct_value": { "source_variable": "intn" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } } },
         "smps_flow": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "flow": { "source_type": "device", "source_id": "${SMPS_DRIVER}::${SMPS_SN}", "source_variable": "${SMPS_FLOW_VAR}" } }, "direct_value": { "source_variable": "flow" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } } },
         "smps_inlet_temperature": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "itemp": { "source_type": "device", "source_id": "${SMPS_DRIVER}::${SMPS_SN}", "source_variable": "${SMPS_TEMP_VAR}" } }, "direct_value": { "source_variable": "itemp" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } } },
-        "smps_pressure": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "press": { "source_type": "device", "source_id": "${SMPS_DRIVER}::${SMPS_SN}", "source_variable": "${SMPS_PRES_VAR}" } }, "direct_value": { "source_variable": "press" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "mbar" } } }
+        "smps_pressure": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "press": { "source_type": "device", "source_id": "${SMPS_DRIVER}::${SMPS_SN}", "source_variable": "${SMPS_PRES_VAR}" } }, "direct_value": { "source_variable": "press" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "mbar" } } },
+        "smps_sampling_state": {
+          "type": "string",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "state": {
+              "source_type": "device",
+              "source_id": "${SMPS_DRIVER}::${SMPS_SN}",
+              "source_variable": "sampling_state"
+            }
+          },
+          "direct_value": {
+            "source_variable": "state"
+          },
+          "variableset": "main",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
+        }
       }
     }
   }

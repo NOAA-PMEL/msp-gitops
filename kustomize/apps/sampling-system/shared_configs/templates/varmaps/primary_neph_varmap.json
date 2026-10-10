@@ -14,7 +14,32 @@
       "backscatter_blue": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "bscat_blue": { "source_type": "device", "source_id": "${NEPH_DRIVER}::${NEPH_SN}", "source_variable": "${NEPH_BSCAT_B_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "Mm-1" } } },
       "neph_sample_temperature": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "sample_T": { "source_type": "device", "source_id": "${NEPH_DRIVER}::${NEPH_SN}", "source_variable": "${NEPH_TEMP_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } } },
       "neph_sample_rh": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "rh": { "source_type": "device", "source_id": "${NEPH_DRIVER}::${NEPH_SN}", "source_variable": "${NEPH_RH_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "%" } } },
-      "neph_pressure": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "pressure": { "source_type": "device", "source_id": "${NEPH_DRIVER}::${NEPH_SN}", "source_variable": "${NEPH_PRES_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "mbar" } } }
+      "neph_pressure": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "pressure": { "source_type": "device", "source_id": "${NEPH_DRIVER}::${NEPH_SN}", "source_variable": "${NEPH_PRES_VAR}" } }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "mbar" } } },
+      "neph_sampling_state": {
+          "type": "string",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "state": {
+              "source_type": "device",
+              "source_id": "${NEPH_DRIVER}::${NEPH_SN}",
+              "source_variable": "sampling_state"
+            }
+          },
+          "direct_value": {
+            "source_variable": "state"
+          },
+          "variableset": "main",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
+        }
     }
   }
 }

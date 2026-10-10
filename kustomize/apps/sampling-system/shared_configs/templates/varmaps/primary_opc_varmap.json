@@ -32,7 +32,32 @@
         "opc_intN": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "intn": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_INTN_VAR}" } }, "direct_value": { "source_variable": "intn" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } } },
         "opc_flow": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "flow": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_FLOW_VAR}" } }, "direct_value": { "source_variable": "flow" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } } },
         "opc_inlet_temperature": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "itemp": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_TEMP_VAR}" } }, "direct_value": { "source_variable": "itemp" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } } },
-        "opc_pressure": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "press": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_PRES_VAR}" } }, "direct_value": { "source_variable": "press" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "hPa" } } }
+        "opc_pressure": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "press": { "source_type": "device", "source_id": "${OPC_DRIVER}::${OPC_SN}", "source_variable": "${OPC_PRES_VAR}" } }, "direct_value": { "source_variable": "press" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "hPa" } } },
+        "opc_sampling_state": {
+          "type": "string",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "state": {
+              "source_type": "device",
+              "source_id": "${OPC_DRIVER}::${OPC_SN}",
+              "source_variable": "sampling_state"
+            }
+          },
+          "direct_value": {
+            "source_variable": "state"
+          },
+          "variableset": "main",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
+        }
       }
     }
   }

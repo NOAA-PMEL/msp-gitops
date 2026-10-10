@@ -32,7 +32,32 @@
         "aps_intN": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "intn": { "source_type": "device", "source_id": "${APS_DRIVER}::${APS_SN}", "source_variable": "${APS_INTN_VAR}" } }, "direct_value": { "source_variable": "intn" }, "variableset": "sizing", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } } },
         "aps_total_flow": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "tflow": { "source_type": "device", "source_id": "${APS_DRIVER}::${APS_SN}", "source_variable": "${APS_TFLOW_VAR}" } }, "direct_value": { "source_variable": "tflow" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } } },
         "aps_sheath_flow": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "sflow": { "source_type": "device", "source_id": "${APS_DRIVER}::${APS_SN}", "source_variable": "${APS_SFLOW_VAR}" } }, "direct_value": { "source_variable": "sflow" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } } },
-        "aps_inlet_temperature": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "itemp": { "source_type": "device", "source_id": "${APS_DRIVER}::${APS_SN}", "source_variable": "${APS_TEMP_VAR}" } }, "direct_value": { "source_variable": "itemp" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } } }
+        "aps_inlet_temperature": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "itemp": { "source_type": "device", "source_id": "${APS_DRIVER}::${APS_SN}", "source_variable": "${APS_TEMP_VAR}" } }, "direct_value": { "source_variable": "itemp" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "degrees_C" } } },
+        "aps_sampling_state": {
+          "type": "string",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "state": {
+              "source_type": "device",
+              "source_id": "${APS_DRIVER}::${APS_SN}",
+              "source_variable": "sampling_state"
+            }
+          },
+          "direct_value": {
+            "source_variable": "state"
+          },
+          "variableset": "main",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
+        }
       }
     }
   }

@@ -8,7 +8,32 @@
       "variablesets": { "main": { "index": { "index_type": "time", "index_value": ${MAIN_VARSET_TIMEBASE} }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" } } } },
       "variables": {
         "cn": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "concentration": { "source_type": "device", "source_id": "${CPC_DRIVER}::${CPC_SN}", "source_variable": "${CPC_CONC_VAR}" } }, "direct_value": { "source_variable": "concentration" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "cm-3" } } },
-        "cn_flow": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "flow": { "source_type": "device", "source_id": "${CPC_DRIVER}::${CPC_SN}", "source_variable": "${CPC_FLOW_VAR}" } }, "direct_value": { "source_variable": "flow" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } } }
+        "cn_flow": { "type": "float", "shape": ["time"], "map_type": "direct", "source": { "flow": { "source_type": "device", "source_id": "${CPC_DRIVER}::${CPC_SN}", "source_variable": "${CPC_FLOW_VAR}" } }, "direct_value": { "source_variable": "flow" }, "variableset": "main", "index_method": ["round", "average"], "fill_strategy": { "method": "none" }, "attributes": { "evaluate_by": { "type": "string", "data": "local-controller, data-server" }, "units": { "type": "string", "data": "l min-1" } } },
+        "cpc_sampling_state": {
+          "type": "string",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "state": {
+              "source_type": "device",
+              "source_id": "${CPC_DRIVER}::${CPC_SN}",
+              "source_variable": "sampling_state"
+            }
+          },
+          "direct_value": {
+            "source_variable": "state"
+          },
+          "variableset": "main",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
+        }
       }
     }
   }
