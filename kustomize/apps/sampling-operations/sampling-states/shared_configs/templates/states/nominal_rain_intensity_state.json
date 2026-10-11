@@ -1,0 +1,21 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingState",
+        "metadata": {
+            "name": "nominal_rain_intensity_state",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${STATES_REVISION_TIME}"
+        },
+        "requirements": [
+            {
+                "kind": "SamplingCondition",
+                "name": "sampling_rain_intensity_limit",
+                "required_time_to_transition": {
+                    "to_become_false": 15,
+                    "to_become_true": 30
+                }
+            }
+        ]
+    }
+]

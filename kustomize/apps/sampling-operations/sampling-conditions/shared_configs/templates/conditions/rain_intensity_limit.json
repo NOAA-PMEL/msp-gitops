@@ -1,0 +1,31 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "sampling_rain_intensity_limit",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "rain_intensity": {
+                "variablemap_name": "${MET_VARMAP}",
+                "variableset_name": "main",
+                "variable": "rain_intensity"
+            }
+        },
+        "criteria": {
+            "all": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": [
+                        "rain_intensity"
+                    ],
+                    "max_val": 1.0,
+                    "min_val": -0.1,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]

@@ -14,8 +14,8 @@
         "source_max_age": 10,
         "sources": {
             "relative_wind_speed": {
-                "variablemap_name": "${NAV_VARMAP}",
-                "variableset_name": "main",
+                "variablemap_name": "${MET_VARMAP}",
+                "variableset_name": "operations",
                 "variable": "relative_wind_speed"
             }
         },

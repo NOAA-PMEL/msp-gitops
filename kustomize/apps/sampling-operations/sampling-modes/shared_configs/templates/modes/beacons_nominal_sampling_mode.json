@@ -20,6 +20,10 @@
             {
                 "kind": "SamplingState",
                 "name": "nominal_location"
+            },
+            {
+                "kind": "SamplingState",
+                "name": "nominal_rain_intensity_state"
             }
         ],
         "actions": {
