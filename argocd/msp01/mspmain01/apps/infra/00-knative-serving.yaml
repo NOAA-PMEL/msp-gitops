@@ -19,8 +19,18 @@ spec:
     automated:
       selfHeal: true
       prune: true
-  ignoreDifferences:
-      - group: rbac.authorization.k8s.io
-        kind: ClusterRole
-        jsonPointers:
-          - /rules
+ignoreDifferences:
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      jsonPointers:
+        - /rules
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      name: webhook.serving.knative.dev
+      jqPathExpressions:
+        - '.webhooks[].clientConfig.caBundle'
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: validation.webhook.serving.knative.dev
+      jqPathExpressions:
+        - '.webhooks[].clientConfig.caBundle'
