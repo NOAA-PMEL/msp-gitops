@@ -11,7 +11,7 @@ spec:
     repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
     targetRevision: HEAD
     path: kustomize/apps/sampling-system/overlays/mspmain01
-    kustomize:
+  kustomize:
       # ---> THIS FORCES THE FLAG ON NEWER ARGOCD VERSIONS <---
       buildOptions: "--load-restrictor LoadRestrictionsNone"
 
