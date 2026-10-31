@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: knative-serving-mspmain01
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+spec:
+  project: msp
+  source:
+    repoURL: https://github.com/NOAA-PMEL/msp-gitops.git
+    targetRevision: HEAD
+    path: kustomize/apps/knative-serving/overlays/mspmain01
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
