@@ -19,6 +19,9 @@ spec:
     automated:
       selfHeal: true
       prune: true
+  syncOptions:
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=true
   ignoreDifferences:
       - group: rbac.authorization.k8s.io
         kind: ClusterRole

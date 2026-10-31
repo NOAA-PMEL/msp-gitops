@@ -19,7 +19,10 @@ spec:
     automated:
       selfHeal: true
       prune: true
-ignoreDifferences:
+  syncOptions:
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
     - group: rbac.authorization.k8s.io
       kind: ClusterRole
       jsonPointers:
