@@ -3,45 +3,18 @@ kind: Kustomization
 metadata:
   name: dwyer-scd1000
 
-namespace: revpi2-hardware
+namespace: mspmain01-hardware
 
 resources:
 - ../../base
 
-nameSuffix: "-revpi2"
+nameSuffix: "-mspmain01"
 
 # Generate the ConfigMap dynamically so it gets a hash suffix
 configMapGenerator:
   - name: dwyer-scd1000-config
     literals:
-      - namespace_prefix=revpi2
-      - envds_env_id=revpi2
+      - namespace_prefix=mspmain01
+      - envds_env_id=mspmain01
     files:
       - operational.conf
-
-
-# apiVersion: kustomize.config.k8s.io/v1beta1
-# kind: Kustomization
-# metadata:
-#   name: dwyer-scd1000
-
-# namespace: revpi2-hardware
-
-# resources:
-# - ../../base
-# - scd1000-configmap.yaml
-
-# nameSuffix: "-revpi2"
-
-# patches:
-#   # change configmap names to account for s/n suffix
-#   - target:
-#       kind: Deployment
-#       name: dwyer-scd1000
-#     patch: |-
-#       - op: replace 
-#         path: /spec/template/spec/volumes/0/configMap/name
-#         value: dwyer-scd1000-config-revpi2
-#       - op: replace 
-#         path: /spec/template/spec/volumes/1/configMap/name
-#         value: operational-definition-revpi2
