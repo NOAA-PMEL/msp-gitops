@@ -5,17 +5,17 @@ metadata:
   # namespace: msp
   labels:
     app: vaisala-aqt560
-    app-group: envds-sensor-revpi2
+    app-group: envds-sensor-mspmain01
 data:
-  namespace_prefix: revpi2
-  envds_env_id: revpi2
+  namespace_prefix: mspmain01
+  envds_env_id: mspmain01
   sensor.conf: |
     serial_number: "908"
-    daq_id: revpi2
+    daq_id: mspmain01
     interfaces:
       # default: serial
       default:
-        interface_env_id: revpi2-hardware # if omitted, defaults to envds_id of sensor
+        interface_env_id: mspmain01-hardware # if omitted, defaults to envds_id of sensor
         interface_id: USconverters::USCDR301::usc206
         path: port-1
       #   connection-properties:

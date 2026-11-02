@@ -4,7 +4,7 @@ metadata:
   name: ist-hyt939p
 
 
-namespace: revpi2-hardware
+namespace: mspmain01-hardware
 # namespace: crk8s-hardware
 
 # Example configuration for the webserver

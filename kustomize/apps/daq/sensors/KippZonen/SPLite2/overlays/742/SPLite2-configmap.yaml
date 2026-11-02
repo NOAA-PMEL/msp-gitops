@@ -5,23 +5,15 @@ metadata:
   # namespace: msp
   labels:
     app: kippzonen-splite2
-    app-group: envds-sensor-revpi2
+    app-group: envds-sensor-mspmain01
 data:
-  namespace_prefix: revpi2
-  envds_env_id: revpi2
+  namespace_prefix: mspmain01
+  envds_env_id: mspmain01
   sensor.conf: |
     serial_number: "742"
-    daq_id: revpi2
+    daq_id: mspmain01
     interfaces:
       default:
-        interface_env_id: revpi2
+        interface_env_id: mspmain01
         interface_id: LabJack::Tx::ljtx226
         path: voltage_in-0
-
-# tmp        
-#       ref_volt:
-#         interface_env_id: revpi2
-#         interface_id: LabJack::Tx::ljtx207
-#         path: voltage_in-1
-
-

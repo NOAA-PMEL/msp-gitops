@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: sensirion-sdp810
 
-namespace: revpi2-hardware
+namespace: mspmain01-hardware
 # namespace: mspbase01-hardware
 
 # Example configuration for the webserver
