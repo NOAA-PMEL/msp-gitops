@@ -6,8 +6,8 @@ metadata:
   labels:
     app: usconverters-uscdr302
 data:
-  namespace_prefix: revpi2
-  envds_env_id: revpi2
+  namespace_prefix: mspmain01
+  envds_env_id: mspmain01
   interface.conf: |
     uid: usc219
     # serial_number: "1234"
