@@ -36,6 +36,9 @@
             "source_variable": "${SAMPLE_LINE_TEMP_VAR}"
           }
         },
+        "direct_value": {
+          "source_variable": "temp"
+        },
         "variableset": "main",
         "index_method": ["round", "average"],
         "fill_strategy": { "method": "none" },
@@ -54,6 +57,9 @@
             "source_id": "${SAMPLE_LINE_DRIVER}::${SAMPLE_LINE_SN}",
             "source_variable": "${SAMPLE_LINE_RH_VAR}"
           }
+        },
+        "direct_value": {
+          "source_variable": "rh"
         },
         "variableset": "main",
         "index_method": ["round", "average"],
