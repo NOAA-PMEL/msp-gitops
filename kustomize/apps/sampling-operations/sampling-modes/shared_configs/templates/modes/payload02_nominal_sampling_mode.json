@@ -28,7 +28,7 @@
             "false": [
                 {
                     "kind": "SamplingAction",
-                    "name": "set_valve_total"
+                    "name": "set_valve_total_aerosol"
                 }
             ]
         }
