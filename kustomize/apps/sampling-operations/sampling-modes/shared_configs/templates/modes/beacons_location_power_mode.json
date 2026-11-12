@@ -1,0 +1,56 @@
+[
+    {
+        "version": "envds.sampling.modes/v1",
+        "kind": "SamplingMode",
+        "metadata": {
+            "name": "beacons_location_power",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${MODES_REVISION_TIME}",
+            "revision": 1
+        },
+        "requirements": [
+            {
+                "kind": "SamplingState",
+                "name": "nominal_location"
+            }
+        ],
+        "actions": {
+            "true": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_on_cpc"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_on_opc"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_on_aps"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_on_smps"
+                }
+            ],
+            "false": [
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_off_cpc"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_off_opc"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_off_aps"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "turn_off_smps"
+                }
+            ]
+        }
+    }
+]

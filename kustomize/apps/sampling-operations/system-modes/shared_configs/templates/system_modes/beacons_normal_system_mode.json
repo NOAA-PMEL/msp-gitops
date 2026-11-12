@@ -12,6 +12,10 @@
             {
                 "kind": "SamplingMode",
                 "name": "beacons_nominal_sampling"
+            },
+            {
+                "kind": "SamplingMode",
+                "name": "beacons_location_power"
             }
         ],
         "transitions": {}

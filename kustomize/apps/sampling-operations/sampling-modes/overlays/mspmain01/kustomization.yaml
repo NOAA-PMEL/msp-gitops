@@ -13,9 +13,18 @@ configMapGenerator:
     files:
       - ../../shared_configs/templates/modes/beacons_system_startup_mode.json
       - ../../shared_configs/templates/modes/beacons_nominal_sampling_mode.json
+      - ../../shared_configs/templates/modes/beacons_location_power_mode.json
       - ../../shared_configs/templates/modes/beacons_startup_complete_mode.json
       - ../../shared_configs/templates/modes/beacons_maintenance_override_mode.json
   - name: sampling-modes-actions
     files:
       - ../../shared_configs/templates/actions/set_isokinetic_inlet_flow_action.json
       - ../../shared_configs/templates/actions/set_reverse_inlet_flow_action.json
+      - ../../shared_configs/templates/actions/turn_on_cpc_action.json
+      - ../../shared_configs/templates/actions/turn_off_cpc_action.json
+      - ../../shared_configs/templates/actions/turn_on_opc_action.json
+      - ../../shared_configs/templates/actions/turn_off_opc_action.json
+      - ../../shared_configs/templates/actions/turn_on_aps_action.json
+      - ../../shared_configs/templates/actions/turn_off_aps_action.json
+      - ../../shared_configs/templates/actions/turn_on_smps_action.json
+      - ../../shared_configs/templates/actions/turn_off_smps_action.json
