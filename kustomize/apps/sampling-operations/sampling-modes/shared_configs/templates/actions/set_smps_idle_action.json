@@ -1,0 +1,23 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingAction",
+        "metadata": {
+            "name": "set_smps_idle",
+            "action_module": "actions.${PHYSICS_ACTION_MODULE}",
+            "action_def": "set_smps_idle",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "execution_node": "${DAQ_ID}",
+            "valid_config_time": "${ACTIONS_REVISION_TIME}",
+            "revision": 1
+        },
+        "sources": {},
+        "targets": {
+            "smps_sampling_state": {
+                "variablemap_name": "${SMPS_VARMAP}",
+                "variableset_name": "main",
+                "variable": "smps_sampling_state"
+            }
+        }
+    }
+]

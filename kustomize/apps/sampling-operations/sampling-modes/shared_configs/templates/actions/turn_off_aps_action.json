@@ -4,12 +4,12 @@
         "kind": "SamplingAction",
         "metadata": {
             "name": "turn_off_aps",
-            "action_module": "actions.${ACTIONS_MODULE}",
+            "action_module": "actions.${PHYSICS_ACTION_MODULE}",
             "action_def": "turn_off_aps",
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
             "execution_node": "${DAQ_ID}",
             "valid_config_time": "${ACTIONS_REVISION_TIME}",
-            "revision": 1
+            "revision": 2
         },
         "sources": {},
         "targets": {
