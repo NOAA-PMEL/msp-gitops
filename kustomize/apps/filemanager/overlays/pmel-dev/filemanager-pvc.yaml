@@ -10,4 +10,4 @@ spec:
   storageClassName: gp3-retain # Points to your custom retain class
   resources:
     requests:
-      storage: 50Gi
+      storage: 200Gi
