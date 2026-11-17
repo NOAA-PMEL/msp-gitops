@@ -1,0 +1,158 @@
+{
+    "attributes": {
+        "make": {
+            "type": "string",
+            "data": "Brechtel"
+        },
+        "model": {
+            "type": "string",
+            "data": "TD3105"
+        },
+        "description": {
+            "type": "string",
+            "data": "Thermodenuder Model 3105"
+        },
+        "tags": {
+            "type": "char",
+            "data": "aerosol, thermodenuder, volatility, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, setting"
+        },
+        "device_type": {
+            "type": "string",
+            "data": "sensor"
+        }
+    },
+    "dimensions": {
+        "time": 0
+    },
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "char", "data": "idle, sampling"},
+                "default_value": {"type": "string", "data": "sampling"}
+            }
+        },
+        "td_mode": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Thermodenuder Mode (0=Off, 1=Manual, 2=Auto)"},
+                "default_value": {"type": "int", "data": 2}
+            }
+        },
+        "set_auto_program": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Set Auto Prog (Format: prog,temp,dur,bypass in Base-10)"},
+                "default_value": {"type": "string", "data": "none"}
+            }
+        },
+        "stpt_temp": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Setpoint Temperature"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "stpt_time": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Setpoint Duration"}, "units": {"type": "char", "data": "min"}}
+        },
+        "stpt_byps": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Bypass Valve State (0=Off, 1=On)"}}
+        },
+        "prog_nmbr": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Auto Program Number"}}
+        },
+        "ctdwn_tmr": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Countdown Timer"}, "units": {"type": "char", "data": "sec"}}
+        },
+        "err_rpt": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Error Report Code"}}
+        },
+        "tmp_fr_sf": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Temp: Front Heater Sample Flow"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "tmp_bk_sf": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Temp: Back Heater Sample Flow"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "tmp_tb_sf": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Temp: Denuder Entrance Tube"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "tmp_dn_ex": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Temp: Denuder Exit"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "tmp_cl_fn": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Temp: Cooling Fans"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "tmp_board": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Temp: PCB"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "ht_pwr_fr": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Power: Front Heater"}, "units": {"type": "char", "data": "0-200"}}
+        },
+        "ht_pwr_bk": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Power: Back Heater"}, "units": {"type": "char", "data": "0-200"}}
+        },
+        "ht_pwr_dn": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Power: Denuder Connector"}, "units": {"type": "char", "data": "0-200"}}
+        },
+        "fn_pwr_ht": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Power: Heater Fans"}, "units": {"type": "char", "data": "0-200"}}
+        },
+        "fn_pwr_dn": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Power: Denuder Fans"}, "units": {"type": "char", "data": "0-200"}}
+        }
+    }
+}

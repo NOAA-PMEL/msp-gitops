@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: brechtel-td3105
+  labels:
+    app: brechtel-td3105
+spec:
+  selector:
+    app: brechtel-td3105
+  ports:
+  - name: http
+    protocol: TCP
+    port: 9080
+    targetPort: 9080
+  type: ClusterIP
