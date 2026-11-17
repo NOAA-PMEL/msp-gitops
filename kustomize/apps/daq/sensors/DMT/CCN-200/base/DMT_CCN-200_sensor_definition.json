@@ -1,0 +1,290 @@
+{
+    "attributes": {
+        "make": {
+            "type": "string",
+            "data": "DMT"
+        },
+        "model": {
+            "type": "string",
+            "data": "CCN-200"
+        },
+        "description": {
+            "type": "string",
+            "data": "Dual-Column Cloud Condensation Nuclei Counter."
+        },
+        "tags": {
+            "type": "char",
+            "data": "aerosol, ccn, condensation, nuclei, cloud, counter, sensor"
+        },
+        "format_version": {
+            "type": "char",
+            "data": "1.0.0"
+        },
+        "variable_types": {
+            "type": "string",
+            "data": "main, coordinate, setting"
+        },
+        "device_type": {
+            "type": "string",
+            "data": "sensor"
+        }
+    },
+    "dimensions": {
+        "time": 0,
+        "bin": 20
+    },
+    "variables": {
+        "time": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "main"},
+                "long_name": {"type": "string", "data": "Time"}
+            }
+        },
+        "sampling_state": {
+            "type": "str",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Instrument Operational State"},
+                "allowed_values": {"type": "char", "data": "idle, sampling"},
+                "default_value": {"type": "string", "data": "sampling"}
+            }
+        },
+        "Delta_T_A_set": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Delta T Setpoint (Column A)"},
+                "units": {"type": "char", "data": "degrees_C"},
+                "default_value": {"type": "float", "data": 5.0}
+            }
+        },
+        "Delta_T_B_set": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "setting"},
+                "long_name": {"type": "char", "data": "Delta T Setpoint (Column B)"},
+                "units": {"type": "char", "data": "degrees_C"},
+                "default_value": {"type": "float", "data": 5.0}
+            }
+        },
+        "bin": {
+            "type": "int",
+            "shape": ["bin"],
+            "attributes": {
+                "variable_type": {"type": "string", "data": "coordinate"},
+                "long_name": {"type": "char", "data": "Bin Number"}
+            },
+            "data": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        },
+        "Current_SS_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Current Supersaturation (A)"}, "units": {"type": "char", "data": "%"}}
+        },
+        "Temp_Stabilized_A": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Column Temp Stabilized (A)"}}
+        },
+        "Delta_T_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Delta T (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T1_Read_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T1 Read (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T2_Read_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T2 Read (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T3_Read_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T3 Read (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_Nafion_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T Nafion (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_Inlet_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T Inlet (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_OPC_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T OPC (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_Sample_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T Sample (A)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "Sample_Flow_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sample Flow (A)"}, "units": {"type": "char", "data": "vccm"}}
+        },
+        "Sheath_Flow_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sheath Flow (A)"}, "units": {"type": "char", "data": "vccm"}}
+        },
+        "Sample_Pressure_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sample Pressure (A)"}, "units": {"type": "char", "data": "mbar"}}
+        },
+        "Laser_Current_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Laser Current (A)"}, "units": {"type": "char", "data": "mA"}}
+        },
+        "1st_Stage_Mon_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "1st Stage Monitor (A)"}, "units": {"type": "char", "data": "V"}}
+        },
+        "Valve_Set_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Valve Set (A)"}, "units": {"type": "char", "data": "V"}}
+        },
+        "Current_SS_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Current Supersaturation (B)"}, "units": {"type": "char", "data": "%"}}
+        },
+        "Temp_Stabilized_B": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Column Temp Stabilized (B)"}}
+        },
+        "Delta_T_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Delta T (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T1_Read_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T1 Read (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T2_Read_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T2 Read (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T3_Read_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T3 Read (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_Nafion_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T Nafion (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_Inlet_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T Inlet (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_OPC_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T OPC (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "T_Sample_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "T Sample (B)"}, "units": {"type": "char", "data": "degrees_C"}}
+        },
+        "Sample_Flow_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sample Flow (B)"}, "units": {"type": "char", "data": "vccm"}}
+        },
+        "Sheath_Flow_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sheath Flow (B)"}, "units": {"type": "char", "data": "vccm"}}
+        },
+        "Sample_Pressure_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Sample Pressure (B)"}, "units": {"type": "char", "data": "mbar"}}
+        },
+        "Laser_Current_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Laser Current (B)"}, "units": {"type": "char", "data": "mA"}}
+        },
+        "1st_Stage_Mon_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "1st Stage Monitor (B)"}, "units": {"type": "char", "data": "V"}}
+        },
+        "Valve_Set_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Valve Set (B)"}, "units": {"type": "char", "data": "V"}}
+        },
+        "Alarm_Code": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "System Alarm Code"}}
+        },
+        "Bin_Setting_A": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Bin Setting (A)"}}
+        },
+        "Number_Conc_A": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "CCN Number Concentration (A)"}, "units": {"type": "char", "data": "cm-3"}}
+        },
+        "Overflow_A": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Overflow Counts (A)"}, "units": {"type": "char", "data": "counts"}}
+        },
+        "Bin_Array_A": {
+            "type": "int",
+            "shape": ["time", "bin"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Bin Counts (A)"}, "units": {"type": "char", "data": "counts"}}
+        },
+        "Bin_Setting_B": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Bin Setting (B)"}}
+        },
+        "Number_Conc_B": {
+            "type": "float",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "CCN Number Concentration (B)"}, "units": {"type": "char", "data": "cm-3"}}
+        },
+        "Overflow_B": {
+            "type": "int",
+            "shape": ["time"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Overflow Counts (B)"}, "units": {"type": "char", "data": "counts"}}
+        },
+        "Bin_Array_B": {
+            "type": "int",
+            "shape": ["time", "bin"],
+            "attributes": {"variable_type": {"type": "string", "data": "main"}, "long_name": {"type": "char", "data": "Bin Counts (B)"}, "units": {"type": "char", "data": "counts"}}
+        }
+    }
+}

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dmt-ccn200-config
+  labels:
+    app: dmt-ccn200
+    app-group: envds-sensor-payload02
+data:
+  namespace_prefix: payload02
+  envds_env_id: payload02
+  sensor.conf: |
+    serial_number: "111"
+    daq_id: payload02
+    interfaces:
+      default:
+        interface_env_id: payload02-hardware
+        interface_id: USconverters::USCDR301::usc16
+        path: port-1
+    settings:
+      sampling_state: sampling
