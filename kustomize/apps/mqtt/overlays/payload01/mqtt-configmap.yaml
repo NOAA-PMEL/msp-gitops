@@ -59,6 +59,7 @@ data:
     topic envds/controller/settings/request in 0 "" ""
     topic envds/sensor/settings/request in 0 "" ""
     topic envds/+/system-modes/# both 0 "" ""
+    topic envds/+/sampling-modes/execute/request in 0 "" ""
    
     # old payload01
     # topic envds/payload01/sensor/+/data/update out 0 "" ""
