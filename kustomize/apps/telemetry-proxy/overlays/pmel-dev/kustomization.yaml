@@ -40,4 +40,5 @@ configMapGenerator:
       envds/+/controller/settings/request,
       envds/+/sensor/+/settings/request,
       envds/controller/settings/request,
-      envds/sensor/settings/request
+      envds/sensor/settings/request,
+      envds/+/sampling-modes/execute/request
