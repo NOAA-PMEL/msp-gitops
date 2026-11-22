@@ -14,7 +14,7 @@
                 "name": "normal"
             },
             {
-                "kind": "SamplingState",
+                "kind": "SamplingCondition",
                 "name": "cyclone_interval_active"
             }
         ],
