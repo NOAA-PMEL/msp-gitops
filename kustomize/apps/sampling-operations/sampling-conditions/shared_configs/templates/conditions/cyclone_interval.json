@@ -7,7 +7,13 @@
             "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
             "valid_config_time": "${CONDITIONS_REVISION_TIME}"
         },
-        "sources": {},
+        "sources": {
+            "heartbeat": {
+                "variablemap_name": "${VALVE_VARMAP}",
+                "variableset_name": "operations",
+                "variable": "size_cut_valve_state"
+            }
+        },
         "criteria": {
             "all": [
                 {
