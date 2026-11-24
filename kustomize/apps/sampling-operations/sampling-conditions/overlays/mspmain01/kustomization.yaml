@@ -12,6 +12,7 @@ configMapGenerator:
   - name: sampling-conditions-conditions
     files:
       - ../../shared_configs/templates/conditions/cn_limit.json
+      - ../../shared_configs/templates/conditions/rain_intensity_limit.json
       - ../../shared_configs/templates/conditions/wind_speed_limit.json
       - ../../shared_configs/templates/conditions/wind_direction_limit.json
       - ../../shared_configs/templates/conditions/marjorie_c_at_sea_geofence.json
