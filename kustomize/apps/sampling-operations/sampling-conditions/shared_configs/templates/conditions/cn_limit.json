@@ -11,7 +11,8 @@
             "cn": {
                 "variablemap_name": "${EXT_CPC_VARMAP}",
                 "variableset_name": "${EXT_CPC_VARSET}",
-                "variable": "${EXT_CPC_VAR}"
+                "variable": "${EXT_CPC_VAR}",
+                "deployment_ref": "${EXT_CPC_DEPLOYMENT_REF}"
             }
         },
         "criteria": {
