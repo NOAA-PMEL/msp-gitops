@@ -57,6 +57,31 @@
           "attributes": {
             "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
           }
+        },
+        "tap_set_active_spot": {
+          "type": "int",
+          "variable_type": "setting",
+          "shape": ["time"],
+          "map_type": "direct",
+          "source": {
+            "spot": {
+              "source_type": "device",
+              "source_id": "${ABS_DRIVER}::${ABS_SN}",
+              "source_variable": "set_active_spot"
+            }
+          },
+          "direct_value": {
+            "source_variable": "spot"
+          },
+          "variableset": "main",
+          "index_method": ["last"],
+          "fill_strategy": {
+            "method": "forward_fill",
+            "max_age_seconds": 10
+          },
+          "attributes": {
+            "evaluate_by": { "type": "string", "data": "local-controller, data-server" }
+          }
         }
       }
     }

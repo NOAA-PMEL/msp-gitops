@@ -23,6 +23,7 @@ configMapGenerator:
       - ../../shared_configs/templates/modes/payload02_standby_step2_neph_mode.json
       - ../../shared_configs/templates/modes/payload02_maintenance_override_mode.json
       - ../../shared_configs/templates/modes/payload02_nominal_sampling_mode.json
+      - ../../shared_configs/templates/modes/payload02_tap_spot_advance_mode.json
   - name: sampling-modes-actions
     files:
       - ../../shared_configs/templates/actions/turn_on_24v_bus_action.json
@@ -35,6 +36,7 @@ configMapGenerator:
       - ../../shared_configs/templates/actions/turn_off_absorb_action.json
       - ../../shared_configs/templates/actions/set_valve_total_action.json
       - ../../shared_configs/templates/actions/set_valve_cyclone_action.json
+      - ../../shared_configs/templates/actions/advance_tap_spot_action.json
 
 # apiVersion: kustomize.config.k8s.io/v1beta1
 # kind: Kustomization

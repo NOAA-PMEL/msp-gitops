@@ -1,0 +1,53 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingCondition",
+        "metadata": {
+            "name": "tap_transmission_low",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "valid_config_time": "${CONDITIONS_REVISION_TIME}"
+        },
+        "sources": {
+            "transmission_red": {
+                "variablemap_name": "${ABS_VARMAP}",
+                "variableset_name": "main",
+                "variable": "transmission_red"
+            },
+            "transmission_green": {
+                "variablemap_name": "${ABS_VARMAP}",
+                "variableset_name": "main",
+                "variable": "transmission_green"
+            },
+            "transmission_blue": {
+                "variablemap_name": "${ABS_VARMAP}",
+                "variableset_name": "main",
+                "variable": "transmission_blue"
+            }
+        },
+        "criteria": {
+            "any": [
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": ["transmission_red"],
+                    "min_val": -1.0,
+                    "max_val": 0.7,
+                    "true_if": "inside"
+                },
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": ["transmission_green"],
+                    "min_val": -1.0,
+                    "max_val": 0.7,
+                    "true_if": "inside"
+                },
+                {
+                    "criterion_class": "LimitMinMax",
+                    "sources": ["transmission_blue"],
+                    "min_val": -1.0,
+                    "max_val": 0.7,
+                    "true_if": "inside"
+                }
+            ]
+        }
+    }
+]

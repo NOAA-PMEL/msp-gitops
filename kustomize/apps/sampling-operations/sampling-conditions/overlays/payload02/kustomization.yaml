@@ -15,6 +15,7 @@ configMapGenerator:
       - ../../shared_configs/templates/conditions/size_cut_valve_states.json
       - ../../shared_configs/templates/conditions/maintenance_switch.json
       - ../../shared_configs/templates/conditions/cyclone_interval.json
+      - ../../shared_configs/templates/conditions/tap_transmission_low.json
 
 
 # apiVersion: kustomize.config.k8s.io/v1beta1

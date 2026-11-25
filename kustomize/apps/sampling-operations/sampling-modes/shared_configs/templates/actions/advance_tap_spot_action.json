@@ -1,0 +1,29 @@
+[
+    {
+        "version": "envds.sampling.operations/v1",
+        "kind": "SamplingAction",
+        "metadata": {
+            "name": "advance_tap_spot",
+            "action_module": "actions.${OPTICS_ACTION_MODULE}",
+            "action_def": "advance_tap_spot",
+            "sampling_namespace": "${SAMPLING_NAMESPACE}/${ENVOPS_DEPLOYMENT_REF}",
+            "execution_node": "${DAQ_ID}",
+            "valid_config_time": "${ACTIONS_REVISION_TIME}",
+            "revision": 1
+        },
+        "sources": {
+            "active_spot": {
+                "variablemap_name": "${ABS_VARMAP}",
+                "variableset_name": "main",
+                "variable": "tap_active_spot"
+            }
+        },
+        "targets": {
+            "tap_set_active_spot": {
+                "variablemap_name": "${ABS_VARMAP}",
+                "variableset_name": "main",
+                "variable": "tap_set_active_spot"
+            }
+        }
+    }
+]

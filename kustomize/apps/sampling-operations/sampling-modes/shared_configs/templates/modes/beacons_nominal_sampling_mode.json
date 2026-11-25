@@ -31,12 +31,20 @@
                 {
                     "kind": "SamplingAction",
                     "name": "set_isokinetic_inlet_flow"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_absorb_sampling"
                 }
             ],
             "false": [
                 {
                     "kind": "SamplingAction",
                     "name": "set_reverse_inlet_flow"
+                },
+                {
+                    "kind": "SamplingAction",
+                    "name": "set_absorb_idle"
                 }
             ]
         }
