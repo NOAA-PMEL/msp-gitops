@@ -23,6 +23,10 @@ resources:
 - USCDR301-configmap.yaml
 
 nameSuffix: -usc206
+labels:
+  - pairs:
+      instance: usc206
+    includeSelectors: true
 # patchesStrategicMerge:
 #   - deployment.yaml
 
